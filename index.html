@@ -1,0 +1,256 @@
+<!-- Alchemic Key Code-As within.. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle Eternal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Banner Styles */
+        .header-banner {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 174, 239, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 174, 239, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .logo-container {
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        .logo-text {
+            font-size: 3em;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            color: #00aeef;
+            text-shadow: 0 0 20px rgba(0, 174, 239, 0.8),
+                         0 0 40px rgba(0, 174, 239, 0.5),
+                         0 0 60px rgba(0, 174, 239, 0.3);
+            position: relative;
+            display: inline-block;
+            min-width: 100px;
+            height: 1.2em;
+            transition: min-width 0.4s ease;
+        }
+
+        /* Abbreviated text container */
+        .abbreviated {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            gap: 0.3em;
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* Individual letters that will slide apart and fade */
+        .letter-b, .letter-e, .dot {
+            display: inline-block;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        /* Full text container */
+        .full-text {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.3em;
+            opacity: 0;
+            transition: opacity 0.3s ease 0.2s;
+        }
+
+        /* Battle and Eternal words */
+        .battle-word, .eternal-word {
+            display: inline-block;
+        }
+
+        /* Hover effects - B goes left and fades, E goes right and fades */
+        .logo-container:hover .logo-text {
+            min-width: 450px;
+        }
+
+        .logo-container:hover .letter-b {
+            transform: translateX(-200px);
+            opacity: 0;
+        }
+
+        .logo-container:hover .letter-e {
+            transform: translateX(200px);
+            opacity: 0;
+        }
+
+        .logo-container:hover .dot {
+            opacity: 0;
+        }
+
+        .logo-container:hover .full-text {
+            opacity: 1;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .image-container {
+            max-width: 800px;
+            width: 100%;
+            position: relative;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .main-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 174, 239, 0.3),
+                        0 0 80px rgba(0, 174, 239, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .main-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 50px rgba(0, 174, 239, 0.4),
+                        0 0 100px rgba(0, 174, 239, 0.3);
+        }
+
+        /* Decorative Elements */
+        .glow-line {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                #00aeef 20%, 
+                #00aeef 80%, 
+                transparent 100%);
+            animation: scan 3s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .logo-text {
+                font-size: 2em;
+            }
+            
+            .logo-container:hover .logo-text {
+                min-width: 300px;
+            }
+
+            .logo-container:hover .letter-b {
+                transform: translateX(-130px);
+            }
+
+            .logo-container:hover .letter-e {
+                transform: translateX(130px);
+            }
+            
+            .main-content {
+                padding: 20px 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-text {
+                font-size: 1.5em;
+            }
+            
+            .logo-container:hover .logo-text {
+                min-width: 240px;
+            }
+
+            .logo-container:hover .letter-b {
+                transform: translateX(-100px);
+            }
+
+            .logo-container:hover .letter-e {
+                transform: translateX(100px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header-banner">
+        <div class="logo-container">
+            <h1 class="logo-text">
+                <span class="abbreviated">
+                    <span class="letter-b">B</span>
+                    <span class="dot">.</span>
+                    <span class="letter-e">E</span>
+                    <span class="dot">.</span>
+                </span>
+                <span class="full-text">
+                    <span class="battle-word">Battle</span>
+                    <span class="eternal-word">Eternal</span>
+                </span>
+            </h1>
+        </div>
+        <div class="glow-line"></div>
+    </header>
+
+    <main class="main-content">
+        <div class="image-container">
+            <img src="be-fusion-Image.png" alt="Battle Eternal Characters" class="main-image">
+        </div>
+    </main>
+</body>
+</html>
