@@ -26,6 +26,11 @@
             margin-bottom: 40px;
         }
 
+        .banner-link {
+            color: inherit;
+            text-decoration: none;
+        }
+
         .character-container {
             display: flex;
             flex-direction: column;
@@ -60,19 +65,18 @@
             opacity: 1;
         }
 
-        .character-image-holder {
-            position: relative;
-            width: 400px;
-            height: 600px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    .character-image-holder {
+        position: relative;
+        width: 400px;
+        height: 600px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+    }
     </style>
 </head>
 <body>
-    <h1 id="banner">Battle Eternal</h1>
+    <h1 id="banner"><a href="index.html" class="banner-link">Battle Eternal</a></h1>
     <h2 id="characters-heading">Characters</h2>
     <div class="character-container">
         <div class="character-image-holder">
