@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle Eternal - Characters</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #FFFFFF;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        #banner {
+            font-size: 3em;
+            text-shadow: 0 0 10px cyan, 0 0 20px cyan, 0 0 30px cyan;
+            margin-bottom: 20px;
+        }
+
+        #characters-heading {
+            font-family: 'Cyberpunk', sans-serif;
+            font-size: 2em;
+            margin-bottom: 40px;
+        }
+
+        .character-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .character-image {
+            width: 400px;
+            height: auto;
+            border-radius: 12px;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .character-description {
+            font-size: 1.2em;
+            margin-top: 40px;
+            max-width: 800px;
+            text-align: justify;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 0 10px cyan;
+            font-family: 'Cyberpunk', sans-serif;
+        }
+
+        .active {
+            opacity: 1;
+        }
+
+        .character-image-holder {
+            position: relative;
+            width: 400px;
+            height: 600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="banner">Battle Eternal</h1>
+    <h2 id="characters-heading">Characters</h2>
+    <div class="character-container">
+        <div class="character-image-holder">
+            <img src="Alex1.jpg" alt="Alexander Hiroshi 1" class="character-image active">
+            <img src="Alex2.jpg" alt="Alexander Hiroshi 2" class="character-image">
+            <img src="Alex3.jpg" alt="Alexander Hiroshi 3" class="character-image">
+        </div>
+        <p class="character-description">
+            Alexander Hiroshi is a gifted technomancer and spiritual hacker who blends ancient alchemy with cutting-edge technology. As the reincarnation of Helios, he possesses the rare ability to interface directly with the Digital Realm, seeing websites and data as living landscapes. His custom tarot deck—now upgraded into razor-thin quantum data streams that access, manipulate, and even heal digital and metaphysical systems. Using Cyberpathy and Computer Vision, he uncovers hidden layers of reality and decodes encrypted systems. In the art of Cognitive Alchemy, he transmutes fear into insight, helping others escape the imprisoning illusions of the lower dimensions. Once an outcast for asking too many questions, Alexander Hiroshi is a quiet, calculating, and always ten steps ahead. His mind is his weapon, and his mission is liberation.
+        </p>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.character-image');
+        const totalImages = images.length;
+
+        function showNextImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % totalImages;
+            images[currentIndex].classList.add('active');
+        }
+
+        setInterval(showNextImage, 3000); // Change image every 3 seconds
+    </script>
+</body>
+</html>
