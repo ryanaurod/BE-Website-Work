@@ -186,6 +186,28 @@
             100% { transform: translateX(100%); }
         }
 
+        /* Click Indicator Styles */
+        .click-indicator {
+            display: block;
+            font-size: 1.1em;
+            color: #00aeef;
+            text-shadow: 0 0 8px #00aeef99;
+            margin-top: 8px;
+            letter-spacing: 0.04em;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            animation: clickPulse 1.5s infinite alternate;
+        }
+
+        .center-text {
+            text-align: center;
+        }
+
+        @keyframes clickPulse {
+            0% { opacity: 0.7; }
+            100% { opacity: 1; text-shadow: 0 0 16px #00aeefcc; }
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .logo-text {
@@ -243,15 +265,17 @@
                     <span class="eternal-word">Eternal</span>
                 </span>
             </h1>
+            <span class="click-indicator">click</span>
         </div>
         <div class="glow-line"></div>
     </header>
 
     <main class="main-content">
         <div class="image-container">
-            <a href="Alexander.html">
+            <a href="characters.html">
                 <img src="be-fusion-image.jpg" alt="Battle Eternal Characters" class="main-image">
             </a>
+            <span class="click-indicator center-text">click above</span>
         </div>
     </main>
 </body>
