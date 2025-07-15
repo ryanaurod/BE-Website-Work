@@ -95,6 +95,35 @@
 
             Once an outcast for asking too many questions, Hiroshi now stands as a beacon of awareness—quiet, calculating, and always ten steps ahead. His mind is his weapon, and his will is fire.
         </p>
+
+    <!-- Castor Nightfall Section -->
+    <div class="character-container">
+        <div class="alexander-title">Castor Nightfall</div>
+        <div class="character-image-holder castor-holder">
+            <img src="Castor1.jpg" alt="Castor Nightfall 1" class="character-image castor-image active">
+            <img src="Castor2.jpg" alt="Castor Nightfall 2" class="character-image castor-image">
+            <img src="Castor3.jpg" alt="Castor Nightfall 3" class="character-image castor-image">
+        </div>
+        <p class="character-description">
+            <!-- Add Castor Nightfall's description here -->
+           “Castor Nightfall: Justice walks silently… but never misses.”
+           <br>
+           <br>
+           Shrouded in secrecy and wrapped in silence, Castor Nightfall is the enigmatic reincarnation of Nemesis, the spirit of cosmic justice. Where others preach redemption, Castor brings judgment. With a piercing gaze that sees through timelines and intentions, he serves as the silent architect of fate, ensuring balance in a world spinning out of control.
+
+            <br>
+            <br>
+            As both a shadowmancer and digital illusionist, Castor merges ancient ancestral magic with modern cybernetic manipulation. His signature ability, “Eclipse Protocol,” can cloak entire networks in metaphysical shadow—erasing digital footprints, rewriting perceptions, and bending truth like code. In the Third and Fourth Dimensions, where illusion is power and propaganda reigns, Castor is a ghost in the machine—untraceable, unstoppable, and always watching.
+
+            <br>
+            <br>
+            His crystal sphere, an ancestral relic fused with arcane code, reveals not just what is—but what must come to pass. It allows him to scry across time and dimension, marking those whose karmic debt demands payment.
+            Unmoved by emotion and immune to ideological manipulation, Castor is precise, cold, and righteous in his purpose. He does not pursue revenge. He enforces retribution. Every step he takes is part of a larger pattern only he can see, driven not only by judgment but also a buried yearning for redemption.
+
+            <br>
+            <br>
+            <em>Those who cross Castor don’t always know it… until it’s too late.</em>
+        </p>
     </div>
 
     <!-- DeMarco Zavarus Section -->
@@ -140,5 +169,17 @@
         }
 
         setInterval(showNextMarcoImage, 3000);
+        // Castor Nightfall image rotator
+        let castorIndex = 0;
+        const castorImages = document.querySelectorAll('.castor-image');
+        const totalCastorImages = castorImages.length;
+
+        function showNextCastorImage() {
+            castorImages[castorIndex].classList.remove('active');
+            castorIndex = (castorIndex + 1) % totalCastorImages;
+            castorImages[castorIndex].classList.add('active');
+        }
+
+        setInterval(showNextCastorImage, 3000);
     </script>
 </body>
