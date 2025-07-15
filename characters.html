@@ -89,13 +89,35 @@
             <img src="Alex3.jpg" alt="Alexander Hiroshi 3" class="character-image">
         </div>
         <p class="character-description">
-            Alexander Hiroshi is a gifted technomancer and spiritual hacker who blends ancient alchemy with cutting-edge technology. As the reincarnation of Helios, he possesses the rare ability to interface directly with the Digital Realm, seeing websites and data as living landscapes. His custom tarot deck—now upgraded into razor-thin quantum data streams that access, manipulate, and even heal digital and metaphysical systems. Using Cyberpathy and Computer Vision, he uncovers hidden layers of reality and decodes encrypted systems. In the art of Cognitive Alchemy, he transmutes fear into insight, helping others escape the imprisoning illusions of the lower dimensions. Once an outcast for asking too many questions, Alexander Hiroshi is a quiet, calculating, and always ten steps ahead. His mind is his weapon, and his mission is liberation.
+            Alexander Hiroshi is a gifted technomancer and spiritual hacker who blends ancient alchemy with cutting-edge technology. As the reincarnation of Helios, the Source of Enlightenment and Truth, Hiroshi possesses the rare ability to interface directly with the Digital Realm, seeing websites and data as living landscapes. His custom tarot deck—now upgraded into razor-thin quantum devices—allows him to cast arcane programs that access, manipulate, and even heal digital and metaphysical systems.
+
+            Using Cyberpathy and Computer Vision, he uncovers hidden layers of reality and decodes encrypted truths buried in digital structures. Through the art of Cognitive Alchemy, he transmutes fear into insight, helping others escape the imprisoning illusions of the lower dimensions.
+
+            Once an outcast for asking too many questions, Hiroshi now stands as a beacon of awareness—quiet, calculating, and always ten steps ahead. His mind is his weapon, and his will is fire.
+        </p>
+    </div>
+
+    <!-- DeMarco Zavarus Section -->
+    <div class="character-container">
+        <div class="alexander-title">DeMarco Zavarus</div>
+        <div class="character-image-holder marco-holder">
+            <img src="Marco1.jpg" alt="DeMarco Zavarus 1" class="character-image marco-image active">
+            <img src="Marco2.jpg" alt="DeMarco Zavarus 2" class="character-image marco-image">
+            <img src="Marco3.jpg" alt="DeMarco Zavarus 3" class="character-image marco-image">
+        </div>
+        <p class="character-description">
+            DeMarcus Zavarus is a brilliant, sarcastic, and unapologetically arrogant sorcerer-engineer who bends both magic and technology to his will. As the reincarnation of Hephaestus, the Divine Smith, DeMarcus wields unmatched mastery over the Arcane Forge—a metaphysical workstation powered by forbidden magic and raw logic. His creations include sentient energy weapons, living code, and enchanted devices capable of rewriting digital and physical reality.
+
+            After a mysterious event at his elite academy left him estranged from the magical establishment, DeMarcus carved out his own path, fusing sorcery and code into a potent new form of Technomancy. His floating holo-staff, glowing circuits, and bold intellect make him a force in both the magical underground and the tech-fueled battlefront of the Third Dimension.
+
+            While others seek truth, DeMarcus seeks profit—and he's not above charging a high price for salvation. His tactical mind, dry humor, and stubborn confidence make him an unpredictable ally... and a dangerous rival.
         </p>
     </div>
 
     <script>
+        // Alexander Hiroshi image rotator
         let currentIndex = 0;
-        const images = document.querySelectorAll('.character-image');
+        const images = document.querySelectorAll('.character-image:not(.marco-image)');
         const totalImages = images.length;
 
         function showNextImage() {
@@ -105,6 +127,18 @@
         }
 
         setInterval(showNextImage, 3000); // Change image every 3 seconds
+
+        // DeMarco Zavarus image rotator
+        let marcoIndex = 0;
+        const marcoImages = document.querySelectorAll('.marco-image');
+        const totalMarcoImages = marcoImages.length;
+
+        function showNextMarcoImage() {
+            marcoImages[marcoIndex].classList.remove('active');
+            marcoIndex = (marcoIndex + 1) % totalMarcoImages;
+            marcoImages[marcoIndex].classList.add('active');
+        }
+
+        setInterval(showNextMarcoImage, 3000);
     </script>
 </body>
-</html>
