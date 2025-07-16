@@ -146,10 +146,13 @@
     <script>
         // Alexander Hiroshi image rotator
         let currentIndex = 0;
-        const images = document.querySelectorAll('.character-image:not(.marco-image)');
+        // Only select images in the first character-image-holder (Alexander)
+        const alexHolder = document.querySelector('.character-image-holder:not(.marco-holder):not(.castor-holder)');
+        const images = alexHolder ? alexHolder.querySelectorAll('.character-image') : [];
         const totalImages = images.length;
 
         function showNextImage() {
+            if (images.length === 0) return;
             images[currentIndex].classList.remove('active');
             currentIndex = (currentIndex + 1) % totalImages;
             images[currentIndex].classList.add('active');
