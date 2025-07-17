@@ -1,173 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Battle Eternal | The Dimensions</title>
-  <style>
-    @font-face {
-      font-family: 'Cyberpunk';
-      src: local('Cyberpunk'), url('Cyberpunk.woff2') format('woff2'), url('Cyberpunk.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle Eternal - Dimensions</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #FFFFFF;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            overflow: hidden;
+        }
 
-    .cyberpunk-glow {
-      font-family: 'Cyberpunk', 'Arial', sans-serif;
-      color: #00fff7;
-      text-shadow: 0 0 8px #00fff7, 0 0 24px #00fff7, 0 0 40px #00fff799;
-      font-weight: bold;
-      letter-spacing: 0.08em;
-    }
+        #banner {
+            font-size: 3em;
+            text-shadow: 0 0 10px cyan, 0 0 20px cyan, 0 0 30px cyan;
+            margin-bottom: 20px;
+            text-align: center;
+        }
 
-    .dimension-description {
-      font-family: 'Cyberpunk', 'Arial', sans-serif;
-      color: #00fff7;
-      text-shadow: 0 0 8px #00fff7, 0 0 24px #00fff7, 0 0 40px #00fff799;
-      font-size: 1.35em;
-      background: rgba(255,255,255,0.08);
-      border-radius: 12px;
-      box-shadow: 0 0 10px cyan;
-      padding: 20px;
-      margin-bottom: 1.5rem;
-      text-align: justify;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-      opacity: 0;
-      animation: fade 30s infinite;
-      transition: opacity 2s cubic-bezier(0.4, 0, 0.2, 1);
-      position: absolute;
-      top: 65%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 100%;
-      box-sizing: border-box;
-    }
+        #dimensions-heading {
+            font-family: 'Cyberpunk', sans-serif;
+            font-size: 2em;
+            margin-bottom: 40px;
+            text-align: center;
+        }
 
-    .dimension-description.dim3 { animation-delay: 0s; }
-    .dimension-description.dim4 { animation-delay: 10s; }
-    .dimension-description.dim5 { animation-delay: 20s; }
+        .dimension-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    .be-banner {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 16px;
-      margin-bottom: 32px;
-    }
-    .be-logo {
-      font-size: 3.5em;
-      font-weight: bold;
-      font-family: Arial Black, Arial, sans-serif;
-      color: #00fff7;
-      text-shadow: 0 0 10px #00fff7, 0 0 24px #00fff7, 0 0 40px #00fff799;
-      letter-spacing: 0.08em;
-      -webkit-user-select: none;
-      user-select: none;
-    }
-    .be-logo .mirrored {
-      display: inline-block;
-      transform: scaleX(-1);
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        .dimension-background {
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
 
-    html, body {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      font-family: 'Segoe UI', sans-serif;
-      color: white;
-      text-shadow: 1px 1px 2px black;
-    }
+        .active {
+            opacity: 1;
+        }
 
-    .background {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      opacity: 0;
-      animation: fade 30s infinite;
-      transition: opacity 2s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .bg1 { background-image: url('3rd-dimension.png'); animation-delay: 0s; border-left: 8px solid #000; border-right: 8px solid #000; }
-    .bg2 { background-image: url('4th-dimension.png'); animation-delay: 10s; border-left: 8px solid #000; border-right: 8px solid #000; }
-    .bg3 { background-image: url('5th-dimension.png'); animation-delay: 20s; background-size: cover; }
-
-    @keyframes fade {
-      0% { opacity: 0; }
-      5% { opacity: 1; }
-      40% { opacity: 1; }
-      45% { opacity: 0; }
-      100% { opacity: 0; }
-    }
-
-    .overlay {
-      position: relative;
-      z-index: 10;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-      background: rgba(0, 0, 0, 0.4);
-      /* margin-top removed, back to center */
-    }
-
-    .content {
-      max-width: 900px;
-      text-align: center;
-      padding: 2rem;
-      background: rgba(0,0,0,0.5);
-      border-radius: 12px;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-    }
-  </style>
+        .content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
+    <div class="dimension-container">
+        <div class="dimension-background active" style="background-image: url('3rd-dimension.png');"></div>
+        <div class="dimension-background" style="background-image: url('4th-dimension.png');"></div>
+        <div class="dimension-background" style="background-image: url('5th-dimension.png');"></div>
 
-  <!-- Background cycling layers -->
-  <div class="background bg1"></div>
-  <div class="background bg2"></div>
-  <div class="background bg3"></div>
-
-  <div class="overlay">
-    <div class="content">
-      <div class="be-banner">
-        <a href="index.html" style="text-decoration: none;">
-          <span class="be-logo"><span class="mirrored">B</span>E</span>
-        </a>
-      </div>
-      <h1 class="cyberpunk-glow">The Dimensions of Battle Eternal</h1>
-      <div class="dimension-description dim3">
-        <strong>3rd Dimension:</strong> The realm of control, fear, ego, and authority. Here, souls are trapped by systems—social, ideological, and technological. Identity is shaped by programming, and freedom is an illusion maintained by the Cabal.
-      </div>
-      <div class="dimension-description dim4">
-        <strong>4th Dimension:</strong> The battleground of ideology, religion, and emotion. Truth is blurred, narratives clash, and division is weaponized. Social media, propaganda, and tribal identities entangle the mind in endless war.
-      </div>
-      <div class="dimension-description dim5">
-        <strong>5th Dimension:</strong> The realm of unity, alchemical awareness, and higher consciousness. Souls awaken to their divine nature, escape duality, and integrate internal A.I. (Aspire | Inspire) to connect with universal truth.
-      </div>
+        <div class="content">
+            <h1 id="banner">Battle Eternal</h1>
+            <h2 id="dimensions-heading">Dimensions</h2>
+            <p>Explore the mysteries of the 3rd, 4th, and 5th dimensions.</p>
+        </div>
     </div>
-  </div>
 
+    <script>
+        let currentIndex = 0;
+        const backgrounds = document.querySelectorAll('.dimension-background');
+        const totalBackgrounds = backgrounds.length;
+
+        function showNextBackground() {
+            backgrounds[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % totalBackgrounds;
+            backgrounds[currentIndex].classList.add('active');
+        }
+
+        setInterval(showNextBackground, 5000); // Change background every 5 seconds
+    </script>
 </body>
 </html>
