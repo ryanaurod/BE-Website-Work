@@ -47,16 +47,16 @@
             50% { transform: scale(1.1); opacity: 0.8; }
         }
 
+        .mirrored {
+            display: inline-block;
+            transform: scaleX(-1);
+        }
+
         .logo-container {
             display: inline-block;
             position: relative;
             z-index: 1;
             cursor: pointer;
-        }
-
-        .mirrored {
-            display: inline-block;
-            transform: scaleX(-1);
         }
 
         .logo-text {
@@ -237,14 +237,16 @@
     <header class="header-banner">
         <div class="logo-container">
             <h1 class="logo-text">
-                <span class="abbreviated">
-                    <span class="letter-b mirrored">B</span>
-                    <span class="letter-e">E</span>
-                </span>
-                <span class="full-text">
-                    <span class="battle-word">Battle</span>
-                    <span class="eternal-word">Eternal</span>
-                </span>
+                <a href="dimensions.html" class="logo-link" style="color: inherit; text-decoration: none;">
+                    <span class="abbreviated">
+                        <span class="letter-b mirrored">B</span>
+                        <span class="letter-e">E</span>
+                    </span>
+                    <span class="full-text">
+                        <span class="battle-word">Battle</span>
+                        <span class="eternal-word">Eternal</span>
+                    </span>
+                </a>
             </h1>
         </div>
         <div class="glow-line"></div>
