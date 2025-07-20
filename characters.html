@@ -7,6 +7,12 @@
     <style>
         /* Footer Navigation Styles */
         .footer-nav {
+            width: 100vw;
+            max-width: 100vw;
+            min-width: 0;
+            left: 50%;
+            right: 50%;
+            transform: translateX(-50%);
             background: linear-gradient(90deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             display: flex;
             justify-content: center;
@@ -15,6 +21,7 @@
             box-shadow: 0 -4px 20px rgba(0, 174, 239, 0.25);
             position: relative;
             z-index: 2;
+            margin: 0 auto;
         }
         .footer-link {
             color: #00aeef;
@@ -75,6 +82,8 @@
             text-align: center;
             padding: 20px;
             margin: 0;
+            max-width: 100vw;
+            overflow-x: hidden;
         }
 
         #banner {
@@ -273,7 +282,7 @@
 
         function showNextCrystalisImage() {
             crystalisImages[crystalisIndex].classList.remove('active');
-            crystalisIndex = (crystalisIndex + 1) % totalCrystalisImages;
+            crystystalisIndex = (crystalisIndex + 1) % totalCrystalisImages;
             crystalisImages[crystalisIndex].classList.add('active');
         }
 
