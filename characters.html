@@ -206,6 +206,25 @@
         </p>
     </div>
 
+    <!-- Crystalis Merrywether Section -->
+    <div class="character-container">
+        <div class="alexander-title">Crystalis Merrywether</div>
+        <div class="character-image-holder crystalis-holder">
+            <img src="crystalis1.jpg" alt="Crystalis Merrywether 1" class="character-image crystalis-image active">
+            <img src="crystalis2.jpg" alt="Crystalis Merrywether 2" class="character-image crystalis-image">
+            <img src="crystalis3.jpg" alt="Crystalis Merrywether 3" class="character-image crystalis-image">
+        </div>
+        <p class="character-description">
+            <em>Crystalis: When the battle is over before the first sword is drawn.</em>
+            <br>
+            <br>
+            For Crystalis, ignorance is not a state of bliss but a strategic liability to be systematically dismantled. As the reincarnation of Athena, she stands with an unyielding confidence, her pristine academy uniform a stark contrast to the millennia of cosmic warfare and divine wisdom reflected in her sharp, golden eyes. She wields intellect as her primary weapon, dissecting arguments and opponents with a terrifying, dispassionate precision that leaves them exposed and defeated before they even realize the battle has begun. While her human form projects an aura of cool, often smug, superiority, it is merely the calm surface of a mind simultaneously navigating the battlefield of the present and the infinite knowledge of the Library of Alexandria, leaving little patience for those who substitute emotion for reason.
+            <br>
+            <br>
+            <em>"Truth is immutable. If it hurts your feelings, that's a 'you' problem, not a 'truth' problem. Try to keep up, you intellectually lazy, tragic creature."</em>
+        </p>
+    </div>
+
     <script>
         // Alexander Hiroshi image rotator
         let currentIndex = 0;
@@ -247,6 +266,18 @@
         }
 
         setInterval(showNextCastorImage, 3000);
+        // Crystalis Merrywether image rotator
+        let crystalisIndex = 0;
+        const crystalisImages = document.querySelectorAll('.crystalis-image');
+        const totalCrystalisImages = crystalisImages.length;
+
+        function showNextCrystalisImage() {
+            crystalisImages[crystalisIndex].classList.remove('active');
+            crystalisIndex = (crystalisIndex + 1) % totalCrystalisImages;
+            crystalisImages[crystalisIndex].classList.add('active');
+        }
+
+        setInterval(showNextCrystalisImage, 3000);
     </script>
 </body>
     <footer class="footer-nav">
