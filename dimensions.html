@@ -6,18 +6,59 @@
     <title>Battle Eternal - Dimensions</title>
     <link rel="icon" href="favicon.png" type="image/png">
     <style>
-        /* Footer Navigation Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .header-banner {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 174, 239, 0.3);
+        }
+        .header-banner h1 {
+            font-size: 3em;
+            color: #00aeef;
+            text-shadow: 0 0 20px rgba(0, 174, 239, 0.8);
+        }
+        .dimension-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .dimension-background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+        .dimension-background.active {
+            opacity: 1;
+        }
+        .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+        }
         .footer-nav {
             background: linear-gradient(90deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 18px 0 22px 0;
+            padding: 18px 0;
             box-shadow: 0 -4px 20px rgba(0, 174, 239, 0.25);
-            position: relative;
-            z-index: 2;
-            max-width: 1400px;
-            margin: 0 auto;
         }
         .footer-link {
             color: #00aeef;
@@ -25,103 +66,46 @@
             font-size: 1.25em;
             font-weight: bold;
             margin: 0 22px;
-            letter-spacing: 0.04em;
-            text-shadow: 0 0 10px #00aeef, 0 0 20px #00aeef44;
-            transition: color 0.2s, text-shadow 0.2s, transform 0.2s;
-            display: inline-block;
-            position: relative;
+            transition: color 0.2s;
         }
-        .footer-link:hover, .footer-link:focus {
+        .footer-link:hover {
             color: #fff;
-            text-shadow: 0 0 20px #00aeef, 0 0 40px #00aeef99;
-            transform: scale(1.08);
         }
-        .footer-link:active {
-            color: #00aeef;
-            text-shadow: 0 0 10px #00aeef, 0 0 20px #00aeef44;
-        }
-        body {
-            background-color: #121212;
-            color: #FFFFFF;
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            overflow: hidden;
-        }
-
-        #banner {
-            font-size: 3em;
-            text-shadow: 0 0 10px cyan, 0 0 20px cyan, 0 0 30px cyan;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        #dimensions-heading {
-            font-family: 'Cyberpunk', sans-serif;
-            font-size: 2em;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .dimension-container {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .dimension-background {
-            position: absolute;
-            width: 100%;
-            height: 100vh;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .active {
-            opacity: 1;
-        }
-
-        .content {
-            position: relative;
-            z-index: 10;
-            text-align: center;
+        @media (max-width: 768px) {
+            .header-banner h1 {
+                font-size: 2em;
+            }
         }
     </style>
 </head>
 <body>
+    <header class="header-banner">
+        <h1><a href="index.html" style="color: inherit; text-decoration: none;">Battle Eternal</a></h1>
+    </header>
     <div class="dimension-container">
-        <div class="dimension-background active" style="background-image: url('3rd-dimension.png');"></div>
-        <div class="dimension-background" style="background-image: url('4th-dimension.png');"></div>
-        <div class="dimension-background" style="background-image: url('5th-dimension.png');"></div>
-
+        <img src="3rd-dimension.png" alt="3rd Dimension" class="dimension-background active">
+        <img src="4th-dimension.png" alt="4th Dimension" class="dimension-background">
+        <img src="5th-dimension.png" alt="5th Dimension" class="dimension-background">
         <div class="content">
-            <h1 id="banner"><a href="index.html" style="color: inherit; text-decoration: none;">Battle Eternal</a></h1>
-            <h2 id="dimensions-heading">Dimensions</h2>
+            <h2>Dimensions</h2>
             <p>Explore the mysteries of the 3rd, 4th, and 5th dimensions.</p>
         </div>
     </div>
-
-    <script>
-        let currentIndex = 0;
-        const backgrounds = document.querySelectorAll('.dimension-background');
-        const totalBackgrounds = backgrounds.length;
-
-        function showNextBackground() {
-            backgrounds[currentIndex].classList.remove('active');
-            currentIndex = (currentIndex + 1) % totalBackgrounds;
-            backgrounds[currentIndex].classList.add('active');
-        }
-
-        setInterval(showNextBackground, 5000); // Change background every 5 seconds
-    </script>
-</body>
     <footer class="footer-nav">
         <a href="index.html" class="footer-link">Home</a>
         <a href="characters.html" class="footer-link">Characters</a>
         <a href="dimensions.html" class="footer-link">Dimensions</a>
     </footer>
+    <script>
+        let currentIndex = 0;
+        const backgrounds = document.querySelectorAll('.dimension-background');
+        const totalBackgrounds = backgrounds.length;
+        function showNextBackground() {
+            backgrounds[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % totalBackgrounds;
+            backgrounds[currentIndex].classList.add('active');
+        }
+        setInterval(showNextBackground, 5000);
+    </script>
+</body>
 </html>
