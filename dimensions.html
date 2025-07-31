@@ -6,6 +6,7 @@
     <title>Battle Eternal - Dimensions</title>
     <link rel="icon" href="favicon.png" type="image/png">
     <style>
+        /* Updated: 2025-07-31 20:02 */
         body {
             font-family: 'Arial', sans-serif;
             background-color: #0a0a0a;
@@ -34,23 +35,61 @@
             align-items: center;
             position: relative;
             overflow: hidden;
+            min-height: 400px;
+            padding: 20px;
         }
         .dimension-background {
             position: absolute;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            max-width: 90%;
+            max-height: 90%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
             opacity: 0;
             transition: opacity 1s ease;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
         .dimension-background.active {
             opacity: 1;
         }
         .content {
-            position: relative;
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
             z-index: 2;
             text-align: center;
             color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .content h2 {
+            font-size: 2.5em;
+            color: #00ff41;
+            text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41, 0 0 30px #00ff41, 0 0 40px #00ff41;
+            margin-bottom: 20px;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+        .content p {
+            font-size: 1.2em;
+            color: #00ff41;
+            text-shadow: 0 0 8px #00ff41, 0 0 16px #00ff4150;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: inline-block;
         }
         .footer-nav {
             background: linear-gradient(90deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
@@ -71,6 +110,38 @@
         .footer-link:hover {
             color: #fff;
         }
+        .footer-spacer {
+            flex: 1;
+        }
+        .footer-spotify {
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+            padding-right: 30px;
+        }
+        .spotify-link {
+            color: #1db954;
+            text-decoration: none;
+            font-size: 1.15em;
+            font-weight: bold;
+            margin-left: 30px;
+            letter-spacing: 0.04em;
+            text-shadow: 0 0 10px #1db954, 0 0 20px #1db95444;
+            transition: color 0.2s, text-shadow 0.2s, transform 0.2s;
+            display: inline-flex;
+            align-items: center;
+        }
+        .spotify-link:hover, .spotify-link:focus {
+            color: #fff;
+            text-shadow: 0 0 20px #1db954, 0 0 40px #1db95499;
+            transform: scale(1.08);
+        }
+        .spotify-icon {
+            width: 22px;
+            height: 22px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
         @media (max-width: 768px) {
             .header-banner h1 {
                 font-size: 2em;
@@ -83,9 +154,10 @@
         <h1><a href="index.html" style="color: inherit; text-decoration: none;">Battle Eternal</a></h1>
     </header>
     <div class="dimension-container">
-        <img src="3rd-dimension.png" alt="3rd Dimension" class="dimension-background active">
-        <img src="4th-dimension.png" alt="4th Dimension" class="dimension-background">
-        <img src="5th-dimension.png" alt="5th Dimension" class="dimension-background">
+        <!-- 3rd Dimension Images -->
+        <img src="3rd-dimension 1.png" alt="3rd Dimension 1" class="dimension-background active">
+        <img src="3rd-dimension 2.png" alt="3rd Dimension 2" class="dimension-background">
+        <img src="3rd-dimension 3.png" alt="3rd Dimension 3" class="dimension-background">
         <div class="content">
             <h2>Dimensions</h2>
             <p>Explore the mysteries of the 3rd, 4th, and 5th dimensions.</p>
@@ -95,6 +167,13 @@
         <a href="index.html" class="footer-link">Home</a>
         <a href="characters.html" class="footer-link">Characters</a>
         <a href="dimensions.html" class="footer-link">Dimensions</a>
+        <span class="footer-spacer"></span>
+        <span class="footer-spotify">
+            <a href="https://open.spotify.com/episode/5y5ZXiHAuhSpjjlYwwLqJH?si=GMQEqYdRSryKyifPaeH-2Q" class="spotify-link" target="_blank" rel="noopener">
+                <svg class="spotify-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 5.523 4.477 10 10 10s10-4.477 10-10C22 6.477 17.523 2 12 2zm4.563 14.634a.75.75 0 0 1-1.03.244c-2.82-1.73-6.38-2.12-10.59-1.16a.75.75 0 1 1-.32-1.47c4.6-1 8.57-.56 11.7 1.32a.75.75 0 0 1 .24 1.07zm1.47-2.93a.94.94 0 0 1-1.29.3c-3.23-2-8.16-2.6-11.98-1.42a.94.94 0 1 1-.54-1.8c4.23-1.28 9.6-.62 13.28 1.64a.94.94 0 0 1 .3 1.29zm.13-2.98C15.1 8.5 8.9 8.32 5.7 9.28a1.13 1.13 0 1 1-.65-2.17c3.7-1.1 10.5-.9 14.5 1.7a1.13 1.13 0 0 1-1.18 1.94z"/></svg>
+                Listen on Spotify
+            </a>
+        </span>
     </footer>
     <script>
         let currentIndex = 0;
