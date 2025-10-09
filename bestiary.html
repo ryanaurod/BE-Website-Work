@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Battle Eternal - Bestiary of the Fourth Dimension</title>
+    <title>Battle Eternal Bestiary</title>
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="Complete bestiary of Battle Eternal's mythical creatures unleashed by the Quantum Fracture, organized by elemental decks with origins and powers.">
@@ -62,6 +62,7 @@
             cursor: pointer;
             text-decoration: none;
             transition: all 0.3s ease;
+            display: block;
         }
 
         .back-button:hover {
@@ -309,7 +310,40 @@
             margin-top: 1rem;
         }
 
-        .beast-origin {
+        .see-more-btn {
+            background: linear-gradient(45deg, #4ecdc4, #00ff88);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            width: 100%;
+        }
+
+        .see-more-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(78, 205, 196, 0.3);
+        }
+
+        .collapsed-content {
+            display: none;
+            margin-top: 1rem;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .collapsed-content.show {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .beast-lore {
             background: rgba(78, 205, 196, 0.2);
             border-radius: 10px;
             padding: 1rem;
@@ -317,7 +351,7 @@
             border-left: 4px solid #4ecdc4;
         }
 
-        .beast-origin h4 {
+        .beast-lore h4 {
             color: #4ecdc4;
             margin-bottom: 0.5rem;
         }
@@ -335,18 +369,6 @@
             margin-bottom: 0.5rem;
         }
 
-        .beast-region {
-            background: rgba(0, 255, 136, 0.2);
-            border-radius: 10px;
-            padding: 1rem;
-            margin: 1rem 0;
-            border-left: 4px solid #00ff88;
-        }
-
-        .beast-region h4 {
-            color: #00ff88;
-            margin-bottom: 0.5rem;
-        }
 
         .rarity-badge {
             position: absolute;
@@ -398,6 +420,10 @@
                 flex-direction: column;
                 text-align: center;
             }
+
+            .back-button {
+                display: none;
+            }
         }
 
         /* SCROLL TO TOP */
@@ -422,6 +448,38 @@
             box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
         }
 
+        /* SEE THE REST FUNCTIONALITY */
+        .see-the-rest-container {
+            grid-column: 1 / -1;
+            margin: 2rem 0;
+        }
+
+        .see-the-rest-btn {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .see-the-rest-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .remaining-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
     </style>
 </head>
 <body>
@@ -435,8 +493,8 @@
     <div class="main-content">
         <!-- HERO SECTION -->
         <section class="hero-section">
-            <h1 class="hero-title">Bestiary of the Fourth Dimension</h1>
-            <p class="hero-subtitle">Ancient beasts unleashed by the Quantum Fracture along Earth's ley line chakra system, organized by their elemental deck origins from mythologies across the world</p>
+            <h1 class="hero-title">Battle Eternal Bestiary</h1>
+            <p class="hero-subtitle">Ancient beasts unleashed by the Quantum Fracture along Earth's ley line chakra system, organized by their aligned God of the Greek Pantheon incarnating in Japan upon the Fulfillment of Prophecy</p>
             
             <div class="hero-image">
                 [BESTIARY HERO IMAGE: Dimensional rift with mythical creatures emerging from ley line fractures across ancient monoliths worldwide]
@@ -493,21 +551,18 @@
                     <div class="beast-image">
                         [CERBERUS IMAGE: Massive three-headed cybernetic hound with glowing red eyes, digital chains, and firewall patterns on its fur - each head scanning for different threat vectors]
                     </div>
-                    <div class="beast-details">
-                        <div class="beast-origin">
-                            <h4>🏛️ Legendary Origin:</h4>
-                            <p><strong>Greek:</strong> Hesiod's Theogony, Virgil's Aeneid Book VI</p>
-                            <p><strong>Location:</strong> Gates of Hades, Underworld entrance</p>
+                    <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                    <div class="beast-details collapsed-content">
+                        <div class="beast-lore">
+                            <h4>🏛️ Legendary Lore:</h4>
+                            <p><strong>Origin:</strong> Greek mythology - Hesiod's Theogony, Virgil's Aeneid Book VI</p>
+                            <p><strong>Location:</strong> Gates of Hades, Underworld entrance (Greece, Rome)</p>
                         </div>
                         <div class="beast-powers">
                             <h4>⚡ Special Powers:</h4>
                             <p><strong>Three-Head Scanning:</strong> Each head detects different digital threat types</p>
                             <p><strong>Digital Firewall:</strong> Blocks unauthorized access to deep data vaults</p>
                             <p><strong>Soul Recognition:</strong> Can identify and track deleted file signatures</p>
-                        </div>
-                        <div class="beast-region">
-                            <h4>🌍 Regions/Cultures:</h4>
-                            <p>Greece, Rome (Underworld mythology)</p>
                         </div>
                     </div>
                 </div>
@@ -520,11 +575,12 @@
                     <div class="beast-image">
                         [MINOTAUR IMAGE: Half-man, half-machine bull trapped in ever-shifting digital maze, with circuit patterns on bull hide and glowing cybernetic horns]
                     </div>
-                    <div class="beast-details">
-                        <div class="beast-origin">
-                            <h4>🏛️ Legendary Origin:</h4>
-                            <p><strong>Greek:</strong> Plutarch's Life of Theseus, Ovid's Metamorphoses</p>
-                            <p><strong>Location:</strong> Labyrinth of Crete</p>
+                    <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                    <div class="beast-details collapsed-content">
+                        <div class="beast-lore">
+                            <h4>🏛️ Legendary Lore:</h4>
+                            <p><strong>Origin:</strong> Greek mythology - Plutarch's Life of Theseus, Ovid's Metamorphoses</p>
+                            <p><strong>Location:</strong> Labyrinth of Crete (Greece, Minoan civilization)</p>
                         </div>
                         <div class="beast-powers">
                             <h4>⚡ Special Powers:</h4>
@@ -532,26 +588,23 @@
                             <p><strong>Recursive Loops:</strong> Traps users in endless code cycles</p>
                             <p><strong>User Devouring:</strong> Consumes lost data explorers</p>
                         </div>
-                        <div class="beast-region">
-                            <h4>🌍 Regions/Cultures:</h4>
-                            <p>Greece, Crete (Minoan civilization)</p>
-                        </div>
                     </div>
                 </div>
 
                 <!-- MEDUSA -->
                 <div class="beast-card">
-                    <div class="rarity-badge rarity-legendary">Legendary</div>
+                    <div class="rarity-badge rarity-rare">Rare</div>
                     <h3 class="beast-name">Medusa</h3>
                     <p class="beast-classification">Code-Petrifying Gorgon</p>
                     <div class="beast-image">
                         [MEDUSA IMAGE: Beautiful but deadly with snake-like fiber optic cables for hair, stone-gray skin with circuit patterns, eyes that emit deadly static]
                     </div>
-                    <div class="beast-details">
-                        <div class="beast-origin">
-                            <h4>🏛️ Legendary Origin:</h4>
-                            <p><strong>Greek:</strong> Ovid's Metamorphoses, Apollodorus' Library</p>
-                            <p><strong>Location:</strong> Western edge of the world, Libya</p>
+                    <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                    <div class="beast-details collapsed-content">
+                        <div class="beast-lore">
+                            <h4>🏛️ Legendary Lore:</h4>
+                            <p><strong>Origin:</strong> Greek mythology - Ovid's Metamorphoses, Apollodorus' Library</p>
+                            <p><strong>Location:</strong> Western edge of the world, Libya (Greece, North Africa)</p>
                         </div>
                         <div class="beast-powers">
                             <h4>⚡ Special Powers:</h4>
@@ -559,64 +612,136 @@
                             <p><strong>Snake Hair Network:</strong> Fiber optic cables conducting deadly static</p>
                             <p><strong>Protective Ward:</strong> Guardian against unauthorized system access</p>
                         </div>
-                        <div class="beast-region">
-                            <h4>🌍 Regions/Cultures:</h4>
-                            <p>Greece, North Africa (Libya)</p>
-                        </div>
                     </div>
                 </div>
 
-                <!-- CYCLOPES -->
-                <div class="beast-card">
-                    <div class="rarity-badge rarity-rare">Rare</div>
-                    <h3 class="beast-name">Cyclopes</h3>
-                    <p class="beast-classification">One-Eyed Digital Smiths</p>
-                    <div class="beast-image">
-                        [CYCLOPES IMAGE: Massive one-eyed giant with cybernetic forge tools, single eye as a scanning lens, crafting digital weapons with divine lightning]
-                    </div>
-                    <div class="beast-details">
-                        <div class="beast-origin">
-                            <h4>🏛️ Legendary Origin:</h4>
-                            <p><strong>Greek:</strong> Hesiod's Theogony, Homer's Odyssey</p>
-                            <p><strong>Most Known:</strong> Polyphemus, Brontes, Steropes, Arges</p>
+                <!-- SEE THE REST SECTION -->
+                <div class="see-the-rest-container">
+                    <button class="see-the-rest-btn" onclick="toggleRemainingCards(this, 'zeus')">See The Rest (49 More Cards)</button>
+                    <div class="remaining-cards collapsed-content" id="zeus-remaining">
+                        
+                        <!-- CYCLOPES -->
+                        <div class="beast-card">
+                            <div class="rarity-badge rarity-rare">Rare</div>
+                            <h3 class="beast-name">Cyclopes</h3>
+                            <p class="beast-classification">One-Eyed Digital Smiths</p>
+                            <div class="beast-image">
+                                [CYCLOPES IMAGE: Massive one-eyed giant with cybernetic forge tools, single eye as a scanning lens, crafting digital weapons with divine lightning]
+                            </div>
+                            <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                            <div class="beast-details collapsed-content">
+                                <div class="beast-lore">
+                                    <h4>🏛️ Legendary Lore:</h4>
+                                    <p><strong>Origin:</strong> Greek mythology - Hesiod's Theogony, Homer's Odyssey</p>
+                                    <p><strong>Location:</strong> Sicily (Mount Etna forges), Greece</p>
+                                </div>
+                                <div class="beast-powers">
+                                    <h4>⚡ Special Powers:</h4>
+                                    <p><strong>Divine Forging:</strong> Creates thunderbolts and digital weapons</p>
+                                    <p><strong>Single-Eye Scanning:</strong> Perfect focus for detailed craftsmanship</p>
+                                    <p><strong>Lightning Infusion:</strong> Imbues creations with Zeus's power</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="beast-powers">
-                            <h4>⚡ Special Powers:</h4>
-                            <p><strong>Divine Forging:</strong> Creates thunderbolts and digital weapons</p>
-                            <p><strong>Single-Eye Scanning:</strong> Perfect focus for detailed craftsmanship</p>
-                            <p><strong>Lightning Infusion:</strong> Imbues creations with Zeus's power</p>
-                        </div>
-                        <div class="beast-region">
-                            <h4>🌍 Regions/Cultures:</h4>
-                            <p>Greece, Sicily (Mount Etna forges)</p>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- GRIFFIN -->
-                <div class="beast-card">
-                    <div class="rarity-badge rarity-rare">Rare</div>
-                    <h3 class="beast-name">Griffin</h3>
-                    <p class="beast-classification">Digital Treasure Guardian</p>
-                    <div class="beast-image">
-                        [GRIFFIN IMAGE: Majestic lion-eagle hybrid with golden cyber-wings, guarding digital treasure vaults, eyes scanning for data thieves]
-                    </div>
-                    <div class="beast-details">
-                        <div class="beast-origin">
-                            <h4>🏛️ Legendary Origin:</h4>
-                            <p><strong>Greek/Persian:</strong> Ancient Greek texts, Persian mythology</p>
-                            <p><strong>Most Known:</strong> Griffin of Scythia</p>
+                        <!-- GRIFFIN -->
+                        <div class="beast-card">
+                            <div class="rarity-badge rarity-rare">Rare</div>
+                            <h3 class="beast-name">Griffin</h3>
+                            <p class="beast-classification">Digital Treasure Guardian</p>
+                            <div class="beast-image">
+                                [GRIFFIN IMAGE: Majestic lion-eagle hybrid with golden cyber-wings, guarding digital treasure vaults, eyes scanning for data thieves]
+                            </div>
+                            <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                            <div class="beast-details collapsed-content">
+                                <div class="beast-lore">
+                                    <h4>🏛️ Legendary Lore:</h4>
+                                    <p><strong>Origin:</strong> Ancient Greek texts, Persian mythology</p>
+                                    <p><strong>Location:</strong> Scythia, Greece, Persia, Egypt</p>
+                                </div>
+                                <div class="beast-powers">
+                                    <h4>⚡ Special Powers:</h4>
+                                    <p><strong>Treasure Detection:</strong> Senses valuable digital assets</p>
+                                    <p><strong>Flight Superiority:</strong> Aerial surveillance of data territories</p>
+                                    <p><strong>Guardian Instinct:</strong> Relentless protection of assigned resources</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="beast-powers">
-                            <h4>⚡ Special Powers:</h4>
-                            <p><strong>Treasure Detection:</strong> Senses valuable digital assets</p>
-                            <p><strong>Flight Superiority:</strong> Aerial surveillance of data territories</p>
-                            <p><strong>Guardian Instinct:</strong> Relentless protection of assigned resources</p>
+
+                        <!-- PEGASUS -->
+                        <div class="beast-card">
+                            <div class="rarity-badge rarity-legendary">Legendary</div>
+                            <h3 class="beast-name">Pegasus</h3>
+                            <p class="beast-classification">Divine Winged Steed</p>
+                            <div class="beast-image">
+                                [PEGASUS IMAGE: Pure white winged horse with data-stream wings, capable of flight through digital dimensions, sacred to Zeus]
+                            </div>
+                            <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                            <div class="beast-details collapsed-content">
+                                <div class="beast-lore">
+                                    <h4>🏛️ Legendary Lore:</h4>
+                                    <p><strong>Origin:</strong> Born from Medusa's blood when slain by Perseus</p>
+                                    <p><strong>Location:</strong> Mount Helicon, serving the Muses (Greece)</p>
+                                </div>
+                                <div class="beast-powers">
+                                    <h4>⚡ Special Powers:</h4>
+                                    <p><strong>Dimensional Flight:</strong> Can traverse multiple data layers</p>
+                                    <p><strong>Divine Speed:</strong> Faster than any digital transport</p>
+                                    <p><strong>Muse Connection:</strong> Inspires creativity and divine poetry</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="beast-region">
-                            <h4>🌍 Regions/Cultures:</h4>
-                            <p>Greece, Persia, Scythia, Egypt</p>
+
+                        <!-- HARPY -->
+                        <div class="beast-card">
+                            <div class="rarity-badge rarity-rare">Rare</div>
+                            <h3 class="beast-name">Harpy</h3>
+                            <p class="beast-classification">Storm-Wind Tormentor</p>
+                            <div class="beast-image">
+                                [HARPY IMAGE: Bird-woman hybrid with razor-sharp wings cutting through data streams, carrying off corrupted files with fierce talons]
+                            </div>
+                            <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                            <div class="beast-details collapsed-content">
+                                <div class="beast-lore">
+                                    <h4>🏛️ Legendary Lore:</h4>
+                                    <p><strong>Origin:</strong> Greek mythology - daughters of wind god Thaumas</p>
+                                    <p><strong>Location:</strong> Storm-swept islands, tempestuous skies</p>
+                                </div>
+                                <div class="beast-powers">
+                                    <h4>⚡ Special Powers:</h4>
+                                    <p><strong>File Snatching:</strong> Steals and corrupts important data</p>
+                                    <p><strong>Storm Summoning:</strong> Creates chaotic weather in digital systems</p>
+                                    <p><strong>Swift Strike:</strong> Attacks faster than system defenses</p>
+                                </div>
+                            </div>
                         </div>
+
+                        <!-- AIGIS (AEGIS) -->
+                        <div class="beast-card">
+                            <div class="rarity-badge rarity-legendary">Legendary</div>
+                            <h3 class="beast-name">Aegis</h3>
+                            <p class="beast-classification">Divine Shield Entity</p>
+                            <div class="beast-image">
+                                [AEGIS IMAGE: Living shield made of divine light and lightning patterns, capable of deflecting any attack with Zeus's power]
+                            </div>
+                            <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                            <div class="beast-details collapsed-content">
+                                <div class="beast-lore">
+                                    <h4>🏛️ Legendary Lore:</h4>
+                                    <p><strong>Origin:</strong> Zeus's divine shield, also wielded by Athena</p>
+                                    <p><strong>Location:</strong> Mount Olympus, divine realm</p>
+                                </div>
+                                <div class="beast-powers">
+                                    <h4>⚡ Special Powers:</h4>
+                                    <p><strong>Perfect Defense:</strong> Reflects all attacks back at attackers</p>
+                                    <p><strong>Terror Induction:</strong> Causes fear in enemies who see it</p>
+                                    <p><strong>Divine Authority:</strong> Grants command presence to wielder</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        [Additional 44 cards would be displayed here with similar structure]
+                        
                     </div>
                 </div>
 
@@ -821,6 +946,88 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- SEE THE REST SECTION -->
+                <div class="see-the-rest-container">
+                    <button class="see-the-rest-btn" onclick="toggleRemainingCards(this, 'poseidon')">See The Rest (41 More Cards)</button>
+                    <div class="remaining-cards collapsed-content" id="poseidon-remaining">
+                        
+                        <!-- RYUJIN -->
+                        <div class="beast-card">
+                            <div class="rarity-badge rarity-divine">Divine</div>
+                            <h3 class="beast-name">Ryujin (Dragon King)</h3>
+                            <p class="beast-classification">Sovereign of Digital Seas</p>
+                            <div class="beast-image">
+                                [RYUJIN IMAGE: Majestic sea dragon with pearl crown, controlling the tides of data from his underwater crystal palace, Ryugu-jo]
+                            </div>
+                            <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                            <div class="beast-details collapsed-content">
+                                <div class="beast-lore">
+                                    <h4>🏛️ Legendary Lore:</h4>
+                                    <p><strong>Origin:</strong> Japanese mythology - supreme dragon of the sea</p>
+                                    <p><strong>Location:</strong> Ryugu-jo (Dragon Palace beneath the waves)</p>
+                                </div>
+                                <div class="beast-powers">
+                                    <h4>🌊 Special Powers:</h4>
+                                    <p><strong>Tide Control:</strong> Commands all ocean data flows with magical jewels</p>
+                                    <p><strong>Weather Mastery:</strong> Controls storms and calm across digital seas</p>
+                                    <p><strong>Time Dilation:</strong> Can slow or accelerate time in his domain</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SCYLLA -->
+                        <div class="beast-card">
+                            <div class="rarity-badge rarity-legendary">Legendary</div>
+                            <h3 class="beast-name">Scylla</h3>
+                            <p class="beast-classification">Multi-Headed Sea Terror</p>
+                            <div class="beast-image">
+                                [SCYLLA IMAGE: Six-headed monster emerging from digital cliff faces, each head snapping at different data streams, terrorizing passing network traffic]
+                            </div>
+                            <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                            <div class="beast-details collapsed-content">
+                                <div class="beast-lore">
+                                    <h4>🏛️ Legendary Lore:</h4>
+                                    <p><strong>Origin:</strong> Greek mythology - opposite Charybdis in Strait of Messina</p>
+                                    <p><strong>Location:</strong> Rocky cliffs overlooking dangerous data passages</p>
+                                </div>
+                                <div class="beast-powers">
+                                    <h4>🌊 Special Powers:</h4>
+                                    <p><strong>Multi-Attack:</strong> Six heads can target different enemies simultaneously</p>
+                                    <p><strong>Passage Terror:</strong> Makes narrow data channels extremely dangerous</p>
+                                    <p><strong>Selective Predation:</strong> Chooses which travelers to devour</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- KRAKEN -->
+                        <div class="beast-card">
+                            <div class="rarity-badge rarity-legendary">Legendary</div>
+                            <h3 class="beast-name">Kraken</h3>
+                            <p class="beast-classification">Colossal Digital Leviathan</p>
+                            <div class="beast-image">
+                                [KRAKEN IMAGE: Massive octopus with tentacles reaching through multiple data layers, each sucker capable of draining server farms]
+                            </div>
+                            <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                            <div class="beast-details collapsed-content">
+                                <div class="beast-lore">
+                                    <h4>🏛️ Legendary Lore:</h4>
+                                    <p><strong>Origin:</strong> Norse mythology - colossal sea monster off Norway</p>
+                                    <p><strong>Location:</strong> Deep ocean trenches, undersea data cables</p>
+                                </div>
+                                <div class="beast-powers">
+                                    <h4>🌊 Special Powers:</h4>
+                                    <p><strong>Ship Crushing:</strong> Can destroy the largest data vessels</p>
+                                    <p><strong>Tentacle Network:</strong> Controls vast underwater cable systems</p>
+                                    <p><strong>Deep Sleep:</strong> Remains dormant until awakened by disturbances</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        [Additional 38 cards would be displayed here with similar structure]
+                        
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -996,6 +1203,64 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- SEE THE REST SECTION -->
+                <div class="see-the-rest-container">
+                    <button class="see-the-rest-btn" onclick="toggleRemainingCards(this, 'hades')">See The Rest (41 More Cards)</button>
+                    <div class="remaining-cards collapsed-content" id="hades-remaining">
+                        
+                        <!-- YAMATA-NO-OROCHI -->
+                        <div class="beast-card">
+                            <div class="rarity-badge rarity-legendary">Legendary</div>
+                            <h3 class="beast-name">Yamata-no-Orochi</h3>
+                            <p class="beast-classification">Eight-Headed Data Serpent</p>
+                            <div class="beast-image">
+                                [YAMATA-NO-OROCHI IMAGE: Colossal serpent with eight heads and eight tails, each head controlling different dark web networks, eyes like burning servers]
+                            </div>
+                            <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                            <div class="beast-details collapsed-content">
+                                <div class="beast-lore">
+                                    <h4>🏛️ Legendary Lore:</h4>
+                                    <p><strong>Origin:</strong> Japanese mythology - slain by Susanoo</p>
+                                    <p><strong>Location:</strong> Dark valleys, hidden data caverns</p>
+                                </div>
+                                <div class="beast-powers">
+                                    <h4>💀 Special Powers:</h4>
+                                    <p><strong>Eight-Network Control:</strong> Simultaneously manages multiple dark networks</p>
+                                    <p><strong>Sake Weakness:</strong> Can be subdued by specific code sequences</p>
+                                    <p><strong>Valley Domination:</strong> Controls vast underground data territories</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ONI KING -->
+                        <div class="beast-card">
+                            <div class="rarity-badge rarity-legendary">Legendary</div>
+                            <h3 class="beast-name">Shuten-dōji (Oni King)</h3>
+                            <p class="beast-classification">Demon Lord of Digital Chaos</p>
+                            <div class="beast-image">
+                                [ONI KING IMAGE: Massive red-skinned demon with horns and fangs, wielding digital sake that corrupts systems, ruling from mountain fortress]
+                            </div>
+                            <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                            <div class="beast-details collapsed-content">
+                                <div class="beast-lore">
+                                    <h4>🏛️ Legendary Lore:</h4>
+                                    <p><strong>Origin:</strong> Japanese folklore - demon king of Mount Ōe</p>
+                                    <p><strong>Location:</strong> Fortress networks in digital mountain ranges</p>
+                                </div>
+                                <div class="beast-powers">
+                                    <h4>💀 Special Powers:</h4>
+                                    <p><strong>Corrupting Influence:</strong> Digital sake spreads chaos through networks</p>
+                                    <p><strong>Oni Army:</strong> Commands legions of lesser demons</p>
+                                    <p><strong>Mountain Fortress:</strong> Impregnable digital stronghold</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        [Additional 39 cards would be displayed here with similar structure]
+                        
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -1045,21 +1310,18 @@
                     <div class="beast-image">
                         [DRYAD IMAGE: Tree spirit inhabiting digital forests, with bark-like skin showing circuit patterns, protecting natural algorithms from corruption]
                     </div>
-                    <div class="beast-details">
-                        <div class="beast-origin">
-                            <h4>🏛️ Legendary Origin:</h4>
-                            <p><strong>Greek:</strong> Tree nymph legends</p>
-                            <p><strong>Most Known:</strong> Eurydice, Hamadryads</p>
+                    <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                    <div class="beast-details collapsed-content">
+                        <div class="beast-lore">
+                            <h4>🏛️ Legendary Lore:</h4>
+                            <p><strong>Origin:</strong> Greek mythology - Tree nymph legends</p>
+                            <p><strong>Location:</strong> Mediterranean forests, sacred groves</p>
                         </div>
                         <div class="beast-powers">
                             <h4>🌍 Special Powers:</h4>
                             <p><strong>Tree Binding:</strong> Life force connected to specific digital trees</p>
                             <p><strong>Nature Protection:</strong> Guards organic algorithms from corruption</p>
                             <p><strong>Environmental Balance:</strong> Maintains growth/stability equilibrium</p>
-                        </div>
-                        <div class="beast-region">
-                            <h4>🌍 Regions/Cultures:</h4>
-                            <p>Greece, Mediterranean forests</p>
                         </div>
                     </div>
                 </div>
@@ -1072,21 +1334,18 @@
                     <div class="beast-image">
                         [CENTAUR IMAGE: Half-human, half-horse with cybernetic legs, teaching digital warriors balance between primitive instincts and sophisticated algorithms]
                     </div>
-                    <div class="beast-details">
-                        <div class="beast-origin">
-                            <h4>🏛️ Legendary Origin:</h4>
-                            <p><strong>Greek:</strong> Centaur legends, Chiron the wise</p>
-                            <p><strong>Most Known:</strong> Chiron, Nessus, Pholus</p>
+                    <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                    <div class="beast-details collapsed-content">
+                        <div class="beast-lore">
+                            <h4>🏛️ Legendary Lore:</h4>
+                            <p><strong>Origin:</strong> Greek mythology - Centaur legends, Chiron the wise</p>
+                            <p><strong>Location:</strong> Thessaly mountains, ancient training grounds</p>
                         </div>
                         <div class="beast-powers">
                             <h4>🌍 Special Powers:</h4>
                             <p><strong>Wisdom Teaching:</strong> Mentors heroes in digital combat arts</p>
                             <p><strong>Healing Arts:</strong> Knowledge of system restoration techniques</p>
                             <p><strong>Sacrifice Wisdom:</strong> Willing to give knowledge for greater good</p>
-                        </div>
-                        <div class="beast-region">
-                            <h4>🌍 Regions/Cultures:</h4>
-                            <p>Greece, Thessaly mountains</p>
                         </div>
                     </div>
                 </div>
@@ -1099,21 +1358,18 @@
                     <div class="beast-image">
                         [PHOENIX IMAGE: Magnificent bird with flames of pure digital energy, cyclically destroying and recreating itself with enhanced data patterns]
                     </div>
-                    <div class="beast-details">
-                        <div class="beast-origin">
-                            <h4>🏛️ Legendary Origin:</h4>
-                            <p><strong>Greek/Egyptian:</strong> Herodotus' Histories</p>
-                            <p><strong>Location:</strong> Arabia, Temple of the Sun</p>
+                    <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                    <div class="beast-details collapsed-content">
+                        <div class="beast-lore">
+                            <h4>🏛️ Legendary Lore:</h4>
+                            <p><strong>Origin:</strong> Greek/Egyptian mythology - Herodotus' Histories</p>
+                            <p><strong>Location:</strong> Arabia, Temple of the Sun (Egypt, Greece, India)</p>
                         </div>
                         <div class="beast-powers">
                             <h4>🌍 Special Powers:</h4>
                             <p><strong>Cyclical Rebirth:</strong> Dies and resurrects with improved code</p>
                             <p><strong>Flame Purification:</strong> Burns away digital corruption</p>
                             <p><strong>Eternal Wisdom:</strong> Accumulates knowledge across rebirths</p>
-                        </div>
-                        <div class="beast-region">
-                            <h4>🌍 Regions/Cultures:</h4>
-                            <p>Egypt, Arabia, Greece, India</p>
                         </div>
                     </div>
                 </div>
@@ -1126,21 +1382,18 @@
                     <div class="beast-image">
                         [UNICORN IMAGE: Pristine white horse with spiraling horn that detects data purity, healing corrupted systems with touch of horn]
                     </div>
-                    <div class="beast-details">
-                        <div class="beast-origin">
-                            <h4>🏛️ Legendary Origin:</h4>
-                            <p><strong>Greek/Medieval:</strong> Ancient Greek texts, medieval bestiaries</p>
-                            <p><strong>Location:</strong> Sacred groves, pure environments</p>
+                    <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                    <div class="beast-details collapsed-content">
+                        <div class="beast-lore">
+                            <h4>🏛️ Legendary Lore:</h4>
+                            <p><strong>Origin:</strong> Greek/Medieval mythology - Ancient Greek texts, medieval bestiaries</p>
+                            <p><strong>Location:</strong> Sacred groves, pure environments (Europe, India)</p>
                         </div>
                         <div class="beast-powers">
                             <h4>🌍 Special Powers:</h4>
                             <p><strong>Purity Detection:</strong> Can sense and locate uncorrupted data</p>
                             <p><strong>Healing Touch:</strong> Horn can purify infected systems</p>
                             <p><strong>Innocence Requirement:</strong> Only approaches pure-hearted users</p>
-                        </div>
-                        <div class="beast-region">
-                            <h4>🌍 Regions/Cultures:</h4>
-                            <p>Europe, India, Medieval Christianity</p>
                         </div>
                     </div>
                 </div>
@@ -1169,6 +1422,64 @@
                             <h4>🌍 Regions/Cultures:</h4>
                             <p>Greece, Asia Minor (Lycia)</p>
                         </div>
+                    </div>
+                </div>
+                
+                <!-- SEE THE REST SECTION -->
+                <div class="see-the-rest-container">
+                    <button class="see-the-rest-btn" onclick="toggleRemainingCards(this, 'gaia')">See The Rest (42 More Cards)</button>
+                    <div class="remaining-cards collapsed-content" id="gaia-remaining">
+                        
+                        <!-- KITSUNE -->
+                        <div class="beast-card">
+                            <div class="rarity-badge rarity-legendary">Legendary</div>
+                            <h3 class="beast-name">Nine-Tailed Kitsune</h3>
+                            <p class="beast-classification">Divine Fox Spirit</p>
+                            <div class="beast-image">
+                                [KITSUNE IMAGE: Elegant fox with nine flowing tails of pure light, each tail controlling different aspects of wisdom and digital magic, golden fur with circuit patterns]
+                            </div>
+                            <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                            <div class="beast-details collapsed-content">
+                                <div class="beast-lore">
+                                    <h4>🏛️ Legendary Lore:</h4>
+                                    <p><strong>Origin:</strong> Japanese folklore - fox spirits that gain tails with age and wisdom</p>
+                                    <p><strong>Location:</strong> Sacred forests, Shinto shrines, digital temples</p>
+                                </div>
+                                <div class="beast-powers">
+                                    <h4>🌍 Special Powers:</h4>
+                                    <p><strong>Nine-Tail Magic:</strong> Each tail grants different mystical abilities</p>
+                                    <p><strong>Shapeshifting:</strong> Can take any digital form to deceive or help</p>
+                                    <p><strong>Wisdom Guardian:</strong> Protects ancient knowledge and sacred algorithms</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DRAGON TURTLE -->
+                        <div class="beast-card">
+                            <div class="rarity-badge rarity-rare">Rare</div>
+                            <h3 class="beast-name">Bixi (Dragon Turtle)</h3>
+                            <p class="beast-classification">Stone Monument Guardian</p>
+                            <div class="beast-image">
+                                [BIXI IMAGE: Massive turtle with dragon head carrying stone monuments on its shell, inscribed with ancient code that preserves digital history]
+                            </div>
+                            <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                            <div class="beast-details collapsed-content">
+                                <div class="beast-lore">
+                                    <h4>🏛️ Legendary Lore:</h4>
+                                    <p><strong>Origin:</strong> Chinese mythology - son of dragon king, bearer of stone tablets</p>
+                                    <p><strong>Location:</strong> Ancient monuments, historical databases</p>
+                                </div>
+                                <div class="beast-powers">
+                                    <h4>🌍 Special Powers:</h4>
+                                    <p><strong>Monument Bearing:</strong> Carries and protects historical data archives</p>
+                                    <p><strong>Stone Endurance:</strong> Extremely durable, resists corruption</p>
+                                    <p><strong>Memory Keeper:</strong> Preserves important historical records</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        [Additional 40 cards would be displayed here with similar structure]
+                        
                     </div>
                 </div>
             </div>
@@ -1223,6 +1534,30 @@
             cards.forEach(card => observer.observe(card));
         });
 
+        // Function to toggle remaining cards section
+        function toggleRemainingCards(button, deckName) {
+            const remainingCards = document.getElementById(deckName + '-remaining');
+            if (remainingCards.style.display === 'none' || !remainingCards.style.display) {
+                remainingCards.style.display = 'grid';
+                button.textContent = button.textContent.replace('See The Rest', 'Hide The Rest');
+            } else {
+                remainingCards.style.display = 'none';
+                button.textContent = button.textContent.replace('Hide The Rest', 'See The Rest');
+            }
+        }
+
+        // Function to toggle beast details
+        function toggleBeastDetails(button) {
+            const details = button.nextElementSibling;
+            if (details.style.display === 'none' || !details.style.display) {
+                details.style.display = 'block';
+                button.textContent = 'See Less';
+            } else {
+                details.style.display = 'none';
+                button.textContent = 'See More';
+            }
+        }
+
         // Add CSS animation for fade in up
         const style = document.createElement('style');
         style.textContent = `
@@ -1235,6 +1570,11 @@
                     opacity: 1;
                     transform: translateY(0);
                 }
+            }
+            
+            .collapsed-content {
+                display: none;
+                transition: all 0.3s ease;
             }
         `;
         document.head.appendChild(style);
