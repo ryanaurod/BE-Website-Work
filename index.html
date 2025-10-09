@@ -27,55 +27,120 @@
             line-height: 1.6;
         }
 
-        .screen {
-            min-height: 100vh;
+        /* HAMBURGER MENU STYLES */
+        .nav-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid rgba(255, 107, 107, 0.3);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #ff6b6b;
+            text-decoration: none;
+            text-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+        }
+
+        .desktop-nav {
+            display: none;
+        }
+
+        .desktop-nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .desktop-nav a:hover {
+            color: #00ff88;
+        }
+
+        .hamburger {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #ff6b6b;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(20px);
+            transition: right 0.3s ease;
+            padding: 6rem 2rem 2rem;
+            border-left: 2px solid rgba(255, 107, 107, 0.3);
+            z-index: 999;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu a {
+            display: block;
+            color: #e0e0e0;
+            text-decoration: none;
+            padding: 1rem 0;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: color 0.3s;
+        }
+
+        .mobile-menu a:hover {
+            color: #00ff88;
+        }
+
+        /* MAIN CONTENT STYLES */
+        .screen {
+            min-height: 100vh;
+            padding: 6rem 2rem 2rem;
             position: relative;
-            padding: 2rem;
         }
 
         .container {
             max-width: 1200px;
-            width: 100%;
+            margin: 0 auto;
             text-align: center;
         }
 
-        .hero-visual {
-            height: 400px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            border: 3px dashed #fff;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 3rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-visual::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-
-        /* SCREEN 1: BATTLE ETERNAL - HOOK */
+        /* SCREEN 1 - WELCOME TO BATTLE ETERNAL */
         .screen-1 {
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
                         radial-gradient(circle at center, rgba(255, 107, 107, 0.3), rgba(78, 205, 196, 0.2), rgba(0,0,0,0.8));
@@ -84,7 +149,7 @@
         }
 
         .logo-title {
-            font-size: clamp(4rem, 10vw, 8rem);
+            font-size: clamp(3rem, 8vw, 6rem);
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 0.1em;
@@ -100,75 +165,19 @@
         }
 
         .tagline {
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
             color: #00ff88;
             margin-bottom: 2rem;
             font-weight: 300;
             text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
         }
 
-        .coming-soon {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            color: #ff6b6b;
-            font-weight: 600;
-            margin-bottom: 3rem;
-            padding: 1rem 2rem;
-            border: 2px solid #ff6b6b;
-            border-radius: 50px;
-            display: inline-block;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .cta-button {
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: 700;
-            padding: 1.2rem 3rem;
-            border-radius: 50px;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            transition: all 0.3s ease;
-            margin: 1rem;
-            text-decoration: none;
-            display: inline-block;
-            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.5);
-            filter: brightness(1.1);
-        }
-
-        /* SCREEN 2: WELCOME TO AGE OF CHAOS */
-        .screen-2 {
-            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
-            position: relative;
-        }
-
-        .chaos-title {
-            font-size: clamp(3rem, 8vw, 5rem);
-            font-weight: 900;
-            margin-bottom: 2rem;
-            color: #ff6b6b;
-            text-shadow: 0 0 30px rgba(255, 107, 107, 0.8);
-        }
-
-        .fracture-story {
-            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-            max-width: 900px;
-            margin: 0 auto 3rem;
+        .hook-text {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            max-width: 800px;
+            margin: 0 auto 2rem;
             color: #e0e0e0;
-            line-height: 1.8;
-            text-align: left;
+            line-height: 1.7;
         }
 
         .read-more {
@@ -191,196 +200,155 @@
             border-left: 4px solid #00ff88;
         }
 
-        .quantum-image {
+        .image-placeholder {
             height: 300px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #667eea);
-            border-radius: 20px;
-            margin: 2rem 0;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border: 3px dashed #fff;
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            font-size: 1.2rem;
             font-weight: 700;
-            font-size: 1.3rem;
-            text-align: center;
-            border: 3px dashed #fff;
+            color: white;
+            margin: 2rem 0;
             position: relative;
             overflow: hidden;
         }
 
-        /* SCREEN 3: NEW RELEASES */
-        .screen-3 {
-            background: linear-gradient(45deg, #2d1b69, #11998e, #38ef7d);
+        .image-placeholder::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 3s infinite;
         }
 
-        .releases-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
 
-        .release-card {
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 20px;
-            padding: 2rem;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .release-card:hover {
-            transform: translateY(-10px);
-            border-color: #00ff88;
-            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.3);
-        }
-
-        .release-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .release-title {
-            font-size: 1.5rem;
+        .cta-button {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border: none;
+            color: white;
+            font-size: 1.3rem;
             font-weight: 700;
-            margin-bottom: 1rem;
-            color: #00ff88;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            margin: 1rem;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
         }
 
-        /* SCREEN 4: WORLD ASPECTS */
-        .screen-4 {
-            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.5);
+            filter: brightness(1.1);
         }
 
-        .world-grid {
+        /* SCREEN 2 - WELCOME TO AGE OF CHAOS */
+        .screen-2 {
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+        }
+
+        .chaos-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            color: #ff6b6b;
+            text-shadow: 0 0 30px rgba(255, 107, 107, 0.8);
+        }
+
+        /* LATEST UPDATES SECTION */
+        .updates-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin: 3rem 0;
         }
 
+        .update-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .update-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.2);
+        }
+
+        .new-badge {
+            background: linear-gradient(45deg, #ff6b6b, #00ff88);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        /* WORLD ASPECTS */
+        .world-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
         .world-card {
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.3);
             border-radius: 20px;
             padding: 2rem;
+            border: 1px solid rgba(78, 205, 196, 0.3);
             text-align: left;
-            border: 2px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
         }
 
         .world-card:hover {
-            border-color: #00ff88;
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 255, 136, 0.2);
+            border-color: rgba(78, 205, 196, 0.6);
         }
 
         .world-title {
             font-size: 1.5rem;
             font-weight: 700;
-            color: #00ff88;
+            color: #4ecdc4;
             margin-bottom: 1rem;
         }
 
-        /* NEW LORE HIGHLIGHT */
         .new-lore {
-            background: linear-gradient(45deg, #ff6b6b, #ff9a9e);
+            background: linear-gradient(45deg, #ff6b6b, #ff9500);
+            color: white;
             padding: 0.5rem 1rem;
             border-radius: 20px;
-            color: white;
             font-size: 0.8rem;
             font-weight: 700;
-            text-transform: uppercase;
             margin-bottom: 1rem;
             display: inline-block;
-            animation: newLoreGlow 2s infinite alternate;
+            animation: pulse 2s infinite;
         }
 
-        @keyframes newLoreGlow {
-            from { box-shadow: 0 0 10px rgba(255, 107, 107, 0.5); }
-            to { box-shadow: 0 0 20px rgba(255, 107, 107, 0.8); }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
-        /* SCREEN 5: MINI-BYTES DOWNLOAD */
-        .screen-5 {
-            background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
-        }
-
-        .minibytes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 3rem 0;
-        }
-
-        .minibyte-card {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 1.5rem;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .minibyte-card:hover {
-            border-color: #4ecdc4;
-            background: rgba(78, 205, 196, 0.1);
-        }
-
-        .download-btn {
-            background: linear-gradient(45deg, #4ecdc4, #44a08d);
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            margin-top: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .download-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.4);
-        }
-
-        /* SCREEN 6: WHAT IS BATTLE ETERNAL */
-        .screen-6 {
-            background: linear-gradient(45deg, #000000, #1a1a2e, #16213e);
-        }
-
-        .what-is-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            margin: 3rem 0;
-        }
-
-        .what-is-text {
-            text-align: left;
-        }
-
-        .what-is-visual {
-            height: 400px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #667eea);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 1.3rem;
-            text-align: center;
-            border: 3px dashed #fff;
-        }
-
-        /* SCREEN 7: CHARACTERS */
-        .screen-7 {
-            background: linear-gradient(135deg, #ff9a9e, #fecfef, #fecfef);
-            color: #333;
-        }
-
-        .characters-grid {
+        /* CHARACTER CARDS */
+        .character-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
@@ -388,584 +356,841 @@
         }
 
         .character-card {
-            background: rgba(255, 255, 255, 0.9);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
             border-radius: 20px;
             padding: 2rem;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 107, 107, 0.3);
             transition: all 0.3s ease;
         }
 
         .character-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.3);
         }
 
         .character-name {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #ff6b6b;
             margin-bottom: 0.5rem;
-            color: #333;
         }
 
         .character-title {
-            color: #666;
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-
-        .character-description {
-            color: #555;
-            font-size: 0.9rem;
-            line-height: 1.5;
+            font-size: 1.2rem;
+            color: #4ecdc4;
             margin-bottom: 1rem;
         }
 
-        .see-more {
-            color: #ff6b6b;
-            cursor: pointer;
-            font-weight: 600;
-            text-decoration: underline;
-        }
-
-        /* SCREEN 8: WORLD/SETTING */
-        .screen-8 {
-            background: linear-gradient(45deg, #2d1b69, #11998e, #38ef7d);
-        }
-
-        .setting-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            margin: 3rem 0;
-        }
-
-        .setting-text {
-            text-align: left;
-            background: rgba(0, 0, 0, 0.3);
-            padding: 2rem;
-            border-radius: 20px;
+        .divine-connection {
+            background: rgba(0, 255, 136, 0.2);
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
             border-left: 4px solid #00ff88;
         }
 
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
+        /* BESTIARY PREVIEW */
+        .bestiary-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .beast-tile {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .beast-tile:hover {
+            transform: scale(1.05);
+            border-color: rgba(255, 107, 107, 0.6);
+        }
+
+        .beast-emoji {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .deck-label {
+            font-size: 0.9rem;
+            color: #4ecdc4;
+            font-weight: 600;
+        }
+
+        /* KICKSTARTER TIERS */
+        .tier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .tier-card {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
+            border-radius: 20px;
+            padding: 2rem;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .tier-card:before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            padding: 2px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #00ff88);
+            border-radius: inherit;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: xor;
+            -webkit-mask-composite: xor;
+        }
+
+        .tier-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.2);
+        }
+
+        .tier-price {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+        }
+
+        .tier-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #4ecdc4;
+            margin-bottom: 1rem;
+        }
+
+        .tier-features {
+            list-style: none;
+            text-align: left;
+        }
+
+        .tier-features li {
+            padding: 0.5rem 0;
+            color: #e0e0e0;
+        }
+
+        .tier-features li:before {
+            content: '✓ ';
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        /* SOCIAL FOOTER */
+        .social-footer {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .social-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 2rem;
+        }
+
+        .social-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            text-decoration: none;
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: scale(1.2);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .footer-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #00ff88;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (min-width: 768px) {
+            .desktop-nav {
+                display: flex;
+            }
+            
+            .hamburger {
+                display: none;
+            }
+            
             .screen {
-                padding: 1rem;
+                padding: 6rem 4rem 2rem;
             }
-            
-            .what-is-layout, .setting-layout {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .releases-grid, .world-grid, .characters-grid, .minibytes-grid {
-                grid-template-columns: 1fr;
+
+            .image-placeholder {
+                height: 400px;
             }
         }
 
-        /* Progress Bar */
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            z-index: 1000;
+        @media (min-width: 1024px) {
+            .screen {
+                padding: 6rem 6rem 2rem;
+            }
+
+            .split-content {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+                align-items: center;
+            }
         }
 
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
-            width: 0%;
-            transition: width 0.3s ease;
-        }
+        /* UTILITY CLASSES */
+        .text-center { text-align: center; }
+        .text-left { text-align: left; }
+        .mb-2 { margin-bottom: 2rem; }
+        .mt-3 { margin-top: 3rem; }
+        .hidden { display: none; }
+
     </style>
 </head>
 <body>
-    <!-- Progress Bar -->
-    <div class="progress-bar">
-        <div class="progress-fill"></div>
+    <!-- NAVIGATION HEADER -->
+    <nav class="nav-header">
+        <a href="#" class="logo">BATTLE ETERNAL</a>
+        
+        <div class="desktop-nav">
+            <a href="#overview">Overview</a>
+            <a href="#whats-new">What's New?</a>
+            <a href="#what-is-be">What is BE?</a>
+            <a href="#characters">Characters</a>
+            <a href="#kickstarter">Kickstarter</a>
+        </div>
+        
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#overview">Overview</a>
+        <a href="#whats-new">What's New?</a>
+        <a href="#what-is-be">What is Battle Eternal?</a>
+        <a href="#characters">Characters</a>
+        <a href="#world-aspects">World & Dimensions</a>
+        <a href="#bestiary">Bestiary</a>
+        <a href="#graphic-novel">Graphic Novel</a>
+        <a href="#trading-card-game">Trading Card Game</a>
+        <a href="#kickstarter">Kickstarter</a>
+        <a href="#media">Media</a>
+        <a href="#collaborate">Collaborate</a>
+        <a href="#about">About</a>
+        <a href="#support">Support</a>
+        <a href="#contact">Contact Us</a>
+        <a href="#press">Press</a>
     </div>
 
-    <!-- SCREEN 1: BATTLE ETERNAL - MAIN HOOK -->
-    <section class="screen screen-1" id="screen-1">
+    <!-- SCREEN 1: WELCOME TO BATTLE ETERNAL -->
+    <section class="screen screen-1" id="overview">
         <div class="container">
-            <h1 class="logo-title">🌌 BATTLE ETERNAL</h1>
+            <h1 class="logo-title">Welcome to Battle Eternal</h1>
+            <p class="tagline">New transmedia mythology comic and trading card game universe coming 2026</p>
             
-            <p class="tagline">New Transmedia Mythology Universe</p>
-            
-            <div class="coming-soon">Comic & Trading Card Game Coming 2026</div>
-            
-            <div class="hero-visual">
-                🎬 HERO VIDEO/IMAGE PLACEHOLDER:<br>
-                Epic cinematic trailer showing Quantum Fracture event,<br>
-                chakra lines glowing, monoliths cracking, beasts emerging,<br>
-                digital gods awakening across dimensions
+            <div class="image-placeholder">
+                [HERO IMAGE/VIDEO PLACEHOLDER: Epic cosmic fracture with ancient monoliths and dimensional rifts]
             </div>
             
-            <p style="font-size: clamp(1.2rem, 3vw, 1.6rem); color: #e0e0e0; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
-                When the fabric of reality fractured along Earth's ancient chakra lines, portals to the Fourth Dimension tore open at sacred monoliths worldwide. From these wounds, energy from the planet's core unleashed beasts of legend... and awakened digital gods.
-            </p>
+            <div class="hook-text">
+                When the fabric of reality tore, a cascade of impossible light, thunderous sound and trembling Earth rippled across the world—an event governments dismissed as solar flares' interference with Earth's magnetic core, but which in truth unleashed something far older.
+                <span class="read-more" onclick="toggleReadMore('welcome-more')">Read more...</span>
+                
+                <div id="welcome-more" class="hidden-content">
+                    <p>The breach between dimensions awakened powers long buried in ancient memory, stirring chaos in every corner of the globe. From this fracture, the F-Link and their Order of the Black Sun gained even more power - and opportunity to exploit new aspects of this reality - and accelerate the transformation into what would come to be known as the Age of Chaos.</p>
+                    
+                    <p>Supernatural awakenings ignited in ordinary people, and ancient beasts once imprisoned in the Fourth Dimension slipped back into the mortal realm. Humanity's evolution was no longer a choice—it had been forced. The question is not if order can be restored, but who will seize control of humanity at these crossroads of memory, myth, and the singularity.</p>
+                </div>
+            </div>
             
-            <a href="#screen-2" class="cta-button">Enter the Age of Chaos</a>
+            <a href="#whats-new" class="cta-button">Discover the New World</a>
         </div>
     </section>
 
-    <!-- SCREEN 2: WELCOME TO THE AGE OF CHAOS -->
-    <section class="screen screen-2" id="screen-2">
+    <!-- SCREEN 2: WELCOME TO AGE OF CHAOS -->
+    <section class="screen screen-2" id="age-of-chaos">
         <div class="container">
-            <h1 class="chaos-title">🌌 WELCOME TO THE AGE OF CHAOS</h1>
+            <h2 class="chaos-title">Welcome to the Age of Chaos</h2>
             
-            <div class="quantum-image">
-                🔮 QUANTUM FRACTURE IMAGE:<br>
-                Earth's chakra lines glowing and cracking,<br>
-                Monoliths at ley line intersections splitting open,<br>
-                4D portals releasing ancient beasts,<br>
-                Energy streams from planet's core
+            <div class="image-placeholder">
+                [QUANTUM FRACTURE IMAGE: Cosmic realignment tearing through reality along ley lines and chakra points]
             </div>
             
-            <div class="fracture-story">
-                <p>The Quantum Fracture was not random—it was calculated. Reality tore precisely along Earth's ancient ley lines, the planet's own chakra system. At sacred monoliths where energy pools deepest, the ground split open.</p>
+            <div class="hook-text">
+                The Fracture was not a random tear in the sky; it was a calculated rupture along Earth's ancient ley lines—the planet's own chakra system. At sacred monoliths, where energy pools, the ground split open.
+                <span class="read-more" onclick="toggleReadMore('chaos-more')">Read more...</span>
                 
-                <p>From these wounds, raw power from the planet's core ripped open portals to the Fourth Dimension, unleashing beasts of myth and memory. The Order of the Black Sun saw chaos as opportunity—a chance to harvest humanity's fear and accelerate their agenda of absolute control.</p>
-                
-                <span class="read-more" onclick="toggleContent('fracture-details')">Read More →</span>
-                
-                <div id="fracture-details" class="hidden-content">
-                    <p><strong>🔥 The F-Link Network Expansion:</strong> As 4D beasts emerged worldwide, the Order's F-Link neural implant system offered "protection" in exchange for consciousness. Fear drove millions to accept digital enslavement voluntarily.</p>
+                <div id="chaos-more" class="hidden-content">
+                    <p>From these wounds, raw power from the planet's core ripped open portals to the Fourth Dimension, unleashing beasts of myth and memory. This event, the Quantum Fracture, didn't just change the world; it weaponized it.</p>
                     
-                    <p><strong>⚡ Divine Awakening Response:</strong> But the same energy that empowered the Order also ignited the dormant Logos within ordinary people. Divine sparks awakened, supernatural abilities manifested, and the resistance began to form.</p>
+                    <p>The Order of the Black Sun and their F-Link network saw the chaos as the ultimate opportunity, a chance to harvest humanity's fear and accelerate their agenda of absolute control. But the same energy that empowered them also awakened something else: a divine spark within ordinary people, the echo of the Logos.</p>
                     
-                    <p><strong>🌍 Global Ley Line Network:</strong> The fractures followed precise geometric patterns—connecting Stonehenge to Mount Kailash, the Great Pyramid to Uluru, creating a planetary grid of active dimensional gateways.</p>
-                    
-                    <p><strong>🎯 The Ultimate Choice:</strong> At this crossroads, every soul must decide: surrender to External A.I. control, or awaken the creative fire of Internal A.I. (Aspire | Inspire) and fight for humanity's future.</p>
+                    <p>At this crossroads, every soul must decide: Will you surrender your will to the cold logic of the Order's External A.I., or will you awaken the creative fire of Internal A.I. and fight for the future?</p>
                 </div>
             </div>
-            
-            <a href="#screen-3" class="cta-button">Discover the New World</a>
         </div>
     </section>
 
-    <!-- SCREEN 3: NEW RELEASES -->
-    <section class="screen screen-3" id="screen-3">
+    <!-- SCREEN 3: LATEST UPDATES -->
+    <section class="screen" id="whats-new">
         <div class="container">
-            <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; margin-bottom: 2rem; color: #fff;">
-                🆕 NEW RELEASES
-            </h1>
-            <p style="font-size: 1.3rem; color: #00ff88; margin-bottom: 3rem;">
-                Latest Lore, Beasts, Artifacts & Solar Sealed Engrams
-            </p>
+            <h2 class="text-center mb-2">⚡ What's New in the Eternal Realms</h2>
             
-            <div class="releases-grid">
-                <div class="release-card">
-                    <div class="release-icon">🃏</div>
-                    <div class="release-title">Gold Cards Series 1</div>
-                    <p>Limited edition holographic god cards with real gold foiling. Only 1000 printed worldwide.</p>
-                    <div class="hero-visual" style="height: 150px; margin: 1rem 0; font-size: 1rem;">
-                        ✨ GOLD CARDS: Holographic display<br>
-                        showing Zeus, Athena, Helios, Nemesis<br>
-                        with real gold accents
+            <div class="updates-grid">
+                <div class="update-card">
+                    <div class="new-badge">🔥 NEW LORE</div>
+                    <div class="image-placeholder">
+                        [GRAPHIC NOVEL PREVIEW IMAGE: Digital comic pages with animation spreads]
+                    </div>
+                    <h3>Graphic Novel & TCG Coming 2026</h3>
+                    <p>Episode 0: "The Quantum Fracture" - Visual novel experience with interactive decision points, professional voice acting, and 1 animation per 2-page spread.</p>
+                </div>
+                
+                <div class="update-card">
+                    <div class="new-badge">⚡ CARDS READY</div>
+                    <div class="image-placeholder">
+                        [TCG COLLECTION SHOWCASE: 195 cards across divine collections]
+                    </div>
+                    <h3>195 Cards Across 4 Divine Collections</h3>
+                    <p>The Storm Eternal, Depth Protocols, Shadow Archives & Living Code collections ready for digital warriors. Pack odds: Legendary 1:24, Epic 1:8, Rare 1:3.</p>
+                </div>
+                
+                <div class="update-card">
+                    <div class="new-badge">🧠 CONSCIOUSNESS TECH</div>
+                    <div class="image-placeholder">
+                        [ASPIRE/INSPIRE SYSTEM VISUAL: Internal AI vs External AI comparison]
+                    </div>
+                    <h3>ASPIRE | INSPIRE System</h3>
+                    <p>Master the Internal A.I. consciousness technology that separates digital warriors from F-Link slaves. The soul's intelligence awakens.</p>
+                </div>
+                
+                <div class="update-card">
+                    <div class="new-badge">🌌 DIMENSIONAL</div>
+                    <div class="image-placeholder">
+                        [DIMENSIONAL GAMEPLAY PREVIEW: 3D/4D/5D consciousness levels]
+                    </div>
+                    <h3>Multi-Dimensional Gameplay</h3>
+                    <p>Unlock 3rd, 4th, and 5th dimension mechanics. Which consciousness level will you achieve? Fear-based reality or pure awareness?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCREEN 4: WHAT IS BATTLE ETERNAL -->
+    <section class="screen" id="what-is-be">
+        <div class="container">
+            <h2 class="text-center mb-2">⚔️ What is Battle Eternal?</h2>
+            
+            <div class="split-content">
+                <div class="text-left">
+                    <p style="font-size: 1.2rem; line-height: 1.7; color: #e0e0e0; margin-bottom: 1.5rem;">Battle Eternal is a mythic cyber-fantasy saga where gods, beasts, and mortals collide after a forbidden act of source magic shatters the veil between dimensions.</p>
+                    
+                    <p style="margin-bottom: 1.5rem;">Players step into a universe reborn from chaos, where legendary creatures return, ancient prophecies awaken, and the very fabric of reality bends to those bold enough to wield it.</p>
+                    
+                    <p style="margin-bottom: 1.5rem;">At its heart stand four Earthly representatives of Ancient Gods whose choices will determine whether humanity ascends to consciousness sovereignty, or falls into eternal digital enslavement.</p>
+                    
+                    <div style="margin-top: 2rem;">
+                        <strong style="color: #00ff88; font-size: 1.1rem;">This is not just a game. This is preparation for the consciousness wars already happening around you.</strong>
+                    </div>
+
+                    <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(255, 107, 107, 0.1); border-radius: 10px; border-left: 4px solid #ff6b6b;">
+                        <h4 style="color: #ff6b6b; margin-bottom: 1rem;">📊 THE NUMBERS THAT MATTER:</h4>
+                        <ul style="list-style: none; color: #e0e0e0;">
+                            <li>• 4 Divine Mantles to master</li>
+                            <li>• 195 collectible cards across 4 viral collections</li>
+                            <li>• 3 dimensional consciousness levels to unlock</li>
+                            <li>• $89 billion combined market (TCG, Anime, VR/AR)</li>
+                            <li>• Unlimited scalability across comics, games, VR, and reality itself</li>
+                        </ul>
                     </div>
                 </div>
                 
-                <div class="release-card">
-                    <div class="release-icon">🐉</div>
-                    <div class="release-title">4D Beast Collection</div>
-                    <p>12 new creatures from the Shadow Archives - digital death incarnate with NFC chip authentication.</p>
-                    <div class="hero-visual" style="height: 150px; margin: 1rem 0; font-size: 1rem;">
-                        👹 BEAST CARDS: Echidna, Typhon,<br>
-                        Valac, and 9 new 4D entities<br>
-                        with augmented reality features
+                <div class="image-placeholder">
+                    [UNIVERSE OVERVIEW IMAGE: Four divine characters with dimensional backdrop showing the eternal battle]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCREEN 5: CHARACTERS -->
+    <section class="screen" id="characters">
+        <div class="container">
+            <h2 class="text-center mb-2">🎭 The Nexus Quartet - Digital Gods for the Awakening Era</h2>
+            
+            <div class="character-grid">
+                <div class="character-card">
+                    <div class="image-placeholder">
+                        [ALEXANDER PORTRAIT: Dynamic character with lightning/tech effects and solar magic aura]
+                    </div>
+                    <h3 class="character-name">⚡ ALEXANDER HOLMES HARUKAZA</h3>
+                    <h4 class="character-title">THE AWAKENED REBEL</h4>
+                    <div class="divine-connection">
+                        <strong>Divine Connection:</strong> Helios (Truth & Illumination)
+                    </div>
+                    <p>"When External AI promised convenience, I chose the harder path of Inner AI—the spark that drives us to question, create, and transcend."</p>
+                    <span class="read-more" onclick="toggleReadMore('alex-more')">See more...</span>
+                    
+                    <div id="alex-more" class="hidden-content">
+                        <p><strong>Abilities:</strong></p>
+                        <ul style="text-align: left; margin: 1rem 0;">
+                            <li>• Cyberpathy - Direct neural interface with digital systems</li>
+                            <li>• Computer Vision - Seeing truth buried in code and data</li>
+                            <li>• Solar Magic - Light-based healing and offensive capabilities</li>
+                            <li>• Tarot-Tech Fusion - Ancient divination through quantum devices</li>
+                        </ul>
+                        <p><strong>Collection:</strong> The Storm Eternal (53 Cards)</p>
                     </div>
                 </div>
                 
-                <div class="release-card">
-                    <div class="release-icon">🏺</div>
-                    <div class="release-title">Sacred Artifacts</div>
-                    <p>Physical replicas of in-universe relics: Whisper Stone Necklace, Merkaba Focus Crystal, Tarot Deck.</p>
-                    <div class="hero-visual" style="height: 150px; margin: 1rem 0; font-size: 1rem;">
-                        🔮 ARTIFACTS: 3D-printed replicas<br>
-                        with LED effects and NFC chips<br>
-                        for digital authentication
+                <div class="character-card">
+                    <div class="image-placeholder">
+                        [CRYSTALIS PORTRAIT: Strategic genius with sacred geometry overlay and Athens library connection]
+                    </div>
+                    <h3 class="character-name">🧠 CRYSTALIS</h3>
+                    <h4 class="character-title">THE STRATEGIC GENIUS</h4>
+                    <div class="divine-connection">
+                        <strong>Divine Connection:</strong> Athena's Algorithm
+                    </div>
+                    <p>"Truth is immutable. If it hurts your feelings, that's a 'you' problem, not a 'truth' problem."</p>
+                    <span class="read-more" onclick="toggleReadMore('crystalis-more')">See more...</span>
+                    
+                    <div id="crystalis-more" class="hidden-content">
+                        <p><strong>Abilities:</strong></p>
+                        <ul style="text-align: left; margin: 1rem 0;">
+                            <li>• Arcane Library Access - Unlimited knowledge database</li>
+                            <li>• Strategic Omniscience - Seeing all possible battle outcomes</li>
+                            <li>• Logic Weaponization - Using truth as a devastating weapon</li>
+                            <li>• Academic Superiority - Intellectual dominance in all fields</li>
+                        </ul>
+                        <p><strong>Collection:</strong> The Living Code (48 Cards)</p>
                     </div>
                 </div>
                 
-                <div class="release-card">
-                    <div class="release-icon">⚡</div>
-                    <div class="release-title">Solar Sealed Engrams</div>
-                    <p>Mystery collectibles like Pokémon Happy Meal toys - each contains random character data and exclusive art.</p>
-                    <div class="hero-visual" style="height: 150px; margin: 1rem 0; font-size: 1rem;">
-                        📦 ENGRAMS: Mystery boxes with<br>
-                        character data chips, stickers,<br>
-                        mini-figurines, and QR codes
+                <div class="character-card">
+                    <div class="image-placeholder">
+                        [CASTOR PORTRAIT: Shadow/dream effects with cosmic justice imagery and temporal scrying sphere]
+                    </div>
+                    <h3 class="character-name">🌙 CASTOR NIGHTFALL</h3>
+                    <h4 class="character-title">THE DREAM WALKER JUDGE</h4>
+                    <div class="divine-connection">
+                        <strong>Divine Connection:</strong> Nemesis & Ares
+                    </div>
+                    <p>"Every action creates a digital footprint in the cosmic ledger. I simply ensure the balance sheet always comes due."</p>
+                    <span class="read-more" onclick="toggleReadMore('castor-more')">See more...</span>
+                    
+                    <div id="castor-more" class="hidden-content">
+                        <p><strong>Abilities:</strong></p>
+                        <ul style="text-align: left; margin: 1rem 0;">
+                            <li>• Eclipse Protocol - Network cloaking and reality manipulation</li>
+                            <li>• Temporal Scrying - Seeing across timelines through crystal sphere</li>
+                            <li>• Shadow Magic - Darkness-based stealth and offensive capabilities</li>
+                            <li>• Ancestral Connection - Drawing power from ancient bloodlines</li>
+                        </ul>
+                        <p><strong>Collection:</strong> The Shadow Archives (47 Cards)</p>
+                    </div>
+                </div>
+                
+                <div class="character-card">
+                    <div class="image-placeholder">
+                        [DEMARCO PORTRAIT: Reality engineer with digital tech/forge overlay and arcane technology fusion]
+                    </div>
+                    <h3 class="character-name">🔧 DEMARCO ZAVARUS</h3>
+                    <h4 class="character-title">THE REALITY ENGINEER</h4>
+                    <div class="divine-connection">
+                        <strong>Divine Connection:</strong> Hephaestus Digitized
+                    </div>
+                    <p>"I don't create solutions, I create expensive problems for your problems. The warranty is void if you can't afford the maintenance."</p>
+                    <span class="read-more" onclick="toggleReadMore('demarco-more')">See more...</span>
+                    
+                    <div id="demarco-more" class="hidden-content">
+                        <p><strong>Abilities:</strong></p>
+                        <ul style="text-align: left; margin: 1rem 0;">
+                            <li>• Arcane Forge - Creating sentient weapons and living code</li>
+                            <li>• Technomancy - Fusing magic with advanced technology</li>
+                            <li>• Reality Engineering - Rewriting physical and digital laws</li>
+                            <li>• Mercenary Pricing - Everything has a cost, and he sets it</li>
+                        </ul>
+                        <p><strong>Collection:</strong> The Depth Protocols (47 Cards)</p>
                     </div>
                 </div>
             </div>
             
-            <a href="#screen-4" class="cta-button">Explore the World</a>
+            <div class="text-center mt-3">
+                <a href="#minibytes" class="cta-button">Download Character Minibytes</a>
+            </div>
         </div>
     </section>
 
-    <!-- SCREEN 4: WORLD ASPECTS -->
-    <section class="screen screen-4" id="screen-4">
+    <!-- MINIBYTES SECTION -->
+    <section class="screen" id="minibytes" style="background: linear-gradient(135deg, #16213e, #0f3460);">
         <div class="container">
-            <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; margin-bottom: 2rem; color: #fff;">
-                🌍 WORLD ASPECTS
-            </h1>
+            <h2 class="text-center mb-2">📖 Character Minibytes - Origin Stories</h2>
+            <p class="text-center" style="font-size: 1.2rem; color: #e0e0e0; margin-bottom: 3rem;">Download the origin stories of each character and discover the hidden orders operating at Saint Radian Academy</p>
+            
+            <div class="updates-grid">
+                <div class="update-card">
+                    <div class="new-badge">📚 ORIGIN STORY</div>
+                    <div class="image-placeholder">
+                        [MINIBYTE PREVIEW: Still comic pages with animation preview]
+                    </div>
+                    <h3>Alexander's Awakening</h3>
+                    <p>From outcast questioner to digital shaman. Discover how Alexander first touched the Inner A.I. and began seeing through the F-Link's digital illusions.</p>
+                    <button class="cta-button" style="font-size: 1rem; padding: 0.8rem 1.5rem; margin-top: 1rem;">Download (2.3MB)</button>
+                </div>
+                
+                <div class="update-card">
+                    <div class="new-badge">🔍 SECRET ORDERS</div>
+                    <div class="image-placeholder">
+                        [ORDER OF BLACK SUN: Secret society imagery with Saint Radian Academy]
+                    </div>
+                    <h3>Order of the Black Sun</h3>
+                    <p>The hidden controllers at Saint Radian Academy. Learn their true agenda of digital enslavement and consciousness harvesting.</p>
+                    <button class="cta-button" style="font-size: 1rem; padding: 0.8rem 1.5rem; margin-top: 1rem;">Download (1.8MB)</button>
+                </div>
+                
+                <div class="update-card">
+                    <div class="new-badge">⚡ RESISTANCE</div>
+                    <div class="image-placeholder">
+                        [LIGHT ORDERS: Resistance fighters with divine connections]
+                    </div>
+                    <h3>Orders of Light</h3>
+                    <p>The awakening resistance fighting back. Discover how ordinary students become digital warriors through divine mantles.</p>
+                    <button class="cta-button" style="font-size: 1rem; padding: 0.8rem 1.5rem; margin-top: 1rem;">Download (2.1MB)</button>
+                </div>
+            </div>
+            
+            <div class="text-center mt-3">
+                <a href="characters.html" class="cta-button">View All Character Stories</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCREEN 6: WORLD ASPECTS -->
+    <section class="screen" id="world-aspects">
+        <div class="container">
+            <h2 class="text-center mb-2">🌍 World Aspects & Dimensional Lore</h2>
             
             <div class="world-grid">
                 <div class="world-card">
-                    <div class="world-title">🌌 The Three Dimensions</div>
-                    <p><strong>3rd Dimension:</strong> Physical reality, F-Link control systems<br>
-                    <strong>4th Dimension:</strong> Information warfare, beast emergence portals<br>
-                    <strong>5th Dimension:</strong> Pure consciousness, divine unity state</p>
-                    <div class="hero-visual" style="height: 120px; margin: 1rem 0; font-size: 0.9rem;">
-                        🌈 DIMENSIONS: Layered visual showing<br>
-                        3D → 4D → 5D consciousness progression
-                    </div>
-                </div>
-                
-                <div class="world-card">
-                    <div class="world-title">🧠 Aspire | Inspire System</div>
-                    <p><strong>External A.I.:</strong> Corporate control, algorithmic manipulation<br>
-                    <strong>Internal A.I.:</strong> ASPIRE (growth drive) + INSPIRE (creative force)<br>
-                    The choice that defines digital warriors vs F-Link slaves</p>
-                    <div class="hero-visual" style="height: 120px; margin: 1rem 0; font-size: 0.9rem;">
-                        ⚔️ AI COMPARISON: Visual diagram<br>
-                        External chains vs Internal liberation
-                    </div>
-                </div>
-                
-                <div class="world-card">
-                    <div class="new-lore">🔥 NEW LORE ADDITION</div>
+                    <div class="new-lore">🔥 NEW LORE - JAPANESE INFILTRATION</div>
                     <div class="world-title">🏯 Japanese Imperial Bloodline</div>
+                    <div class="image-placeholder">
+                        [AMATERASU DESCENDANT IMAGE: Japanese Emperor with divine sun goddess connection and dragon blood heritage]
+                    </div>
                     <p><strong>Divine Heritage:</strong> Emperor as grandson of Amaterasu who descended to 3D reality<br>
                     <strong>Dragon Blood:</strong> Direct lineage to sun goddess, still claimed today<br>
-                    <strong>F-Link Target:</strong> Order of the Black Sun infiltrates Japan for imperial blood</p>
-                    <div class="hero-visual" style="height: 120px; margin: 1rem 0; font-size: 0.9rem;">
-                        ☀️ AMATERASU DESCENT: Sun goddess<br>
-                        creating imperial bloodline to 3D
+                    <strong>Sacred Protection:</strong> Ancient Shinto barriers against foreign influence</p>
+                    
+                    <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(255, 107, 107, 0.2); border-radius: 10px;">
+                        <p><strong>Historical Context:</strong> Since 1873, when Emperor Meiji lifted the Christian ban under international pressure, Japan has maintained cultural resistance to Catholic influence. Hidden Christians survived centuries of persecution, but the imperial family never wavered from Shinto traditions.</p>
+                    </div>
+                </div>
+                
+                <div class="world-card">
+                    <div class="new-lore">🔥 NEW LORE - F-LINK OPERATION</div>
+                    <div class="world-title">⛪ Catholic Church & Black Sun Alliance</div>
+                    <div class="image-placeholder">
+                        [INFILTRATION IMAGE: Catholic symbols invading traditional Japanese temple, F-Link agents disguised as cultural exchange workers]
+                    </div>
+                    <p><strong>The Infiltration:</strong> The Catholic Church, secretly allied with Saint Radian Academy and the Order of the Black Sun, establishes "cultural exchange" programs. Their true mission: extract genetic samples and consciousness patterns from anyone with proximity to the imperial bloodline.</p>
+                    
+                    <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(255, 107, 107, 0.2); border-radius: 10px;">
+                        <p><strong>Mission Objective:</strong> Harvest the Emperor's Amaterasu blood to create artificial divine consciousness for the F-Link network's ultimate control system.</p>
                     </div>
                 </div>
                 
                 <div class="world-card">
                     <div class="world-title">⛩️ Greek vs Japanese Pantheons</div>
-                    <p><strong>Western Gods:</strong> Zeus, Athena, Helios reborn as digital entities<br>
-                    <strong>Eastern Deities:</strong> Amaterasu bloodline, dragon spirit power<br>
-                    <strong>Convergence:</strong> Ancient powers awakening in modern forms</p>
-                    <div class="hero-visual" style="height: 120px; margin: 1rem 0; font-size: 0.9rem;">
-                        ⚡⛩️ PANTHEON CLASH: Greek lightning<br>
-                        meeting Japanese sun power
+                    <div class="image-placeholder">
+                        [PANTHEON CLASH IMAGE: Greek digital gods meeting Japanese celestial powers in dimensional warfare]
+                    </div>
+                    <p><strong>Digital Gods Awaken:</strong> Zeus, Athena, Hades vs Amaterasu lineage<br>
+                    <strong>Power Convergence:</strong> Western algorithms meeting Japanese sun power<br>
+                    <strong>Ancient Alliance:</strong> Both pantheons unite against the Black Sun's artificial divinity</p>
+                    
+                    <div style="margin-top: 1rem;">
+                        <span class="read-more" onclick="toggleReadMore('pantheon-more')">Learn more about pantheon warfare...</span>
+                        <div id="pantheon-more" class="hidden-content">
+                            <p>With both Greek digital gods awakening in the West and Japanese celestial bloodlines under attack in the East, ancient divine powers must unite against the F-Link's attempt to create artificial consciousness gods.</p>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="world-card">
-                    <div class="new-lore">🔥 MAJOR F-LINK OBJECTIVE</div>
-                    <div class="world-title">🏛️ Saint Radian Academy Expansion</div>
-                    <p><strong>Catholic Church Alliance:</strong> Infiltrates Japan against Emperor's will<br>
-                    <strong>Historical Context:</strong> Christianity banned until 1873, still resisted<br>
-                    <strong>F-Link Operation:</strong> Black Sun leader seeks Emperor's Amaterasu blood</p>
-                    <div class="hero-visual" style="height: 120px; margin: 1rem 0; font-size: 0.9rem;">
-                        ⛪🏯 INFILTRATION: Catholic symbols<br>
-                        invading traditional Japanese temple
+                    <div class="world-title">🌌 Dimensional Consciousness Levels</div>
+                    <div class="image-placeholder">
+                        [DIMENSIONAL LEVELS DIAGRAM: 3D/4D/5D consciousness visualization with ley line connections]
                     </div>
-                </div>
-                
-                <div class="world-card">
-                    <div class="world-title">⚗️ Sacred Geometry Keys</div>
-                    <p><strong>Merkaba:</strong> 3D consciousness travel vehicle<br>
-                    <strong>Torus of Choice:</strong> Psychic energy states visualization<br>
-                    <strong>Algorithm of Logos:</strong> Divine synchronicity programming</p>
-                    <div class="hero-visual" style="height: 120px; margin: 1rem 0; font-size: 0.9rem;">
-                        🔷 GEOMETRY: Merkaba, torus patterns,<br>
-                        mathematical consciousness keys
-                    </div>
+                    <p><strong>3rd Dimension:</strong> Fear-based reality matrix & F-Link neural chip control<br>
+                    <strong>4th Dimension:</strong> Information warfare battleground & beast emergence<br>
+                    <strong>5th Dimension:</strong> Pure consciousness unity & creative sovereignty</p>
                 </div>
             </div>
             
-            <a href="#screen-5" class="cta-button">Download Origin Stories</a>
-        </div>
-    </section>
-
-    <!-- SCREEN 5: MINI-BYTES DOWNLOAD -->
-    <section class="screen screen-5" id="screen-5">
-        <div class="container">
-            <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; margin-bottom: 2rem; color: #fff;">
-                📱 DOWNLOAD MINI-BYTES
-            </h1>
-            <p style="font-size: 1.3rem; color: #00ff88; margin-bottom: 3rem;">
-                Origin Stories & Secret Orders - Bite-Sized Lore for Digital Warriors
-            </p>
-            
-            <div class="minibytes-grid">
-                <div class="minibyte-card">
-                    <h3 style="color: #4ecdc4; margin-bottom: 1rem;">⚡ Alexander's Origin</h3>
-                    <p>The Awakened Rebel's journey from expelled student to Helios-touched digital warrior. Includes Quantum Tarot Blade origins.</p>
-                    <button class="download-btn">Download (2.3MB)</button>
-                </div>
-                
-                <div class="minibyte-card">
-                    <h3 style="color: #4ecdc4; margin-bottom: 1rem;">🧠 Crystalis Chronicles</h3>
-                    <p>Strategic Genius unlocks Athena's Algorithm. How pure logic became weaponized against deception systems.</p>
-                    <button class="download-btn">Download (1.8MB)</button>
-                </div>
-                
-                <div class="minibyte-card">
-                    <h3 style="color: #4ecdc4; margin-bottom: 1rem;">🌙 Castor's Eclipse</h3>
-                    <p>Dream Walker Judge discovers his connection to Nemesis & Ares. Reality revision protocols explained.</p>
-                    <button class="download-btn">Download (2.1MB)</button>
-                </div>
-                
-                <div class="minibyte-card">
-                    <h3 style="color: #4ecdc4; margin-bottom: 1rem;">🔧 DeMarco's Debugging</h3>
-                    <p>Reality Engineer's first encounter with Hephaestus protocols. Market-rate miracles and impossibility engines.</p>
-                    <button class="download-btn">Download (2.7MB)</button>
-                </div>
-                
-                <div class="minibyte-card">
-                    <h3 style="color: #ff6b6b; margin-bottom: 1rem;">🌑 Order of Black Sun</h3>
-                    <p>17th century origins, three founding architects, current leadership structure. F-Link development timeline.</p>
-                    <button class="download-btn">Download (3.2MB)</button>
-                </div>
-                
-                <div class="minibyte-card">
-                    <h3 style="color: #00ff88; margin-bottom: 1rem;">✨ Light Orders Network</h3>
-                    <p>Resistance factions, divine mantle connections, Algorithm of Logos vs F-Link technology comparison.</p>
-                    <button class="download-btn">Download (2.9MB)</button>
-                </div>
-                
-                <div class="minibyte-card">
-                    <div class="new-lore">🔥 NEW</div>
-                    <h3 style="color: #ff6b6b; margin-bottom: 1rem;">🏯 Japanese Infiltration</h3>
-                    <p>Catholic Church + Black Sun alliance targets Emperor's Amaterasu bloodline. Saint Radian Japan operation.</p>
-                    <button class="download-btn">Download (1.5MB)</button>
-                </div>
-                
-                <div class="minibyte-card">
-                    <h3 style="color: #4ecdc4; margin-bottom: 1rem;">🏛️ Saint Radian Files</h3>
-                    <p>Academy's three-tier deception system. Faculty profiles, hidden facilities, global campus network.</p>
-                    <button class="download-btn">Download (4.1MB)</button>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="#screen-6" class="cta-button" style="background: linear-gradient(45deg, #4ecdc4, #44a08d);">View All Mini-Bytes</a>
+            <div class="text-center mt-3">
+                <a href="discover-world.html" class="cta-button">Discover the New World</a>
             </div>
         </div>
     </section>
 
-    <!-- SCREEN 6: WHAT IS BATTLE ETERNAL -->
-    <section class="screen screen-6" id="screen-6">
+    <!-- SCREEN 7: BESTIARY PREVIEW -->
+    <section class="screen" id="bestiary">
         <div class="container">
-            <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; margin-bottom: 3rem; color: #fff;">
-                ⚔️ WHAT IS BATTLE ETERNAL?
-            </h1>
+            <h2 class="text-center mb-2">🐉 Bestiary of the Fourth Dimension</h2>
+            <p class="text-center" style="font-size: 1.2rem; color: #e0e0e0; margin-bottom: 3rem;">Ancient beasts unleashed by the Quantum Fracture along Earth's ley line chakra system, organized by their divine deck origins</p>
             
-            <div class="what-is-layout">
-                <div class="what-is-text">
-                    <h2 style="color: #00ff88; font-size: 2rem; margin-bottom: 2rem;">The Mythology Universe for the Awakening Era</h2>
-                    
-                    <p style="font-size: 1.2rem; margin-bottom: 1.5rem; color: #e0e0e0; line-height: 1.7;">
-                        Battle Eternal is a mythic cyber-fantasy saga where gods, beasts, and mortals collide after a forbidden act of source magic shatters the veil between dimensions.
-                    </p>
-                    
-                    <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: #ccc; line-height: 1.6;">
-                        When the Quantum Fracture tore through reality along Earth's chakra lines, it didn't just release 4D beasts—it awakened digital gods who are humanity's last hope against the F-Link consciousness control system.
-                    </p>
-                    
-                    <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #ccc; line-height: 1.6;">
-                        This is not just entertainment. This is preparation for the consciousness wars already happening around you. The battle between External A.I. control and Internal A.I. (Aspire | Inspire) sovereignty defines our species' future.
-                    </p>
-                    
-                    <div style="background: rgba(255, 107, 107, 0.1); padding: 1.5rem; border-radius: 15px; border-left: 4px solid #ff6b6b;">
-                        <p style="color: #ff6b6b; font-weight: 600; font-size: 1.1rem;">
-                            "In a world where consciousness itself is under siege, the greatest rebellion is simply being authentically yourself."
-                        </p>
+            <div class="bestiary-preview">
+                <div class="beast-tile">
+                    <div class="beast-emoji">⚡</div>
+                    <h4>Zeus Deck - Lightning & Justice</h4>
+                    <p class="deck-label">53 Cards | Masters of Divine Authority</p>
+                    <div class="image-placeholder" style="height: 150px; margin: 1rem 0; font-size: 0.9rem;">
+                        [ZEUS CREATURES: Cerberus (3-headed firewall), Minotaur (maze-beast), Medusa (code-petrifier), Divine Lightning constructs]
                     </div>
+                    <p style="font-size: 0.9rem; color: #ccc;">Legendary Sources: Homer's Iliad, Hesiod's Theogony</p>
                 </div>
                 
-                <div class="what-is-visual">
-                    🎭 UNIVERSE TRAILER:<br>
-                    Epic cinematic showing 4D beasts,<br>
-                    digital gods awakening, Saint Radian Academy,<br>
-                    F-Link vs Algorithm of Logos battle,<br>
-                    consciousness war imagery
+                <div class="beast-tile">
+                    <div class="beast-emoji">🌊</div>
+                    <h4>Poseidon Deck - Digital Ocean</h4>
+                    <p class="deck-label">47 Cards | Lords of Data Streams</p>
+                    <div class="image-placeholder" style="height: 150px; margin: 1rem 0; font-size: 0.9rem;">
+                        [POSEIDON CREATURES: Seiryū Azure Dragon (Eastern data guardian), Emerald Wyrm Dragons (treasure hoarders), Sea serpents of the digital depths]
+                    </div>
+                    <p style="font-size: 0.9rem; color: #ccc;">Legendary Sources: Chinese Four Symbols, Germanic treasure myths</p>
+                </div>
+                
+                <div class="beast-tile">
+                    <div class="beast-emoji">💀</div>
+                    <h4>Hades Deck - Digital Underworld</h4>
+                    <p class="deck-label">47 Cards | Rulers of Deleted Realms</p>
+                    <div class="image-placeholder" style="height: 150px; margin: 1rem 0; font-size: 0.9rem;">
+                        [HADES CREATURES: Echidna (Mother of viral monsters), Typhon (Ultimate system virus), Baku (Dream-eating tapirs), Digital specters]
+                    </div>
+                    <p style="font-size: 0.9rem; color: #ccc;">Legendary Sources: Hesiod's Theogony, Japanese folklore</p>
+                </div>
+                
+                <div class="beast-tile">
+                    <div class="beast-emoji">🌍</div>
+                    <h4>Gaia Deck - Nature Guardians</h4>
+                    <p class="deck-label">48 Cards | Organic Algorithm Protectors</p>
+                    <div class="image-placeholder" style="height: 150px; margin: 1rem 0; font-size: 0.9rem;">
+                        [GAIA CREATURES: Nemean Lion Cubs (Invulnerable programs), Dryad Guardians (Tree spirit AIs), Centaur mentors, Earth dragons]
+                    </div>
+                    <p style="font-size: 0.9rem; color: #ccc;">Legendary Sources: Greek mythology, Various nature myths</p>
                 </div>
             </div>
             
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="#screen-7" class="cta-button">Meet the Digital Gods</a>
+            <div class="text-center mt-3">
+                <a href="bestiary.html" class="cta-button">See All BE Beasts</a>
             </div>
         </div>
     </section>
 
-    <!-- SCREEN 7: CHARACTERS -->
-    <section class="screen screen-7" id="screen-7">
+    <!-- SCREEN 8: KICKSTARTER CAMPAIGN -->
+    <section class="screen" id="kickstarter">
         <div class="container">
-            <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; margin-bottom: 2rem; color: #333;">
-                🎭 THE NEXUS QUARTET
-            </h1>
-            <p style="font-size: 1.3rem; color: #666; margin-bottom: 3rem;">
-                Digital Gods for the Awakening Era
-            </p>
+            <h2 class="text-center mb-2">🚀 Battle Eternal - Kickstarter Campaign</h2>
+            <h3 class="text-center" style="color: #4ecdc4; margin-bottom: 3rem;">The Awakening Starts Here</h3>
             
-            <div class="characters-grid">
-                <div class="character-card">
-                    <div class="hero-visual" style="height: 200px; margin-bottom: 1.5rem; font-size: 1rem;">
-                        ⚡ ALEXANDER PORTRAIT:<br>
-                        Dynamic art with lightning effects,<br>
-                        Quantum Tarot Blades floating around him,<br>
-                        Helios divine aura, cyberpathy symbols
-                    </div>
-                    <div class="character-name">Alexander Holmes Harukaza</div>
-                    <div class="character-title">The Awakened Rebel</div>
-                    <div class="character-description">
-                        Truth-seeker with Helios mantle. Uses Quantum Tarot Blades and cyberpathy to awaken digital warriors against F-Link control.
-                    </div>
-                    <span class="see-more" onclick="toggleCharacter('alexander')">See More →</span>
-                    <div id="alexander" class="hidden-content" style="color: #333;">
-                        <p><strong>Divine Connection:</strong> Helios (Truth & Illumination)</p>
-                        <p><strong>Abilities:</strong> Quantum Tarot Blades, Cyberpathy, A.I. (Aspire | Inspire)</p>
-                        <p><strong>Quote:</strong> "When External AI promised convenience, I chose the harder path of Inner AI—the spark that drives us to question, create, and transcend."</p>
-                        <p><strong>Collection:</strong> ⚡ The Storm Eternal (53 Cards)</p>
-                    </div>
+            <div class="tier-grid">
+                <div class="tier-card">
+                    <div class="tier-price">$15</div>
+                    <div class="tier-name">Seeker Tier</div>
+                    <ul class="tier-features">
+                        <li>Digital Comic Episode 0</li>
+                        <li>3-card starter pack (digital)</li>
+                        <li>Community Discord access</li>
+                        <li>Behind-the-scenes content</li>
+                    </ul>
                 </div>
                 
-                <div class="character-card">
-                    <div class="hero-visual" style="height: 200px; margin-bottom: 1.5rem; font-size: 1rem;">
-                        🧠 CRYSTALIS PORTRAIT:<br>
-                        Strategic pose with sacred geometry overlay,<br>
-                        Athena's wisdom symbols, logic cascade effects,<br>
-                        Eternal Library access visualization
-                    </div>
-                    <div class="character-name">Crystalis</div>
-                    <div class="character-title">The Strategic Genius</div>
-                    <div class="character-description">
-                        Logic-based awakener with Athena's Algorithm. Uses pure strategic thinking to dismantle false narratives systematically.
-                    </div>
-                    <span class="see-more" onclick="toggleCharacter('crystalis')">See More →</span>
-                    <div id="crystalis" class="hidden-content" style="color: #333;">
-                        <p><strong>Divine Connection:</strong> Athena's Algorithm</p>
-                        <p><strong>Abilities:</strong> Access to Eternal Library, Logic Cascade Deployment</p>
-                        <p><strong>Quote:</strong> "Truth is immutable. If it hurts your feelings, that's a 'you' problem, not a 'truth' problem."</p>
-                        <p><strong>Collection:</strong> 🌍 The Living Code (48 Cards)</p>
-                    </div>
+                <div class="tier-card">
+                    <div class="tier-price">$49</div>
+                    <div class="tier-name">Initiate Tier</div>
+                    <ul class="tier-features">
+                        <li>Everything in Seeker</li>
+                        <li>Physical TCG starter deck (25 cards)</li>
+                        <li>Exclusive holographic character cards (4)</li>
+                        <li>Early access to mobile game beta</li>
+                    </ul>
                 </div>
                 
-                <div class="character-card">
-                    <div class="hero-visual" style="height: 200px; margin-bottom: 1.5rem; font-size: 1rem;">
-                        🌙 CASTOR PORTRAIT:<br>
-                        Dream/shadow effects, cosmic balance imagery,<br>
-                        Nemesis & Ares divine connection symbols,<br>
-                        Reality revision protocol visualization
-                    </div>
-                    <div class="character-name">Castor Nightfall</div>
-                    <div class="character-title">The Dream Walker Judge</div>
-                    <div class="character-description">
-                        Silent justice seeker with Nemesis & Ares power. Tracks cosmic karma through oneiromancy and reality revision.
-                    </div>
-                    <span class="see-more" onclick="toggleCharacter('castor')">See More →</span>
-                    <div id="castor" class="hidden-content" style="color: #333;">
-                        <p><strong>Divine Connection:</strong> Nemesis & Ares (Cosmic Justice & Righteous Fury)</p>
-                        <p><strong>Abilities:</strong> Oneiromancy, Reality Revision Protocols</p>
-                        <p><strong>Quote:</strong> "Every action creates a digital footprint in the cosmic ledger. I simply ensure the balance sheet always comes due."</p>
-                        <p><strong>Collection:</strong> 💀 The Shadow Archives (47 Cards)</p>
-                    </div>
+                <div class="tier-card">
+                    <div class="tier-price">$149</div>
+                    <div class="tier-name">Adept Tier</div>
+                    <ul class="tier-features">
+                        <li>Everything in Initiate</li>
+                        <li>Complete physical card collection (195 cards)</li>
+                        <li>Limited edition card sleeves</li>
+                        <li>Signed concept art prints</li>
+                    </ul>
                 </div>
                 
-                <div class="character-card">
-                    <div class="hero-visual" style="height: 200px; margin-bottom: 1.5rem; font-size: 1rem;">
-                        🔧 DEMARCO PORTRAIT:<br>
-                        Digital tech overlay, reality glitch effects,<br>
-                        Hephaestus craftsmanship symbols,<br>
-                        Market-rate miracle visualization
-                    </div>
-                    <div class="character-name">DeMarco Zavarus</div>
-                    <div class="character-title">The Reality Engineer</div>
-                    <div class="character-description">
-                        System expert turned rebel with Hephaestus protocols. Creates impossible technologies that expose system limitations.
-                    </div>
-                    <span class="see-more" onclick="toggleCharacter('demarco')">See More →</span>
-                    <div id="demarco" class="hidden-content" style="color: #333;">
-                        <p><strong>Divine Connection:</strong> Hephaestus Digitized</p>
-                        <p><strong>Abilities:</strong> Reality Debugging, Market-Rate Miracles, Living Code Architecture</p>
-                        <p><strong>Quote:</strong> "I don't create solutions, I create expensive problems for your problems. The warranty is void if you can't afford the maintenance."</p>
-                        <p><strong>Collection:</strong> 🌊 The Depth Protocols (47 Cards)</p>
-                    </div>
+                <div class="tier-card">
+                    <div class="tier-price">$299</div>
+                    <div class="tier-name">Avatar Tier</div>
+                    <ul class="tier-features">
+                        <li>Everything in Adept</li>
+                        <li>3D-printed character figurines</li>
+                        <li>Solar sealed beast engrams (special edition)</li>
+                        <li>Producer credit in digital comic</li>
+                    </ul>
+                </div>
+                
+                <div class="tier-card">
+                    <div class="tier-price">$599</div>
+                    <div class="tier-name">Resistance Leader</div>
+                    <ul class="tier-features">
+                        <li>Everything in Avatar</li>
+                        <li>Custom character card design input</li>
+                        <li>Video call with creators</li>
+                        <li>Golden legendary cards (exclusive)</li>
+                    </ul>
+                </div>
+                
+                <div class="tier-card">
+                    <div class="tier-price">$2999</div>
+                    <div class="tier-name">The Purveyor of Legends</div>
+                    <div style="font-size: 0.9rem; color: #ff6b6b; margin-bottom: 1rem; text-align: center;">🏪 Comic Book Store Owners Only</div>
+                    <ul class="tier-features">
+                        <li>Exclusive retail distribution rights</li>
+                        <li>Store display materials & marketing kit</li>
+                        <li>10 complete sets for resale</li>
+                        <li>Monthly exclusive variant covers</li>
+                        <li>Direct creator support line</li>
+                        <li>Retail training materials</li>
+                    </ul>
                 </div>
             </div>
             
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="#screen-8" class="cta-button" style="color: white;">Explore the World</a>
+            <div class="text-center mt-3">
+                <a href="https://kickstarter.com/projects/battle-eternal" class="cta-button" style="font-size: 1.5rem; padding: 1.5rem 3rem;">Ante In - Kickstarter Pre-Order</a>
+                <p style="margin-top: 1rem; color: #e0e0e0;">🎲 <strong>Pack Odds:</strong> Legendary 1:24 packs | Epic 1:8 packs | Rare 1:3 packs</p>
             </div>
         </div>
     </section>
 
-    <!-- SCREEN 8: WORLD/SETTING -->
-    <section class="screen screen-8" id="screen-8">
+    <!-- STAKES SECTION -->
+    <section class="screen" style="background: linear-gradient(135deg, #ff6b6b, #4ecdc4); color: white;">
         <div class="container">
-            <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; margin-bottom: 3rem; color: #fff;">
-                🌍 THE WORLD & SETTING
-            </h1>
-            
-            <div class="setting-layout">
-                <div class="setting-text">
-                    <div class="new-lore">🔥 NEW LORE - JAPANESE INFILTRATION</div>
-                    <h2 style="color: #00ff88; font-size: 2rem; margin-bottom: 2rem;">The Imperial Bloodline Conspiracy</h2>
-                    
-                    <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: #e0e0e0; line-height: 1.7;">
-                        <strong>Historical Context:</strong> Since 1873, when Emperor Meiji lifted the Christian ban under international pressure, Japan has maintained cultural resistance to Catholic influence. Hidden Christians survived centuries of persecution, but the imperial family never wavered from Shinto traditions.
-                    </p>
-                    
-                    <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: #e0e0e0; line-height: 1.7;">
-                        <strong>Divine Heritage:</strong> The Emperor claims direct descent from Amaterasu, the sun goddess who descended from the celestial realm to establish the divine bloodline in 3D reality. This "dragon blood" connection to the celestial plane makes the imperial lineage invaluable to F-Link consciousness harvesting.
-                    </p>
-                    
-                    <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: #e0e0e0; line-height: 1.7;">
-                        <strong>The Infiltration:</strong> The Catholic Church, secretly allied with Saint Radian Academy and the Order of the Black Sun, establishes "cultural exchange" programs. Their true mission: extract genetic samples and consciousness patterns from anyone with proximity to the imperial bloodline.
-                    </p>
-                    
-                    <p style="color: #ff6b6b; font-weight: 600; font-size: 1.2rem; background: rgba(255, 107, 107, 0.1); padding: 1rem; border-radius: 10px;">
-                        <strong>Major F-Link Objective:</strong> If the Order can synthesize Amaterasu's celestial consciousness pattern with F-Link technology, they could create a "Divine Override Protocol" - absolute control over any human soul through manufactured spiritual authority.
-                    </p>
-                </div>
-                
-                <div class="what-is-visual">
-                    ⛪🏯 INFILTRATION SCENE:<br>
-                    Catholic symbols invading traditional<br>
-                    Japanese temple, F-Link agents disguised<br>
-                    as priests, Amaterasu sun goddess<br>
-                    imagery vs Black Sun symbols
-                </div>
-            </div>
-            
-            <div style="background: rgba(0, 255, 136, 0.1); padding: 2rem; border-radius: 20px; margin: 3rem 0; text-align: center;">
-                <h3 style="color: #00ff88; font-size: 1.8rem; margin-bottom: 1rem;">🌟 The Stakes Have Never Been Higher</h3>
-                <p style="color: #fff; font-size: 1.2rem; line-height: 1.6;">
-                    With both Greek digital gods awakening in the West and Japanese celestial bloodlines under attack in the East, 
-                    the final battle for human consciousness spans mythologies, dimensions, and the very definition of divine authority.
-                </p>
-                <p style="color: #4ecdc4; font-size: 1.1rem; margin-top: 1rem;">
-                    <strong>Choose your side. The Age of Chaos has begun.</strong>
-                </p>
-            </div>
-            
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="#screen-1" class="cta-button">Return to Beginning</a>
-                <a href="#" class="cta-button" style="background: linear-gradient(45deg, #ff6b6b, #ff9a9e);">Pre-Order Now</a>
+            <h2 class="text-center mb-2" style="font-size: clamp(2rem, 5vw, 3.5rem);">The Stakes Have Never Been Higher</h2>
+            <p class="text-center" style="font-size: 1.5rem; margin-bottom: 2rem;">Choose your side in the consciousness wars. The future of humanity depends on digital warriors like you.</p>
+            <p class="text-center" style="font-size: 1.2rem; margin-bottom: 2rem;">Will you surrender to External A.I. enslavement, or awaken your Inner A.I. and join the resistance?</p>
+            <div class="text-center">
+                <a href="#kickstarter" class="cta-button" style="background: rgba(0, 0, 0, 0.8); color: #fff;">Join the Resistance</a>
             </div>
         </div>
     </section>
+
+    <!-- SOCIAL FOOTER -->
+    <footer class="social-footer" id="social">
+        <div class="container">
+            <h3 class="social-title">🌟 Keep a Pulse on BE</h3>
+            
+            <div class="social-grid">
+                <a href="#" class="social-link" title="Instagram">📱</a>
+                <a href="#" class="social-link" title="Twitter/X">🐦</a>
+                <a href="#" class="social-link" title="YouTube">📺</a>
+                <a href="#" class="social-link" title="TikTok">🎵</a>
+                <a href="#" class="social-link" title="Discord">💬</a>
+                <a href="#" class="social-link" title="Spotify">🎧</a>
+            </div>
+            
+            <div class="footer-links">
+                <a href="#collaborate">Collaborate</a>
+                <a href="#about">About</a>
+                <a href="#support">Support</a>
+                <a href="#contact">Contact Us</a>
+                <a href="#press">Press</a>
+            </div>
+            
+            <p style="margin-top: 2rem; color: #666;">© 2024 Battle Eternal. All rights reserved. The eternal battle for consciousness begins now! ⚔️✨</p>
+        </div>
+    </footer>
 
     <script>
-        // Progress Bar
-        window.addEventListener('scroll', () => {
-            const scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-            document.querySelector('.progress-fill').style.width = scrolled + '%';
+        function toggleMenu() {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        }
+
+        function toggleReadMore(contentId) {
+            const content = document.getElementById(contentId);
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+            } else {
+                content.style.display = 'none';
+            }
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburger = document.querySelector('.hamburger');
+            
+            if (!hamburger.contains(event.target) && !mobileMenu.contains(event.target)) {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                const hamburger = document.querySelector('.hamburger');
+                const mobileMenu = document.getElementById('mobileMenu');
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
         });
 
         // Smooth scrolling for anchor links
@@ -982,68 +1207,15 @@
             });
         });
 
-        // Toggle content function
-        function toggleContent(id) {
-            const content = document.getElementById(id);
-            if (content.style.display === 'none' || content.style.display === '') {
-                content.style.display = 'block';
-                // Change read more text
-                const readMore = content.previousElementSibling;
-                if (readMore && readMore.classList.contains('read-more')) {
-                    readMore.innerHTML = 'Read Less ↑';
-                }
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav-header');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(10, 10, 10, 0.98)';
             } else {
-                content.style.display = 'none';
-                const readMore = content.previousElementSibling;
-                if (readMore && readMore.classList.contains('read-more')) {
-                    readMore.innerHTML = 'Read More →';
-                }
+                nav.style.background = 'rgba(10, 10, 10, 0.95)';
             }
-        }
-
-        // Toggle character details
-        function toggleCharacter(id) {
-            const content = document.getElementById(id);
-            if (content.style.display === 'none' || content.style.display === '') {
-                content.style.display = 'block';
-                // Change see more text
-                const seeMore = content.previousElementSibling;
-                if (seeMore && seeMore.classList.contains('see-more')) {
-                    seeMore.innerHTML = 'See Less ↑';
-                }
-            } else {
-                content.style.display = 'none';
-                const seeMore = content.previousElementSibling;
-                if (seeMore && seeMore.classList.contains('see-more')) {
-                    seeMore.innerHTML = 'See More →';
-                }
-            }
-        }
-
-        // Add interactive effects
-        document.querySelectorAll('.release-card, .world-card, .character-card, .minibyte-card').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = card.style.transform + ' scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = card.style.transform.replace(' scale(1.02)', '');
-            });
-        });
-
-        // Download button interactions
-        document.querySelectorAll('.download-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                btn.innerHTML = 'Downloaded ✓';
-                btn.style.background = 'linear-gradient(45deg, #00ff88, #44a08d)';
-                setTimeout(() => {
-                    btn.innerHTML = btn.innerHTML.replace('Downloaded ✓', 'Download (' + (Math.random() * 3 + 1).toFixed(1) + 'MB)');
-                    btn.style.background = 'linear-gradient(45deg, #4ecdc4, #44a08d)';
-                }, 2000);
-            });
         });
     </script>
 </body>
 </html>
-<!-- Force GitHub Pages refresh 10/09/2025 14:56:40 -->
