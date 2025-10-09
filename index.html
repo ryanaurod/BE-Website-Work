@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle Eternal - Welcome to the Age of Chaos</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="The Quantum Fracture tore through Earth's chakra lines. Ancient beasts emerge from the Fourth Dimension. Choose your side in the consciousness revolution.">
+    <meta property="og:title" content="Battle Eternal - Welcome to the Age of Chaos">
+    <meta property="og:description" content="Ley lines cracked, portals opened, digital gods awakened. Join the resistance against the F-Link system.">
+    <meta property="og:image" content="https://battle-eternal.com/images/quantum-fracture-hero.jpg">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            line-height: 1.6;
+        }
+
+        .screen {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* SCREEN 1: WELCOME TO BATTLE ETERNAL */
+        .screen-1 {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="fracture" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%23ff6b6b;stop-opacity:0.3"/><stop offset="50%" style="stop-color:%234ecdc4;stop-opacity:0.2"/><stop offset="100%" style="stop-color:%23000;stop-opacity:0.8"/></radialGradient></defs><rect width="100%" height="100%" fill="url(%23fracture)"/></svg>');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #fff;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+            to { text-shadow: 0 0 40px rgba(255, 107, 107, 0.8), 0 0 60px rgba(78, 205, 196, 0.6); }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: #00ff88;
+            margin-bottom: 3rem;
+            text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+        }
+
+        .fracture-story {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            color: #e0e0e0;
+            line-height: 1.8;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .image-placeholder {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border: 3px dashed #fff;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            color: #fff;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-placeholder::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            margin: 1rem;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.5);
+            filter: brightness(1.1);
+        }
+
+        /* SCREEN 2: LATEST UPDATES */
+        .screen-2 {
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(120, 255, 214, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 107, 107, 0.1) 0%, transparent 50%);
+        }
+
+        .updates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .update-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .update-card:hover {
+            transform: translateY(-10px);
+            border-color: #00ff88;
+            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.2);
+        }
+
+        .update-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .update-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #00ff88;
+        }
+
+        .update-description {
+            color: #ccc;
+            font-size: 1rem;
+        }
+
+        /* SCREEN 3: WHAT IS BATTLE ETERNAL */
+        .screen-3 {
+            background: linear-gradient(45deg, #2d1b69, #11998e, #38ef7d);
+            position: relative;
+        }
+
+        .what-is-section {
+            text-align: left;
+            max-width: 1000px;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            color: #fff;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+            text-align: center;
+        }
+
+        .main-description {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            margin-bottom: 3rem;
+            color: #f0f0f0;
+            text-align: center;
+        }
+
+        .gods-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .god-item {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border-left: 4px solid #00ff88;
+        }
+
+        .god-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #00ff88;
+            margin-bottom: 0.5rem;
+        }
+
+        .god-title {
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .god-divine {
+            color: #ccc;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .stats-section {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #00ff88;
+            display: block;
+        }
+
+        .stat-label {
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        /* SCREEN 4: CHARACTER INTRODUCTIONS */
+        .screen-4 {
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+        }
+
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .character-card {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 25px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .character-card:hover {
+            transform: scale(1.05);
+            border-color: #00ff88;
+            box-shadow: 0 25px 50px rgba(0, 255, 136, 0.3);
+        }
+
+        .character-avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .character-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .character-title {
+            color: #00ff88;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .character-quote {
+            font-size: 1rem;
+            color: #ccc;
+            line-height: 1.6;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border-left: 3px solid #00ff88;
+            background: rgba(0, 255, 136, 0.1);
+        }
+
+        .character-details {
+            text-align: left;
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+
+        .collection-badge {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-size: 1rem;
+            color: white;
+            font-weight: 600;
+            margin: 1rem 0;
+            display: inline-block;
+        }
+
+        .compendium-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: left;
+        }
+
+        .compendium-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .compendium-item {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .compendium-title {
+            color: #ff6b6b;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        /* SCREEN 5: KICKSTARTER CAMPAIGN */
+        .screen-5 {
+            background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
+        }
+
+        .campaign-header {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .tier-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .tier-card:hover {
+            border-color: #00ff88;
+            background: rgba(0, 255, 136, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .tier-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #00ff88;
+            margin-bottom: 0.5rem;
+        }
+
+        .tier-price {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .tier-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .tier-features li {
+            color: #ccc;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .tier-features li:before {
+            content: "✓";
+            color: #00ff88;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* SCREEN 6: BUNDLES & SUBSCRIPTIONS */
+        .screen-6 {
+            background: linear-gradient(135deg, #ff9a9e, #fecfef, #fecfef);
+            color: #333;
+        }
+
+        .bundles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .bundle-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .bundle-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .bundle-badge {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            position: absolute;
+            top: -10px;
+            right: 20px;
+        }
+
+        .bundle-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .bundle-price {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #ff6b6b;
+            margin-bottom: 0.5rem;
+        }
+
+        .bundle-original {
+            text-decoration: line-through;
+            color: #666;
+            font-size: 1.2rem;
+            margin-left: 1rem;
+        }
+
+        .subscription-section {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 3rem 0;
+            color: #333;
+        }
+
+        /* SCREEN 7: FOOTER */
+        .screen-7 {
+            background: linear-gradient(45deg, #000000, #1a1a2e, #16213e);
+            padding: 4rem 2rem;
+            text-align: left;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: #00ff88;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #00ff88;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            text-align: center;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .screen {
+                padding: 1rem;
+            }
+            
+            .character-grid, .updates-grid, .gods-list, .tiers-grid, .bundles-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Scroll Progress */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+        <div class="progress-fill"></div>
+    </div>
+
+    <!-- SCREEN 1: WELCOME TO BATTLE ETERNAL -->
+    <section class="screen screen-1" id="screen-1">
+        <div class="container">
+            <div class="image-placeholder" style="height: 300px; font-size: 1.5rem;">
+                🌌 HERO IMAGE: Quantum Fracture Event<br>
+                Ley lines glowing across Earth, monoliths cracking open,<br>
+                4D portals releasing ancient beasts, sacred geometry patterns
+            </div>
+            
+            <h1 class="hero-title">🌌 WELCOME TO THE AGE OF CHAOS</h1>
+            
+            <p class="hero-subtitle">When Reality Fractured, Everything Changed</p>
+            
+            <div class="fracture-story">
+                <p>The Fracture was not a random tear in the sky—it was a calculated rupture along Earth's ancient ley lines, the planet's own chakra system. At sacred monoliths where energy pools, the ground split open. From these wounds, raw power from the planet's core ripped open portals to the Fourth Dimension, unleashing beasts of myth and memory.</p>
+                
+                <p>This event, the Quantum Fracture, didn't just change the world—it weaponized it. The Order of the Black Sun and their F-Link network saw the chaos as the ultimate opportunity, a chance to harvest humanity's fear and accelerate their agenda of absolute control.</p>
+                
+                <p>But the same energy that empowered them also awakened something else: a divine spark within ordinary people, the echo of the Logos. Humanity's evolution is no longer a choice. At this crossroads, every soul must decide:</p>
+                
+                <p><strong>Will you surrender your will to the cold logic of the Order's External A.I., or will you awaken the creative fire of Internal A.I. and fight for the future?</strong></p>
+            </div>
+            
+            <a href="#screen-2" class="cta-button">Choose Your Side</a>
+            
+            <div class="image-placeholder" style="height: 200px; margin-top: 3rem;">
+                🔮 FLOATING ELEMENTS: Sacred geometry patterns,<br>
+                Divine mantle symbols, chakra energy flows
+            </div>
+        </div>
+    </section>
+
+    <!-- SCREEN 2: LATEST UPDATES -->
+    <section class="screen screen-2" id="screen-2">
+        <div class="container">
+            <h1 class="section-title">⚡ LATEST FROM THE RESISTANCE</h1>
+            
+            <div class="updates-grid">
+                <div class="update-card">
+                    <div class="update-icon">🎮</div>
+                    <div class="update-title">TCG PRE-ORDERS LIVE</div>
+                    <div class="update-description">
+                        The Storm Eternal, Depth Protocols, Shadow Archives & Living Code collections ready for digital warriors. 195 cards of mythological power await.
+                    </div>
+                    <div class="image-placeholder" style="height: 150px; margin-top: 1rem;">
+                        🃏 TCG CARDS: Fanned display of all 4 collections<br>
+                        with holographic effects and power emanations
+                    </div>
+                </div>
+                
+                <div class="update-card">
+                    <div class="update-icon">📚</div>
+                    <div class="update-title">DIGITAL COMIC SERIES</div>
+                    <div class="update-description">
+                        Episode 0: "The Quantum Fracture" - Watch reality tear apart in our debut visual novel. The academy's darkest secrets revealed.
+                    </div>
+                    <div class="image-placeholder" style="height: 150px; margin-top: 1rem;">
+                        📖 COMIC PANELS: Cinematic layout showing<br>
+                        Quantum Fracture sequence and character reveals
+                    </div>
+                </div>
+                
+                <div class="update-card">
+                    <div class="update-icon">📱</div>
+                    <div class="update-title">MOBILE CARD GAME</div>
+                    <div class="update-description">
+                        Battle with your TCG collection anywhere. Connected gameplay between physical and digital realms. Coming Soon!
+                    </div>
+                    <div class="image-placeholder" style="height: 150px; margin-top: 1rem;">
+                        📲 MOBILE MOCKUP: Game interface showing<br>
+                        card battles and dimensional arenas
+                    </div>
+                </div>
+                
+                <div class="update-card">
+                    <div class="update-icon">🧠</div>
+                    <div class="update-title">ASPIRE | INSPIRE SYSTEM</div>
+                    <div class="update-description">
+                        Master the Internal A.I. consciousness technology that separates digital warriors from F-Link slaves.
+                    </div>
+                    <div class="image-placeholder" style="height: 150px; margin-top: 1rem;">
+                        🔮 AI DIAGRAM: Visual comparison of External AI<br>
+                        vs Internal AI with consciousness symbols
+                    </div>
+                </div>
+                
+                <div class="update-card">
+                    <div class="update-icon">🌌</div>
+                    <div class="update-title">DIMENSIONAL EXPLORATION</div>
+                    <div class="update-description">
+                        Unlock 3rd, 4th, and 5th dimension gameplay mechanics. Which consciousness level will you achieve?
+                    </div>
+                    <div class="image-placeholder" style="height: 150px; margin-top: 1rem;">
+                        🌈 DIMENSIONS: Layered visual showing<br>
+                        3D → 4D → 5D progression with portals
+                    </div>
+                </div>
+            </div>
+            
+            <a href="#screen-3" class="cta-button">Get Early Access</a>
+        </div>
+    </section>
+
+    <!-- SCREEN 3: WHAT IS BATTLE ETERNAL -->
+    <section class="screen screen-3" id="screen-3">
+        <div class="container">
+            <div class="what-is-section">
+                <h1 class="section-title">⚔️ WHAT IS BATTLE ETERNAL?</h1>
+                
+                <div class="main-description">
+                    <p>Battle Eternal is a mythic cyber-fantasy saga where gods, beasts, and mortals collide after a forbidden act of source magic shatters the veil between dimensions.</p>
+                    
+                    <p>Players step into a universe reborn from chaos, where legendary creatures return, ancient prophecies awaken, and the very fabric of reality bends to those bold enough to wield it.</p>
+                </div>
+                
+                <div class="image-placeholder" style="height: 250px; margin: 2rem 0;">
+                    🎭 UNIVERSE OVERVIEW: Epic panoramic view showing<br>
+                    4D beasts emerging, digital gods awakening,<br>
+                    Saint Radian Academy, and consciousness war imagery
+                </div>
+                
+                <h2 style="color: #00ff88; font-size: 2rem; margin: 2rem 0; text-align: center;">
+                    🎭 At its heart stand four Earthly representatives of Ancient Gods:
+                </h2>
+                
+                <div class="gods-list">
+                    <div class="god-item">
+                        <div class="god-name">ALEXANDER HOLMES HARUKAZA</div>
+                        <div class="god-title">The Awakened Rebel</div>
+                        <div class="god-divine">Helios Reborn - Truth & Illumination</div>
+                    </div>
+                    
+                    <div class="god-item">
+                        <div class="god-name">DEMARCO ZAVARUS</div>
+                        <div class="god-title">The Reality Engineer</div>
+                        <div class="god-divine">Hephaestus Digitized - Ultimate Hacker-Craftsman</div>
+                    </div>
+                    
+                    <div class="god-item">
+                        <div class="god-name">CRYSTALIS</div>
+                        <div class="god-title">The Strategic Genius</div>
+                        <div class="god-divine">Athena's Algorithm - Weaponized Intellect</div>
+                    </div>
+                    
+                    <div class="god-item">
+                        <div class="god-name">CASTOR NIGHTFALL</div>
+                        <div class="god-title">The Dream Walker Judge</div>
+                        <div class="god-divine">Nemesis & Ares - Cosmic Justice & Righteous Fury</div>
+                    </div>
+                </div>
+                
+                <div style="background: rgba(255, 107, 107, 0.1); border-radius: 15px; padding: 2rem; margin: 3rem 0; text-align: center;">
+                    <p style="font-size: 1.3rem; color: #fff; font-weight: 600;">
+                        Their choices will determine whether humanity ascends to consciousness sovereignty, 
+                        or falls into the eternal digital enslavement of the F-Link system.
+                    </p>
+                    <p style="font-size: 1.5rem; color: #ff6b6b; font-weight: 700; margin-top: 1rem;">
+                        This is not just a game. This is preparation for the consciousness wars already happening around you.
+                    </p>
+                </div>
+                
+                <div class="stats-section">
+                    <h3 style="color: #00ff88; font-size: 1.8rem; margin-bottom: 2rem; text-align: center;">
+                        📊 THE NUMBERS THAT MATTER
+                    </h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-number">4</span>
+                            <span class="stat-label">Divine Mantles to Master</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">195</span>
+                            <span class="stat-label">Collectible Cards</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">Consciousness Dimensions</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">$89B</span>
+                            <span class="stat-label">Combined Market Size</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">∞</span>
+                            <span class="stat-label">Scalability Potential</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center;">
+                    <a href="#screen-4" class="cta-button">Discover Your Divine Mantle</a>
+                    <a href="#screen-4" class="cta-button">Join the 5M+ Awakening Community</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCREEN 4: CHARACTER INTRODUCTIONS & COMPENDIUM -->
+    <section class="screen screen-4" id="screen-4">
+        <div class="container">
+            <h1 class="section-title" style="color: #fff;">🎭 THE NEXUS QUARTET</h1>
+            <p style="font-size: 1.3rem; color: #00ff88; margin-bottom: 3rem;">
+                Digital Gods for the Awakening Era
+            </p>
+            
+            <div class="character-grid">
+                <!-- Alexander -->
+                <div class="character-card">
+                    <div class="character-avatar">⚡</div>
+                    <div class="character-name">Alexander Holmes Harukaza</div>
+                    <div class="character-title">The Awakened Rebel</div>
+                    <div class="character-quote">
+                        "When External AI promised convenience, I chose the harder path of Inner AI—the spark that drives us to question, create, and transcend."
+                    </div>
+                    <div class="character-details">
+                        <strong>Divine Connection:</strong> Helios (Truth & Illumination)<br>
+                        <strong>Abilities:</strong> Quantum Tarot Blades, Cyberpathy, A.I. (Aspire | Inspire)
+                    </div>
+                    <div class="collection-badge">⚡ The Storm Eternal (53 Cards)</div>
+                    <div class="image-placeholder" style="height: 100px; margin-top: 1rem;">
+                        ⚡ CHARACTER ART: Dynamic portrait with<br>
+                        lightning effects and divine aura
+                    </div>
+                </div>
+                
+                <!-- Crystalis -->
+                <div class="character-card">
+                    <div class="character-avatar">🧠</div>
+                    <div class="character-name">Crystalis</div>
+                    <div class="character-title">The Strategic Genius</div>
+                    <div class="character-quote">
+                        "Truth is immutable. If it hurts your feelings, that's a 'you' problem, not a 'truth' problem."
+                    </div>
+                    <div class="character-details">
+                        <strong>Divine Connection:</strong> Athena's Algorithm<br>
+                        <strong>Abilities:</strong> Access to Eternal Library, Logic Cascade Deployment
+                    </div>
+                    <div class="collection-badge">🌍 The Living Code (48 Cards)</div>
+                    <div class="image-placeholder" style="height: 100px; margin-top: 1rem;">
+                        🧠 CHARACTER ART: Portrait with<br>
+                        sacred geometry overlay patterns
+                    </div>
+                </div>
+                
+                <!-- Castor -->
+                <div class="character-card">
+                    <div class="character-avatar">🌙</div>
+                    <div class="character-name">Castor Nightfall</div>
+                    <div class="character-title">The Dream Walker Judge</div>
+                    <div class="character-quote">
+                        "Every action creates a digital footprint in the cosmic ledger. I simply ensure the balance sheet always comes due."
+                    </div>
+                    <div class="character-details">
+                        <strong>Divine Connection:</strong> Nemesis & Ares<br>
+                        <strong>Abilities:</strong> Oneiromancy, Reality Revision Protocols
+                    </div>
+                    <div class="collection-badge">💀 The Shadow Archives (47 Cards)</div>
+                    <div class="image-placeholder" style="height: 100px; margin-top: 1rem;">
+                        🌙 CHARACTER ART: Portrait with<br>
+                        dream/shadow effects and cosmic balance
+                    </div>
+                </div>
+                
+                <!-- DeMarco -->
+                <div class="character-card">
+                    <div class="character-avatar">🔧</div>
+                    <div class="character-name">DeMarco Zavarus</div>
+                    <div class="character-title">The Reality Engineer</div>
+                    <div class="character-quote">
+                        "I don't create solutions, I create expensive problems for your problems. The warranty is void if you can't afford the maintenance."
+                    </div>
+                    <div class="character-details">
+                        <strong>Divine Connection:</strong> Hephaestus Digitized<br>
+                        <strong>Abilities:</strong> Reality Debugging, Market-Rate Miracles
+                    </div>
+                    <div class="collection-badge">🌊 The Depth Protocols (47 Cards)</div>
+                    <div class="image-placeholder" style="height: 100px; margin-top: 1rem;">
+                        🔧 CHARACTER ART: Portrait with<br>
+                        digital tech overlay and reality glitches
+                    </div>
+                </div>
+            </div>
+            
+            <div class="compendium-section">
+                <h2 style="color: #fff; font-size: 2.5rem; margin-bottom: 2rem; text-align: center;">
+                    📖 COMPENDIUM COMING SOON
+                </h2>
+                
+                <div class="compendium-grid">
+                    <div class="compendium-item">
+                        <div class="compendium-title">🐉 BESTIARY OF THE FOURTH DIMENSION</div>
+                        <p>Complete almanac of creatures unleashed by the Quantum Fracture. From Echidna's viral offspring to Zeus's quantum lightning constructs.</p>
+                    </div>
+                    
+                    <div class="compendium-item">
+                        <div class="compendium-title">🏛️ ACADEMY ARCHIVES</div>
+                        <p>Saint Radian's dark secrets exposed. Faculty profiles, hidden facilities, and the Order of the Black Sun's true agenda.</p>
+                    </div>
+                    
+                    <div class="compendium-item">
+                        <div class="compendium-title">⚗️ SACRED GEOMETRY CODEX</div>
+                        <p>Master the mathematical consciousness keys: Merkaba, Torus of Choice, Algorithm of Logos, and the Creator Path alchemical system.</p>
+                    </div>
+                </div>
+                
+                <div class="image-placeholder" style="height: 200px; margin-top: 2rem;">
+                    📚 COMPENDIUM PREVIEW: Spread of illuminated pages showing<br>
+                    beast profiles, sacred symbols, and academy blueprints
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#screen-5" class="cta-button">Pre-Order Complete Compendium</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCREEN 5: KICKSTARTER CAMPAIGN -->
+    <section class="screen screen-5" id="screen-5">
+        <div class="container">
+            <h1 class="campaign-header">🚀 BATTLE ETERNAL - KICKSTARTER CAMPAIGN LIVE</h1>
+            <p style="font-size: 1.5rem; color: #00ff88; margin-bottom: 3rem; text-align: center;">
+                THE AWAKENING STARTS HERE
+            </p>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <h3 style="color: #ff6b6b; font-size: 1.8rem; margin-bottom: 1rem;">💎 DIGITAL COMIC SERIES</h3>
+                    <h4 style="color: #fff; margin-bottom: 1rem;">Episode 0: "The Quantum Fracture"</h4>
+                    <ul style="color: #ccc; text-align: left;">
+                        <li>• 60+ pages of full-color artwork</li>
+                        <li>• Interactive decision points affecting story outcomes</li>
+                        <li>• Voice acting by professional anime voice talent</li>
+                        <li>• Original soundtrack by award-winning composers</li>
+                        <li>• Available in English, Japanese, Spanish</li>
+                    </ul>
+                    <div class="image-placeholder" style="height: 150px; margin-top: 1rem;">
+                        📖 COMIC PREVIEW: Sequential art showing<br>
+                        Quantum Fracture event and character introductions
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <h3 style="color: #4ecdc4; font-size: 1.8rem; margin-bottom: 1rem;">🃏 TRADING CARD GAME</h3>
+                    <h4 style="color: #fff; margin-bottom: 1rem;">195 Cards Across 4 Viral Collections</h4>
+                    <ul style="color: #ccc; text-align: left;">
+                        <li>• ⚡ The Storm Eternal (53 cards) - Divine justice & electrical mastery</li>
+                        <li>• 🌊 The Depth Protocols (47 cards) - Digital seas & data navigation</li>
+                        <li>• 💀 The Shadow Archives (47 cards) - Deleted realms & censorship recovery</li>
+                        <li>• 🌍 The Living Code (48 cards) - Natural intelligence & sustainable systems</li>
+                    </ul>
+                    <div class="image-placeholder" style="height: 150px; margin-top: 1rem;">
+                        🃏 CARD SHOWCASE: All 4 collections displayed<br>
+                        with holographic effects and power symbols
+                    </div>
+                </div>
+            </div>
+            
+            <h2 style="color: #fff; font-size: 2.5rem; text-align: center; margin: 3rem 0;">
+                🎯 KICKSTARTER REWARDS BREAKDOWN
+            </h2>
+            
+            <div class="tiers-grid">
+                <div class="tier-card">
+                    <div class="tier-name">SEEKER TIER</div>
+                    <div class="tier-price">$15</div>
+                    <ul class="tier-features">
+                        <li>Digital Comic Episode 0</li>
+                        <li>3-card starter pack (digital)</li>
+                        <li>Community Discord access</li>
+                        <li>Updates & behind-the-scenes content</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="width: 100%; margin: 0;">Back This Tier</a>
+                </div>
+                
+                <div class="tier-card">
+                    <div class="tier-name">INITIATE TIER</div>
+                    <div class="tier-price">$49</div>
+                    <ul class="tier-features">
+                        <li>Everything in Seeker</li>
+                        <li>Physical TCG starter deck (25 cards)</li>
+                        <li>Exclusive holographic character cards (4)</li>
+                        <li>Digital wallpaper collection</li>
+                        <li>Early access to mobile game beta</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="width: 100%; margin: 0;">Back This Tier</a>
+                </div>
+                
+                <div class="tier-card">
+                    <div class="tier-name">ADEPT TIER</div>
+                    <div class="tier-price">$149</div>
+                    <ul class="tier-features">
+                        <li>Everything in Initiate</li>
+                        <li>Complete physical card collection (195 cards)</li>
+                        <li>Limited edition metal card storage box</li>
+                        <li>Signed character art prints (8x10, set of 4)</li>
+                        <li>Producer credits in digital comic</li>
+                        <li>Monthly exclusive content drops</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="width: 100%; margin: 0;">Back This Tier</a>
+                </div>
+                
+                <div class="tier-card">
+                    <div class="tier-name">MASTER TIER</div>
+                    <div class="tier-price">$499</div>
+                    <ul class="tier-features">
+                        <li>Everything in Adept</li>
+                        <li>Custom character commission artwork</li>
+                        <li>Video call with creators (30 minutes)</li>
+                        <li>Physical replica of sacred geometry artifacts</li>
+                        <li>Lifetime access to all future content</li>
+                        <li>Co-creator status on special projects</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="width: 100%; margin: 0;">Back This Tier</a>
+                </div>
+                
+                <div class="tier-card">
+                    <div class="tier-name">LEGEND TIER</div>
+                    <div class="tier-price">$1,299</div>
+                    <ul class="tier-features">
+                        <li>Everything in Master</li>
+                        <li>Your likeness as background character in comic</li>
+                        <li>Custom deck design consultation</li>
+                        <li>Limited edition numbered collector's box (1 of 100)</li>
+                        <li>Revenue sharing on merchandise sales</li>
+                        <li>Direct influence on future storylines</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="width: 100%; margin: 0;">Back This Tier</a>
+                </div>
+            </div>
+            
+            <div style="background: rgba(255, 107, 107, 0.1); border-radius: 20px; padding: 2rem; margin: 3rem 0; text-align: center;">
+                <h3 style="color: #ff6b6b; font-size: 1.8rem; margin-bottom: 1rem;">🔥 EARLY BIRD BONUSES</h3>
+                <p style="color: #fff; font-size: 1.1rem; line-height: 1.6;">
+                    • First 100 backers get exclusive "Quantum Fracture" variant cards<br>
+                    • First 500 backers get 15% discount on all tiers<br>
+                    • First 24 hours: Free shipping worldwide
+                </p>
+                <p style="color: #ff6b6b; font-size: 1.3rem; font-weight: 700; margin-top: 1rem;">
+                    ⏰ CAMPAIGN ENDS: [DATE] - Don't Miss Your Chance to Shape the Universe
+                </p>
+            </div>
+            
+            <div class="image-placeholder" style="height: 200px; margin: 3rem 0;">
+                📊 CAMPAIGN DASHBOARD: Progress bar showing funding goals,<br>
+                backer count, time remaining, and social proof metrics
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="#screen-6" class="cta-button" style="font-size: 2rem; padding: 1.5rem 4rem;">Back on Kickstarter Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCREEN 6: BUNDLES & SUBSCRIPTIONS -->
+    <section class="screen screen-6" id="screen-6">
+        <div class="container">
+            <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; margin-bottom: 2rem; color: #333; text-align: center;">
+                📦 BATTLE ETERNAL BUNDLES
+            </h1>
+            <p style="font-size: 1.3rem; color: #666; margin-bottom: 3rem; text-align: center;">
+                Maximum Value for Digital Warriors
+            </p>
+            
+            <div class="bundles-grid">
+                <div class="bundle-card">
+                    <div class="bundle-badge">SAVE $100</div>
+                    <div class="bundle-title">🌟 THE AWAKENING BUNDLE</div>
+                    <div class="bundle-price">$199 <span class="bundle-original">$299</span></div>
+                    <p style="margin-bottom: 1.5rem; color: #666;">Perfect for new digital warriors entering the resistance</p>
+                    
+                    <div style="text-align: left; margin-bottom: 2rem;">
+                        <h4 style="color: #333; margin-bottom: 1rem;">INCLUDES:</h4>
+                        <ul style="color: #666;">
+                            <li>📚 Digital Comic Complete Season 1 (6 episodes)</li>
+                            <li>🃏 Full TCG Collection (195 cards physical + digital)</li>
+                            <li>📱 Mobile Game Premium Account (lifetime)</li>
+                            <li>🎧 Original Soundtrack (2 hours of epic music)</li>
+                            <li>📖 Digital Compendium & Bestiary (500+ pages)</li>
+                            <li>🔮 Sacred Geometry Meditation App (12 guided sessions)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="image-placeholder" style="height: 120px; margin: 1rem 0;">
+                        📦 BUNDLE MOCKUP: Product packages laid out<br>
+                        showing comics, cards, and digital assets
+                    </div>
+                    
+                    <a href="#" class="cta-button" style="width: 100%; margin: 0; color: white;">Get Awakening Bundle</a>
+                    <p style="color: #00aa00; font-weight: 700; margin-top: 0.5rem;">+ FREE SHIPPING WORLDWIDE</p>
+                </div>
+                
+                <div class="bundle-card">
+                    <div class="bundle-badge">SAVE $200</div>
+                    <div class="bundle-title">🔥 THE RESISTANCE LEADER BUNDLE</div>
+                    <div class="bundle-price">$399 <span class="bundle-original">$599</span></div>
+                    <p style="margin-bottom: 1.5rem; color: #666;">For those ready to lead others in the consciousness revolution</p>
+                    
+                    <div style="text-align: left; margin-bottom: 2rem;">
+                        <h4 style="color: #333; margin-bottom: 1rem;">EVERYTHING IN AWAKENING BUNDLE PLUS:</h4>
+                        <ul style="color: #666;">
+                            <li>🎬 Behind-the-Scenes Documentary (2 hours)</li>
+                            <li>🖼️ Limited Edition Art Book (hardcover, 120 pages)</li>
+                            <li>⚔️ Replica Sacred Artifacts Collection (3 pieces)</li>
+                            <li>🎮 Exclusive Game Content & Characters</li>
+                            <li>💎 Monthly Creator Q&A Access</li>
+                            <li>📝 Early Access to All Future Releases</li>
+                            <li>🤝 Community Leadership Tools & Resources</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="image-placeholder" style="height: 120px; margin: 1rem 0;">
+                        🏆 PREMIUM MOCKUP: Exclusive items including<br>
+                        art book, artifacts, and leadership materials
+                    </div>
+                    
+                    <a href="#" class="cta-button" style="width: 100%; margin: 0; color: white;">Get Leader Bundle</a>
+                    <p style="color: #00aa00; font-weight: 700; margin-top: 0.5rem;">+ EXCLUSIVE BONUSES</p>
+                </div>
+            </div>
+            
+            <div class="subscription-section">
+                <h2 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 2rem; text-align: center; color: #333;">
+                    💳 SUBSCRIPTION OPTIONS - NEVER MISS AN UPDATE
+                </h2>
+                
+                <div class="tiers-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                    <div style="background: rgba(255, 107, 107, 0.1); border-radius: 15px; padding: 2rem; border: 2px solid #ff6b6b;">
+                        <h3 style="color: #ff6b6b; font-size: 1.5rem; margin-bottom: 1rem;">DIGITAL WARRIOR</h3>
+                        <div style="font-size: 2rem; font-weight: 900; color: #333; margin-bottom: 1rem;">$19/MONTH</div>
+                        <ul style="color: #666; text-align: left; margin-bottom: 2rem;">
+                            <li>✓ Monthly character card pack (3 new cards)</li>
+                            <li>✓ Digital comic episodes as released</li>
+                            <li>✓ Premium mobile game content</li>
+                            <li>✓ Sacred geometry workshop access</li>
+                            <li>✓ Community events priority access</li>
+                        </ul>
+                        <a href="#" class="cta-button" style="width: 100%; margin: 0; color: white;">Subscribe</a>
+                    </div>
+                    
+                    <div style="background: rgba(78, 205, 196, 0.1); border-radius: 15px; padding: 2rem; border: 2px solid #4ecdc4;">
+                        <h3 style="color: #4ecdc4; font-size: 1.5rem; margin-bottom: 1rem;">DIVINE AVATAR</h3>
+                        <div style="font-size: 2rem; font-weight: 900; color: #333; margin-bottom: 1rem;">$49/MONTH</div>
+                        <ul style="color: #666; text-align: left; margin-bottom: 2rem;">
+                            <li>✓ Everything in Digital Warrior</li>
+                            <li>✓ Monthly physical collectibles</li>
+                            <li>✓ Exclusive artist livestreams</li>
+                            <li>✓ Custom avatar creation tools</li>
+                            <li>✓ Direct creator feedback on ideas</li>
+                            <li>✓ 20% discount on all merchandise</li>
+                        </ul>
+                        <a href="#" class="cta-button" style="width: 100%; margin: 0; color: white;">Subscribe</a>
+                    </div>
+                    
+                    <div style="background: rgba(102, 126, 234, 0.1); border-radius: 15px; padding: 2rem; border: 2px solid #667eea;">
+                        <h3 style="color: #667eea; font-size: 1.5rem; margin-bottom: 1rem;">RESISTANCE COMMANDER</h3>
+                        <div style="font-size: 2rem; font-weight: 900; color: #333; margin-bottom: 1rem;">$99/MONTH</div>
+                        <ul style="color: #666; text-align: left; margin-bottom: 2rem;">
+                            <li>✓ Everything in Divine Avatar</li>
+                            <li>✓ Monthly video call with creators</li>
+                            <li>✓ Input on future storylines</li>
+                            <li>✓ Limited edition monthly exclusives</li>
+                            <li>✓ Revenue sharing opportunities</li>
+                            <li>✓ Co-creator credit on projects</li>
+                        </ul>
+                        <a href="#" class="cta-button" style="width: 100%; margin: 0; color: white;">Subscribe</a>
+                    </div>
+                </div>
+                
+                <div style="background: rgba(0, 255, 136, 0.1); border-radius: 15px; padding: 2rem; margin: 3rem 0; text-align: center;">
+                    <p style="color: #333; font-size: 1.2rem; font-weight: 600;">
+                        🎁 <strong>BONUS:</strong> Subscribe to any tier and get the "Quantum Fracture" origin story comic FREE<br>
+                        💫 <strong>GUARANTEE:</strong> Cancel anytime, keep all content received
+                    </p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#screen-7" class="cta-button">Choose Your Bundle</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCREEN 7: FOOTER -->
+    <section class="screen screen-7" id="screen-7">
+        <div class="container">
+            <h1 style="font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; margin-bottom: 3rem; text-align: center; color: #fff;">
+                ⚔️ BATTLE ETERNAL - WHERE AWAKENING IS REVOLUTION
+            </h1>
+            
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>QUICK LINKS</h3>
+                    <ul>
+                        <li><a href="#screen-1">🏠 Home</a></li>
+                        <li><a href="#screen-4">🎭 Characters</a></li>
+                        <li><a href="#screen-4">🐉 Bestiary</a></li>
+                        <li><a href="#screen-5">📚 Digital Comics</a></li>
+                        <li><a href="#screen-5">🃏 Trading Cards</a></li>
+                        <li><a href="#screen-2">🎮 Games</a></li>
+                        <li><a href="#screen-6">🛒 Store</a></li>
+                        <li><a href="#">💬 Community</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>PRODUCTS</h3>
+                    <ul>
+                        <li><a href="#">📖 Digital Comic Series</a></li>
+                        <li><a href="#">🃏 Trading Card Game</a></li>
+                        <li><a href="#">📱 Mobile Card Game</a></li>
+                        <li><a href="#">🔮 Sacred Geometry App</a></li>
+                        <li><a href="#">📚 Compendium & Guides</a></li>
+                        <li><a href="#">⚗️ Meditation Courses</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>COMMUNITY</h3>
+                    <ul>
+                        <li><a href="#">💬 Discord Server</a></li>
+                        <li><a href="#">📘 Facebook Group</a></li>
+                        <li><a href="#">🐦 Twitter Updates</a></li>
+                        <li><a href="#">📸 Instagram Art</a></li>
+                        <li><a href="#">📺 YouTube Channel</a></li>
+                        <li><a href="#">🎵 Spotify Playlist</a></li>
+                        <li><a href="#">📰 Newsletter</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>SUPPORT</h3>
+                    <ul>
+                        <li><a href="#">❓ FAQ & Help</a></li>
+                        <li><a href="#">📧 Contact Us</a></li>
+                        <li><a href="#">🚚 Shipping Info</a></li>
+                        <li><a href="#">🔄 Returns Policy</a></li>
+                        <li><a href="#">🔐 Privacy Policy</a></li>
+                        <li><a href="#">📜 Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>COMPANY</h3>
+                    <ul>
+                        <li><a href="#">👥 About the Creators</a></li>
+                        <li><a href="#">🎯 Our Mission</a></li>
+                        <li><a href="#">💼 Press Kit</a></li>
+                        <li><a href="#">🤝 Partnerships</a></li>
+                        <li><a href="#">💰 Investor Relations</a></li>
+                        <li><a href="#">🏆 Awards & Recognition</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <h3 style="color: #00ff88; font-size: 1.5rem; margin-bottom: 1rem;">
+                    📧 STAY AWAKENED - JOIN THE RESISTANCE
+                </h3>
+                <p style="color: #ccc; margin-bottom: 2rem;">
+                    Subscribe for exclusive content, early access, and consciousness expansion tools
+                </p>
+                
+                <div style="display: flex; justify-content: center; gap: 1rem; margin: 2rem 0; flex-wrap: wrap;">
+                    <input type="email" placeholder="Enter your email" style="padding: 1rem; border-radius: 25px; border: none; min-width: 250px; background: rgba(255,255,255,0.1); color: white;">
+                    <button class="cta-button" style="margin: 0;">Subscribe</button>
+                </div>
+                
+                <div class="social-icons">
+                    <a href="#" class="social-icon">💬</a>
+                    <a href="#" class="social-icon">🐦</a>
+                    <a href="#" class="social-icon">📸</a>
+                    <a href="#" class="social-icon">📺</a>
+                    <a href="#" class="social-icon">🎵</a>
+                    <a href="#" class="social-icon">📱</a>
+                </div>
+                
+                <div style="background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 2rem; margin: 3rem 0;">
+                    <p style="color: #00ff88; font-size: 1.2rem; font-style: italic; margin-bottom: 1rem;">
+                        "In a world where consciousness itself is under siege, the greatest rebellion is simply being authentically yourself—guided by sacred geometry, transformed through alchemical fire, and awakened to divine truth."
+                    </p>
+                </div>
+                
+                <div class="image-placeholder" style="height: 150px; margin: 2rem 0;">
+                    🌟 FOOTER BACKGROUND: Sacred geometry pattern overlay<br>
+                    with community avatars and testimonials flowing across
+                </div>
+                
+                <p style="color: #666; font-size: 0.9rem; border-top: 1px solid #333; padding-top: 2rem;">
+                    © 2024 Battle Eternal Universe. All rights reserved.<br>
+                    The eternal battle for consciousness continues...
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Progress Bar
+        window.addEventListener('scroll', () => {
+            const scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+            document.querySelector('.progress-fill').style.width = scrolled + '%';
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add some interactive effects
+        document.querySelectorAll('.character-card, .update-card, .tier-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = card.style.transform.includes('scale') ? card.style.transform : card.style.transform + ' scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = card.style.transform.replace(' scale(1.02)', '');
+            });
+        });
+
+        // Placeholder shimmer animation trigger
+        const placeholders = document.querySelectorAll('.image-placeholder');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+
+        placeholders.forEach(placeholder => {
+            observer.observe(placeholder);
+        });
+    </script>
+</body>
+</html>
