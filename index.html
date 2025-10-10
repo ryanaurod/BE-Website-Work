@@ -149,12 +149,12 @@
         }
 
         .logo-title {
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
+            font-family: 'Cinzel', 'Trajan Pro', 'Times New Roman', serif;
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            font-weight: 700;
+            letter-spacing: 0.05em;
             color: #fff;
-            text-shadow: 0 0 40px rgba(255, 255, 255, 0.8);
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
             margin-bottom: 1rem;
             animation: glow 2s ease-in-out infinite alternate;
         }
@@ -201,7 +201,7 @@
         }
 
         .image-placeholder {
-            height: 300px;
+            height: 200px;
             background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
             border: 3px dashed #fff;
             border-radius: 15px;
@@ -211,7 +211,7 @@
             font-size: 1.2rem;
             font-weight: 700;
             color: white;
-            margin: 2rem 0;
+            margin: 1rem 0;
             position: relative;
             overflow: hidden;
         }
@@ -348,6 +348,73 @@
         }
 
         /* CHARACTER CARDS */
+        .character-selection-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .character-selection-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.5rem;
+            }
+        }
+        
+        .character-selector {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .character-selector:hover {
+            transform: translateY(-3px);
+            border-color: #00ff88;
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
+        }
+        
+        .character-selector.active {
+            border-color: #00ff88;
+            background: rgba(0, 255, 136, 0.1);
+        }
+        
+        .character-selector .mini-image {
+            height: 80px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 10px;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .character-selector h4 {
+            font-size: 0.9rem;
+            color: #00ff88;
+            margin: 0;
+        }
+        
+        .character-detail-panel {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            margin-bottom: 2rem;
+        }
+        
+        .character-detail-panel .image-placeholder {
+            height: 250px;
+            margin-bottom: 1.5rem;
+        }
         .character-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -710,7 +777,7 @@
     <!-- SCREEN 1: WELCOME TO BATTLE ETERNAL -->
     <section class="screen screen-1" id="overview">
         <div class="container">
-            <h1 class="logo-title">Welcome to Battle Eternal</h1>
+            <h1 class="logo-title">Battle Eternal: The Age of Chaos</h1>
             <p class="tagline">New transmedia mythology comic and trading card game universe coming 2026</p>
             
             <div class="image-placeholder">
@@ -810,26 +877,34 @@
             
             <div class="split-content">
                 <div class="text-left">
-                    <p style="font-size: 1.2rem; line-height: 1.7; color: #e0e0e0; margin-bottom: 1.5rem;">Battle Eternal is a mythic cyber-fantasy saga where gods, beasts, and mortals collide after a forbidden act of source magic shatters the veil between dimensions.</p>
+                    <p style="font-size: 1.2rem; line-height: 1.7; color: #e0e0e0; margin-bottom: 1.5rem;">Battle Eternal is a dystopian trans-media universe set on a near-future Earth reshaped by the Quantum Fracture. As gods incarnate, powers awaken, and tyrants tighten their grip, humanity's revolt ignites—the Age of Chaos.</p>
                     
-                    <p style="margin-bottom: 1.5rem;">Players step into a universe reborn from chaos, where legendary creatures return, ancient prophecies awaken, and the very fabric of reality bends to those bold enough to wield it.</p>
-                    
-                    <p style="margin-bottom: 1.5rem;">At its heart stand four Earthly representatives of Ancient Gods whose choices will determine whether humanity ascends to consciousness sovereignty, or falls into eternal digital enslavement.</p>
+                    <p style="margin-bottom: 1.5rem;">Players step into a universe where legendary creatures return, ancient prophecies awaken, and the very fabric of reality bends to those bold enough to wield it. At its heart stand Alexander, Crystalis, Castor, and DeMarco - Earthly representatives of Ancient Gods whose choices will determine whether humanity ascends to consciousness sovereignty, or falls into eternal digital enslavement.</p>
                     
                     <div style="margin-top: 2rem;">
-                        <strong style="color: #00ff88; font-size: 1.1rem;">This is not just a game. This is preparation for the consciousness wars already happening around you.</strong>
+                        <strong style="color: #00ff88; font-size: 1.1rem;">These are the chronicles of a war to restore reality and sovereignty, where myth collides with machine.</strong>
+                    </div>
+                    
+                    <div style="margin-top: 1.5rem;">
+                        <button class="see-more-btn" onclick="toggleCollapsible('battle-eternal-lore')">See Full Universe Details</button>
+                        <div id="battle-eternal-lore" class="collapsible-content">
+                            <div style="background: rgba(0, 255, 136, 0.1); padding: 1.5rem; border-radius: 10px; margin: 1rem 0;">
+                                <h4 style="color: #00ff88; margin-bottom: 1rem;">🌌 The Quantum Fracture</h4>
+                                <p>The Fracture was not a random tear in the sky; it was a calculated rupture along Earth's ancient ley lines—the planet's own chakra system. At sacred monoliths, where energy pools, the ground split open. From these wounds, raw power from the planet's core ripped open portals to the Fourth Dimension, unleashing beasts of myth and memory.</p>
+                            </div>
+                            
+                            <div style="background: rgba(255, 107, 107, 0.1); padding: 1.5rem; border-radius: 10px; margin: 1rem 0;">
+                                <h4 style="color: #ff6b6b; margin-bottom: 1rem;">🔮 The Order's Opportunity</h4>
+                                <p>This event, the Quantum Fracture, didn't just change the world; it weaponized it. The Order of the Black Sun and their F-Link network saw the chaos as the ultimate opportunity, a chance to harvest humanity's fear and accelerate their agenda of absolute control.</p>
+                            </div>
+                            
+                            <div style="background: rgba(155, 89, 182, 0.1); padding: 1.5rem; border-radius: 10px; margin: 1rem 0;">
+                                <h4 style="color: #9b59b6; margin-bottom: 1rem;">⚡ The Divine Awakening</h4>
+                                <p>But the same energy that empowered them also awakened something else: a divine spark within ordinary people, the echo of the Logos. At this crossroads, every soul must decide: Will you surrender your will to the cold logic of the Order's External A.I., or will you awaken the creative fire of Internal A.I. and fight for the future?</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(255, 107, 107, 0.1); border-radius: 10px; border-left: 4px solid #ff6b6b;">
-                        <h4 style="color: #ff6b6b; margin-bottom: 1rem;">📊 THE NUMBERS THAT MATTER:</h4>
-                        <ul style="list-style: none; color: #e0e0e0;">
-                            <li>• 4 Divine Mantles to master</li>
-                            <li>• 195 collectible cards across 4 viral collections</li>
-                            <li>• 3 dimensional consciousness levels to unlock</li>
-                            <li>• $89 billion combined market (TCG, Anime, VR/AR)</li>
-                            <li>• Unlimited scalability across comics, games, VR, and reality itself</li>
-                        </ul>
-                    </div>
                 </div>
                 
                 <div class="image-placeholder">
@@ -842,160 +917,174 @@
     <!-- SCREEN 5: CHARACTERS -->
     <section class="screen" id="characters">
         <div class="container">
-            <h2 class="text-center mb-2">🎭 The Nexus Quartet - Digital Gods for the Awakening Era</h2>
+            <h2 class="text-center mb-2">🎭 The Nexus Quartet - Where Ancient Truth Logs Into the Modern World</h2>
             
-            <!-- MOBILE VERSION -->
-            <div class="mobile-only">
-                <div class="character-card" style="max-width: 500px; margin: 0 auto;">
-                    <div class="image-placeholder">
-                        [ALEXANDER PORTRAIT: Dynamic character with lightning/tech effects and solar magic aura]
-                    </div>
-                    <h3 class="character-name">⚡ ALEXANDER HOLMES HARUKAZA</h3>
-                    <h4 class="character-title">THE AWAKENED REBEL</h4>
-                    <div class="divine-connection">
-                        <strong>Divine Connection:</strong> Helios (Truth & Illumination)
-                    </div>
-                    <p>"When External AI promised convenience, I chose the harder path of Inner AI—the spark that drives us to question, create, and transcend."</p>
-                    
-                    <button class="see-more-btn" onclick="toggleCollapsible('alex-abilities')">See Abilities</button>
-                    <div id="alex-abilities" class="collapsible-content">
-                        <p><strong>Core Powers:</strong></p>
+            <!-- CHARACTER SELECTION GRID -->
+            <div class="character-selection-grid">
+                <div class="character-selector active" onclick="showCharacter('alexander')">
+                    <div class="mini-image">[ALEX PORTRAIT]</div>
+                    <h4>ALEXANDER</h4>
+                </div>
+                <div class="character-selector" onclick="showCharacter('crystalis')">
+                    <div class="mini-image">[CRYSTALIS PORTRAIT]</div>
+                    <h4>CRYSTALIS</h4>
+                </div>
+                <div class="character-selector" onclick="showCharacter('castor')">
+                    <div class="mini-image">[CASTOR PORTRAIT]</div>
+                    <h4>CASTOR</h4>
+                </div>
+                <div class="character-selector" onclick="showCharacter('demarco')">
+                    <div class="mini-image">[DEMARCO PORTRAIT]</div>
+                    <h4>DEMARCO</h4>
+                </div>
+            </div>
+            
+            <!-- CHARACTER DETAIL PANELS -->
+            <div id="alexander-panel" class="character-detail-panel">
+                <div class="image-placeholder">
+                    [ALEXANDER PORTRAIT: Gifted technomancer with quantum tarot deck, solar magic aura, cyberpathic neural interface connections]
+                </div>
+                <h3 class="character-name">☄️ ALEXANDER HIROSHI</h3>
+                <h4 class="character-title">THE SPIRITUAL HACKER • HELIOS INCARNATE</h4>
+                <div class="divine-connection">
+                    <strong>Archetypal Familiar:</strong> Phoenix • <strong>Divine Mantle:</strong> Helios (Truth & Solar Illumination)
+                </div>
+                <p><strong>"You saw a prize and ignored the cost. By all means, enjoy your victory."</strong></p>
+                
+                <p>Alexander Hiroshi is a gifted technomancer and spiritual hacker who blends ancient alchemy with cutting-edge technology. As the reincarnation of Helios, the Source of Enlightenment and Truth, Hiroshi possesses the rare ability to interface directly with the Digital Realm, seeing websites and data as living landscapes.</p>
+                
+                <button class="see-more-btn" onclick="toggleCollapsible('alexander-details')">See Complete Profile</button>
+                <div id="alexander-details" class="collapsible-content">
+                    <div style="background: rgba(255, 165, 0, 0.1); padding: 1.5rem; border-radius: 10px; margin: 1rem 0;">
+                        <h4 style="color: #ffa500; margin-bottom: 1rem;">⚡ Divine Powers & Abilities</h4>
                         <ul style="text-align: left; margin: 1rem 0;">
-                            <li>• Cyberpathy - Neural interface with systems</li>
-                            <li>• Solar Magic - Light-based combat abilities</li>
-                            <li>• Tarot-Tech Fusion - Quantum divination</li>
+                            <li>• <strong>Quantum Tarot Blades:</strong> Traditional tarot deck transfigured into razor-thin quantum devices for hacking and divination</li>
+                            <li>• <strong>Cyberpathy:</strong> Direct neural interface with digital systems, seeing code as living landscapes</li>
+                            <li>• <strong>Computer Vision:</strong> Uncovering hidden layers of reality and encrypted truths buried in digital structures</li>
+                            <li>• <strong>Solar Magic:</strong> Light-based healing, offensive capabilities, and reality illumination</li>
+                            <li>• <strong>A.I. (Aspire | Inspire):</strong> Awakens the drive for truth in others, building networks of "digital warriors"</li>
+                            <li>• <strong>Cognitive Alchemy:</strong> Transmuting fear into insight, helping others escape dimensional illusions</li>
                         </ul>
-                        <p><strong>Collection:</strong> The Storm Eternal (53 Cards)</p>
                     </div>
                     
-                    <div class="text-center" style="margin-top: 2rem;">
-                        <button class="see-more-btn" onclick="toggleCollapsible('other-characters')">See The Other 3 Characters</button>
-                        <div id="other-characters" class="collapsible-content">
-                            <div class="character-card" style="margin: 1.5rem 0; padding: 1rem; background: rgba(78, 205, 196, 0.1); border-radius: 10px;">
-                                <h4>🧠 CRYSTALIS - Strategic Genius</h4>
-                                <p><strong>Divine:</strong> Athena's Algorithm</p>
-                                <p>"Truth is immutable. If it hurts your feelings, that's a 'you' problem."</p>
-                            </div>
-                            
-                            <div class="character-card" style="margin: 1.5rem 0; padding: 1rem; background: rgba(255, 107, 107, 0.1); border-radius: 10px;">
-                                <h4>⚖️ CASTOR - Divine Enforcer</h4>
-                                <p><strong>Divine:</strong> Nemesis (Justice & Retribution)</p>
-                                <p>"Every action has consequences. I am the consequence."</p>
-                            </div>
-                            
-                            <div class="character-card" style="margin: 1.5rem 0; padding: 1rem; background: rgba(155, 89, 182, 0.1); border-radius: 10px;">
-                                <h4>🔧 DEMARCO - The Digital Architect</h4>
-                                <p><strong>Divine:</strong> Hephaestus (Creation & Technology)</p>
-                                <p>"I don't just build systems. I build realities."</p>
-                            </div>
-                        </div>
+                    <div style="background: rgba(0, 255, 136, 0.1); padding: 1.5rem; border-radius: 10px; margin: 1rem 0;">
+                        <h4 style="color: #00ff88; margin-bottom: 1rem;">🎯 Role & Relationships</h4>
+                        <p><strong>The Awakened Rebel:</strong> Once an outcast for asking too many questions, Hiroshi now stands as a beacon of awareness—quiet, calculating, and always ten steps ahead. His mind is his weapon, and his will is fire.</p>
+                        <p><strong>Natural Rival:</strong> Order of the Eternal Sol sees his authentic light as blasphemous parody of their manufactured charisma.</p>
+                        <p><strong>Collection:</strong> The Storm Eternal (53 Cards)</p>
                     </div>
                 </div>
             </div>
             
-            <!-- DESKTOP VERSION -->
-            <div class="character-grid desktop-only">
-                <div class="character-card">
-                    <div class="image-placeholder">
-                        [ALEXANDER PORTRAIT: Dynamic character with lightning/tech effects and solar magic aura]
-                    </div>
-                    <h3 class="character-name">⚡ ALEXANDER HOLMES HARUKAZA</h3>
-                    <h4 class="character-title">THE AWAKENED REBEL</h4>
-                    <div class="divine-connection">
-                        <strong>Divine Connection:</strong> Helios (Truth & Illumination)
-                    </div>
-                    <p>"When External AI promised convenience, I chose the harder path of Inner AI—the spark that drives us to question, create, and transcend."</p>
-                    <span class="read-more" onclick="toggleReadMore('alex-more')">See more...</span>
-                    
-                    <div id="alex-more" class="hidden-content">
-                        <p><strong>Enhanced Abilities:</strong></p>
-                        <ul style="text-align: left; margin: 1rem 0;">
-                            <li>• Cyberpathy - Direct neural interface with digital systems</li>
-                            <li>• Computer Vision - Seeing truth buried in code and data</li>
-                            <li>• Solar Magic - Light-based healing and offensive capabilities</li>
-                            <li>• Tarot-Tech Fusion - Ancient divination through quantum devices</li>
-                            <li>• Reality Debugging - Can identify and fix glitches in the matrix</li>
-                        </ul>
-                        <p><strong>Collection:</strong> The Storm Eternal (53 Cards)</p>
-                        <p><strong>Signature Move:</strong> Solar Flare Cascade - Overloads enemy systems with pure light energy</p>
-                    </div>
+            <div id="crystalis-panel" class="character-detail-panel" style="display: none;">
+                <div class="image-placeholder">
+                    [CRYSTALIS PORTRAIT: Strategic genius with pristine uniform, golden eyes reflecting divine wisdom, chess pieces and geometric patterns]
                 </div>
+                <h3 class="character-name">📚 CRYSTALIS</h3>
+                <h4 class="character-title">THE STRATEGIC QUEEN • ATHENA INCARNATE</h4>
+                <div class="divine-connection">
+                    <strong>Archetypal Familiar:</strong> Griffon • <strong>Divine Mantle:</strong> Athena's Algorithm (Strategy & Divine Wisdom)
+                </div>
+                <p><strong>"Truth is immutable. If it hurts your feelings, that's a 'you' problem, not a 'truth' problem. Try to keep up, you emotionally weak, intellectually lazy creature."</strong></p>
                 
-                <div class="character-card">
-                    <div class="image-placeholder">
-                        [CRYSTALIS PORTRAIT: Strategic genius with sacred geometry overlay and Athens library connection]
-                    </div>
-                    <h3 class="character-name">🧠 CRYSTALIS</h3>
-                    <h4 class="character-title">THE STRATEGIC GENIUS</h4>
-                    <div class="divine-connection">
-                        <strong>Divine Connection:</strong> Athena's Algorithm
-                    </div>
-                    <p>"Truth is immutable. If it hurts your feelings, that's a 'you' problem, not a 'truth' problem."</p>
-                    <span class="read-more" onclick="toggleReadMore('crystalis-more')">See more...</span>
-                    
-                    <div id="crystalis-more" class="hidden-content">
-                        <p><strong>Abilities:</strong></p>
+                <p>For Crystalis, ignorance is not a state of bliss but a strategic liability to be systematically dismantled. As the reincarnation of Athena, she stands with unyielding confidence, her pristine academy uniform a stark contrast to the millennia of cosmic warfare and divine wisdom reflected in her sharp, golden eyes.</p>
+                
+                <button class="see-more-btn" onclick="toggleCollapsible('crystalis-details')">See Complete Profile</button>
+                <div id="crystalis-details" class="collapsible-content">
+                    <div style="background: rgba(0, 255, 136, 0.1); padding: 1.5rem; border-radius: 10px; margin: 1rem 0;">
+                        <h4 style="color: #00ff88; margin-bottom: 1rem;">🧠 Divine Powers & Abilities</h4>
                         <ul style="text-align: left; margin: 1rem 0;">
-                            <li>• Arcane Library Access - Unlimited knowledge database</li>
-                            <li>• Strategic Omniscience - Seeing all possible battle outcomes</li>
-                            <li>• Logic Weaponization - Using truth as a devastating weapon</li>
-                            <li>• Academic Superiority - Intellectual dominance in all fields</li>
+                            <li>• <strong>Arcane Library Access:</strong> Can access and manipulate vast stores of knowledge from the Library of Alexandria</li>
+                            <li>• <strong>Dual-Consciousness:</strong> Runs social subroutines while main processor analyzes deeper strategic games</li>
+                            <li>• <strong>Strategic Omniscience:</strong> Seeing all possible battle outcomes with devastating analytical precision</li>
+                            <li>• <strong>Logic Weaponization:</strong> Dissects arguments and opponents, leaving them exposed before they realize battle began</li>
+                            <li>• <strong>Reality Rewriting:</strong> Turning tide of battle through sheer understanding and rule manipulation</li>
                         </ul>
+                    </div>
+                    
+                    <div style="background: rgba(155, 89, 182, 0.1); padding: 1.5rem; border-radius: 10px; margin: 1rem 0;">
+                        <h4 style="color: #9b59b6; margin-bottom: 1rem;">⚙️ Role & Relationships</h4>
+                        <p><strong>The Hidden Scholar:</strong> Crystalis is the living embodiment of reason and logic, wielding intellect as her primary weapon while her human form projects an aura of cool, often smug, superiority over a mind navigating infinite knowledge.</p>
+                        <p><strong>Master of the Game:</strong> Key player in "Shipping Wars" but as willing participant using manufactured drama as shield for observations.</p>
                         <p><strong>Collection:</strong> The Living Code (48 Cards)</p>
                     </div>
                 </div>
+            </div>
+            
+            <div id="castor-panel" class="character-detail-panel" style="display: none;">
+                <div class="image-placeholder">
+                    [CASTOR PORTRAIT: Enigmatic figure shrouded in shadows, crystal sphere with ancestral magic, cosmic justice imagery, silent predator energy]
+                </div>
+                <h3 class="character-name">🌙 CASTOR NIGHTFALL</h3>
+                <h4 class="character-title">THE SILENT OBSERVER • NEMESIS INCARNATE</h4>
+                <div class="divine-connection">
+                    <strong>Archetypal Familiar:</strong> Manticore • <strong>Divine Mantle:</strong> Nemesis & Ares (Cosmic Justice & Divine Retribution)
+                </div>
+                <p><strong>"Justice walks silently... but never misses."</strong></p>
                 
-                <div class="character-card">
-                    <div class="image-placeholder">
-                        [CASTOR PORTRAIT: Shadow/dream effects with cosmic justice imagery and temporal scrying sphere]
-                    </div>
-                    <h3 class="character-name">🌙 CASTOR NIGHTFALL</h3>
-                    <h4 class="character-title">THE DREAM WALKER JUDGE</h4>
-                    <div class="divine-connection">
-                        <strong>Divine Connection:</strong> Nemesis & Ares
-                    </div>
-                    <p>"Every action creates a digital footprint in the cosmic ledger. I simply ensure the balance sheet always comes due."</p>
-                    <span class="read-more" onclick="toggleReadMore('castor-more')">See more...</span>
-                    
-                    <div id="castor-more" class="hidden-content">
-                        <p><strong>Abilities:</strong></p>
+                <p>Those who cross Castor don't always know it... until it's too late. Shrouded in secrecy and wrapped in silence, Castor Nightfall is the enigmatic reincarnation of Nemesis, the spirit of cosmic justice. Where others preach redemption, Castor brings judgment.</p>
+                
+                <button class="see-more-btn" onclick="toggleCollapsible('castor-details')">See Complete Profile</button>
+                <div id="castor-details" class="collapsible-content">
+                    <div style="background: rgba(255, 107, 107, 0.1); padding: 1.5rem; border-radius: 10px; margin: 1rem 0;">
+                        <h4 style="color: #ff6b6b; margin-bottom: 1rem;">⚖️ Divine Powers & Abilities</h4>
                         <ul style="text-align: left; margin: 1rem 0;">
-                            <li>• Eclipse Protocol - Network cloaking and reality manipulation</li>
-                            <li>• Temporal Scrying - Seeing across timelines through crystal sphere</li>
-                            <li>• Shadow Magic - Darkness-based stealth and offensive capabilities</li>
-                            <li>• Ancestral Connection - Drawing power from ancient bloodlines</li>
+                            <li>• <strong>Eclipse Protocol:</strong> Can cloak entire networks in metaphysical shadow, erasing digital footprints and rewriting perceptions</li>
+                            <li>• <strong>Crystal Sphere Scrying:</strong> Reveals not just what is, but what must come to pass across time and dimension</li>
+                            <li>• <strong>Ancestral Sorcery:</strong> Summons spirits and manipulates threads of fate through karmic rebalancing</li>
+                            <li>• <strong>Shadow Magic:</strong> Darkness-based stealth merging ancient magic with cybernetic manipulation</li>
+                            <li>• <strong>Temporal Vision:</strong> Seeing across timelines, marking those whose karmic debt demands payment</li>
                         </ul>
+                    </div>
+                    
+                    <div style="background: rgba(128, 0, 128, 0.1); padding: 1.5rem; border-radius: 10px; margin: 1rem 0;">
+                        <h4 style="color: #9370db; margin-bottom: 1rem;">🔮 Role & Relationships</h4>
+                        <p><strong>The Dormant Judge:</strong> With a piercing gaze that sees through timelines and intentions, he serves as the silent architect of fate, ensuring balance in a world spinning out of control. Unmoved by emotion and immune to ideological manipulation.</p>
+                        <p><strong>Digital Ghost:</strong> In 3rd and 4th Dimensions where illusion is power, Castor is untraceable, unstoppable, and always watching. He doesn't pursue revenge. He enforces retribution.</p>
                         <p><strong>Collection:</strong> The Shadow Archives (47 Cards)</p>
                     </div>
                 </div>
+            </div>
+            
+            <div id="demarco-panel" class="character-detail-panel" style="display: none;">
+                <div class="image-placeholder">
+                    [DEMARCO PORTRAIT: Brilliant sorcerer-engineer with molten circuits, floating holo-staff, incandescent power signature, arcane forge energy]
+                </div>
+                <h3 class="character-name">🔧 DEMARCO ZAVARUS</h3>
+                <h4 class="character-title">THE ARCANE ARCHITECT • HEPHAESTUS INCARNATE</h4>
+                <div class="divine-connection">
+                    <strong>Archetypal Familiar:</strong> Green Dragon • <strong>Divine Mantle:</strong> Hephaestus (Divine Smith & Reality Engineer)
+                </div>
+                <p><strong>"There's a paywall between you and my assistance. The password is your entire net worth. You'll find the transfer is faster than your tears, and infinitely more useful."</strong></p>
                 
-                <div class="character-card">
-                    <div class="image-placeholder">
-                        [DEMARCO PORTRAIT: Reality engineer with digital tech/forge overlay and arcane technology fusion]
-                    </div>
-                    <h3 class="character-name">🔧 DEMARCO ZAVARUS</h3>
-                    <h4 class="character-title">THE REALITY ENGINEER</h4>
-                    <div class="divine-connection">
-                        <strong>Divine Connection:</strong> Hephaestus Digitized
-                    </div>
-                    <p>"I don't create solutions, I create expensive problems for your problems. The warranty is void if you can't afford the maintenance."</p>
-                    <span class="read-more" onclick="toggleReadMore('demarco-more')">See more...</span>
-                    
-                    <div id="demarco-more" class="hidden-content">
-                        <p><strong>Abilities:</strong></p>
+                <p>He saw a flawed reality and decided to write a new one, whether it wanted him to or not. DeMarco Zavarus is a brilliant, sarcastic, and unapologetically arrogant sorcerer-engineer who bends both magic and technology to his will.</p>
+                
+                <button class="see-more-btn" onclick="toggleCollapsible('demarco-details')">See Complete Profile</button>
+                <div id="demarco-details" class="collapsible-content">
+                    <div style="background: rgba(255, 165, 0, 0.1); padding: 1.5rem; border-radius: 10px; margin: 1rem 0;">
+                        <h4 style="color: #ffa500; margin-bottom: 1rem;">⚒️ Divine Powers & Abilities</h4>
                         <ul style="text-align: left; margin: 1rem 0;">
-                            <li>• Arcane Forge - Creating sentient weapons and living code</li>
-                            <li>• Technomancy - Fusing magic with advanced technology</li>
-                            <li>• Reality Engineering - Rewriting physical and digital laws</li>
-                            <li>• Mercenary Pricing - Everything has a cost, and he sets it</li>
+                            <li>• <strong>Arcane Forge:</strong> Metaphysical workstation powered by forbidden magic and raw logic, crafting reality-bending items</li>
+                            <li>• <strong>Technomancy Mastery:</strong> Unmatched fusion of sorcery and code into potent new form of reality engineering</li>
+                            <li>• <strong>Cognitive Shifting:</strong> Mental alchemy allowing perfect logical realignment to solve any problem</li>
+                            <li>• <strong>Sentient Creation:</strong> Crafts living code, energy weapons, and enchanted devices on the fly</li>
+                            <li>• <strong>Reality Rewriting:</strong> Can rewrite both digital and physical laws through superior ingenuity</li>
                         </ul>
+                    </div>
+                    
+                    <div style="background: rgba(220, 20, 60, 0.1); padding: 1.5rem; border-radius: 10px; margin: 1rem 0;">
+                        <h4 style="color: #dc143c; margin-bottom: 1rem;">⚠️ The Secret Burden</h4>
+                        <p><strong>Architect of the Quantum Fracture:</strong> After mysterious event at elite academy left him estranged, DeMarco's ambition led him to tamper with forbidden "Source" magic, inadvertently causing the reality-breaking event that defines the saga.</p>
+                        <p><strong>Guilty Genius:</strong> While others seek truth, DeMarco seeks profit and redemption through creation. His tactical mind, dry humor, and stubborn confidence make him unpredictable ally and dangerous rival.</p>
                         <p><strong>Collection:</strong> The Depth Protocols (47 Cards)</p>
                     </div>
                 </div>
             </div>
             
             <div class="text-center mt-3">
-                <a href="#minibytes" class="cta-button">Download Character Minibytes</a>
+                <button class="cta-button" style="background: rgba(128, 128, 128, 0.5); cursor: not-allowed;" disabled>Download Minibytes (Coming Soon)</button>
+                <br><br>
+                <a href="#minibytes" class="see-more-btn" style="font-size: 1.1rem;">Get Notified When Available</a>
             </div>
         </div>
     </section>
@@ -1748,6 +1837,29 @@
                     }
                 }
             }
+        }
+        
+        function showCharacter(character) {
+            // Hide all character panels
+            const panels = ['alexander-panel', 'crystalis-panel', 'castor-panel', 'demarco-panel'];
+            panels.forEach(panel => {
+                const element = document.getElementById(panel);
+                if (element) element.style.display = 'none';
+            });
+            
+            // Remove active class from all selectors
+            const selectors = document.querySelectorAll('.character-selector');
+            selectors.forEach(selector => {
+                selector.classList.remove('active');
+            });
+            
+            // Show selected character panel
+            const selectedPanel = document.getElementById(character + '-panel');
+            if (selectedPanel) selectedPanel.style.display = 'block';
+            
+            // Add active class to clicked selector
+            const activeSelector = document.querySelector(`.character-selector[onclick="showCharacter('${character}')"]`);
+            if (activeSelector) activeSelector.classList.add('active');
         }
 
         // Close mobile menu when clicking outside
