@@ -64,30 +64,92 @@
             z-index: 0;
         }
 
-        /* Hieroglyphic cipher overlay */
+        /* Hieroglyphic cipher overlay - Dormant mystical sigils */
         body::after {
-            content: '𓂀 𓃭 𓄿 𓅱 𓆣 𓇯 𓈖 𓉐 𓊪 𓋔 ⟨⟩ ◊ ▲ ▼ ◆ ∴ ⌬ ⌘ ☥ ⚡ 𓂀 𓃭 𓄿 𓅱 𓆣 𓇯 𓈖 𓉐 𓊪 𓋔 ⟨⟩ ◊ ▲ ▼ ◆ ∴ ⌬ ⌘ ☥ ⚡';
+            content: '📀 🐭 🗿 🌱 🦣 🌯 😖 🌐 💪 🔔 ⟨⟩ ◊ ▲ ▼ ◆ ∴ ⬬ ⌘ ☥ ⚡ 📀 🐭 🗿 🌱 🦣 🌯 😖 🌐 💪 🔔 ⟨⟩ ◊ ▲ ▼ ◆ ∴ ⬬ ⌘ ☥ ⚡ 📀 🐭 🗿 🌱 🦣 🌯 😖 🌐 💪 🔔 ⟨⟩ ◊ ▲ ▼ ◆ ∴ ⬬ ⌘ ☥ ⚡ 📀 🐭 🗿 🌱 🦣 🌯 😖 🌐 💪 🔔 ⟨⟩ ◊ ▲ ▼ ◆ ∴ ⬬ ⌘ ☥ ⚡';
             position: fixed;
             top: 0;
             left: 0;
-            width: 200%;
-            height: 200%;
-            font-size: 2rem;
-            color: rgba(78, 205, 196, 0.03);
+            width: 300%;
+            height: 300%;
+            font-size: 0.8rem;
             word-wrap: break-word;
             white-space: normal;
-            line-height: 3;
+            line-height: 4;
             pointer-events: none;
-            z-index: 0;
-            animation: ancientGlow 10s ease-in-out infinite alternate;
-            opacity: 0.7;
-            transform: rotate(45deg);
+            z-index: -2;
+            animation: dormantMysticGlow 15s ease-in-out infinite;
+            opacity: 0.15;
+            transform: rotate(30deg);
+            background: linear-gradient(
+                180deg,
+                transparent 0%,
+                rgba(78, 205, 196, 0.02) 20%,
+                rgba(138, 43, 226, 0.015) 50%,
+                rgba(211, 84, 0, 0.02) 80%,
+                transparent 100%
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        @keyframes ancientGlow {
-            0% { color: rgba(78, 205, 196, 0.03); }
-            50% { color: rgba(0, 255, 255, 0.05); }
-            100% { color: rgba(78, 205, 196, 0.02); }
+        @keyframes dormantMysticGlow {
+            0% { 
+                background: linear-gradient(
+                    180deg,
+                    transparent 0%,
+                    rgba(78, 205, 196, 0.015) 20%,
+                    rgba(138, 43, 226, 0.01) 50%,
+                    rgba(211, 84, 0, 0.015) 80%,
+                    transparent 100%
+                );
+                opacity: 0.1;
+            }
+            25% {
+                background: linear-gradient(
+                    180deg,
+                    transparent 0%,
+                    rgba(52, 152, 219, 0.02) 20%,
+                    rgba(155, 89, 182, 0.015) 50%,
+                    rgba(230, 126, 34, 0.02) 80%,
+                    transparent 100%
+                );
+                opacity: 0.18;
+            }
+            50% { 
+                background: linear-gradient(
+                    180deg,
+                    transparent 0%,
+                    rgba(41, 128, 185, 0.025) 20%,
+                    rgba(142, 68, 173, 0.02) 50%,
+                    rgba(255, 107, 64, 0.025) 80%,
+                    transparent 100%
+                );
+                opacity: 0.12;
+            }
+            75% {
+                background: linear-gradient(
+                    180deg,
+                    transparent 0%,
+                    rgba(78, 205, 196, 0.018) 20%,
+                    rgba(169, 86, 189, 0.012) 50%,
+                    rgba(211, 84, 0, 0.018) 80%,
+                    transparent 100%
+                );
+                opacity: 0.15;
+            }
+            100% { 
+                background: linear-gradient(
+                    180deg,
+                    transparent 0%,
+                    rgba(78, 205, 196, 0.015) 20%,
+                    rgba(138, 43, 226, 0.01) 50%,
+                    rgba(211, 84, 0, 0.015) 80%,
+                    transparent 100%
+                );
+                opacity: 0.1;
+            }
         }
 
         /* HAMBURGER MENU STYLES */
@@ -110,24 +172,6 @@
             box-shadow: 0 2px 20px rgba(0, 255, 255, 0.1);
         }
 
-        .nav-header::before {
-            content: '𓂀 ⟨AI⟩ 𓇯';
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 1.2rem;
-            color: rgba(0, 255, 255, 0.6);
-            pointer-events: none;
-            animation: tealCipherGlow 3s ease-in-out infinite alternate;
-            text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
-            z-index: -1;
-        }
-
-        @keyframes tealCipherGlow {
-            0% { color: rgba(0, 255, 255, 0.4); text-shadow: 0 0 10px rgba(0, 255, 255, 0.6); }
-            100% { color: rgba(0, 255, 255, 0.8); text-shadow: 0 0 20px rgba(0, 255, 255, 1), 0 0 30px rgba(78, 205, 196, 0.8); }
-        }
 
         .logo {
             font-family: 'Cinzel', 'Trajan Pro', serif;
@@ -2612,7 +2656,7 @@
                 <a href="#press">Press</a>
             </div>
             
-            <p style="margin-top: 2rem; color: #666;">© 2024 Battle Eternal. All rights reserved. The eternal battle for consciousness begins now! ⚔️✨</p>
+            <p style="margin-top: 2rem; color: #666;">© 2024 Battle Eternal. All rights reserved. Welcome to the Eternal Battle for Consciousness ⚔️✨</p>
         </div>
     </footer>
 
