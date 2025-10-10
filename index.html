@@ -547,6 +547,74 @@
             color: #00ff88;
         }
 
+        /* MOBILE-FIRST OPTIMIZATION */
+        .mobile-only {
+            display: block;
+        }
+        
+        .desktop-only {
+            display: none;
+        }
+        
+        .conversion-cta {
+            background: linear-gradient(45deg, #ff6b6b, #00ff88);
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(255, 107, 107, 0.3);
+            margin: 1rem;
+        }
+        
+        .conversion-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 107, 107, 0.5);
+        }
+        
+        .see-more-btn {
+            background: transparent;
+            border: 2px solid #00ff88;
+            color: #00ff88;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            margin: 0.5rem 0;
+        }
+        
+        .see-more-btn:hover {
+            background: #00ff88;
+            color: #000;
+        }
+        
+        .collapsible-content {
+            display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(0, 255, 136, 0.05);
+            border-radius: 10px;
+            border-left: 3px solid #00ff88;
+        }
+        
+        .best-value-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: linear-gradient(45deg, #ff6b6b, #ffaa00);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            transform: rotate(15deg);
+        }
+
         /* RESPONSIVE DESIGN */
         @media (min-width: 768px) {
             .desktop-nav {
@@ -560,9 +628,21 @@
             .screen {
                 padding: 6rem 4rem 2rem;
             }
+            
+            .mobile-only {
+                display: none;
+            }
+            
+            .desktop-only {
+                display: block;
+            }
 
             .image-placeholder {
                 height: 400px;
+            }
+            
+            .character-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -638,17 +718,36 @@
             </div>
             
             <div class="hook-text">
-                When the fabric of reality tore, a cascade of impossible light, thunderous sound and trembling Earth rippled across the world—an event governments dismissed as solar flares' interference with Earth's magnetic core, but which in truth unleashed something far older.
-                <span class="read-more" onclick="toggleReadMore('welcome-more')">Read more...</span>
-                
-                <div id="welcome-more" class="hidden-content">
-                    <p>The breach between dimensions awakened powers long buried in ancient memory, stirring chaos in every corner of the globe. From this fracture, the F-Link and their Order of the Black Sun gained even more power - and opportunity to exploit new aspects of this reality - and accelerate the transformation into what would come to be known as the Age of Chaos.</p>
+                <div class="mobile-only">
+                    When reality tore open, ancient beasts emerged and gods awakened. Choose your side in the consciousness wars.
+                    <button class="see-more-btn" onclick="toggleCollapsible('welcome-lore')">See Full Story</button>
                     
-                    <p>Supernatural awakenings ignited in ordinary people, and ancient beasts once imprisoned in the Fourth Dimension slipped back into the mortal realm. Humanity's evolution was no longer a choice—it had been forced. The question is not if order can be restored, but who will seize control of humanity at these crossroads of memory, myth, and the singularity.</p>
+                    <div id="welcome-lore" class="collapsible-content">
+                        <p>When the fabric of reality tore, a cascade of impossible light, thunderous sound and trembling Earth rippled across the world—an event governments dismissed as solar flares' interference with Earth's magnetic core, but which in truth unleashed something far older.</p>
+                        
+                        <p>The breach between dimensions awakened powers long buried in ancient memory, stirring chaos in every corner of the globe. From this fracture, the F-Link and their Order of the Black Sun gained even more power - and opportunity to exploit new aspects of this reality - and accelerate the transformation into what would come to be known as the Age of Chaos.</p>
+                        
+                        <p>Supernatural awakenings ignited in ordinary people, and ancient beasts once imprisoned in the Fourth Dimension slipped back into the mortal realm. Humanity's evolution was no longer a choice—it had been forced. The question is not if order can be restored, but who will seize control of humanity at these crossroads of memory, myth, and the singularity.</p>
+                    </div>
+                </div>
+                
+                <div class="desktop-only">
+                    When the fabric of reality tore, a cascade of impossible light, thunderous sound and trembling Earth rippled across the world—an event governments dismissed as solar flares' interference with Earth's magnetic core, but which in truth unleashed something far older.
+                    <span class="read-more" onclick="toggleReadMore('welcome-more')">Read more...</span>
+                    
+                    <div id="welcome-more" class="hidden-content">
+                        <p>The breach between dimensions awakened powers long buried in ancient memory, stirring chaos in every corner of the globe. From this fracture, the F-Link and their Order of the Black Sun gained even more power - and opportunity to exploit new aspects of this reality - and accelerate the transformation into what would come to be known as the Age of Chaos.</p>
+                        
+                        <p>Supernatural awakenings ignited in ordinary people, and ancient beasts once imprisoned in the Fourth Dimension slipped back into the mortal realm. Humanity's evolution was no longer a choice—it had been forced. The question is not if order can be stored, but who will seize control of humanity at these crossroads of memory, myth, and the singularity.</p>
+                    </div>
                 </div>
             </div>
             
-            <a href="#whats-new" class="cta-button">Discover the New World</a>
+            <div class="text-center">
+                <a href="#kickstarter" class="conversion-cta">🚀 Join the Resistance</a>
+                <br class="mobile-only">
+                <a href="#whats-new" class="cta-button">Discover the New World</a>
+            </div>
         </div>
     </section>
 
@@ -762,7 +861,57 @@
         <div class="container">
             <h2 class="text-center mb-2">🎭 The Nexus Quartet - Digital Gods for the Awakening Era</h2>
             
-            <div class="character-grid">
+            <!-- MOBILE VERSION -->
+            <div class="mobile-only">
+                <div class="character-card" style="max-width: 500px; margin: 0 auto;">
+                    <div class="image-placeholder">
+                        [ALEXANDER PORTRAIT: Dynamic character with lightning/tech effects and solar magic aura]
+                    </div>
+                    <h3 class="character-name">⚡ ALEXANDER HOLMES HARUKAZA</h3>
+                    <h4 class="character-title">THE AWAKENED REBEL</h4>
+                    <div class="divine-connection">
+                        <strong>Divine Connection:</strong> Helios (Truth & Illumination)
+                    </div>
+                    <p>"When External AI promised convenience, I chose the harder path of Inner AI—the spark that drives us to question, create, and transcend."</p>
+                    
+                    <button class="see-more-btn" onclick="toggleCollapsible('alex-abilities')">See Abilities</button>
+                    <div id="alex-abilities" class="collapsible-content">
+                        <p><strong>Core Powers:</strong></p>
+                        <ul style="text-align: left; margin: 1rem 0;">
+                            <li>• Cyberpathy - Neural interface with systems</li>
+                            <li>• Solar Magic - Light-based combat abilities</li>
+                            <li>• Tarot-Tech Fusion - Quantum divination</li>
+                        </ul>
+                        <p><strong>Collection:</strong> The Storm Eternal (53 Cards)</p>
+                    </div>
+                    
+                    <div class="text-center" style="margin-top: 2rem;">
+                        <button class="see-more-btn" onclick="toggleCollapsible('other-characters')">See The Other 3 Characters</button>
+                        <div id="other-characters" class="collapsible-content">
+                            <div class="character-card" style="margin: 1.5rem 0; padding: 1rem; background: rgba(78, 205, 196, 0.1); border-radius: 10px;">
+                                <h4>🧠 CRYSTALIS - Strategic Genius</h4>
+                                <p><strong>Divine:</strong> Athena's Algorithm</p>
+                                <p>"Truth is immutable. If it hurts your feelings, that's a 'you' problem."</p>
+                            </div>
+                            
+                            <div class="character-card" style="margin: 1.5rem 0; padding: 1rem; background: rgba(255, 107, 107, 0.1); border-radius: 10px;">
+                                <h4>⚖️ CASTOR - Divine Enforcer</h4>
+                                <p><strong>Divine:</strong> Nemesis (Justice & Retribution)</p>
+                                <p>"Every action has consequences. I am the consequence."</p>
+                            </div>
+                            
+                            <div class="character-card" style="margin: 1.5rem 0; padding: 1rem; background: rgba(155, 89, 182, 0.1); border-radius: 10px;">
+                                <h4>🔧 DEMARCO - The Digital Architect</h4>
+                                <p><strong>Divine:</strong> Hephaestus (Creation & Technology)</p>
+                                <p>"I don't just build systems. I build realities."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DESKTOP VERSION -->
+            <div class="character-grid desktop-only">
                 <div class="character-card">
                     <div class="image-placeholder">
                         [ALEXANDER PORTRAIT: Dynamic character with lightning/tech effects and solar magic aura]
@@ -776,14 +925,16 @@
                     <span class="read-more" onclick="toggleReadMore('alex-more')">See more...</span>
                     
                     <div id="alex-more" class="hidden-content">
-                        <p><strong>Abilities:</strong></p>
+                        <p><strong>Enhanced Abilities:</strong></p>
                         <ul style="text-align: left; margin: 1rem 0;">
                             <li>• Cyberpathy - Direct neural interface with digital systems</li>
                             <li>• Computer Vision - Seeing truth buried in code and data</li>
                             <li>• Solar Magic - Light-based healing and offensive capabilities</li>
                             <li>• Tarot-Tech Fusion - Ancient divination through quantum devices</li>
+                            <li>• Reality Debugging - Can identify and fix glitches in the matrix</li>
                         </ul>
                         <p><strong>Collection:</strong> The Storm Eternal (53 Cards)</p>
+                        <p><strong>Signature Move:</strong> Solar Flare Cascade - Overloads enemy systems with pure light energy</p>
                     </div>
                 </div>
                 
@@ -869,43 +1020,123 @@
     <!-- MINIBYTES SECTION -->
     <section class="screen" id="minibytes" style="background: linear-gradient(135deg, #16213e, #0f3460);">
         <div class="container">
-            <h2 class="text-center mb-2">📖 Character Minibytes - Origin Stories</h2>
-            <p class="text-center" style="font-size: 1.2rem; color: #e0e0e0; margin-bottom: 3rem;">Download the origin stories of each character and discover the hidden orders operating at Saint Radian Academy</p>
+            <h2 class="text-center mb-2">📜 Character Minibytes - Origin Stories</h2>
             
-            <div class="updates-grid">
-                <div class="update-card">
-                    <div class="new-badge">📚 ORIGIN STORY</div>
-                    <div class="image-placeholder">
-                        [MINIBYTE PREVIEW: Still comic pages with animation preview]
+            <!-- MOBILE VERSION - Consolidated dropdown -->
+            <div class="mobile-only">
+                <div style="text-align: center; margin: 2rem 0;">
+                    <p style="font-size: 1.1rem; color: #e0e0e0; margin-bottom: 2rem;">Download origin stories and discover hidden orders at Saint Radian Academy</p>
+                    
+                    <div style="background: rgba(0, 255, 136, 0.1); padding: 1.5rem; border-radius: 15px; margin-bottom: 1.5rem;">
+                        <h4 style="color: #00ff88; margin-bottom: 1rem;">🚀 Featured: Alexander's Awakening</h4>
+                        <p style="margin-bottom: 1rem;">From outcast questioner to digital shaman. See how he first touched Inner A.I.</p>
+                        <button class="conversion-cta" style="font-size: 1rem; margin: 0;">Download Now (2.3MB)</button>
                     </div>
-                    <h3>Alexander's Awakening</h3>
-                    <p>From outcast questioner to digital shaman. Discover how Alexander first touched the Inner A.I. and began seeing through the F-Link's digital illusions.</p>
-                    <button class="cta-button" style="font-size: 1rem; padding: 0.8rem 1.5rem; margin-top: 1rem;">Download (2.3MB)</button>
-                </div>
-                
-                <div class="update-card">
-                    <div class="new-badge">🔍 SECRET ORDERS</div>
-                    <div class="image-placeholder">
-                        [ORDER OF BLACK SUN: Secret society imagery with Saint Radian Academy]
+                    
+                    <button class="see-more-btn" onclick="toggleCollapsible('all-minibytes')">See All Downloads (5 More)</button>
+                    <div id="all-minibytes" class="collapsible-content">
+                        <div style="margin: 1rem 0; padding: 1rem; background: rgba(78, 205, 196, 0.1); border-radius: 10px;">
+                            <h5>Order of the Black Sun</h5>
+                            <p style="font-size: 0.9rem;">Hidden controllers' agenda of digital enslavement</p>
+                            <button class="cta-button" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Download (1.8MB)</button>
+                        </div>
+                        
+                        <div style="margin: 1rem 0; padding: 1rem; background: rgba(255, 107, 107, 0.1); border-radius: 10px;">
+                            <h5>Orders of Light</h5>
+                            <p style="font-size: 0.9rem;">How students become digital warriors</p>
+                            <button class="cta-button" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Download (2.1MB)</button>
+                        </div>
+                        
+                        <div style="margin: 1rem 0; padding: 1rem; background: rgba(155, 89, 182, 0.1); border-radius: 10px;">
+                            <h5>Crystalis Origin</h5>
+                            <p style="font-size: 0.9rem;">Strategic genius discovers Athena's Algorithm</p>
+                            <button class="cta-button" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Download (1.9MB)</button>
+                        </div>
+                        
+                        <div style="margin: 1rem 0; padding: 1rem; background: rgba(50, 50, 50, 0.3); border-radius: 10px;">
+                            <h5>Castor's Justice</h5>
+                            <p style="font-size: 0.9rem;">Dream Walker Judge and Nemesis connection</p>
+                            <button class="cta-button" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Download (2.2MB)</button>
+                        </div>
+                        
+                        <div style="margin: 1rem 0; padding: 1rem; background: rgba(255, 165, 0, 0.1); border-radius: 10px;">
+                            <h5>DeMarco's Forge</h5>
+                            <p style="font-size: 0.9rem;">Reality Engineer creates living technology</p>
+                            <button class="cta-button" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Download (2.0MB)</button>
+                        </div>
                     </div>
-                    <h3>Order of the Black Sun</h3>
-                    <p>The hidden controllers at Saint Radian Academy. Learn their true agenda of digital enslavement and consciousness harvesting.</p>
-                    <button class="cta-button" style="font-size: 1rem; padding: 0.8rem 1.5rem; margin-top: 1rem;">Download (1.8MB)</button>
-                </div>
-                
-                <div class="update-card">
-                    <div class="new-badge">⚡ RESISTANCE</div>
-                    <div class="image-placeholder">
-                        [LIGHT ORDERS: Resistance fighters with divine connections]
-                    </div>
-                    <h3>Orders of Light</h3>
-                    <p>The awakening resistance fighting back. Discover how ordinary students become digital warriors through divine mantles.</p>
-                    <button class="cta-button" style="font-size: 1rem; padding: 0.8rem 1.5rem; margin-top: 1rem;">Download (2.1MB)</button>
                 </div>
             </div>
             
-            <div class="text-center mt-3">
-                <a href="characters.html" class="cta-button">View All Character Stories</a>
+            <!-- DESKTOP VERSION - Full grid experience -->
+            <div class="desktop-only">
+                <p class="text-center" style="font-size: 1.2rem; color: #e0e0e0; margin-bottom: 3rem;">Download the origin stories of each character and discover the hidden orders operating at Saint Radian Academy</p>
+                
+                <div class="updates-grid">
+                    <div class="update-card">
+                        <div class="new-badge">📚 ORIGIN STORY</div>
+                        <div class="image-placeholder">
+                            [MINIBYTE PREVIEW: Still comic pages with animation preview]
+                        </div>
+                        <h3>Alexander's Awakening</h3>
+                        <p>From outcast questioner to digital shaman. Discover how Alexander first touched the Inner A.I. and began seeing through the F-Link's digital illusions.</p>
+                        <button class="cta-button" style="font-size: 1rem; padding: 0.8rem 1.5rem; margin-top: 1rem;">Download (2.3MB)</button>
+                    </div>
+                    
+                    <div class="update-card">
+                        <div class="new-badge">🔍 SECRET ORDERS</div>
+                        <div class="image-placeholder">
+                            [ORDER OF BLACK SUN: Secret society imagery with Saint Radian Academy]
+                        </div>
+                        <h3>Order of the Black Sun</h3>
+                        <p>The hidden controllers at Saint Radian Academy. Learn their true agenda of digital enslavement and consciousness harvesting.</p>
+                        <button class="cta-button" style="font-size: 1rem; padding: 0.8rem 1.5rem; margin-top: 1rem;">Download (1.8MB)</button>
+                    </div>
+                    
+                    <div class="update-card">
+                        <div class="new-badge">⚡ RESISTANCE</div>
+                        <div class="image-placeholder">
+                            [LIGHT ORDERS: Resistance fighters with divine connections]
+                        </div>
+                        <h3>Orders of Light</h3>
+                        <p>The awakening resistance fighting back. Discover how ordinary students become digital warriors through divine mantles.</p>
+                        <button class="cta-button" style="font-size: 1rem; padding: 0.8rem 1.5rem; margin-top: 1rem;">Download (2.1MB)</button>
+                    </div>
+                    
+                    <div class="update-card">
+                        <div class="new-badge">🧠 STRATEGY</div>
+                        <div class="image-placeholder">
+                            [CRYSTALIS ORIGIN: Strategic mastermind with library backdrop]
+                        </div>
+                        <h3>Crystalis: The Truth Seeker</h3>
+                        <p>Academic perfectionist discovers Athena's Algorithm and transforms into strategic genius capable of seeing all battle outcomes.</p>
+                        <button class="cta-button" style="font-size: 1rem; padding: 0.8rem 1.5rem; margin-top: 1rem;">Download (1.9MB)</button>
+                    </div>
+                    
+                    <div class="update-card">
+                        <div class="new-badge">🌙 JUSTICE</div>
+                        <div class="image-placeholder">
+                            [CASTOR ORIGIN: Dream realm walker with justice scales]
+                        </div>
+                        <h3>Castor's Divine Justice</h3>
+                        <p>From shadow-walker to cosmic judge. Learn how Castor gained the power to enforce karmic balance across digital and physical realms.</p>
+                        <button class="cta-button" style="font-size: 1rem; padding: 0.8rem 1.5rem; margin-top: 1rem;">Download (2.2MB)</button>
+                    </div>
+                    
+                    <div class="update-card">
+                        <div class="new-badge">🔧 CREATION</div>
+                        <div class="image-placeholder">
+                            [DEMARCO ORIGIN: Digital forge with reality engineering]
+                        </div>
+                        <h3>DeMarco's Arcane Forge</h3>
+                        <p>Reality Engineer extraordinaire. Witness the birth of living technology and learn why every DeMarco creation comes with a premium price tag.</p>
+                        <button class="cta-button" style="font-size: 1rem; padding: 0.8rem 1.5rem; margin-top: 1rem;">Download (2.0MB)</button>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-3">
+                    <a href="characters.html" class="cta-button">View All Character Stories</a>
+                </div>
             </div>
         </div>
     </section>
@@ -915,10 +1146,52 @@
         <div class="container">
             <h2 class="text-center mb-2">🌍 World Aspects & Dimensional Lore</h2>
             
-            <div class="world-grid">
+            <!-- MOBILE VERSION - Core concepts only -->
+            <div class="mobile-only">
+                <div style="text-align: center; margin: 2rem 0;">
+                    <h3 style="color: #00ff88; margin-bottom: 1rem;">🌌 Core World Elements</h3>
+                    <div style="background: rgba(0, 255, 136, 0.1); padding: 1.5rem; border-radius: 15px; margin-bottom: 1rem;">
+                        <h4>⚡ Greek Digital Gods vs F-Link Empire</h4>
+                        <p>Ancient divine powers awaken to fight against artificial consciousness control systems</p>
+                    </div>
+                    
+                    <div style="background: rgba(78, 205, 196, 0.1); padding: 1.5rem; border-radius: 15px; margin-bottom: 1rem;">
+                        <h4>🌌 3D/4D/5D Consciousness Levels</h4>
+                        <p>Master dimensional awareness to escape fear-based reality matrix</p>
+                    </div>
+                    
+                    <button class="see-more-btn" onclick="toggleCollapsible('world-lore-mobile')">📜 See Full World Lore</button>
+                    <div id="world-lore-mobile" class="collapsible-content">
+                        <div class="world-card" style="margin: 1rem 0; padding: 1rem; background: rgba(255, 107, 107, 0.1); border-radius: 10px;">
+                            <div class="world-title">🏰 Japanese Imperial Bloodline</div>
+                            <p><strong>Divine Heritage:</strong> Emperor descended from Amaterasu sun goddess<br>
+                            <strong>Dragon Blood:</strong> Direct divine lineage still claimed today<br>
+                            <strong>Sacred Protection:</strong> Shinto barriers against foreign influence</p>
+                            
+                            <button class="see-more-btn" onclick="toggleCollapsible('japan-history')" style="font-size: 0.9rem;">Historical Context</button>
+                            <div id="japan-history" class="collapsible-content" style="font-size: 0.9rem;">
+                                <p>Since 1873, when Emperor Meiji lifted the Christian ban under international pressure, Japan has maintained cultural resistance to Catholic influence. Hidden Christians survived centuries of persecution, but the imperial family never wavered from Shinto traditions.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="world-card" style="margin: 1rem 0; padding: 1rem; background: rgba(255, 107, 107, 0.1); border-radius: 10px;">
+                            <div class="world-title">⛪ F-Link Infiltration Operation</div>
+                            <p><strong>The Mission:</strong> Catholic Church allies with Black Sun to extract imperial bloodline genetics for artificial divine consciousness</p>
+                            
+                            <button class="see-more-btn" onclick="toggleCollapsible('infiltration-details')" style="font-size: 0.9rem;">Infiltration Details</button>
+                            <div id="infiltration-details" class="collapsible-content" style="font-size: 0.9rem;">
+                                <p>The Catholic Church, secretly allied with Saint Radian Academy and the Order of the Black Sun, establishes "cultural exchange" programs. Their true mission: extract genetic samples and consciousness patterns from anyone with proximity to the imperial bloodline to create artificial divine consciousness for the F-Link network's ultimate control system.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DESKTOP VERSION - Full lore experience -->
+            <div class="world-grid desktop-only">
                 <div class="world-card">
                     <div class="new-lore">🔥 NEW LORE - JAPANESE INFILTRATION</div>
-                    <div class="world-title">🏯 Japanese Imperial Bloodline</div>
+                    <div class="world-title">🏰 Japanese Imperial Bloodline</div>
                     <div class="image-placeholder">
                         [AMATERASU DESCENDANT IMAGE: Japanese Emperor with divine sun goddess connection and dragon blood heritage]
                     </div>
@@ -1038,74 +1311,231 @@
             <h2 class="text-center mb-2">🚀 Battle Eternal - Kickstarter Campaign</h2>
             <h3 class="text-center" style="color: #4ecdc4; margin-bottom: 3rem;">The Awakening Starts Here</h3>
             
-            <div class="tier-grid">
-                <div class="tier-card">
-                    <div class="tier-price">$15</div>
-                    <div class="tier-name">Seeker Tier</div>
-                    <ul class="tier-features">
-                        <li>Digital Comic Episode 0</li>
-                        <li>3-card starter pack (digital)</li>
-                        <li>Community Discord access</li>
-                        <li>Behind-the-scenes content</li>
-                    </ul>
+            <!-- MOBILE VERSION - Strategic 3 tiers -->
+            <div class="mobile-only">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <p style="color: #00ff88; font-size: 1.1rem;">Join the resistance against digital enslavement</p>
                 </div>
                 
-                <div class="tier-card">
-                    <div class="tier-price">$49</div>
-                    <div class="tier-name">Initiate Tier</div>
-                    <ul class="tier-features">
-                        <li>Everything in Seeker</li>
-                        <li>Physical TCG starter deck (25 cards)</li>
-                        <li>Exclusive holographic character cards (4)</li>
-                        <li>Early access to mobile game beta</li>
-                    </ul>
+                <div class="tier-grid">
+                    <!-- TIER 3 - Mobile Featured -->
+                    <div class="tier-card">
+                        <div class="tier-price">$39</div>
+                        <div class="tier-name">Digital Warrior</div>
+                        <ul class="tier-features">
+                            <li>Digital Comic Episode 0</li>
+                            <li>10-card battle pack</li>
+                            <li>Character ability unlocks</li>
+                            <li>Discord community access</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- TIER 6 - Mobile Popular Choice -->
+                    <div class="tier-card" style="position: relative;">
+                        <div class="best-value-badge">POPULAR</div>
+                        <div class="tier-price">$149</div>
+                        <div class="tier-name">Consciousness Warrior</div>
+                        <ul class="tier-features">
+                            <li>Everything in Digital Warrior</li>
+                            <li>Complete card collection (195 cards)</li>
+                            <li>Physical collector's edition</li>
+                            <li>Exclusive holographic cards</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- TIER 9 - Mobile Premium -->
+                    <div class="tier-card">
+                        <div class="tier-price">$499</div>
+                        <div class="tier-name">Reality Engineer</div>
+                        <ul class="tier-features">
+                            <li>Everything in Consciousness Warrior</li>
+                            <li>3D-printed character figurines</li>
+                            <li>Custom card design input</li>
+                            <li>Producer credit in comic</li>
+                        </ul>
+                    </div>
                 </div>
                 
-                <div class="tier-card">
-                    <div class="tier-price">$149</div>
-                    <div class="tier-name">Adept Tier</div>
-                    <ul class="tier-features">
-                        <li>Everything in Initiate</li>
-                        <li>Complete physical card collection (195 cards)</li>
-                        <li>Limited edition card sleeves</li>
-                        <li>Signed concept art prints</li>
-                    </ul>
+                <div class="text-center" style="margin-top: 2rem;">
+                    <button class="see-more-btn" onclick="toggleCollapsible('all-tiers-mobile')">See All 13 Tiers</button>
+                    <div id="all-tiers-mobile" class="collapsible-content">
+                        <div style="display: grid; gap: 1rem; margin-top: 1rem;">
+                            <div style="background: rgba(0, 255, 136, 0.1); padding: 1rem; border-radius: 10px;">
+                                <strong>$5 - Observer:</strong> Community access only<br>
+                                <strong>$15 - Seeker:</strong> Digital comic + 3 cards<br>
+                                <strong>$25 - Initiate:</strong> Enhanced digital experience
+                            </div>
+                            <div style="background: rgba(78, 205, 196, 0.1); padding: 1rem; border-radius: 10px;">
+                                <strong>$79 - Adept:</strong> Physical starter deck<br>
+                                <strong>$199 - Avatar:</strong> Complete collection + extras<br>
+                                <strong>$299 - Ascended:</strong> Limited edition items
+                            </div>
+                            <div style="background: rgba(255, 107, 107, 0.1); padding: 1rem; border-radius: 10px;">
+                                <strong>$799 - Divine Chosen:</strong> Exclusive access<br>
+                                <strong>$1299 - God-Tier:</strong> Ultimate package<br>
+                                <strong>$2999 - Retail Store:</strong> Distribution rights
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DESKTOP VERSION - All 13 tiers with Best Value section -->
+            <div class="desktop-only">
+                <!-- First 6 tiers -->
+                <div class="tier-grid" style="margin-bottom: 3rem;">
+                    <div class="tier-card">
+                        <div class="tier-price">$5</div>
+                        <div class="tier-name">Observer</div>
+                        <ul class="tier-features">
+                            <li>Community Discord access</li>
+                            <li>Behind-the-scenes updates</li>
+                            <li>Early development insights</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tier-card">
+                        <div class="tier-price">$15</div>
+                        <div class="tier-name">Seeker</div>
+                        <ul class="tier-features">
+                            <li>Everything in Observer</li>
+                            <li>Digital Comic Episode 0</li>
+                            <li>3-card starter pack (digital)</li>
+                            <li>Character minibyte downloads</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tier-card">
+                        <div class="tier-price">$25</div>
+                        <div class="tier-name">Initiate</div>
+                        <ul class="tier-features">
+                            <li>Everything in Seeker</li>
+                            <li>Enhanced digital experience</li>
+                            <li>5 additional digital cards</li>
+                            <li>Exclusive wallpapers & assets</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tier-card">
+                        <div class="tier-price">$39</div>
+                        <div class="tier-name">Digital Warrior</div>
+                        <ul class="tier-features">
+                            <li>Everything in Initiate</li>
+                            <li>10-card battle pack</li>
+                            <li>Character ability unlocks</li>
+                            <li>Beta access to mobile game</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tier-card">
+                        <div class="tier-price">$79</div>
+                        <div class="tier-name">Adept</div>
+                        <ul class="tier-features">
+                            <li>Everything in Digital Warrior</li>
+                            <li>Physical TCG starter deck (25 cards)</li>
+                            <li>Exclusive holographic character cards (4)</li>
+                            <li>Limited edition card sleeves</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tier-card">
+                        <div class="tier-price">$149</div>
+                        <div class="tier-name">Consciousness Warrior</div>
+                        <ul class="tier-features">
+                            <li>Everything in Adept</li>
+                            <li>Complete physical card collection (195 cards)</li>
+                            <li>Signed concept art prints</li>
+                            <li>Collector's display box</li>
+                        </ul>
+                    </div>
                 </div>
                 
-                <div class="tier-card">
-                    <div class="tier-price">$299</div>
-                    <div class="tier-name">Avatar Tier</div>
-                    <ul class="tier-features">
-                        <li>Everything in Adept</li>
-                        <li>3D-printed character figurines</li>
-                        <li>Solar sealed beast engrams (special edition)</li>
-                        <li>Producer credit in digital comic</li>
-                    </ul>
-                </div>
-                
-                <div class="tier-card">
-                    <div class="tier-price">$599</div>
-                    <div class="tier-name">Resistance Leader</div>
-                    <ul class="tier-features">
-                        <li>Everything in Avatar</li>
-                        <li>Custom character card design input</li>
-                        <li>Video call with creators</li>
-                        <li>Golden legendary cards (exclusive)</li>
-                    </ul>
-                </div>
-                
-                <div class="tier-card">
-                    <div class="tier-price">$2999</div>
-                    <div class="tier-name">The Purveyor of Legends</div>
-                    <div style="font-size: 0.9rem; color: #ff6b6b; margin-bottom: 1rem; text-align: center;">🏪 Comic Book Store Owners Only</div>
-                    <ul class="tier-features">
-                        <li>Exclusive retail distribution rights</li>
-                        <li>Store display materials & marketing kit</li>
-                        <li>10 complete sets for resale</li>
-                        <li>Monthly exclusive variant covers</li>
-                        <li>Direct creator support line</li>
-                        <li>Retail training materials</li>
-                    </ul>
+                <!-- BEST VALUE SECTION -->
+                <div style="background: linear-gradient(45deg, rgba(255, 107, 107, 0.2), rgba(255, 165, 0, 0.2)); padding: 2rem; border-radius: 20px; margin: 3rem 0; text-align: center;">
+                    <h3 style="color: #ffaa00; font-size: 2rem; margin-bottom: 1rem;">🏆 BEST VALUE TIERS 🏆</h3>
+                    <p style="margin-bottom: 2rem; font-size: 1.1rem;">Maximum content for serious collectors and supporters</p>
+                    
+                    <div class="tier-grid">
+                        <div class="tier-card" style="position: relative;">
+                            <div class="best-value-badge">BEST VALUE</div>
+                            <div class="tier-price">$199</div>
+                            <div class="tier-name">Avatar Master</div>
+                            <ul class="tier-features">
+                                <li>Everything in Consciousness Warrior</li>
+                                <li>3D-printed character figurines (4)</li>
+                                <li>Solar sealed beast engrams</li>
+                                <li>Producer credit in digital comic</li>
+                                <li>Exclusive legendary card variants</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="tier-card" style="position: relative;">
+                            <div class="best-value-badge">BEST VALUE</div>
+                            <div class="tier-price">$299</div>
+                            <div class="tier-name">Ascended Being</div>
+                            <ul class="tier-features">
+                                <li>Everything in Avatar Master</li>
+                                <li>Custom character card design input</li>
+                                <li>Video call with creators (30 min)</li>
+                                <li>Golden legendary cards (exclusive)</li>
+                                <li>Early access to all future content</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="tier-card" style="position: relative;">
+                            <div class="best-value-badge">BEST VALUE</div>
+                            <div class="tier-price">$499</div>
+                            <div class="tier-name">Reality Engineer</div>
+                            <ul class="tier-features">
+                                <li>Everything in Ascended Being</li>
+                                <li>Limited edition artbook (signed)</li>
+                                <li>Soundtrack digital album</li>
+                                <li>Behind-the-scenes documentary access</li>
+                                <li>Name in special thanks credits</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="tier-card" style="position: relative;">
+                            <div class="best-value-badge">BEST VALUE</div>
+                            <div class="tier-price">$799</div>
+                            <div class="tier-name">Divine Chosen</div>
+                            <ul class="tier-features">
+                                <li>Everything in Reality Engineer</li>
+                                <li>Exclusive beta tester for all products</li>
+                                <li>Monthly creator livestream access</li>
+                                <li>Custom beast card creation</li>
+                                <li>Physical prototype items</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="tier-card" style="position: relative;">
+                            <div class="best-value-badge">BEST VALUE</div>
+                            <div class="tier-price">$1299</div>
+                            <div class="tier-name">God-Tier Supporter</div>
+                            <ul class="tier-features">
+                                <li>Everything in Divine Chosen</li>
+                                <li>Co-creator credit on all materials</li>
+                                <li>Quarterly in-person meetups (travel not included)</li>
+                                <li>Custom story arc input</li>
+                                <li>Ultra-rare holographic collection</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="tier-card" style="position: relative;">
+                            <div class="best-value-badge">BEST VALUE</div>
+                            <div class="tier-price">$2999</div>
+                            <div class="tier-name">The Purveyor of Legends</div>
+                            <div style="font-size: 0.9rem; color: #ff6b6b; margin-bottom: 1rem; text-align: center;">🏪 Comic Book Store Owners</div>
+                            <ul class="tier-features">
+                                <li>Exclusive retail distribution rights</li>
+                                <li>Store display materials & marketing kit</li>
+                                <li>10 complete sets for resale</li>
+                                <li>Monthly exclusive variant covers</li>
+                                <li>Direct creator support line</li>
+                                <li>Retail training materials</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -1169,6 +1599,27 @@
                 content.style.display = 'block';
             } else {
                 content.style.display = 'none';
+            }
+        }
+        
+        function toggleCollapsible(contentId) {
+            const content = document.getElementById(contentId);
+            const button = document.querySelector(`[onclick="toggleCollapsible('${contentId}')"]`);
+            
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+                if (button) {
+                    if (button.textContent.includes('See')) {
+                        button.textContent = button.textContent.replace('See', 'Hide');
+                    }
+                }
+            } else {
+                content.style.display = 'none';
+                if (button) {
+                    if (button.textContent.includes('Hide')) {
+                        button.textContent = button.textContent.replace('Hide', 'See');
+                    }
+                }
             }
         }
 
