@@ -187,25 +187,25 @@
         .logo-alpha {
             font-size: 2.2rem;
             font-weight: 900;
-            color: #2980b9;
-            text-shadow: 
-                0 0 10px rgba(41, 128, 185, 0.8),
-                0 0 20px rgba(52, 152, 219, 0.6),
-                0 0 30px rgba(78, 205, 196, 0.4);
-            animation: alphaGlow 3s ease-in-out infinite alternate;
+            background: linear-gradient(135deg, #1e3a8a, #2563eb, #3b82f6, #60a5fa, #93c5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: alphaGlow 4s ease-in-out infinite;
             position: relative;
+            filter: drop-shadow(0 0 12px rgba(30, 58, 138, 0.8));
         }
         
         .logo-omega {
             font-size: 2.2rem;
             font-weight: 900;
-            color: #d35400;
-            text-shadow: 
-                0 0 10px rgba(211, 84, 0, 0.8),
-                0 0 20px rgba(230, 126, 34, 0.6),
-                0 0 30px rgba(255, 107, 64, 0.4);
-            animation: omegaGlow 3s ease-in-out infinite alternate-reverse;
+            background: linear-gradient(45deg, #7c2d12, #c2410c, #ea580c, #f97316, #fb923c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: omegaGlow 4s ease-in-out infinite 2s;
             position: relative;
+            filter: drop-shadow(0 0 12px rgba(124, 45, 18, 0.8));
         }
         
         .logo-text {
@@ -226,7 +226,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: liquidFlowWithPulse 6s ease-in-out infinite;
+            animation: liquidFlowWithPulse 8s ease-in-out infinite 1s;
             position: relative;
         }
         
@@ -290,70 +290,289 @@
         
         @keyframes alphaGlow {
             0% { 
-                color: #2980b9;
-                text-shadow: 
-                    0 0 10px rgba(41, 128, 185, 0.8),
-                    0 0 20px rgba(52, 152, 219, 0.6),
-                    0 0 30px rgba(78, 205, 196, 0.4);
-                transform: scale(1);
+                background: linear-gradient(
+                    135deg,
+                    #1e3a8a 0%,     /* Dark blue top */
+                    #2563eb 25%,    /* Medium blue */
+                    #3b82f6 50%,    /* Blue */
+                    #60a5fa 75%,    /* Light blue */
+                    #93c5fd 100%    /* Very light blue bottom */
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                filter: drop-shadow(0 0 12px rgba(30, 58, 138, 0.8));
+                transform: scale(1) rotate(-0.5deg);
+            }
+            25% {
+                background: linear-gradient(
+                    45deg,
+                    #3b82f6 0%,     /* Blue left */
+                    #1e40af 30%,    /* Darker blue */
+                    #60a5fa 60%,    /* Light blue */
+                    #2563eb 100%    /* Medium blue right */
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.9));
+                transform: scale(1.02) rotate(0.3deg);
+            }
+            50% {
+                background: linear-gradient(
+                    225deg,
+                    #93c5fd 0%,     /* Very light blue top */
+                    #60a5fa 25%,    /* Light blue */
+                    #3b82f6 50%,    /* Blue */
+                    #1e40af 75%,    /* Dark blue */
+                    #1e3a8a 100%    /* Darkest blue bottom */
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                filter: drop-shadow(0 0 18px rgba(147, 197, 253, 0.7));
+                transform: scale(1.05) rotate(-0.2deg);
+            }
+            75% {
+                background: linear-gradient(
+                    315deg,
+                    #2563eb 0%,     /* Medium blue left */
+                    #93c5fd 30%,    /* Light blue */
+                    #1e40af 60%,    /* Dark blue */
+                    #60a5fa 100%    /* Light blue right */
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                filter: drop-shadow(0 0 14px rgba(37, 99, 235, 0.8));
+                transform: scale(1.03) rotate(0.4deg);
             }
             100% { 
-                color: #4ecdc4;
-                text-shadow: 
-                    0 0 15px rgba(78, 205, 196, 1),
-                    0 0 25px rgba(52, 152, 219, 0.8),
-                    0 0 35px rgba(41, 128, 185, 0.6);
-                transform: scale(1.05);
+                background: linear-gradient(
+                    135deg,
+                    #1e3a8a 0%,     /* Dark blue top */
+                    #2563eb 25%,    /* Medium blue */
+                    #3b82f6 50%,    /* Blue */
+                    #60a5fa 75%,    /* Light blue */
+                    #93c5fd 100%    /* Very light blue bottom */
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                filter: drop-shadow(0 0 12px rgba(30, 58, 138, 0.8));
+                transform: scale(1) rotate(-0.5deg);
             }
         }
         
         @keyframes omegaGlow {
             0% { 
-                color: #d35400;
-                text-shadow: 
-                    0 0 10px rgba(211, 84, 0, 0.8),
-                    0 0 20px rgba(230, 126, 34, 0.6),
-                    0 0 30px rgba(255, 107, 64, 0.4);
-                transform: scale(1);
+                background: linear-gradient(
+                    45deg,
+                    #7c2d12 0%,     /* Dark red-brown top */
+                    #c2410c 25%,    /* Dark orange */
+                    #ea580c 50%,    /* Orange */
+                    #f97316 75%,    /* Light orange */
+                    #fb923c 100%    /* Very light orange bottom */
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                filter: drop-shadow(0 0 12px rgba(124, 45, 18, 0.8));
+                transform: scale(1) rotate(0.5deg);
+            }
+            25% {
+                background: linear-gradient(
+                    315deg,
+                    #f97316 0%,     /* Light orange left */
+                    #9a3412 30%,    /* Dark red-orange */
+                    #fb923c 60%,    /* Very light orange */
+                    #ea580c 100%    /* Orange right */
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                filter: drop-shadow(0 0 15px rgba(249, 115, 22, 0.9));
+                transform: scale(1.02) rotate(-0.3deg);
+            }
+            50% {
+                background: linear-gradient(
+                    135deg,
+                    #fb923c 0%,     /* Very light orange top */
+                    #f97316 25%,    /* Light orange */
+                    #ea580c 50%,    /* Orange */
+                    #c2410c 75%,    /* Dark orange */
+                    #7c2d12 100%    /* Darkest red-brown bottom */
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                filter: drop-shadow(0 0 18px rgba(251, 146, 60, 0.7));
+                transform: scale(1.05) rotate(0.2deg);
+            }
+            75% {
+                background: linear-gradient(
+                    225deg,
+                    #ea580c 0%,     /* Orange left */
+                    #fb923c 30%,    /* Very light orange */
+                    #c2410c 60%,    /* Dark orange */
+                    #f97316 100%    /* Light orange right */
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                filter: drop-shadow(0 0 14px rgba(234, 88, 12, 0.8));
+                transform: scale(1.03) rotate(-0.4deg);
             }
             100% { 
-                color: #ff6b40;
-                text-shadow: 
-                    0 0 15px rgba(255, 107, 64, 1),
-                    0 0 25px rgba(230, 126, 34, 0.8),
-                    0 0 35px rgba(211, 84, 0, 0.6);
-                transform: scale(1.05);
+                background: linear-gradient(
+                    45deg,
+                    #7c2d12 0%,     /* Dark red-brown top */
+                    #c2410c 25%,    /* Dark orange */
+                    #ea580c 50%,    /* Orange */
+                    #f97316 75%,    /* Light orange */
+                    #fb923c 100%    /* Very light orange bottom */
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                filter: drop-shadow(0 0 12px rgba(124, 45, 18, 0.8));
+                transform: scale(1) rotate(0.5deg);
             }
         }
         
         @keyframes liquidFlowWithPulse {
             0% {
+                background: linear-gradient(
+                    135deg,
+                    #1a252f 0%,     /* Dark top-left */
+                    #3b82f6 15%,    /* Blue creeping in */
+                    #2c3e50 35%,    /* Dark center */
+                    #8e44ad 55%,    /* Purple struggle */
+                    #ea580c 85%,    /* Orange dominance */
+                    #ff6b40 100%    /* Light orange bottom */
+                );
+                background-size: 400% 400%;
                 background-position: 0% 50%;
-                filter: brightness(0.8) contrast(1.2);
+                filter: brightness(0.9) contrast(1.2) drop-shadow(0 0 8px rgba(59, 130, 246, 0.4));
+                transform: skewX(-0.5deg);
             }
-            16% {
+            12% {
+                background: linear-gradient(
+                    45deg,
+                    #ea580c 0%,     /* Orange takes top */
+                    #1a252f 20%,    /* Dark pushes back */
+                    #60a5fa 40%,    /* Light blue fights */
+                    #5d4e75 60%,    /* Purple balance */
+                    #d35400 80%,    /* Dark orange */
+                    #2c3e50 100%    /* Dark wins bottom */
+                );
+                background-size: 400% 400%;
                 background-position: 25% 25%;
-                filter: brightness(1.2) contrast(1.4);
+                filter: brightness(1.1) contrast(1.3) drop-shadow(0 0 12px rgba(234, 88, 12, 0.5));
+                transform: skewX(0.3deg);
             }
-            33% {
+            25% {
+                background: linear-gradient(
+                    225deg,
+                    #60a5fa 0%,     /* Light blue surge top */
+                    #8e44ad 25%,    /* Purple resistance */
+                    #1a252f 45%,    /* Dark core */
+                    #f97316 65%,    /* Orange counter */
+                    #34495e 85%,    /* Dark gray */
+                    #93c5fd 100%    /* Very light blue bottom */
+                );
+                background-size: 400% 400%;
                 background-position: 50% 75%;
-                filter: brightness(0.9) contrast(1.3);
+                filter: brightness(0.85) contrast(1.4) drop-shadow(0 0 10px rgba(96, 165, 250, 0.6));
+                transform: skewX(-0.2deg);
+            }
+            37% {
+                background: linear-gradient(
+                    315deg,
+                    #c2410c 0%,     /* Dark orange dominates */
+                    #2c3e50 20%,    /* Dark defense */
+                    #a569bd 45%,    /* Light purple */
+                    #1e40af 65%,    /* Darker blue */
+                    #f39c12 85%,    /* Golden orange */
+                    #5d4e75 100%    /* Purple-gray */
+                );
+                background-size: 400% 400%;
+                background-position: 75% 100%;
+                filter: brightness(1.3) contrast(1.1) drop-shadow(0 0 15px rgba(194, 65, 12, 0.7));
+                transform: skewX(0.4deg);
             }
             50% {
-                background-position: 75% 100%;
-                filter: brightness(1.4) contrast(1.5);
-            }
-            66% {
+                background: linear-gradient(
+                    90deg,
+                    #1e3a8a 0%,     /* Dark blue left */
+                    #fb923c 25%,    /* Light orange clash */
+                    #34495e 45%,    /* Dark center */
+                    #2563eb 65%,    /* Medium blue */
+                    #7c2d12 85%,    /* Dark red-brown */
+                    #3b82f6 100%    /* Blue right */
+                );
+                background-size: 400% 400%;
                 background-position: 100% 50%;
-                filter: brightness(1.0) contrast(1.2);
+                filter: brightness(1.2) contrast(1.5) drop-shadow(0 0 18px rgba(30, 58, 138, 0.8));
+                transform: skewX(-0.1deg);
             }
-            83% {
+            62% {
+                background: linear-gradient(
+                    180deg,
+                    #ea580c 0%,     /* Orange top */
+                    #1e40af 30%,    /* Dark blue middle-top */
+                    #a569bd 50%,    /* Light purple center */
+                    #2c3e50 70%,    /* Dark middle-bottom */
+                    #f97316 100%    /* Light orange bottom */
+                );
+                background-size: 400% 400%;
                 background-position: 75% 25%;
-                filter: brightness(1.3) contrast(1.4);
+                filter: brightness(1.0) contrast(1.3) drop-shadow(0 0 13px rgba(234, 88, 12, 0.6));
+                transform: skewX(0.2deg);
+            }
+            75% {
+                background: linear-gradient(
+                    270deg,
+                    #93c5fd 0%,     /* Very light blue */
+                    #5d4e75 20%,    /* Purple-gray */
+                    #c2410c 40%,    /* Dark orange middle */
+                    #60a5fa 60%,    /* Light blue */
+                    #1a252f 80%,    /* Very dark */
+                    #fb923c 100%    /* Light orange */
+                );
+                background-size: 400% 400%;
+                background-position: 50% 0%;
+                filter: brightness(1.1) contrast(1.2) drop-shadow(0 0 11px rgba(147, 197, 253, 0.5));
+                transform: skewX(-0.3deg);
+            }
+            87% {
+                background: linear-gradient(
+                    60deg,
+                    #7c2d12 0%,     /* Dark red-brown */
+                    #3b82f6 25%,    /* Blue resistance */
+                    #8e44ad 50%,    /* Purple struggle */
+                    #ea580c 75%,    /* Orange surge */
+                    #2c3e50 100%    /* Dark end */
+                );
+                background-size: 400% 400%;
+                background-position: 25% 75%;
+                filter: brightness(0.95) contrast(1.4) drop-shadow(0 0 14px rgba(124, 45, 18, 0.7));
+                transform: skewX(0.1deg);
             }
             100% {
+                background: linear-gradient(
+                    135deg,
+                    #1a252f 0%,     /* Dark top-left */
+                    #3b82f6 15%,    /* Blue creeping in */
+                    #2c3e50 35%,    /* Dark center */
+                    #8e44ad 55%,    /* Purple struggle */
+                    #ea580c 85%,    /* Orange dominance */
+                    #ff6b40 100%    /* Light orange bottom */
+                );
+                background-size: 400% 400%;
                 background-position: 0% 50%;
-                filter: brightness(0.8) contrast(1.2);
+                filter: brightness(0.9) contrast(1.2) drop-shadow(0 0 8px rgba(59, 130, 246, 0.4));
+                transform: skewX(-0.5deg);
             }
         }
         
