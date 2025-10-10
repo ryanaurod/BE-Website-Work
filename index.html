@@ -378,6 +378,28 @@
                 transform: scale(1.2);
             }
         }
+        
+        /* Hidden Aegis Fury animations */
+        @keyframes furyFloat1 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
+            25% { transform: translateY(-8px) rotate(90deg); opacity: 0.8; }
+            50% { transform: translateY(-12px) rotate(180deg); opacity: 1; }
+            75% { transform: translateY(-6px) rotate(270deg); opacity: 0.8; }
+        }
+        
+        @keyframes furyFloat2 {
+            0%, 100% { transform: translateY(0px) rotate(120deg); opacity: 0.7; }
+            25% { transform: translateY(-6px) rotate(210deg); opacity: 0.9; }
+            50% { transform: translateY(-10px) rotate(300deg); opacity: 1; }
+            75% { transform: translateY(-4px) rotate(30deg); opacity: 0.8; }
+        }
+        
+        @keyframes furyFloat3 {
+            0%, 100% { transform: translateY(0px) rotate(240deg); opacity: 0.5; }
+            25% { transform: translateY(-7px) rotate(330deg); opacity: 0.8; }
+            50% { transform: translateY(-9px) rotate(60deg); opacity: 1; }
+            75% { transform: translateY(-5px) rotate(150deg); opacity: 0.7; }
+        }
 
 
         .desktop-nav {
@@ -2395,7 +2417,6 @@
                             <div style="background: rgba(255, 107, 0, 0.1); padding: 1rem; border-radius: 10px;">
                                 <h5 style="color: #ff6b00; margin-bottom: 0.5rem;">👑 Mythic Ascension</h5>
                                 <strong>$3,333 - Eternal Divinity:</strong> + 2 Divines + 3 Figurines + Cipher Card<br>
-                                <strong>$4,444 - Merchant's Accord:</strong> + 3 Divines + Wholesale Access
                             </div>
                         </div>
                     </div>
@@ -2582,22 +2603,6 @@
                                 </ul>
                             </div>
                             
-                            <div class="tier-card" style="position: relative; border: 3px solid gold;">
-                                <div class="best-value-badge" style="background: linear-gradient(45deg, gold, orange);">WHOLESALE ACCESS</div>
-                                <div class="tier-price">$4,444</div>
-                                <div class="tier-name">13. Merchant's Accord</div>
-                                <div style="font-size: 0.9rem; color: #ffaa00; margin-bottom: 1rem;">Grants Access to Wholesale Pricing</div>
-                                <ul class="tier-features">
-                                    <li>Lifetime Digital + Physical Comic ($500+ Value!)</li>
-                                    <li>All 4 Starter Packs + 10 Boosters ($1,386 Value!)</li>
-                                    <li>2 Random Legendary + 1 Gorgon Sisters ($150 Value)</li>
-                                    <li>Early Access Beta + Exclusive Cerberus Gold</li>
-                                    <li><strong>100% Divine Drop + Erinyes + Aegis (3 Divines!)</strong></li>
-                                    <li>4 Divine Collector's Beast Figurines</li>
-                                    <li>Exclusive Eternal Cipher Card + Wholesale Access</li>
-                                    <li><strong>Total Value: $2,036+++</strong></li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -2617,6 +2622,36 @@
                     </div>
                     <p style="margin-top: 1rem; font-size: 0.9rem; color: #999; font-style: italic;">*Starter Packs guarantee specific character beasts. Booster Packs follow standard odds above.</p>
                     <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #ffaa00;"><strong>Note:</strong> Kickstarter contributors can repurchase Booster Packs at $9.99</p>
+                </div>
+                
+                <!-- HIDDEN AEGIS EASTER EGG - Appears as decorative art -->
+                <div style="margin: 3rem auto; text-align: center; max-width: 200px; opacity: 0.4; transition: opacity 0.3s ease;">
+                    <div id="hidden-aegis" onclick="handleAegisClick()" style="
+                        font-size: 2.5rem;
+                        cursor: default;
+                        position: relative;
+                        display: inline-block;
+                        filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.3));
+                        transition: all 0.5s ease;
+                    ">
+                        <span style="color: #ffd700; text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);">🏹</span>
+                        <div style="
+                            position: absolute;
+                            top: -15px;
+                            left: -25px;
+                            right: -25px;
+                            bottom: -15px;
+                            font-size: 0.4em;
+                            display: flex;
+                            justify-content: space-around;
+                            align-items: center;
+                            pointer-events: none;
+                        ">
+                            <span style="color: #8b0000; animation: furyFloat1 4s ease-in-out infinite;">🧿</span>
+                            <span style="color: #8b0000; animation: furyFloat2 4s ease-in-out infinite 1s;">🧿</span>
+                            <span style="color: #8b0000; animation: furyFloat3 4s ease-in-out infinite 2s;">🧿</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2791,6 +2826,28 @@
             const activeButton = document.getElementById(elementType + '-btn');
             if (activeButton) {
                 activeButton.classList.add('active');
+            }
+        }
+        
+        // Hidden Aegis double-click protection
+        let aegisClickCount = 0;
+        let aegisClickTimer = null;
+        
+        function handleAegisClick() {
+            aegisClickCount++;
+            
+            if (aegisClickCount === 1) {
+                aegisClickTimer = setTimeout(function() {
+                    aegisClickCount = 0;
+                }, 800); // Reset after 800ms
+            } else if (aegisClickCount === 2) {
+                clearTimeout(aegisClickTimer);
+                aegisClickCount = 0;
+                
+                // Double click detected - reveal the hidden tier
+                if (confirm('You have discovered the Merchant\'s Accord - the hidden wholesale tier. This grants access to wholesale pricing for brick and mortar stores. Continue to Kickstarter?')) {
+                    window.open('https://kickstarter.com/projects/battle-eternal/merchant-accord', '_blank');
+                }
             }
         }
     </script>
