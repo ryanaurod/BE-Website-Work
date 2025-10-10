@@ -312,10 +312,14 @@
         .world-card {
             background: rgba(0, 0, 0, 0.3);
             border-radius: 20px;
-            padding: 2rem;
+            padding: 1.5rem;
             border: 1px solid rgba(78, 205, 196, 0.3);
             text-align: left;
             transition: all 0.3s ease;
+        }
+        
+        .world-card .image-placeholder {
+            height: 150px;
         }
 
         .world-card:hover {
@@ -863,7 +867,7 @@
                         [TCG COLLECTION SHOWCASE: 195 cards across divine collections]
                     </div>
                     <h3>195 Cards Across 4 Divine Collections</h3>
-                    <p>The Storm Eternal, Depth Protocols, Shadow Archives & Living Code collections ready for digital warriors. Pack odds: Legendary 1:24, Epic 1:8, Rare 1:3.</p>
+                    <p>The Storm Eternal, Depth Protocols, Shadow Archives & Living Code collections ready for digital warriors. Starter Packs guarantee character beasts! Booster Pack odds: Legendary 1:24, Epic 1:8, Rare 1:3.</p>
                 </div>
                 
             </div>
@@ -1308,11 +1312,11 @@
             </div>
             
             <!-- DESKTOP VERSION - Full lore experience with enhanced AI/Dimensional content -->
-            <div class="world-grid desktop-only">
-                <!-- ASPIRE | INSPIRE System -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 3rem 0;" class="desktop-only">
+                <!-- Greek Gods Incarnate in Japan - FIRST -->
                 <div class="world-card">
-                    <div class="new-lore">🧠 CONSCIOUSNESS TECH</div>
-                    <div class="world-title">✨ ASPIRE | INSPIRE vs External AI</div>
+                    <div class="new-lore">🔥 DIVINE INCARNATION</div>
+                    <div class="world-title">⚡ Greek Gods Incarnate in Japan</div>
                     <div class="image-placeholder">
                         [ASPIRE/INSPIRE VISUAL: Internal AI consciousness awakening with golden light vs External AI dark neural network chains]
                     </div>
@@ -1525,7 +1529,10 @@
     <section class="screen" id="kickstarter">
         <div class="container">
             <h2 class="text-center mb-2">🚀 Battle Eternal - Kickstarter Campaign</h2>
-            <h3 class="text-center" style="color: #4ecdc4; margin-bottom: 3rem;">The Awakening Starts Here</h3>
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h3 style="color: #ff6b6b; font-size: 1.8rem; text-shadow: 0 0 20px rgba(255, 107, 107, 0.5); margin-bottom: 1rem;">Choose Wisely... The Battle is Eternal.</h3>
+                <p style="color: #4ecdc4;">The Awakening Starts Here</p>
+            </div>
             
             <!-- MOBILE VERSION - Strategic 3 tiers -->
             <div class="mobile-only">
@@ -1536,12 +1543,12 @@
                 <div class="tier-grid">
                     <!-- TIER 3 - Mobile Featured -->
                     <div class="tier-card">
-                        <div class="tier-price">$39</div>
-                        <div class="tier-name">Digital Warrior</div>
+                        <div class="tier-price">$45</div>
+                        <div class="tier-name">3. Gold Sigil</div>
                         <ul class="tier-features">
                             <li>Digital Comic Episode 0</li>
-                            <li>10-card battle pack</li>
-                            <li>Character ability unlocks</li>
+                            <li>Alexander's Phoenix Starter Pack (Guaranteed!)</li>
+                            <li>3 Booster Packs</li>
                             <li>Discord community access</li>
                         </ul>
                     </div>
@@ -1550,9 +1557,9 @@
                     <div class="tier-card" style="position: relative;">
                         <div class="best-value-badge">POPULAR</div>
                         <div class="tier-price">$149</div>
-                        <div class="tier-name">Consciousness Warrior</div>
+                        <div class="tier-name">6. Obsidian Rite</div>
                         <ul class="tier-features">
-                            <li>Everything in Digital Warrior</li>
+                            <li>All 4 Character Beast Starter Packs</li>
                             <li>Complete card collection (195 cards)</li>
                             <li>Physical collector's edition</li>
                             <li>Exclusive holographic cards</li>
@@ -1562,9 +1569,9 @@
                     <!-- TIER 9 - Mobile Premium -->
                     <div class="tier-card">
                         <div class="tier-price">$499</div>
-                        <div class="tier-name">Reality Engineer</div>
+                        <div class="tier-name">9. Ruby Ascension</div>
                         <ul class="tier-features">
-                            <li>Everything in Consciousness Warrior</li>
+                            <li>Everything in Obsidian Rite</li>
                             <li>3D-printed character figurines</li>
                             <li>Custom card design input</li>
                             <li>Producer credit in comic</li>
@@ -1601,64 +1608,66 @@
                 <!-- First 6 tiers -->
                 <div class="tier-grid" style="margin-bottom: 3rem;">
                     <div class="tier-card">
-                        <div class="tier-price">$5</div>
-                        <div class="tier-name">Observer</div>
+                        <div class="tier-price">$15</div>
+                        <div class="tier-name">1. Bronze Oath</div>
                         <ul class="tier-features">
                             <li>Community Discord access</li>
                             <li>Behind-the-scenes updates</li>
                             <li>Early development insights</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="tier-card">
-                        <div class="tier-price">$15</div>
-                        <div class="tier-name">Seeker</div>
-                        <ul class="tier-features">
-                            <li>Everything in Observer</li>
-                            <li>Digital Comic Episode 0</li>
-                            <li>3-card starter pack (digital)</li>
-                            <li>Character minibyte downloads</li>
+                            <li>Digital wallpapers & assets</li>
                         </ul>
                     </div>
                     
                     <div class="tier-card">
                         <div class="tier-price">$25</div>
-                        <div class="tier-name">Initiate</div>
+                        <div class="tier-name">2. Silver Pact</div>
                         <ul class="tier-features">
-                            <li>Everything in Seeker</li>
-                            <li>Enhanced digital experience</li>
-                            <li>5 additional digital cards</li>
-                            <li>Exclusive wallpapers & assets</li>
+                            <li>Everything in Bronze Oath</li>
+                            <li>Digital Comic Episode 0</li>
+                            <li>Digital Starter Pack (8 cards)</li>
+                            <li>Character minibyte downloads</li>
                         </ul>
                     </div>
                     
                     <div class="tier-card">
-                        <div class="tier-price">$39</div>
-                        <div class="tier-name">Digital Warrior</div>
+                        <div class="tier-price">$45</div>
+                        <div class="tier-name">3. Gold Sigil</div>
                         <ul class="tier-features">
-                            <li>Everything in Initiate</li>
-                            <li>10-card battle pack</li>
-                            <li>Character ability unlocks</li>
+                            <li>Everything in Silver Pact</li>
+                            <li>Alexander's Phoenix Starter Pack (Guaranteed!)</li>
+                            <li>3 Booster Packs</li>
+                            <li>Exclusive character abilities unlock</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tier-card">
+                        <div class="tier-price">$69</div>
+                        <div class="tier-name">4. Platinum Vow</div>
+                        <ul class="tier-features">
+                            <li>Everything in Gold Sigil</li>
+                            <li>Crystalis's Griffon Starter Pack (Guaranteed!)</li>
+                            <li>5 Booster Packs</li>
                             <li>Beta access to mobile game</li>
                         </ul>
                     </div>
                     
                     <div class="tier-card">
-                        <div class="tier-price">$79</div>
-                        <div class="tier-name">Adept</div>
+                        <div class="tier-price">$99</div>
+                        <div class="tier-name">5. Mithril Guard</div>
                         <ul class="tier-features">
-                            <li>Everything in Digital Warrior</li>
-                            <li>Physical TCG starter deck (25 cards)</li>
-                            <li>Exclusive holographic character cards (4)</li>
+                            <li>Everything in Platinum Vow</li>
+                            <li>Castor's Manticore Starter Pack (Guaranteed!)</li>
+                            <li>Physical holographic character cards (4)</li>
                             <li>Limited edition card sleeves</li>
                         </ul>
                     </div>
                     
                     <div class="tier-card">
                         <div class="tier-price">$149</div>
-                        <div class="tier-name">Consciousness Warrior</div>
+                        <div class="tier-name">6. Obsidian Rite</div>
                         <ul class="tier-features">
-                            <li>Everything in Adept</li>
+                            <li>Everything in Mithril Guard</li>
+                            <li>DeMarco's Green Dragon Starter Pack (Guaranteed!)</li>
                             <li>Complete physical card collection (195 cards)</li>
                             <li>Signed concept art prints</li>
                             <li>Collector's display box</li>
@@ -1668,87 +1677,93 @@
                 
                 <!-- BEST VALUE SECTION -->
                 <div style="background: linear-gradient(45deg, rgba(255, 107, 107, 0.2), rgba(255, 165, 0, 0.2)); padding: 2rem; border-radius: 20px; margin: 3rem 0; text-align: center;">
-                    <h3 style="color: #ffaa00; font-size: 2rem; margin-bottom: 1rem;">🏆 BEST VALUE TIERS 🏆</h3>
-                    <p style="margin-bottom: 2rem; font-size: 1.1rem;">Maximum content for serious collectors and supporters</p>
+                    <h3 style="color: #ffaa00; font-size: 2rem; margin-bottom: 1rem;">🏆 DIVINE ASCENSION TIERS 🏆</h3>
+                    <p style="margin-bottom: 2rem; font-size: 1.1rem;">Maximum content for serious collectors and divine warriors</p>
                     
                     <div class="tier-grid">
                         <div class="tier-card" style="position: relative;">
                             <div class="best-value-badge">BEST VALUE</div>
                             <div class="tier-price">$199</div>
-                            <div class="tier-name">Avatar Master</div>
+                            <div class="tier-name">7. Sapphire Oversoul</div>
                             <ul class="tier-features">
-                                <li>Everything in Consciousness Warrior</li>
+                                <li>Everything in Obsidian Rite</li>
+                                <li>All 4 Character Beast Starter Packs (Guaranteed!)</li>
                                 <li>3D-printed character figurines (4)</li>
                                 <li>Solar sealed beast engrams</li>
                                 <li>Producer credit in digital comic</li>
-                                <li>Exclusive legendary card variants</li>
+                                <li>10 Premium Booster Packs</li>
                             </ul>
                         </div>
                         
                         <div class="tier-card" style="position: relative;">
                             <div class="best-value-badge">BEST VALUE</div>
                             <div class="tier-price">$299</div>
-                            <div class="tier-name">Ascended Being</div>
+                            <div class="tier-name">8. Emerald Covenant</div>
                             <ul class="tier-features">
-                                <li>Everything in Avatar Master</li>
+                                <li>Everything in Sapphire Oversoul</li>
                                 <li>Custom character card design input</li>
                                 <li>Video call with creators (30 min)</li>
-                                <li>Golden legendary cards (exclusive)</li>
+                                <li>Golden legendary card variants (exclusive)</li>
                                 <li>Early access to all future content</li>
+                                <li>Lifetime subscription to digital platform</li>
                             </ul>
                         </div>
                         
                         <div class="tier-card" style="position: relative;">
                             <div class="best-value-badge">BEST VALUE</div>
                             <div class="tier-price">$499</div>
-                            <div class="tier-name">Reality Engineer</div>
+                            <div class="tier-name">9. Ruby Ascension</div>
                             <ul class="tier-features">
-                                <li>Everything in Ascended Being</li>
+                                <li>Everything in Emerald Covenant</li>
                                 <li>Limited edition artbook (signed)</li>
                                 <li>Soundtrack digital album</li>
                                 <li>Behind-the-scenes documentary access</li>
                                 <li>Name in special thanks credits</li>
+                                <li>Exclusive Ruby beast card variants</li>
                             </ul>
                         </div>
                         
                         <div class="tier-card" style="position: relative;">
                             <div class="best-value-badge">BEST VALUE</div>
                             <div class="tier-price">$799</div>
-                            <div class="tier-name">Divine Chosen</div>
+                            <div class="tier-name">10. Diamond Legacy</div>
                             <ul class="tier-features">
-                                <li>Everything in Reality Engineer</li>
+                                <li>Everything in Ruby Ascension</li>
                                 <li>Exclusive beta tester for all products</li>
                                 <li>Monthly creator livestream access</li>
                                 <li>Custom beast card creation</li>
                                 <li>Physical prototype items</li>
+                                <li>Diamond-tier holographic collection</li>
                             </ul>
                         </div>
                         
                         <div class="tier-card" style="position: relative;">
                             <div class="best-value-badge">BEST VALUE</div>
                             <div class="tier-price">$1299</div>
-                            <div class="tier-name">God-Tier Supporter</div>
+                            <div class="tier-name">11. Mythril Eternal</div>
                             <ul class="tier-features">
-                                <li>Everything in Divine Chosen</li>
+                                <li>Everything in Diamond Legacy</li>
                                 <li>Co-creator credit on all materials</li>
                                 <li>Quarterly in-person meetups (travel not included)</li>
                                 <li>Custom story arc input</li>
-                                <li>Ultra-rare holographic collection</li>
+                                <li>Ultra-rare mythril beast engrams</li>
+                                <li>Personal avatar in digital universe</li>
                             </ul>
                         </div>
                         
                         <div class="tier-card" style="position: relative;">
-                            <div class="best-value-badge">BEST VALUE</div>
+                            <div class="best-value-badge">ULTIMATE</div>
                             <div class="tier-price">$2999</div>
-                            <div class="tier-name">The Purveyor of Legends</div>
-                            <div style="font-size: 0.9rem; color: #ff6b6b; margin-bottom: 1rem; text-align: center;">🏪 Comic Book Store Owners</div>
+                            <div class="tier-name">12. Eternal Divinity</div>
+                            <div style="font-size: 0.9rem; color: #ffaa00; margin-bottom: 1rem; text-align: center;">✨ The Ultimate Divine Package</div>
                             <ul class="tier-features">
-                                <li>Exclusive retail distribution rights</li>
-                                <li>Store display materials & marketing kit</li>
-                                <li>10 complete sets for resale</li>
-                                <li>Monthly exclusive variant covers</li>
-                                <li>Direct creator support line</li>
-                                <li>Retail training materials</li>
+                                <li>Everything in Mythril Eternal</li>
+                                <li>Personal consultation for universe expansion</li>
+                                <li>Limited edition divine figurine collection</li>
+                                <li>Exclusive divine beast engrams (God-tier)</li>
+                                <li>Lifetime premium access to all BE content</li>
+                                <li>Immortalized as NPC in digital universe</li>
+                                <li>Hand-signed collector's edition by all creators</li>
                             </ul>
                         </div>
                     </div>
@@ -1757,7 +1772,7 @@
             
             <div class="text-center mt-3">
                 <a href="https://kickstarter.com/projects/battle-eternal" class="cta-button" style="font-size: 1.5rem; padding: 1.5rem 3rem;">Ante In - Kickstarter Pre-Order</a>
-                <p style="margin-top: 1rem; color: #e0e0e0;">🎲 <strong>Pack Odds:</strong> Legendary 1:24 packs | Epic 1:8 packs | Rare 1:3 packs</p>
+                <p style="margin-top: 1rem; color: #e0e0e0;">🎲 <strong>Booster Pack Odds:</strong> Legendary 1:24 packs | Epic 1:8 packs | Rare 1:3 packs</p>
             </div>
         </div>
     </section>
