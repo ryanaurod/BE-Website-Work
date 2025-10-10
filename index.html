@@ -133,38 +133,165 @@
             font-family: 'Cinzel', 'Trajan Pro', serif;
             font-size: 1.8rem;
             font-weight: 900;
-            color: #4ecdc4;
             text-decoration: none;
-            text-shadow: 0 0 20px rgba(78, 205, 196, 0.8), 0 0 30px rgba(0, 255, 255, 0.4);
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo-alpha {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #4ecdc4;
+            text-shadow: 
+                0 0 10px rgba(78, 205, 196, 0.8),
+                0 0 20px rgba(0, 150, 255, 0.6),
+                0 0 30px rgba(30, 144, 255, 0.4);
+            animation: alphaGlow 3s ease-in-out infinite alternate;
             position: relative;
         }
-
-        .logo::before {
-            content: '𓅞';
+        
+        .logo-omega {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #ff6b40;
+            text-shadow: 
+                0 0 10px rgba(255, 107, 64, 0.8),
+                0 0 20px rgba(255, 69, 0, 0.6),
+                0 0 30px rgba(255, 140, 0, 0.4);
+            animation: omegaGlow 3s ease-in-out infinite alternate-reverse;
+            position: relative;
+        }
+        
+        .logo-text {
+            background: linear-gradient(
+                45deg,
+                #4ecdc4 0%,
+                #00bfff 15%,
+                #1e90ff 25%,
+                #4169e1 35%,
+                #8a2be2 45%,
+                #9932cc 55%,
+                #ff4500 65%,
+                #ff6347 75%,
+                #ff8c00 85%,
+                #ff6b40 100%
+            );
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: liquidFlow 6s ease-in-out infinite;
+            text-shadow: none;
+            position: relative;
+        }
+        
+        /* Mystical aura effects */
+        .logo-alpha::before {
+            content: '';
             position: absolute;
-            left: -2rem;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.5rem;
-            color: rgba(0, 255, 255, 0.7);
-            animation: logoGlyph 4s ease-in-out infinite alternate;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: radial-gradient(circle, rgba(78, 205, 196, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: alphaAura 4s ease-in-out infinite;
+            z-index: -1;
         }
-
-        .logo::after {
-            content: '𓈖';
+        
+        .logo-omega::before {
+            content: '';
             position: absolute;
-            right: -2rem;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.5rem;
-            color: rgba(0, 255, 255, 0.7);
-            animation: logoGlyph 4s ease-in-out infinite alternate-reverse;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: radial-gradient(circle, rgba(255, 107, 64, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: omegaAura 4s ease-in-out infinite alternate-reverse;
+            z-index: -1;
+        }
+        
+        @keyframes alphaGlow {
+            0% { 
+                color: #4ecdc4;
+                text-shadow: 
+                    0 0 10px rgba(78, 205, 196, 0.8),
+                    0 0 20px rgba(0, 150, 255, 0.6),
+                    0 0 30px rgba(30, 144, 255, 0.4);
+                transform: scale(1);
+            }
+            100% { 
+                color: #00bfff;
+                text-shadow: 
+                    0 0 15px rgba(0, 191, 255, 1),
+                    0 0 25px rgba(30, 144, 255, 0.8),
+                    0 0 35px rgba(65, 105, 225, 0.6);
+                transform: scale(1.05);
+            }
+        }
+        
+        @keyframes omegaGlow {
+            0% { 
+                color: #ff6b40;
+                text-shadow: 
+                    0 0 10px rgba(255, 107, 64, 0.8),
+                    0 0 20px rgba(255, 69, 0, 0.6),
+                    0 0 30px rgba(255, 140, 0, 0.4);
+                transform: scale(1);
+            }
+            100% { 
+                color: #ff4500;
+                text-shadow: 
+                    0 0 15px rgba(255, 69, 0, 1),
+                    0 0 25px rgba(255, 99, 71, 0.8),
+                    0 0 35px rgba(255, 140, 0, 0.6);
+                transform: scale(1.05);
+            }
+        }
+        
+        @keyframes liquidFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+            25% {
+                background-position: 50% 25%;
+            }
+            50% {
+                background-position: 100% 75%;
+            }
+            75% {
+                background-position: 75% 100%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        @keyframes alphaAura {
+            0%, 100% { 
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 0.6;
+                transform: scale(1.2);
+            }
+        }
+        
+        @keyframes omegaAura {
+            0%, 100% { 
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 0.6;
+                transform: scale(1.2);
+            }
         }
 
-        @keyframes logoGlyph {
-            0% { color: rgba(0, 255, 255, 0.5); transform: translateY(-50%) scale(1); }
-            100% { color: rgba(0, 255, 255, 0.9); transform: translateY(-50%) scale(1.1); }
-        }
 
         .desktop-nav {
             display: none;
@@ -1074,7 +1201,11 @@
 <body>
     <!-- NAVIGATION HEADER -->
     <nav class="nav-header">
-        <a href="#" class="logo">BATTLE ETERNAL</a>
+        <a href="#" class="logo">
+            <span class="logo-alpha">Α</span>
+            <span class="logo-text">BATTLE ETERNAL</span>
+            <span class="logo-omega">Ω</span>
+        </a>
         
         <div class="desktop-nav">
             <a href="#overview">Overview</a>
