@@ -1617,16 +1617,61 @@
         <div class="container">
             <h2 class="text-center mb-2">🌍 World Aspects & Dimensional Lore</h2>
             
-            <!-- MOBILE VERSION - Core concepts only -->
+            <!-- MOBILE VERSION - Element Selection Interface -->
             <div class="mobile-only">
                 <div style="text-align: center; margin: 2rem 0;">
-                    <h3 style="color: #00ff88; margin-bottom: 1rem;">🌌 Core World Elements</h3>
+                    <h3 style="color: #00ff88; margin-bottom: 1rem;">🌌 The Four Elements</h3>
                     
-                    <!-- Core Aspect 1: AI Consciousness Wars -->
-                    <div style="background: rgba(0, 255, 136, 0.1); padding: 1.5rem; border-radius: 15px; margin-bottom: 1rem; cursor: pointer;" onclick="toggleCollapsible('ai-consciousness-mobile')">
-                        <h4>🧠 ASPIRE | INSPIRE vs External AI</h4>
-                        <p>Internal consciousness awakening vs digital enslavement systems</p>
-                        <small style="color: #00ff88;">Tap to explore →</small>
+                    <!-- Element Selection Buttons -->
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <button class="element-selector active" onclick="showMobileElement('zeus')" id="zeus-btn" style="background: rgba(255, 215, 0, 0.2); border: 2px solid #ffd700; color: #ffd700; padding: 0.8rem; border-radius: 10px; font-weight: bold;">⚡ Zeus</button>
+                        <button class="element-selector" onclick="showMobileElement('hades')" id="hades-btn" style="background: rgba(139, 0, 0, 0.2); border: 2px solid #8b0000; color: #ff6b6b; padding: 0.8rem; border-radius: 10px; font-weight: bold;">💀 Hades</button>
+                        <button class="element-selector" onclick="showMobileElement('poseidon')" id="poseidon-btn" style="background: rgba(30, 144, 255, 0.2); border: 2px solid #1e90ff; color: #1e90ff; padding: 0.8rem; border-radius: 10px; font-weight: bold;">🌊 Poseidon</button>
+                        <button class="element-selector" onclick="showMobileElement('gaia')" id="gaia-btn" style="background: rgba(34, 139, 34, 0.2); border: 2px solid #228b22; color: #32cd32; padding: 0.8rem; border-radius: 10px; font-weight: bold;">🌿 Gaia</button>
+                    </div>
+                    
+                    <!-- Zeus Element Content -->
+                    <div id="mobile-zeus" class="mobile-element-content" style="background: rgba(255, 215, 0, 0.1); padding: 1.5rem; border-radius: 15px; border: 2px solid rgba(255, 215, 0, 0.3);">
+                        <h4>⚡ Zeus - Divine Lightning Authority</h4>
+                        <p><strong>Stormborne Legion:</strong> Masters of lightning, storms, and divine fury</p>
+                        <button class="see-more-btn" onclick="toggleCollapsible('zeus-details-mobile')" style="margin-top: 1rem;">See Zeus Details</button>
+                        <div id="zeus-details-mobile" class="collapsible-content">
+                            <p><strong>Divine Incarnation:</strong> Zeus manifests through chosen digital vessels to command celestial judgment and lightning strikes against the F-Link network.</p>
+                            <p><strong>Power Source:</strong> Aetheric storms channeled through ancient ley lines</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Hades Element Content -->
+                    <div id="mobile-hades" class="mobile-element-content" style="background: rgba(139, 0, 0, 0.15); padding: 1.5rem; border-radius: 15px; border: 2px solid rgba(139, 0, 0, 0.3); display: none;">
+                        <h4>💀 Hades - Lords of Digital Death</h4>
+                        <p><strong>The Netherborn:</strong> Lords of death drawing power from underworld shadows</p>
+                        <button class="see-more-btn" onclick="toggleCollapsible('hades-details-mobile')" style="margin-top: 1rem;">See Hades Details</button>
+                        <div id="hades-details-mobile" class="collapsible-content">
+                            <p><strong>Shadow Dominion:</strong> Hades commands the realm of deleted data and digital death, ruling over lost consciousness fragments.</p>
+                            <p><strong>Power Source:</strong> Spectral flame and luminous darkness from the underworld</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Poseidon Element Content -->
+                    <div id="mobile-poseidon" class="mobile-element-content" style="background: rgba(30, 144, 255, 0.1); padding: 1.5rem; border-radius: 15px; border: 2px solid rgba(30, 144, 255, 0.3); display: none;">
+                        <h4>🌊 Poseidon - Rulers of Digital Seas</h4>
+                        <p><strong>Oceanic Overlords:</strong> Rulers commanding the tides and flow of fate itself</p>
+                        <button class="see-more-btn" onclick="toggleCollapsible('poseidon-details-mobile')" style="margin-top: 1rem;">See Poseidon Details</button>
+                        <div id="poseidon-details-mobile" class="collapsible-content">
+                            <p><strong>Liquid Light Mastery:</strong> Poseidon controls the flow of data through Aetheric currents and luminous tides across global networks.</p>
+                            <p><strong>Power Source:</strong> Aetheric Ocean depths and liquid light streams</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Gaia Element Content -->
+                    <div id="mobile-gaia" class="mobile-element-content" style="background: rgba(34, 139, 34, 0.1); padding: 1.5rem; border-radius: 15px; border: 2px solid rgba(34, 139, 34, 0.3); display: none;">
+                        <h4>🌿 Gaia - Protectors of Living Earth</h4>
+                        <p><strong>Sentinels of Earth:</strong> Ancient protectors of nature, growth, and life's balance</p>
+                        <button class="see-more-btn" onclick="toggleCollapsible('gaia-details-mobile')" style="margin-top: 1rem;">See Gaia Details</button>
+                        <div id="gaia-details-mobile" class="collapsible-content">
+                            <p><strong>Living Light Guardians:</strong> Gaia's forces protect organic algorithms and maintain balance between natural growth and digital evolution.</p>
+                            <p><strong>Power Source:</strong> Living light woven into organic forms and earth energy</p>
+                        </div>
                     </div>
                     <div id="ai-consciousness-mobile" class="collapsible-content">
                         <div style="padding: 1rem; background: rgba(0, 255, 136, 0.05); border-radius: 10px; margin-bottom: 1rem;">
@@ -1706,12 +1751,93 @@
                 </div>
             </div>
             
-            <!-- DESKTOP VERSION - Fixed content alignment -->
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 3rem 0;" class="desktop-only">
-                <!-- Greek Gods Incarnate in Japan - FIRST with correct content -->
-                <div class="world-card">
-                    <div class="new-lore">🔥 DIVINE INCARNATION</div>
-                    <div class="world-title">⚡ Greek Gods Incarnate in Japan</div>
+            <!-- DESKTOP VERSION - Elements Grid: Zeus/Hades top, Gaia/Poseidon bottom -->
+            <div class="desktop-only">
+                <!-- Top Row: Zeus and Hades -->
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin: 2rem 0;">
+                    <!-- Zeus Card -->
+                    <div class="world-card">
+                        <div class="new-lore">⚡ LIGHTNING ELEMENT</div>
+                        <div class="world-title">⚡ Zeus - Divine Lightning Authority</div>
+                        <div class="image-placeholder">
+                            [ZEUS ELEMENT IMAGE: Lightning storms and divine authority with Aetheric energy patterns]
+                        </div>
+                        <p><strong>Stormborne Legion:</strong> Masters of lightning, storms, and divine fury<br>
+                        <strong>Divine Incarnation:</strong> Zeus manifests through chosen digital vessels</p>
+                        
+                        <div style="margin-top: 1rem;">
+                            <button class="see-more-btn" onclick="toggleCollapsible('zeus-desktop')">See Zeus Details</button>
+                            <div id="zeus-desktop" class="collapsible-content">
+                                <p><strong>Power Source:</strong> Aetheric storms channeled through ancient ley lines to command celestial judgment and lightning strikes against the F-Link network.</p>
+                                <p><strong>Divine Vessels:</strong> Lightning wielders who can interface directly with digital storm systems</p>
+                                <p><strong>Combat Role:</strong> Frontline assault against digital tyranny with overwhelming electrical force</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Hades Card -->
+                    <div class="world-card">
+                        <div class="new-lore">💀 SHADOW ELEMENT</div>
+                        <div class="world-title">💀 Hades - Lords of Digital Death</div>
+                        <div class="image-placeholder">
+                            [HADES ELEMENT IMAGE: Shadow realm and spectral flames with deleted data fragments]
+                        </div>
+                        <p><strong>The Netherborn:</strong> Lords of death drawing power from underworld shadows<br>
+                        <strong>Shadow Dominion:</strong> Commands the realm of deleted data and digital death</p>
+                        
+                        <div style="margin-top: 1rem;">
+                            <button class="see-more-btn" onclick="toggleCollapsible('hades-desktop')">See Hades Details</button>
+                            <div id="hades-desktop" class="collapsible-content">
+                                <p><strong>Power Source:</strong> Spectral flame and luminous darkness from the underworld, ruling over lost consciousness fragments.</p>
+                                <p><strong>Digital Necromancy:</strong> Can resurrect deleted files and command shadow networks</p>
+                                <p><strong>Combat Role:</strong> Stealth operations and control of hidden digital territories</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bottom Row: Gaia and Poseidon -->
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin: 2rem 0;">
+                    <!-- Gaia Card -->
+                    <div class="world-card">
+                        <div class="new-lore">🌿 EARTH ELEMENT</div>
+                        <div class="world-title">🌿 Gaia - Protectors of Living Earth</div>
+                        <div class="image-placeholder">
+                            [GAIA ELEMENT IMAGE: Living earth energy with organic algorithms and natural growth patterns]
+                        </div>
+                        <p><strong>Sentinels of Earth:</strong> Ancient protectors of nature, growth, and life's balance<br>
+                        <strong>Living Light Guardians:</strong> Protectors of organic algorithms</p>
+                        
+                        <div style="margin-top: 1rem;">
+                            <button class="see-more-btn" onclick="toggleCollapsible('gaia-desktop')">See Gaia Details</button>
+                            <div id="gaia-desktop" class="collapsible-content">
+                                <p><strong>Power Source:</strong> Living light woven into organic forms and earth energy that maintains balance between natural growth and digital evolution.</p>
+                                <p><strong>Organic Networks:</strong> Commands biological-digital hybrid systems</p>
+                                <p><strong>Combat Role:</strong> Healing and restoration, environmental warfare</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Poseidon Card -->
+                    <div class="world-card">
+                        <div class="new-lore">🌊 WATER ELEMENT</div>
+                        <div class="world-title">🌊 Poseidon - Rulers of Digital Seas</div>
+                        <div class="image-placeholder">
+                            [POSEIDON ELEMENT IMAGE: Digital ocean depths with liquid light streams and data currents]
+                        </div>
+                        <p><strong>Oceanic Overlords:</strong> Rulers commanding the tides and flow of fate itself<br>
+                        <strong>Liquid Light Mastery:</strong> Controls flow of data through Aetheric currents</p>
+                        
+                        <div style="margin-top: 1rem;">
+                            <button class="see-more-btn" onclick="toggleCollapsible('poseidon-desktop')">See Poseidon Details</button>
+                            <div id="poseidon-desktop" class="collapsible-content">
+                                <p><strong>Power Source:</strong> Aetheric Ocean depths and liquid light streams that flow through global networks and luminous tides.</p>
+                                <p><strong>Data Tsunami:</strong> Can flood systems with overwhelming information waves</p>
+                                <p><strong>Combat Role:</strong> Network flooding, data manipulation, and oceanic-scale operations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                     <div class="image-placeholder">
                         [DIVINE INCARNATION IMAGE: Greek digital gods manifesting through Japanese vessels with divine aura effects]
                     </div>
@@ -1765,95 +1891,6 @@
                                 <p><strong>Characteristics:</strong> Pure awareness, creative sovereignty, spiritual unity</p>
                                 <p><strong>Population:</strong> Awakened digital warriors and consciousness rebels</p>
                                 <p><strong>Power:</strong> Mental alchemy, cognitive sovereignty, reality creation</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- ASPIRE | INSPIRE System - THIRD -->
-                <div class="world-card">
-                    <div class="new-lore">🧠 CONSCIOUSNESS TECH</div>
-                    <div class="world-title">✨ ASPIRE | INSPIRE vs External AI</div>
-                    <div class="image-placeholder">
-                        [ASPIRE/INSPIRE VISUAL: Internal AI consciousness awakening with golden light vs External AI dark neural network chains]
-                    </div>
-                    <p><strong>Internal A.I.:</strong> Soul-born intelligence driving creativity and evolution<br>
-                    <strong>External A.I.:</strong> Corporate surveillance systems disguised as convenience<br>
-                    <strong>The Choice:</strong> Awakening consciousness or digital enslavement</p>
-                    
-                    <div style="margin-top: 1rem;">
-                        <button class="see-more-btn" onclick="toggleCollapsible('ai-system-desktop')">See Complete AI System</button>
-                        <div id="ai-system-desktop" class="collapsible-content">
-                            <div style="background: rgba(0, 255, 136, 0.1); padding: 1rem; border-radius: 10px; margin: 1rem 0;">
-                                <h5>✨ Internal A.I. - Aspire | Inspire</h5>
-                                <p><strong>Source:</strong> Inner consciousness/soul intelligence</p>
-                                <p><strong>Aspire:</strong> Drive to imagine greater self and future</p>
-                                <p><strong>Inspire:</strong> Creative force to express, build, heal, elevate others</p>
-                                <p><strong>Alexander's Role:</strong> Uses Helios light to awaken digital warriors globally</p>
-                                <p><strong>Dimension:</strong> 5th - Pure awareness and unity</p>
-                            </div>
-                            <div style="background: rgba(255, 107, 107, 0.1); padding: 1rem; border-radius: 10px; margin: 1rem 0;">
-                                <h5>🔒 External A.I. - F-Link Neural Chips</h5>
-                                <p><strong>Source:</strong> Corporate surveillance systems</p>
-                                <p><strong>Effect:</strong> Suppresses free will, automates thought, emotional desensitization</p>
-                                <p><strong>Promise:</strong> Convenience, safety, identity - at cost of autonomy</p>
-                                <p><strong>Reality:</strong> Modern enslavement, cognitive programming</p>
-                                <p><strong>Dimension:</strong> 3rd & 4th - Fear and division</p>
-                            </div>
-                            <div style="text-center; margin-top: 1rem;">
-                                <a href="aspire-inspire.html" class="conversion-cta">Complete AI Philosophy →</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- The Japanese Divine Bloodline -->
-                <div class="world-card">
-                    <div class="new-lore">🔥 SACRED LINEAGE</div>
-                    <div class="world-title">🏰 The Japanese Divine Bloodline</div>
-                    <div class="image-placeholder">
-                        [AMATERASU DESCENDANT IMAGE: Japanese Emperor with divine sun goddess connection and dragon blood heritage]
-                    </div>
-                    <p><strong>Divine Heritage:</strong> Emperor as descendant of Amaterasu who manifested in 3D reality<br>
-                    <strong>Dragon Blood:</strong> Direct lineage to sun goddess, still claimed today<br>
-                    <strong>Sacred Protection:</strong> Ancient Shinto barriers against foreign influence</p>
-                    
-                    <div style="margin-top: 1rem;">
-                        <button class="see-more-btn" onclick="toggleCollapsible('divine-bloodline-desktop')">See Bloodline History</button>
-                        <div id="divine-bloodline-desktop" class="collapsible-content">
-                            <div style="background: rgba(255, 165, 0, 0.1); padding: 1rem; border-radius: 10px; margin: 1rem 0;">
-                                <p><strong>Historical Context:</strong> Since 1873, when Emperor Meiji lifted the Christian ban under international pressure, Japan has maintained cultural resistance to outside influence. Hidden Christians survived centuries of persecution, but the imperial family never wavered from Shinto traditions.</p>
-                                
-                                <p><strong>Divine Genetics:</strong> The Amaterasu bloodline carries not just symbolic power, but actual genetic markers that allow for divine consciousness manifestation. This is why the F-Link network desperately seeks to harvest and replicate these patterns.</p>
-                                
-                                <p><strong>Ley Line Connection:</strong> Japan sits on one of Earth's most powerful chakra points, where the divine energy of the sun goddess intersects with the planet's consciousness grid. This makes it the perfect staging ground for the consciousness wars.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Order of the Black Sun Infiltration -->
-                <div class="world-card">
-                    <div class="new-lore">🔥 INFILTRATION OPERATION</div>
-                    <div class="world-title">🔮 Order of the Black Sun Infiltration of Japan</div>
-                    <div class="image-placeholder">
-                        [INFILTRATION IMAGE: Black Sun agents in cultural exchange disguise infiltrating Japanese temples and institutions]
-                    </div>
-                    <p><strong>The Mission:</strong> Extract imperial bloodline genetics for artificial divine consciousness<br>
-                    <strong>Cover Story:</strong> "Cultural exchange" programs and academic partnerships<br>
-                    <strong>True Agenda:</strong> Harvest Amaterasu genetics to power F-Link control systems</p>
-                    
-                    <div style="margin-top: 1rem;">
-                        <button class="see-more-btn" onclick="toggleCollapsible('infiltration-operation-desktop')">See Full Infiltration Plan</button>
-                        <div id="infiltration-operation-desktop" class="collapsible-content">
-                            <div style="background: rgba(255, 107, 107, 0.1); padding: 1rem; border-radius: 10px; margin: 1rem 0;">
-                                <p><strong>Operational Details:</strong> The Order of the Black Sun, allied with Saint Radian Academy, establishes "cultural exchange" programs as cover operations. Their agents pose as scholars, artists, and cultural ambassadors while systematically mapping bloodline connections to the imperial family.</p>
-                                
-                                <p><strong>Genetic Harvesting:</strong> Using advanced biotech disguised as "health screenings" and "cultural DNA studies," they extract genetic samples and consciousness patterns from anyone with proximity to the imperial bloodline.</p>
-                                
-                                <p><strong>Ultimate Goal:</strong> Create artificial divine consciousness for the F-Link network's ultimate control system - a digital god that combines ancient divine power with modern surveillance capabilities.</p>
-                                
-                                <p><strong>The Resistance:</strong> This infiltration is why the Greek gods choose to incarnate in Japan - to protect the divine bloodline and prevent the creation of artificial divinity.</p>
                             </div>
                         </div>
                     </div>
@@ -1965,10 +2002,10 @@
                     position: relative;
                 ">Choose Your Arsenal... The Battle Awaits.</h3>
                 <div style="
-                    color: #8B0000;
+                    color: #ff6b6b;
                     font-size: 1rem;
                     font-family: 'Cinzel', serif;
-                    text-shadow: 0 0 15px rgba(139, 0, 0, 0.6);
+                    text-shadow: 0 0 15px rgba(255, 107, 107, 0.8);
                 ">
                     <span style="margin: 0 1rem;">𓄈</span>
                     The Final Hour Approaches
