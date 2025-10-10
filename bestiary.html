@@ -165,19 +165,47 @@
         }
 
         .deck-nav-card.zeus {
-            border-color: rgba(255, 215, 0, 0.5);
+            border-color: rgba(255, 215, 0, 0.8);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3), inset 0 0 15px rgba(255, 215, 0, 0.1);
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 255, 0, 0.05));
+        }
+
+        .deck-nav-card.zeus:hover {
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.4), 0 0 25px rgba(255, 215, 0, 0.5);
+            border-color: rgba(255, 215, 0, 1);
         }
 
         .deck-nav-card.poseidon {
-            border-color: rgba(30, 144, 255, 0.5);
+            border-color: rgba(30, 144, 255, 0.8);
+            box-shadow: 0 0 15px rgba(30, 144, 255, 0.4), inset 0 0 15px rgba(30, 144, 255, 0.1);
+            background: linear-gradient(135deg, rgba(30, 144, 255, 0.1), rgba(0, 191, 255, 0.05));
+        }
+
+        .deck-nav-card.poseidon:hover {
+            box-shadow: 0 20px 40px rgba(30, 144, 255, 0.4), 0 0 25px rgba(30, 144, 255, 0.5);
+            border-color: rgba(30, 144, 255, 1);
         }
 
         .deck-nav-card.hades {
-            border-color: rgba(128, 0, 128, 0.5);
+            border-color: rgba(255, 69, 0, 0.8);
+            box-shadow: 0 0 15px rgba(255, 69, 0, 0.4), inset 0 0 15px rgba(128, 0, 128, 0.2);
+            background: linear-gradient(135deg, rgba(255, 69, 0, 0.1), rgba(128, 0, 128, 0.05));
+        }
+
+        .deck-nav-card.hades:hover {
+            box-shadow: 0 20px 40px rgba(255, 69, 0, 0.4), 0 0 25px rgba(255, 69, 0, 0.5);
+            border-color: rgba(255, 69, 0, 1);
         }
 
         .deck-nav-card.gaia {
-            border-color: rgba(34, 139, 34, 0.5);
+            border-color: rgba(34, 139, 34, 0.8);
+            box-shadow: 0 0 15px rgba(34, 139, 34, 0.4), inset 0 0 15px rgba(154, 205, 50, 0.2);
+            background: linear-gradient(135deg, rgba(34, 139, 34, 0.1), rgba(154, 205, 50, 0.05));
+        }
+
+        .deck-nav-card.gaia:hover {
+            box-shadow: 0 20px 40px rgba(34, 139, 34, 0.4), 0 0 25px rgba(34, 139, 34, 0.5);
+            border-color: rgba(34, 139, 34, 1);
         }
 
         .deck-emoji {
@@ -209,23 +237,166 @@
             padding: 3rem 2rem;
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
             border-radius: 30px;
-            border-left: 5px solid;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
         }
 
+        .deck-section::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, transparent, transparent);
+            border-radius: 32px;
+            z-index: -1;
+            animation: elementalPulse 3s ease-in-out infinite;
+        }
+
+        .deck-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, transparent 70%, rgba(255, 255, 255, 0.1) 100%);
+            border-radius: 30px;
+            z-index: -1;
+            opacity: 0;
+            animation: energyWave 4s ease-in-out infinite;
+        }
+
+        /* Lightning Energy - Zeus/Stormborne */
         .deck-section.zeus {
-            border-left-color: #ffd700;
+            border-color: #ffd700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3), inset 0 0 20px rgba(255, 215, 0, 0.1);
         }
 
+        .deck-section.zeus::before {
+            background: linear-gradient(45deg, 
+                #ffd700 0%, 
+                #ffff00 25%, 
+                transparent 50%, 
+                #ffd700 75%, 
+                #ffff00 100%);
+            animation: lightningFlicker 2s ease-in-out infinite alternate;
+        }
+
+        .deck-section.zeus::after {
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 215, 0, 0.2) 0%, 
+                rgba(255, 255, 0, 0.1) 30%, 
+                transparent 70%);
+        }
+
+        /* Water Energy - Poseidon/Tideforged */
         .deck-section.poseidon {
-            border-left-color: #1e90ff;
+            border-color: #1e90ff;
+            box-shadow: 0 0 20px rgba(30, 144, 255, 0.4), inset 0 0 20px rgba(30, 144, 255, 0.1);
         }
 
+        .deck-section.poseidon::before {
+            background: linear-gradient(45deg, 
+                #1e90ff 0%, 
+                #00bfff 30%, 
+                transparent 60%, 
+                #1e90ff 90%);
+            animation: waterFlow 3s ease-in-out infinite;
+        }
+
+        .deck-section.poseidon::after {
+            background: radial-gradient(ellipse at 30% 20%, 
+                rgba(30, 144, 255, 0.3) 0%, 
+                rgba(0, 191, 255, 0.2) 40%, 
+                transparent 80%);
+        }
+
+        /* Shadow/Fire Energy - Hades/Obsidian */
         .deck-section.hades {
-            border-left-color: #800080;
+            border-color: #ff4500;
+            box-shadow: 0 0 25px rgba(255, 69, 0, 0.4), inset 0 0 25px rgba(128, 0, 128, 0.2);
         }
 
+        .deck-section.hades::before {
+            background: linear-gradient(45deg, 
+                #ff4500 0%, 
+                #ff6347 20%, 
+                #800080 40%, 
+                transparent 60%, 
+                #ff4500 80%, 
+                #ff6347 100%);
+            animation: shadowFlame 2.5s ease-in-out infinite alternate;
+        }
+
+        .deck-section.hades::after {
+            background: radial-gradient(circle at 70% 30%, 
+                rgba(255, 69, 0, 0.3) 0%, 
+                rgba(255, 99, 71, 0.2) 25%, 
+                rgba(128, 0, 128, 0.15) 50%, 
+                transparent 75%);
+        }
+
+        /* Earth Energy - Gaia */
         .deck-section.gaia {
-            border-left-color: #228b22;
+            border-color: #228b22;
+            box-shadow: 0 0 20px rgba(34, 139, 34, 0.4), inset 0 0 20px rgba(154, 205, 50, 0.2);
+        }
+
+        .deck-section.gaia::before {
+            background: linear-gradient(45deg, 
+                #228b22 0%, 
+                #32cd32 25%, 
+                #9acd32 50%, 
+                transparent 75%, 
+                #228b22 100%);
+            animation: earthGrowth 3.5s ease-in-out infinite;
+        }
+
+        .deck-section.gaia::after {
+            background: radial-gradient(ellipse at 40% 60%, 
+                rgba(34, 139, 34, 0.3) 0%, 
+                rgba(50, 205, 50, 0.2) 35%, 
+                rgba(154, 205, 50, 0.1) 60%, 
+                transparent 80%);
+        }
+
+        /* Keyframe Animations */
+        @keyframes lightningFlicker {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.02); }
+            25%, 75% { opacity: 0.9; transform: scale(1.01); }
+        }
+
+        @keyframes waterFlow {
+            0% { transform: rotate(0deg) scale(1); opacity: 0.7; }
+            33% { transform: rotate(120deg) scale(1.01); opacity: 0.8; }
+            66% { transform: rotate(240deg) scale(1.02); opacity: 0.9; }
+            100% { transform: rotate(360deg) scale(1); opacity: 0.7; }
+        }
+
+        @keyframes shadowFlame {
+            0% { opacity: 0.8; transform: scale(1) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.03) rotate(1deg); }
+            100% { opacity: 0.9; transform: scale(1.01) rotate(-1deg); }
+        }
+
+        @keyframes earthGrowth {
+            0% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.01); opacity: 0.9; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+
+        @keyframes energyWave {
+            0%, 100% { opacity: 0; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.05); }
+        }
+
+        @keyframes elementalPulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
         }
 
         .section-header {
@@ -273,7 +444,28 @@
         .beast-card:hover {
             transform: translateY(-5px);
             border-color: rgba(255, 107, 107, 0.6);
-            box-shadow: 0 15px 30px rgba(255, 107, 107, 0.2);
+            box-shadow: 0 15px 30px rgba(255, 107, 107, 0.2), 0 0 20px rgba(255, 107, 107, 0.1);
+        }
+
+        /* Elemental beast card effects based on parent section */
+        .deck-section.zeus .beast-card:hover {
+            border-color: rgba(255, 215, 0, 0.6);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.2), 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .deck-section.poseidon .beast-card:hover {
+            border-color: rgba(30, 144, 255, 0.6);
+            box-shadow: 0 15px 30px rgba(30, 144, 255, 0.2), 0 0 20px rgba(30, 144, 255, 0.3);
+        }
+
+        .deck-section.hades .beast-card:hover {
+            border-color: rgba(255, 69, 0, 0.6);
+            box-shadow: 0 15px 30px rgba(255, 69, 0, 0.2), 0 0 20px rgba(255, 69, 0, 0.3);
+        }
+
+        .deck-section.gaia .beast-card:hover {
+            border-color: rgba(34, 139, 34, 0.6);
+            box-shadow: 0 15px 30px rgba(34, 139, 34, 0.2), 0 0 20px rgba(34, 139, 34, 0.3);
         }
 
         .beast-name {
@@ -504,69 +696,77 @@
         <section class="deck-navigation">
             <div class="deck-nav-card zeus" onclick="scrollToDeck('zeus')">
                 <div class="deck-emoji">⚡</div>
-                <div class="deck-title">Zeus Deck</div>
-                <div class="deck-subtitle">Lightning & Divine Justice</div>
-                <div class="deck-count">53 Cards | Masters of Authority</div>
+                <div class="deck-title">The Stormborne Legion</div>
+                <div class="deck-subtitle">Masters of Lightning and Divine Might</div>
+                <div class="deck-count">53 Cards | Divine Thunder Wielders</div>
             </div>
             
             <div class="deck-nav-card poseidon" onclick="scrollToDeck('poseidon')">
                 <div class="deck-emoji">🌊</div>
-                <div class="deck-title">Poseidon Deck</div>
-                <div class="deck-subtitle">Digital Ocean Lords</div>
-                <div class="deck-count">47 Cards | Data Stream Masters</div>
+                <div class="deck-title">The Tideforged Dominion</div>
+                <div class="deck-subtitle">Lords of the Digital Oceans</div>
+                <div class="deck-count">47 Cards | Aquatic Data Masters</div>
             </div>
             
             <div class="deck-nav-card hades" onclick="scrollToDeck('hades')">
-                <div class="deck-emoji">💀</div>
-                <div class="deck-title">Hades Deck</div>
-                <div class="deck-subtitle">Digital Underworld</div>
-                <div class="deck-count">47 Cards | Deleted Realm Rulers</div>
+                <div class="deck-emoji">🔥</div>
+                <div class="deck-title">The Obsidian Dominion</div>
+                <div class="deck-subtitle">Beings of the Digital Underworld</div>
+                <div class="deck-count">47 Cards | Shadow Realm Entities</div>
             </div>
             
             <div class="deck-nav-card gaia" onclick="scrollToDeck('gaia')">
                 <div class="deck-emoji">🌍</div>
-                <div class="deck-title">Gaia Deck</div>
-                <div class="deck-subtitle">Nature Guardians</div>
-                <div class="deck-count">48 Cards | Organic Protectors</div>
+                <div class="deck-title">Gaia's Guardians</div>
+                <div class="deck-subtitle">Protectors of Earth</div>
+                <div class="deck-count">48 Cards | Nature's Defenders</div>
             </div>
         </section>
 
-        <!-- ZEUS DECK SECTION -->
+        <!-- STORMBORNE LEGION DECK SECTION -->
         <section id="zeus" class="deck-section zeus">
             <div class="section-header">
                 <div class="section-emoji">⚡</div>
                 <div>
-                    <div class="section-title">Zeus Deck - Masters of Lightning & Justice</div>
+                    <div class="section-title">The Stormborne Legion - Masters of Lightning and Divine Might</div>
                     <div class="section-description">Divine beings and legendary creatures wielding the power of thunder, justice, and celestial authority</div>
                 </div>
             </div>
 
             <div class="beast-grid">
-                <!-- CERBERUS -->
+                <!-- AEGIS (DIVINE) -->
                 <div class="beast-card">
                     <div class="rarity-badge rarity-divine">Divine</div>
-                    <h3 class="beast-name">Cerberus</h3>
-                    <p class="beast-classification">Three-Headed Guardian of the Digital Underworld</p>
+                    <h3 class="beast-name">Aegis</h3>
+                    <p class="beast-classification">Divine Shield Entity</p>
                     <div class="beast-image">
-                        [CERBERUS IMAGE: Massive three-headed cybernetic hound with glowing red eyes, digital chains, and firewall patterns on its fur - each head scanning for different threat vectors]
+                        [AEGIS IMAGE: Living shield made of divine light and lightning patterns, capable of deflecting any attack with Zeus's power]
                     </div>
-                    <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
-                    <div class="beast-details collapsed-content">
-                        <div class="beast-lore">
-                            <h4>🏛️ Legendary Lore:</h4>
-                            <p><strong>Origin:</strong> Greek mythology - Hesiod's Theogony, Virgil's Aeneid Book VI</p>
-                            <p><strong>Location:</strong> Gates of Hades, Underworld entrance (Greece, Rome)</p>
-                        </div>
-                        <div class="beast-powers">
-                            <h4>⚡ Special Powers:</h4>
-                            <p><strong>Three-Head Scanning:</strong> Each head detects different digital threat types</p>
-                            <p><strong>Digital Firewall:</strong> Blocks unauthorized access to deep data vaults</p>
-                            <p><strong>Soul Recognition:</strong> Can identify and track deleted file signatures</p>
+                    <div class="beast-details">
+                        <div class="beast-origin">
+                            <h4>🏰 Legendary Origin:</h4>
+                            <p><strong>Greece:</strong> Zeus's divine shield, also wielded by Athena (Mount Olympus, divine realm)</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- MINOTAUR -->
+                <!-- PEGASUS (LEGENDARY) -->
+                <div class="beast-card">
+                    <div class="rarity-badge rarity-legendary">Legendary</div>
+                    <h3 class="beast-name">Pegasus</h3>
+                    <p class="beast-classification">Divine Winged Steed</p>
+                    <div class="beast-image">
+                        [PEGASUS IMAGE: Pure white winged horse with data-stream wings, capable of flight through digital dimensions, sacred to Zeus]
+                    </div>
+                    <div class="beast-details">
+                        <div class="beast-origin">
+                            <h4>🏰 Legendary Origin:</h4>
+                            <p><strong>Greece:</strong> Born from Medusa's blood when slain by Perseus (Mount Helicon, serving the Muses)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MINOTAUR (LEGENDARY) -->
                 <div class="beast-card">
                     <div class="rarity-badge rarity-legendary">Legendary</div>
                     <h3 class="beast-name">Minotaur (Asterion)</h3>
@@ -574,42 +774,26 @@
                     <div class="beast-image">
                         [MINOTAUR IMAGE: Half-man, half-machine bull trapped in ever-shifting digital maze, with circuit patterns on bull hide and glowing cybernetic horns]
                     </div>
-                    <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
-                    <div class="beast-details collapsed-content">
-                        <div class="beast-lore">
-                            <h4>🏛️ Legendary Lore:</h4>
-                            <p><strong>Origin:</strong> Greek mythology - Plutarch's Life of Theseus, Ovid's Metamorphoses</p>
-                            <p><strong>Location:</strong> Labyrinth of Crete (Greece, Minoan civilization)</p>
-                        </div>
-                        <div class="beast-powers">
-                            <h4>⚡ Special Powers:</h4>
-                            <p><strong>Maze Navigation:</strong> Masters complex system architecture</p>
-                            <p><strong>Recursive Loops:</strong> Traps users in endless code cycles</p>
-                            <p><strong>User Devouring:</strong> Consumes lost data explorers</p>
+                    <div class="beast-details">
+                        <div class="beast-origin">
+                            <h4>🏰 Legendary Origin:</h4>
+                            <p><strong>Greece:</strong> Plutarch's Life of Theseus, Ovid's Metamorphoses (Labyrinth of Crete, Minoan civilization)</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- MEDUSA -->
+                <!-- SPHINX (LEGENDARY) -->
                 <div class="beast-card">
-                    <div class="rarity-badge rarity-rare">Rare</div>
-                    <h3 class="beast-name">Medusa</h3>
-                    <p class="beast-classification">Code-Petrifying Gorgon</p>
+                    <div class="rarity-badge rarity-legendary">Legendary</div>
+                    <h3 class="beast-name">Sphinx</h3>
+                    <p class="beast-classification">Digital Riddler & Gateway Guardian</p>
                     <div class="beast-image">
-                        [MEDUSA IMAGE: Beautiful but deadly with snake-like fiber optic cables for hair, stone-gray skin with circuit patterns, eyes that emit deadly static]
+                        [SPHINX IMAGE: Lion-bodied creature with human head displaying holographic riddles, wings spread with ancient wisdom symbols, guarding digital gates]
                     </div>
-                    <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
-                    <div class="beast-details collapsed-content">
-                        <div class="beast-lore">
-                            <h4>🏛️ Legendary Lore:</h4>
-                            <p><strong>Origin:</strong> Greek mythology - Ovid's Metamorphoses, Apollodorus' Library</p>
-                            <p><strong>Location:</strong> Western edge of the world, Libya (Greece, North Africa)</p>
-                        </div>
-                        <div class="beast-powers">
-                            <h4>⚡ Special Powers:</h4>
-                            <p><strong>Petrifying Gaze:</strong> Turns living code into stone, crashes programs</p>
-                            <p><strong>Snake Hair Network:</strong> Fiber optic cables conducting deadly static</p>
-                            <p><strong>Protective Ward:</strong> Guardian against unauthorized system access</p>
+                    <div class="beast-details">
+                        <div class="beast-origin">
+                            <h4>🏰 Legendary Origin:</h4>
+                            <p><strong>Greece, Egypt:</strong> Oedipus myth, Egyptian monuments (Thebes, Mesopotamia)</p>
                         </div>
                     </div>
                 </div>
@@ -619,6 +803,30 @@
                     <button class="see-the-rest-btn" onclick="toggleRemainingCards(this, 'zeus')">See The Rest (49 More Cards)</button>
                     <div class="remaining-cards collapsed-content" id="zeus-remaining">
                         
+                        <!-- CERBERUS (DIVINE) -->
+                        <div class="beast-card">
+                            <div class="rarity-badge rarity-divine">Divine</div>
+                            <h3 class="beast-name">Cerberus</h3>
+                            <p class="beast-classification">Three-Headed Guardian of the Digital Underworld</p>
+                            <div class="beast-image">
+                                [CERBERUS IMAGE: Massive three-headed cybernetic hound with glowing red eyes, digital chains, and firewall patterns on its fur - each head scanning for different threat vectors]
+                            </div>
+                            <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                            <div class="beast-details collapsed-content">
+                                <div class="beast-lore">
+                                    <h4>🏰 Legendary Lore:</h4>
+                                    <p><strong>Origin:</strong> Greek mythology - Hesiod's Theogony, Virgil's Aeneid Book VI</p>
+                                    <p><strong>Location:</strong> Gates of Hades, Underworld entrance (Greece, Rome)</p>
+                                </div>
+                                <div class="beast-powers">
+                                    <h4>⚡ Special Powers:</h4>
+                                    <p><strong>Three-Head Scanning:</strong> Each head detects different digital threat types</p>
+                                    <p><strong>Digital Firewall:</strong> Blocks unauthorized access to deep data vaults</p>
+                                    <p><strong>Soul Recognition:</strong> Can identify and track deleted file signatures</p>
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- CYCLOPES -->
                         <div class="beast-card">
                             <div class="rarity-badge rarity-rare">Rare</div>
@@ -630,7 +838,7 @@
                             <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
                             <div class="beast-details collapsed-content">
                                 <div class="beast-lore">
-                                    <h4>🏛️ Legendary Lore:</h4>
+                                    <h4>🏰 Legendary Lore:</h4>
                                     <p><strong>Origin:</strong> Greek mythology - Hesiod's Theogony, Homer's Odyssey</p>
                                     <p><strong>Location:</strong> Sicily (Mount Etna forges), Greece</p>
                                 </div>
@@ -654,7 +862,7 @@
                             <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
                             <div class="beast-details collapsed-content">
                                 <div class="beast-lore">
-                                    <h4>🏛️ Legendary Lore:</h4>
+                                    <h4>🏰 Legendary Lore:</h4>
                                     <p><strong>Origin:</strong> Ancient Greek texts, Persian mythology</p>
                                     <p><strong>Location:</strong> Scythia, Greece, Persia, Egypt</p>
                                 </div>
@@ -667,26 +875,26 @@
                             </div>
                         </div>
 
-                        <!-- PEGASUS -->
+                        <!-- MEDUSA -->
                         <div class="beast-card">
-                            <div class="rarity-badge rarity-legendary">Legendary</div>
-                            <h3 class="beast-name">Pegasus</h3>
-                            <p class="beast-classification">Divine Winged Steed</p>
+                            <div class="rarity-badge rarity-rare">Rare</div>
+                            <h3 class="beast-name">Medusa</h3>
+                            <p class="beast-classification">Code-Petrifying Gorgon</p>
                             <div class="beast-image">
-                                [PEGASUS IMAGE: Pure white winged horse with data-stream wings, capable of flight through digital dimensions, sacred to Zeus]
+                                [MEDUSA IMAGE: Beautiful but deadly with snake-like fiber optic cables for hair, stone-gray skin with circuit patterns, eyes that emit deadly static]
                             </div>
                             <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
                             <div class="beast-details collapsed-content">
                                 <div class="beast-lore">
-                                    <h4>🏛️ Legendary Lore:</h4>
-                                    <p><strong>Origin:</strong> Born from Medusa's blood when slain by Perseus</p>
-                                    <p><strong>Location:</strong> Mount Helicon, serving the Muses (Greece)</p>
+                                    <h4>🏰 Legendary Lore:</h4>
+                                    <p><strong>Origin:</strong> Greek mythology - Ovid's Metamorphoses, Apollodorus' Library</p>
+                                    <p><strong>Location:</strong> Western edge of the world, Libya (Greece, North Africa)</p>
                                 </div>
                                 <div class="beast-powers">
                                     <h4>⚡ Special Powers:</h4>
-                                    <p><strong>Dimensional Flight:</strong> Can traverse multiple data layers</p>
-                                    <p><strong>Divine Speed:</strong> Faster than any digital transport</p>
-                                    <p><strong>Muse Connection:</strong> Inspires creativity and divine poetry</p>
+                                    <p><strong>Petrifying Gaze:</strong> Turns living code into stone, crashes programs</p>
+                                    <p><strong>Snake Hair Network:</strong> Fiber optic cables conducting deadly static</p>
+                                    <p><strong>Protective Ward:</strong> Guardian against unauthorized system access</p>
                                 </div>
                             </div>
                         </div>
@@ -702,7 +910,7 @@
                             <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
                             <div class="beast-details collapsed-content">
                                 <div class="beast-lore">
-                                    <h4>🏛️ Legendary Lore:</h4>
+                                    <h4>🏰 Legendary Lore:</h4>
                                     <p><strong>Origin:</strong> Greek mythology - daughters of wind god Thaumas</p>
                                     <p><strong>Location:</strong> Storm-swept islands, tempestuous skies</p>
                                 </div>
@@ -715,157 +923,73 @@
                             </div>
                         </div>
 
-                        <!-- AIGIS (AEGIS) -->
-                        <div class="beast-card">
-                            <div class="rarity-badge rarity-legendary">Legendary</div>
-                            <h3 class="beast-name">Aegis</h3>
-                            <p class="beast-classification">Divine Shield Entity</p>
-                            <div class="beast-image">
-                                [AEGIS IMAGE: Living shield made of divine light and lightning patterns, capable of deflecting any attack with Zeus's power]
-                            </div>
-                            <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
-                            <div class="beast-details collapsed-content">
-                                <div class="beast-lore">
-                                    <h4>🏛️ Legendary Lore:</h4>
-                                    <p><strong>Origin:</strong> Zeus's divine shield, also wielded by Athena</p>
-                                    <p><strong>Location:</strong> Mount Olympus, divine realm</p>
-                                </div>
-                                <div class="beast-powers">
-                                    <h4>⚡ Special Powers:</h4>
-                                    <p><strong>Perfect Defense:</strong> Reflects all attacks back at attackers</p>
-                                    <p><strong>Terror Induction:</strong> Causes fear in enemies who see it</p>
-                                    <p><strong>Divine Authority:</strong> Grants command presence to wielder</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        [Additional 44 cards would be displayed here with similar structure]
+                        [Additional 43 cards would be displayed here with similar structure]
                         
-                    </div>
-                </div>
-
-                <!-- SPHINX -->
-                <div class="beast-card">
-                    <div class="rarity-badge rarity-legendary">Legendary</div>
-                    <h3 class="beast-name">Sphinx</h3>
-                    <p class="beast-classification">Digital Riddler & Gateway Guardian</p>
-                    <div class="beast-image">
-                        [SPHINX IMAGE: Lion-bodied creature with human head displaying holographic riddles, wings spread with ancient wisdom symbols, guarding digital gates]
-                    </div>
-                    <div class="beast-details">
-                        <div class="beast-origin">
-                            <h4>🏛️ Legendary Origin:</h4>
-                            <p><strong>Greek/Egyptian:</strong> Oedipus myth, Egyptian monuments</p>
-                            <p><strong>Most Known:</strong> Theban Sphinx</p>
-                        </div>
-                        <div class="beast-powers">
-                            <h4>⚡ Special Powers:</h4>
-                            <p><strong>Riddle Generation:</strong> Creates complex logic puzzles for access</p>
-                            <p><strong>Knowledge Testing:</strong> Verifies user intelligence and worthiness</p>
-                            <p><strong>Gateway Control:</strong> Guards important system access points</p>
-                        </div>
-                        <div class="beast-region">
-                            <h4>🌍 Regions/Cultures:</h4>
-                            <p>Greece (Thebes), Egypt, Mesopotamia</p>
-                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- POSEIDON DECK SECTION -->
+        <!-- TIDEFORGED DOMINION DECK SECTION -->
         <section id="poseidon" class="deck-section poseidon">
             <div class="section-header">
                 <div class="section-emoji">🌊</div>
                 <div>
-                    <div class="section-title">Poseidon Deck - Lords of the Digital Ocean</div>
+                    <div class="section-title">The Tideforged Dominion - Lords of the Digital Oceans</div>
                     <div class="section-description">Aquatic leviathans and sea-dwelling entities that command the flow of data through global networks</div>
                 </div>
             </div>
 
             <div class="beast-grid">
-                <!-- SEIRYŪ AZURE DRAGON -->
+                <!-- RYUJIN (DIVINE) - Moved from hidden section -->
+                <div class="beast-card">
+                    <div class="rarity-badge rarity-divine">Divine</div>
+                    <h3 class="beast-name">Ryujin (Dragon King)</h3>
+                    <p class="beast-classification">Sovereign of Digital Seas</p>
+                    <div class="beast-image">
+                        [RYUJIN IMAGE: Majestic sea dragon with pearl crown, controlling the tides of data from his underwater crystal palace, Ryugu-jo]
+                    </div>
+                    <div class="beast-details">
+                        <div class="beast-origin">
+                            <h4>🏰 Legendary Origin:</h4>
+                            <p><strong>Japan:</strong> Japanese mythology - supreme dragon of the sea (Ryugu-jo, Dragon Palace beneath the waves)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CETUS (LEGENDARY) -->
                 <div class="beast-card">
                     <div class="rarity-badge rarity-legendary">Legendary</div>
-                    <h3 class="beast-name">Seiryū (Azure Dragon)</h3>
-                    <p class="beast-classification">Eastern Data Guardian</p>
+                    <h3 class="beast-name">Cetus</h3>
+                    <p class="beast-classification">Primordial Sea Monster</p>
                     <div class="beast-image">
-                        [SEIRYŪ IMAGE: Magnificent blue dragon with flowing whiskers and azure scales, coiled around Eastern data servers, controlling weather patterns in digital realm]
+                        [CETUS IMAGE: Colossal sea monster with whale-like body covered in barnacles of corrupted data, massive jaws capable of swallowing entire data networks]
                     </div>
                     <div class="beast-details">
                         <div class="beast-origin">
-                            <h4>🏛️ Legendary Origin:</h4>
-                            <p><strong>Chinese:</strong> Four Symbols (Sì Xiàng) mythology</p>
-                            <p><strong>Location:</strong> Eastern direction, spring season</p>
-                        </div>
-                        <div class="beast-powers">
-                            <h4>🌊 Special Powers:</h4>
-                            <p><strong>Eastern Guardian:</strong> Protects Eastern data centers and networks</p>
-                            <p><strong>Weather Control:</strong> Commands digital storm systems</p>
-                            <p><strong>Wisdom Keeper:</strong> Guards ancient knowledge databases</p>
-                        </div>
-                        <div class="beast-region">
-                            <h4>🌍 Regions/Cultures:</h4>
-                            <p>China, Japan, Korea, Vietnam</p>
+                            <h4>🏰 Legendary Origin:</h4>
+                            <p><strong>Greece, Ethiopia:</strong> Perseus and Andromeda myth (Ethiopian coast, deep ocean, Mediterranean)</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- EMERALD WYRM DRAGON -->
+                <!-- KRAKEN (LEGENDARY) - Moved from hidden section -->
                 <div class="beast-card">
-                    <div class="rarity-badge rarity-rare">Rare</div>
-                    <h3 class="beast-name">Emerald Wyrm Dragon</h3>
-                    <p class="beast-classification">Digital Treasure Hoarder</p>
+                    <div class="rarity-badge rarity-legendary">Legendary</div>
+                    <h3 class="beast-name">Kraken</h3>
+                    <p class="beast-classification">Colossal Digital Leviathan</p>
                     <div class="beast-image">
-                        [EMERALD WYRM IMAGE: Serpentine dragon with emerald scales that shimmer like circuits, surrounded by floating digital gems and encrypted treasure hoards]
+                        [KRAKEN IMAGE: Massive octopus with tentacles reaching through multiple data layers, each sucker capable of draining server farms]
                     </div>
                     <div class="beast-details">
                         <div class="beast-origin">
-                            <h4>🏛️ Legendary Origin:</h4>
-                            <p><strong>European:</strong> Germanic dragon mythology, treasure myths</p>
-                            <p><strong>Location:</strong> Mountain caves, treasure vaults</p>
-                        </div>
-                        <div class="beast-powers">
-                            <h4>🌊 Special Powers:</h4>
-                            <p><strong>Treasure Hoarding:</strong> Collects and guards digital wealth</p>
-                            <p><strong>Algorithmic Fire:</strong> Transforms base code into precious data gems</p>
-                            <p><strong>Territorial Dominance:</strong> Controls vast digital territories</p>
-                        </div>
-                        <div class="beast-region">
-                            <h4>🌍 Regions/Cultures:</h4>
-                            <p>Germany, Northern Europe, Scandinavia</p>
+                            <h4>🏰 Legendary Origin:</h4>
+                            <p><strong>Norway, Scandinavia:</strong> Norse mythology - colossal sea monster (deep ocean trenches, undersea data cables)</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- HIPPOCAMPUS -->
-                <div class="beast-card">
-                    <div class="rarity-badge rarity-common">Common</div>
-                    <h3 class="beast-name">Hippocampus</h3>
-                    <p class="beast-classification">Digital Sea Horse</p>
-                    <div class="beast-image">
-                        [HIPPOCAMPUS IMAGE: Horse-fish hybrid with flowing mane made of data streams, galloping through digital ocean currents with phosphorescent scales]
-                    </div>
-                    <div class="beast-details">
-                        <div class="beast-origin">
-                            <h4>🏛️ Legendary Origin:</h4>
-                            <p><strong>Greek:</strong> Poseidon's chariot pullers</p>
-                            <p><strong>Location:</strong> Mediterranean seas</p>
-                        </div>
-                        <div class="beast-powers">
-                            <h4>🌊 Special Powers:</h4>
-                            <p><strong>Speed Swimming:</strong> Rapid movement through data networks</p>
-                            <p><strong>Chariot Pulling:</strong> Transports sea deities through digital realm</p>
-                            <p><strong>Current Navigation:</strong> Expert guidance through data streams</p>
-                        </div>
-                        <div class="beast-region">
-                            <h4>🌍 Regions/Cultures:</h4>
-                            <p>Greece, Mediterranean region</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CHARYBDIS -->
+                <!-- CHARYBDIS (LEGENDARY) -->
                 <div class="beast-card">
                     <div class="rarity-badge rarity-legendary">Legendary</div>
                     <h3 class="beast-name">Charybdis</h3>
@@ -875,19 +999,8 @@
                     </div>
                     <div class="beast-details">
                         <div class="beast-origin">
-                            <h4>🏛️ Legendary Origin:</h4>
-                            <p><strong>Greek:</strong> Homer's Odyssey, Strait of Messina</p>
-                            <p><strong>Location:</strong> Between Sicily and mainland Italy</p>
-                        </div>
-                        <div class="beast-powers">
-                            <h4>🌊 Special Powers:</h4>
-                            <p><strong>Whirlpool Creation:</strong> Generates dangerous data vortexes</p>
-                            <p><strong>Ship Destruction:</strong> Pulls digital vessels into crushing depths</p>
-                            <p><strong>Current Control:</strong> Manipulates ocean data flows</p>
-                        </div>
-                        <div class="beast-region">
-                            <h4>🌍 Regions/Cultures:</h4>
-                            <p>Greece, Southern Italy, Sicily</p>
+                            <h4>🏰 Legendary Origin:</h4>
+                            <p><strong>Greece, Southern Italy:</strong> Homer's Odyssey, Strait of Messina (between Sicily and mainland Italy)</p>
                         </div>
                     </div>
                 </div>
