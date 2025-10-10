@@ -19,12 +19,75 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0a0a0a;
-            color: #ffffff;
+            font-family: 'Cinzel', 'Trajan Pro', 'Papyrus', 'Times New Roman', serif;
+            background: 
+                /* Ancient scroll texture overlay */
+                radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.03) 0%, transparent 50%),
+                /* Hieroglyphic pattern */
+                repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(78, 205, 196, 0.02) 20px, rgba(78, 205, 196, 0.02) 21px),
+                repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(255, 107, 107, 0.02) 20px, rgba(255, 107, 107, 0.02) 21px),
+                /* Main color gradient: blue at top, red at bottom */
+                linear-gradient(180deg, 
+                    #0a1a2a 0%,           /* Deep ocean blue at top */
+                    #0d2b3d 15%,          /* Darker aquamarine */
+                    #1a1a3a 30%,          /* Dark blue-violet */
+                    #2a1a2a 50%,          /* Deep purple */
+                    #3a1a1a 70%,          /* Royal deep purple */
+                    #4a0a0a 85%,          /* Dark blood red */
+                    #2a0a0a 100%          /* Deep blood red at bottom */
+                );
+            background-attachment: fixed;
+            color: #f4e4c0;
             overflow-x: hidden;
             scroll-behavior: smooth;
             line-height: 1.6;
+            position: relative;
+        }
+
+        /* Ancient scroll paper texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                /* Aged paper texture */
+                radial-gradient(circle at 25% 25%, rgba(244, 228, 192, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(139, 115, 85, 0.03) 0%, transparent 50%),
+                /* Subtle stain effects */
+                radial-gradient(ellipse at 10% 60%, rgba(101, 67, 33, 0.04) 0%, transparent 40%),
+                radial-gradient(ellipse at 90% 40%, rgba(101, 67, 33, 0.03) 0%, transparent 40%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Hieroglyphic cipher overlay */
+        body::after {
+            content: '𓂀 𓃭 𓄿 𓅱 𓆣 𓇯 𓈖 𓉐 𓊪 𓋔 ⟨⟩ ◊ ▲ ▼ ◆ ∴ ⌬ ⌘ ☥ ⚡ 𓂀 𓃭 𓄿 𓅱 𓆣 𓇯 𓈖 𓉐 𓊪 𓋔 ⟨⟩ ◊ ▲ ▼ ◆ ∴ ⌬ ⌘ ☥ ⚡';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            font-size: 2rem;
+            color: rgba(78, 205, 196, 0.03);
+            word-wrap: break-word;
+            white-space: normal;
+            line-height: 3;
+            pointer-events: none;
+            z-index: 0;
+            animation: ancientGlow 10s ease-in-out infinite alternate;
+            opacity: 0.7;
+            transform: rotate(45deg);
+        }
+
+        @keyframes ancientGlow {
+            0% { color: rgba(78, 205, 196, 0.03); }
+            50% { color: rgba(0, 255, 255, 0.05); }
+            100% { color: rgba(78, 205, 196, 0.02); }
         }
 
         /* HAMBURGER MENU STYLES */
@@ -34,21 +97,73 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
+            background: 
+                linear-gradient(135deg, rgba(10, 26, 42, 0.95), rgba(13, 43, 61, 0.9)),
+                repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(78, 205, 196, 0.05) 40px, rgba(78, 205, 196, 0.05) 42px);
+            backdrop-filter: blur(15px);
             padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid rgba(255, 107, 107, 0.3);
+            border-bottom: 2px solid rgba(78, 205, 196, 0.4);
+            border-top: 1px solid rgba(244, 228, 192, 0.2);
+            box-shadow: 0 2px 20px rgba(0, 255, 255, 0.1);
+        }
+
+        .nav-header::before {
+            content: '𓂀 ⟨AI⟩ 𓇯';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.2rem;
+            color: rgba(0, 255, 255, 0.6);
+            pointer-events: none;
+            animation: tealCipherGlow 3s ease-in-out infinite alternate;
+            text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+            z-index: -1;
+        }
+
+        @keyframes tealCipherGlow {
+            0% { color: rgba(0, 255, 255, 0.4); text-shadow: 0 0 10px rgba(0, 255, 255, 0.6); }
+            100% { color: rgba(0, 255, 255, 0.8); text-shadow: 0 0 20px rgba(0, 255, 255, 1), 0 0 30px rgba(78, 205, 196, 0.8); }
         }
 
         .logo {
+            font-family: 'Cinzel', 'Trajan Pro', serif;
             font-size: 1.8rem;
             font-weight: 900;
-            color: #ff6b6b;
+            color: #4ecdc4;
             text-decoration: none;
-            text-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+            text-shadow: 0 0 20px rgba(78, 205, 196, 0.8), 0 0 30px rgba(0, 255, 255, 0.4);
+            position: relative;
+        }
+
+        .logo::before {
+            content: '𓅞';
+            position: absolute;
+            left: -2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: rgba(0, 255, 255, 0.7);
+            animation: logoGlyph 4s ease-in-out infinite alternate;
+        }
+
+        .logo::after {
+            content: '𓈖';
+            position: absolute;
+            right: -2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: rgba(0, 255, 255, 0.7);
+            animation: logoGlyph 4s ease-in-out infinite alternate-reverse;
+        }
+
+        @keyframes logoGlyph {
+            0% { color: rgba(0, 255, 255, 0.5); transform: translateY(-50%) scale(1); }
+            100% { color: rgba(0, 255, 255, 0.9); transform: translateY(-50%) scale(1.1); }
         }
 
         .desktop-nav {
@@ -100,13 +215,30 @@
             right: -100%;
             width: 300px;
             height: 100vh;
-            background: rgba(10, 10, 10, 0.98);
+            background: 
+                linear-gradient(180deg, rgba(10, 26, 42, 0.98), rgba(26, 26, 58, 0.95)),
+                repeating-linear-gradient(90deg, transparent, transparent 30px, rgba(78, 205, 196, 0.03) 30px, rgba(78, 205, 196, 0.03) 32px);
             backdrop-filter: blur(20px);
             transition: right 0.3s ease;
             padding: 6rem 2rem 2rem;
-            border-left: 2px solid rgba(255, 107, 107, 0.3);
+            border-left: 2px solid rgba(78, 205, 196, 0.5);
+            border-right: 1px solid rgba(244, 228, 192, 0.2);
+            box-shadow: -5px 0 25px rgba(0, 255, 255, 0.1);
             z-index: 999;
             overflow-y: auto;
+        }
+
+        .mobile-menu::before {
+            content: '𓂀 𓃭 𓄿 𓅱 𓆣 𓇯 𓈖 𓉐';
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            color: rgba(0, 255, 255, 0.3);
+            text-align: center;
+            line-height: 1.5;
+            word-spacing: 0.5rem;
         }
 
         .mobile-menu.active {
@@ -132,44 +264,172 @@
             min-height: 100vh;
             padding: 6rem 2rem 2rem;
             position: relative;
+            z-index: 1;
+        }
+
+        .screen::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(78, 205, 196, 0.08) 0%, transparent 60%),
+                radial-gradient(circle at 80% 70%, rgba(255, 107, 107, 0.06) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: -1;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             text-align: center;
+            position: relative;
+            background: rgba(244, 228, 192, 0.02);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(78, 205, 196, 0.1);
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            background: linear-gradient(45deg, 
+                rgba(0, 255, 255, 0.2) 0%, 
+                transparent 25%, 
+                rgba(78, 205, 196, 0.1) 50%, 
+                transparent 75%, 
+                rgba(0, 255, 255, 0.2) 100%);
+            border-radius: 20px;
+            z-index: -1;
         }
 
         /* SCREEN 1 - WELCOME TO BATTLE ETERNAL */
         .screen-1 {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
-                        radial-gradient(circle at center, rgba(255, 107, 107, 0.3), rgba(78, 205, 196, 0.2), rgba(0,0,0,0.8));
-            background-size: cover;
-            background-attachment: fixed;
+            background: 
+                /* Ancient portal energy */
+                radial-gradient(ellipse at 50% 20%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 30% 80%, rgba(78, 205, 196, 0.08) 0%, transparent 60%),
+                /* Subtle texture overlay */
+                repeating-conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(244, 228, 192, 0.01) 15deg, transparent 30deg);
+            position: relative;
+        }
+
+        .screen-1::after {
+            content: '☸ 𓅱 ⚛ 𓆣 ❂ 𓉐 ⚙ 𓋔';
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            right: 10%;
+            bottom: 10%;
+            font-size: 3rem;
+            color: rgba(0, 255, 255, 0.05);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            pointer-events: none;
+            z-index: 0;
+            animation: ancientSymbols 15s linear infinite;
+        }
+
+        @keyframes ancientSymbols {
+            0% { transform: rotate(0deg); opacity: 0.05; }
+            50% { transform: rotate(180deg); opacity: 0.08; }
+            100% { transform: rotate(360deg); opacity: 0.05; }
+        }
+
+        @keyframes battleGlyphs {
+            0% { 
+                transform: translateX(-100%) rotate(0deg); 
+                color: rgba(139, 0, 0, 0.05);
+            }
+            50% { 
+                transform: translateX(0%) rotate(180deg); 
+                color: rgba(255, 69, 0, 0.1);
+            }
+            100% { 
+                transform: translateX(100%) rotate(360deg); 
+                color: rgba(139, 0, 0, 0.05);
+            }
         }
 
         .logo-title {
-            font-family: 'Cinzel', 'Trajan Pro', 'Times New Roman', serif;
+            font-family: 'Cinzel', 'Trajan Pro', 'Papyrus', serif;
             font-size: clamp(1.5rem, 4vw, 3rem);
             font-weight: 700;
-            letter-spacing: 0.05em;
-            color: #fff;
-            text-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+            letter-spacing: 0.08em;
+            color: #4ecdc4;
+            text-shadow: 
+                0 0 20px rgba(0, 255, 255, 0.8),
+                0 0 40px rgba(78, 205, 196, 0.6),
+                0 0 60px rgba(0, 255, 255, 0.4);
             margin-bottom: 1rem;
-            animation: glow 2s ease-in-out infinite alternate;
+            animation: ancientTitleGlow 3s ease-in-out infinite alternate;
+            position: relative;
         }
 
-        @keyframes glow {
-            from { text-shadow: 0 0 30px rgba(255, 255, 255, 0.5); }
-            to { text-shadow: 0 0 60px rgba(255, 107, 107, 0.8), 0 0 80px rgba(78, 205, 196, 0.6); }
+        .logo-title::before {
+            content: '𓂃 ⚜ 𓂃';
+            display: block;
+            font-size: 0.4em;
+            color: rgba(0, 255, 255, 0.6);
+            margin-bottom: 0.5rem;
+            letter-spacing: 2rem;
+        }
+
+        .logo-title::after {
+            content: '𓉐 ✸ 𓉐';
+            display: block;
+            font-size: 0.4em;
+            color: rgba(0, 255, 255, 0.6);
+            margin-top: 0.5rem;
+            letter-spacing: 2rem;
+        }
+
+        @keyframes ancientTitleGlow {
+            from { 
+                text-shadow: 
+                    0 0 20px rgba(0, 255, 255, 0.6),
+                    0 0 40px rgba(78, 205, 196, 0.4),
+                    0 0 60px rgba(0, 255, 255, 0.2);
+            }
+            to { 
+                text-shadow: 
+                    0 0 30px rgba(0, 255, 255, 1),
+                    0 0 60px rgba(78, 205, 196, 0.8),
+                    0 0 90px rgba(0, 255, 255, 0.6);
+            }
         }
 
         .tagline {
+            font-family: 'Cinzel', serif;
             font-size: clamp(1.2rem, 3vw, 1.8rem);
-            color: #00ff88;
+            color: #4ecdc4;
             margin-bottom: 2rem;
-            font-weight: 300;
-            text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+            font-weight: 400;
+            text-shadow: 0 0 25px rgba(0, 255, 255, 0.7);
+            position: relative;
+        }
+
+        .tagline::before {
+            content: '‹ 𓇯 ›';
+            color: rgba(0, 255, 255, 0.5);
+            font-size: 0.8em;
+            margin-right: 1rem;
+        }
+
+        .tagline::after {
+            content: '‹ 𓇯 ›';
+            color: rgba(0, 255, 255, 0.5);
+            font-size: 0.8em;
+            margin-left: 1rem;
         }
 
         .hook-text {
@@ -1597,13 +1857,60 @@
         </div>
     </section>
 
-    <!-- SCREEN 8: KICKSTARTER CAMPAIGN -->
-    <section class="screen" id="kickstarter">
-        <div class="container">
-            <h2 class="text-center mb-2">🚀 Battle Eternal - Kickstarter Campaign</h2>
+    <!-- SCREEN 8: KICKSTARTER CAMPAIGN - BATTLE READINESS THEME -->
+    <section class="screen" id="kickstarter" style="
+        background: 
+            /* Battle energy effects */
+            radial-gradient(ellipse at 30% 20%, rgba(255, 69, 0, 0.15) 0%, transparent 60%),
+            radial-gradient(ellipse at 70% 80%, rgba(139, 0, 0, 0.12) 0%, transparent 60%),
+            /* War readiness texture */
+            repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(255, 0, 0, 0.03) 30px, rgba(255, 0, 0, 0.03) 32px);
+        position: relative;
+    ">
+        <!-- Battle readiness hieroglyphs overlay -->
+        <div style="
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            right: 10%;
+            bottom: 10%;
+            font-size: 2rem;
+            color: rgba(139, 0, 0, 0.08);
+            z-index: 0;
+            pointer-events: none;
+            animation: battleGlyphs 20s linear infinite;
+        ">⚔️ 𓄈 ⛩ 𓈖 ⚙️ 𓂀 ⚡ 𓇯 ⚔️ 𓄈 ⛩ 𓈖 ⚙️ 𓂀 ⚡ 𓇯</div>
+        
+        <div class="container" style="
+            background: linear-gradient(135deg, rgba(74, 10, 10, 0.3), rgba(42, 26, 26, 0.2));
+            border: 2px solid rgba(139, 0, 0, 0.4);
+            box-shadow: 0 0 30px rgba(139, 0, 0, 0.3), inset 0 0 20px rgba(255, 69, 0, 0.1);
+        ">
+            <h2 class="text-center mb-2" style="
+                font-family: 'Cinzel', serif;
+                color: #ff4500;
+                text-shadow: 0 0 30px rgba(255, 69, 0, 0.8), 0 0 60px rgba(139, 0, 0, 0.6);
+                font-size: 2.5rem;
+            ">⚔️ Battle Eternal - Campaign for War</h2>
             <div style="text-align: center; margin-bottom: 3rem;">
-                <h3 style="color: #ff6b6b; font-size: 1.8rem; text-shadow: 0 0 20px rgba(255, 107, 107, 0.5); margin-bottom: 1rem;">Choose Wisely... The Battle is Eternal.</h3>
-                <p style="color: #4ecdc4;">The Awakening Starts Here</p>
+                <h3 style="
+                    color: #ff4500;
+                    font-family: 'Cinzel', serif;
+                    font-size: 1.8rem;
+                    text-shadow: 0 0 25px rgba(255, 69, 0, 0.8);
+                    margin-bottom: 1rem;
+                    position: relative;
+                ">Choose Your Arsenal... The Battle Awaits.</h3>
+                <div style="
+                    color: #8B0000;
+                    font-size: 1rem;
+                    font-family: 'Cinzel', serif;
+                    text-shadow: 0 0 15px rgba(139, 0, 0, 0.6);
+                ">
+                    <span style="margin: 0 1rem;">𓄈</span>
+                    The Final Hour Approaches
+                    <span style="margin: 0 1rem;">𓄈</span>
+                </div>
             </div>
             
             <!-- MOBILE VERSION - Tier Slider with Categories -->
