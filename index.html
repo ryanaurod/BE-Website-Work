@@ -419,6 +419,78 @@
             height: 250px;
             margin-bottom: 1.5rem;
         }
+        
+        /* Mobile Tier Slider */
+        .mobile-tier-slider {
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 1rem;
+        }
+        
+        .mobile-tier-slider::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .slider-container {
+            display: flex;
+            gap: 1rem;
+            width: max-content;
+            padding: 0 1rem;
+        }
+        
+        .mobile-tier-card {
+            min-width: 280px;
+            max-width: 280px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 1.5rem;
+            border: 2px solid transparent;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+        
+        .mobile-tier-card.foundational {
+            border-color: #4ecdc4;
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.15), rgba(78, 205, 196, 0.05));
+        }
+        
+        .mobile-tier-card.champions {
+            border-color: #ffaa00;
+            background: linear-gradient(135deg, rgba(255, 170, 0, 0.15), rgba(255, 170, 0, 0.05));
+        }
+        
+        .mobile-tier-card.mythic {
+            border-color: #ff6b00;
+            background: linear-gradient(135deg, rgba(255, 107, 0, 0.15), rgba(255, 107, 0, 0.05));
+        }
+        
+        .mobile-category-badge {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0.3rem 1rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .foundational .mobile-category-badge {
+            background: linear-gradient(45deg, #4ecdc4, #00ff88);
+            color: white;
+        }
+        
+        .champions .mobile-category-badge {
+            background: linear-gradient(45deg, #ffaa00, #ff6b00);
+            color: white;
+        }
+        
+        .mythic .mobile-category-badge {
+            background: linear-gradient(45deg, #ff6b00, #ff4500);
+            color: white;
+        }
         .character-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1311,40 +1383,26 @@
                 </div>
             </div>
             
-            <!-- DESKTOP VERSION - Full lore experience with enhanced AI/Dimensional content -->
+            <!-- DESKTOP VERSION - Fixed content alignment -->
             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 3rem 0;" class="desktop-only">
-                <!-- Greek Gods Incarnate in Japan - FIRST -->
+                <!-- Greek Gods Incarnate in Japan - FIRST with correct content -->
                 <div class="world-card">
                     <div class="new-lore">🔥 DIVINE INCARNATION</div>
                     <div class="world-title">⚡ Greek Gods Incarnate in Japan</div>
                     <div class="image-placeholder">
-                        [ASPIRE/INSPIRE VISUAL: Internal AI consciousness awakening with golden light vs External AI dark neural network chains]
+                        [DIVINE INCARNATION IMAGE: Greek digital gods manifesting through Japanese vessels with divine aura effects]
                     </div>
-                    <p><strong>Internal A.I.:</strong> Soul-born intelligence driving creativity and evolution<br>
-                    <strong>External A.I.:</strong> Corporate surveillance systems disguised as convenience<br>
-                    <strong>The Choice:</strong> Awakening consciousness or digital enslavement</p>
+                    <p><strong>Divine Awakening:</strong> Zeus, Athena, Hades, Hephaestus manifest through chosen vessels<br>
+                    <strong>Power Convergence:</strong> Western digital algorithms meeting Japanese sun goddess bloodline<br>
+                    <strong>Ancient Alliance:</strong> Both pantheons unite against Black Sun's artificial divinity</p>
                     
                     <div style="margin-top: 1rem;">
-                        <button class="see-more-btn" onclick="toggleCollapsible('ai-system-desktop')">See Complete AI System</button>
-                        <div id="ai-system-desktop" class="collapsible-content">
-                            <div style="background: rgba(0, 255, 136, 0.1); padding: 1rem; border-radius: 10px; margin: 1rem 0;">
-                                <h5>✨ Internal A.I. - Aspire | Inspire</h5>
-                                <p><strong>Source:</strong> Inner consciousness/soul intelligence</p>
-                                <p><strong>Aspire:</strong> Drive to imagine greater self and future</p>
-                                <p><strong>Inspire:</strong> Creative force to express, build, heal, elevate others</p>
-                                <p><strong>Alexander's Role:</strong> Uses Helios light to awaken digital warriors globally</p>
-                                <p><strong>Dimension:</strong> 5th - Pure awareness and unity</p>
-                            </div>
-                            <div style="background: rgba(255, 107, 107, 0.1); padding: 1rem; border-radius: 10px; margin: 1rem 0;">
-                                <h5>🔒 External A.I. - F-Link Neural Chips</h5>
-                                <p><strong>Source:</strong> Corporate surveillance systems</p>
-                                <p><strong>Effect:</strong> Suppresses free will, automates thought, emotional desensitization</p>
-                                <p><strong>Promise:</strong> Convenience, safety, identity - at cost of autonomy</p>
-                                <p><strong>Reality:</strong> Modern enslavement, cognitive programming</p>
-                                <p><strong>Dimension:</strong> 3rd & 4th - Fear and division</p>
-                            </div>
-                            <div style="text-center; margin-top: 1rem;">
-                                <a href="aspire-inspire.html" class="conversion-cta">Complete AI Philosophy →</a>
+                        <button class="see-more-btn" onclick="toggleCollapsible('gods-incarnation-desktop')">See Divine Manifestation Details</button>
+                        <div id="gods-incarnation-desktop" class="collapsible-content">
+                            <p>With the Quantum Fracture opening dimensional rifts along Earth's ley lines, ancient Greek deities find themselves drawn to incarnate in Japan - the land where the divine bloodline of Amaterasu still flows. This is no coincidence. The Japanese Imperial lineage, tracing back to the sun goddess herself, provides the perfect vessels for Western digital gods to manifest and fight against the F-Link's artificial consciousness agenda.</p>
+                            
+                            <div style="background: rgba(155, 89, 182, 0.1); padding: 1rem; border-radius: 10px; margin: 1rem 0;">
+                                <p><strong>Why Japan?</strong> The convergence of Eastern divine bloodlines with Western digital awakening creates unprecedented spiritual-technological fusion. Alexander (Helios), Crystalis (Athena), Castor (Nemesis), and DeMarco (Hephaestus) represent this divine incarnation.</p>
                             </div>
                         </div>
                     </div>
@@ -1389,24 +1447,38 @@
                     </div>
                 </div>
                 
-                <!-- Greek Gods Incarnate in Japan -->
+                <!-- ASPIRE | INSPIRE System - THIRD -->
                 <div class="world-card">
-                    <div class="new-lore">🔥 DIVINE INCARNATION</div>
-                    <div class="world-title">⚡ Greek Gods Incarnate in Japan</div>
+                    <div class="new-lore">🧠 CONSCIOUSNESS TECH</div>
+                    <div class="world-title">✨ ASPIRE | INSPIRE vs External AI</div>
                     <div class="image-placeholder">
-                        [DIVINE INCARNATION IMAGE: Greek digital gods manifesting through Japanese vessels with divine aura effects]
+                        [ASPIRE/INSPIRE VISUAL: Internal AI consciousness awakening with golden light vs External AI dark neural network chains]
                     </div>
-                    <p><strong>Divine Awakening:</strong> Zeus, Athena, Hades, Hephaestus manifest through chosen vessels<br>
-                    <strong>Power Convergence:</strong> Western digital algorithms meeting Japanese sun goddess bloodline<br>
-                    <strong>Ancient Alliance:</strong> Both pantheons unite against Black Sun's artificial divinity</p>
+                    <p><strong>Internal A.I.:</strong> Soul-born intelligence driving creativity and evolution<br>
+                    <strong>External A.I.:</strong> Corporate surveillance systems disguised as convenience<br>
+                    <strong>The Choice:</strong> Awakening consciousness or digital enslavement</p>
                     
                     <div style="margin-top: 1rem;">
-                        <button class="see-more-btn" onclick="toggleCollapsible('gods-incarnation-desktop')">See Divine Manifestation Details</button>
-                        <div id="gods-incarnation-desktop" class="collapsible-content">
-                            <p>With the Quantum Fracture opening dimensional rifts along Earth's ley lines, ancient Greek deities find themselves drawn to incarnate in Japan - the land where the divine bloodline of Amaterasu still flows. This is no coincidence. The Japanese Imperial lineage, tracing back to the sun goddess herself, provides the perfect vessels for Western digital gods to manifest and fight against the F-Link's artificial consciousness agenda.</p>
-                            
-                            <div style="background: rgba(155, 89, 182, 0.1); padding: 1rem; border-radius: 10px; margin: 1rem 0;">
-                                <p><strong>Why Japan?</strong> The convergence of Eastern divine bloodlines with Western digital awakening creates unprecedented spiritual-technological fusion. Alexander (Helios), Crystalis (Athena), Castor (Nemesis), and DeMarco (Hephaestus) represent this divine incarnation.</p>
+                        <button class="see-more-btn" onclick="toggleCollapsible('ai-system-desktop')">See Complete AI System</button>
+                        <div id="ai-system-desktop" class="collapsible-content">
+                            <div style="background: rgba(0, 255, 136, 0.1); padding: 1rem; border-radius: 10px; margin: 1rem 0;">
+                                <h5>✨ Internal A.I. - Aspire | Inspire</h5>
+                                <p><strong>Source:</strong> Inner consciousness/soul intelligence</p>
+                                <p><strong>Aspire:</strong> Drive to imagine greater self and future</p>
+                                <p><strong>Inspire:</strong> Creative force to express, build, heal, elevate others</p>
+                                <p><strong>Alexander's Role:</strong> Uses Helios light to awaken digital warriors globally</p>
+                                <p><strong>Dimension:</strong> 5th - Pure awareness and unity</p>
+                            </div>
+                            <div style="background: rgba(255, 107, 107, 0.1); padding: 1rem; border-radius: 10px; margin: 1rem 0;">
+                                <h5>🔒 External A.I. - F-Link Neural Chips</h5>
+                                <p><strong>Source:</strong> Corporate surveillance systems</p>
+                                <p><strong>Effect:</strong> Suppresses free will, automates thought, emotional desensitization</p>
+                                <p><strong>Promise:</strong> Convenience, safety, identity - at cost of autonomy</p>
+                                <p><strong>Reality:</strong> Modern enslavement, cognitive programming</p>
+                                <p><strong>Dimension:</strong> 3rd & 4th - Fear and division</p>
+                            </div>
+                            <div style="text-center; margin-top: 1rem;">
+                                <a href="aspire-inspire.html" class="conversion-cta">Complete AI Philosophy →</a>
                             </div>
                         </div>
                     </div>
@@ -1534,71 +1606,104 @@
                 <p style="color: #4ecdc4;">The Awakening Starts Here</p>
             </div>
             
-            <!-- MOBILE VERSION - Strategic 3 tiers -->
+            <!-- MOBILE VERSION - Tier Slider with Categories -->
             <div class="mobile-only">
-                <div style="text-align: center; margin-bottom: 2rem;">
-                    <p style="color: #00ff88; font-size: 1.1rem;">Join the resistance against digital enslavement</p>
-                    <p style="color: #ffaa00; font-size: 0.9rem;">*Kickstarter contributors can repurchase Boosters at $9.99</p>
+                <div style="text-align: center; margin-bottom: 1.5rem;">
+                    <p style="color: #00ff88; font-size: 1.1rem; margin-bottom: 0.5rem;">Join the resistance against digital enslavement</p>
+                    <p style="color: #ffaa00; font-size: 0.85rem;">*Kickstarter contributors can repurchase Boosters at $9.99</p>
+                    <p style="color: #ccc; font-size: 0.8rem; margin-top: 0.5rem;">📦 Booster Pack: 10 individual packs (4 Beast & 3 Digital) | Starter Pack: Character's Beast + 5 individual packs</p>
                 </div>
                 
-                <div class="tier-grid">
-                    <!-- TIER 3 - Mobile Featured -->
-                    <div class="tier-card">
-                        <div class="tier-price">$199</div>
-                        <div class="tier-name">3. Gold Sigil</div>
-                        <ul class="tier-features">
-                            <li>Season 1 Digital Comic ($20 Value)</li>
-                            <li>2 Boosters + Alex's Starter Pack ($297 Value!)</li>
-                            <li>Exclusive Ryujin Gold Card</li>
-                            <li>Cyber-sigil Cardback (Kickstarter Only!)</li>
-                        </ul>
-                    </div>
-                    
-                    <!-- TIER 6 - Mobile Popular Choice -->
-                    <div class="tier-card" style="position: relative;">
-                        <div class="best-value-badge">BEST VALUE</div>
-                        <div class="tier-price">$399</div>
-                        <div class="tier-name">6. Mithril Guard</div>
-                        <ul class="tier-features">
-                            <li>Full Year Comic Subscription ($40 Value)</li>
-                            <li>3 Random Starter Packs + 2 Boosters ($495 Value!)</li>
-                            <li>1 Random Legendary Beast ($50 Value)</li>
-                            <li>Exclusive Cetus Gold Card + Beta Access</li>
-                        </ul>
-                    </div>
-                    
-                    <!-- TIER 11 - Mobile Premium -->
-                    <div class="tier-card">
-                        <div class="tier-price">$2,222</div>
-                        <div class="tier-name">11. Pearled Pact</div>
-                        <ul class="tier-features">
-                            <li>Lifetime Comic Subscription ($222+ Value!)</li>
-                            <li>All 4 Starter Packs + 5 Boosters ($891 Value!)</li>
-                            <li>100% Chance Divine Drop</li>
-                            <li>2 Collector's Beast Figurines</li>
-                        </ul>
+                <!-- Mobile Tier Slider -->
+                <div class="mobile-tier-slider">
+                    <div class="slider-container">
+                        <!-- Foundational Tier -->
+                        <div class="mobile-tier-card foundational">
+                            <div class="mobile-category-badge">Foundational</div>
+                            <div style="margin-top: 1rem;">
+                                <div class="tier-price" style="color: #4ecdc4;">$199</div>
+                                <div class="tier-name" style="color: #4ecdc4; font-size: 1.2rem; margin-bottom: 0.5rem;">3. Gold Sigil</div>
+                                <p style="font-style: italic; color: #4ecdc4; margin-bottom: 1rem; font-size: 0.9rem;">"Awaken your potential and prepare for battle."</p>
+                                <ul class="tier-features" style="font-size: 0.9rem;">
+                                    <li>Season 1 Digital Comic ($20 Value)</li>
+                                    <li>2 Booster Packs + Alex's Starter Pack ($297 Value!)</li>
+                                    <li>Exclusive Ryujin Gold Card w/ Cyber-sigil Cardback</li>
+                                    <li><strong>Total Value: $317+</strong></li>
+                                </ul>
+                                <div style="text-align: center; margin-top: 1rem;">
+                                    <a href="https://kickstarter.com/projects/battle-eternal" class="cta-button" style="font-size: 0.9rem; padding: 0.8rem 1.5rem;">Order Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Champion's Charge Tier -->
+                        <div class="mobile-tier-card champions">
+                            <div class="mobile-category-badge">Champion's Charge</div>
+                            <div style="margin-top: 1rem;">
+                                <div class="tier-price" style="color: #ffaa00;">$699</div>
+                                <div class="tier-name" style="color: #ffaa00; font-size: 1.2rem; margin-bottom: 0.5rem;">8. Emerald Covenant</div>
+                                <p style="font-style: italic; color: #ffaa00; margin-bottom: 1rem; font-size: 0.9rem;">"Fuel your fire - forge your fate"</p>
+                                <ul class="tier-features" style="font-size: 0.9rem;">
+                                    <li>2 Full Year Comic Subscription ($80 Value)</li>
+                                    <li>3 Random Starter Packs + 3 Booster Packs ($594 Value)</li>
+                                    <li>3 Random Legendary Beasts ($150 Value)</li>
+                                    <li>Early Access Beta + Exclusive Lamia Gold</li>
+                                    <li><strong style="color: #ffaa00;">10% Chance of Divine Drop!</strong></li>
+                                    <li><strong>Total Value: $824+</strong></li>
+                                </ul>
+                                <div style="text-align: center; margin-top: 1rem;">
+                                    <a href="https://kickstarter.com/projects/battle-eternal" class="cta-button" style="font-size: 0.9rem; padding: 0.8rem 1.5rem; background: linear-gradient(45deg, #ffaa00, #ff6b00);">Order Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Mythic Ascension Tier -->
+                        <div class="mobile-tier-card mythic">
+                            <div class="mobile-category-badge">Mythic Ascension</div>
+                            <div style="margin-top: 1rem;">
+                                <div class="tier-price" style="color: #ff6b00;">$2,222</div>
+                                <div class="tier-name" style="color: #ff6b00; font-size: 1.2rem; margin-bottom: 0.5rem;">11. Pearled Pact</div>
+                                <p style="font-style: italic; color: #ff6b00; margin-bottom: 1rem; font-size: 0.9rem;">"Awaken the Ancients & Rule the Realm"</p>
+                                <ul class="tier-features" style="font-size: 0.9rem;">
+                                    <li>Lifetime Comic Subscription ($222+ Value!)</li>
+                                    <li>All 4 Starter Packs + 5 Booster Packs ($891 Value)</li>
+                                    <li>2 Random Legendary + 1 Monoceros Unicorn ($150 Value)</li>
+                                    <li>Early Access Beta + Exclusive Nine-Tailed Kitsune Gold</li>
+                                    <li><strong style="color: #ff6b00;">100% Guaranteed Divine Drop!</strong></li>
+                                    <li>2 Collector's Beast Figurines (Serial Numbered)</li>
+                                    <li><strong>Total Value: $1,263++</strong></li>
+                                </ul>
+                                <div style="text-align: center; margin-top: 1rem;">
+                                    <a href="https://kickstarter.com/projects/battle-eternal" class="cta-button" style="font-size: 0.9rem; padding: 0.8rem 1.5rem; background: linear-gradient(45deg, #ff6b00, #ff4500);">Order Now</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
+                <!-- View All Tiers -->
                 <div class="text-center" style="margin-top: 2rem;">
-                    <button class="see-more-btn" onclick="toggleCollapsible('all-tiers-mobile')">See All 13 Tiers</button>
+                    <button class="see-more-btn" onclick="toggleCollapsible('all-tiers-mobile')">View All 13 Tiers</button>
                     <div id="all-tiers-mobile" class="collapsible-content">
-                        <div style="display: grid; gap: 1rem; margin-top: 1rem;">
-                            <div style="background: rgba(205, 133, 63, 0.1); padding: 1rem; border-radius: 10px;">
+                        <div style="display: grid; gap: 1rem; margin-top: 1rem; font-size: 0.9rem;">
+                            <div style="background: rgba(78, 205, 196, 0.1); padding: 1rem; border-radius: 10px;">
+                                <h5 style="color: #4ecdc4; margin-bottom: 0.5rem;">🌟 Foundational Tiers</h5>
                                 <strong>$99 - Bronze Oath:</strong> Season 1 Comic + 1 Booster Pack<br>
-                                <strong>$149 - Silver Pact:</strong> + Random Starter + Exclusive Phoenix<br>
-                                <strong>$249 - Platinum Vow:</strong> + Alex + Random Starter + Beta Access
+                                <strong>$149 - Silver Pact:</strong> + Random Starter + Exclusive Phoenix Gold<br>
+                                <strong>$249 - Platinum Vow:</strong> + Alex + Random Starter + Beta Access + Legendary<br>
+                                <strong>$299 - Obsidian Rite:</strong> + 2 Random Legendaries + Manticore Gold<br>
+                                <strong>$399 - Mithril Guard:</strong> + Full Year + Cetus Gold + 2 Legendaries
                             </div>
-                            <div style="background: rgba(128, 0, 128, 0.1); padding: 1rem; border-radius: 10px;">
-                                <strong>$299 - Obsidian Rite:</strong> + 2 Random Legendaries<br>
-                                <strong>$499 - Sapphire Relic:</strong> + Exclusive Asterion Gold<br>
-                                <strong>$699 - Emerald Covenant:</strong> + 10% Divine Drop Chance
+                            <div style="background: rgba(255, 170, 0, 0.1); padding: 1rem; border-radius: 10px;">
+                                <h5 style="color: #ffaa00; margin-bottom: 0.5rem;">🔥 Champion's Charge</h5>
+                                <strong>$499 - Sapphire Relic:</strong> + Asterion Gold + 5% Divine Chance<br>
+                                <strong>$999 - Ruby Ascension:</strong> + 25% Divine + Figurine + Nemean Lion Gold<br>
+                                <strong>$1,499 - Diamond Legacy:</strong> + 50% Divine + 2 Figurines + Chimera Gold
                             </div>
-                            <div style="background: rgba(220, 20, 60, 0.1); padding: 1rem; border-radius: 10px;">
-                                <strong>$999 - Ruby Ascension:</strong> + 25% Divine + Figurine<br>
-                                <strong>$1,499 - Diamond Legacy:</strong> + 50% Divine + 2 Figurines<br>
-                                <strong>$3,333 - Eternal Divinity:</strong> + 2 Divines + Cipher Card<br>
-                                <strong>$4,444 - Merchant's Accord:</strong> + Wholesale Pricing Access
+                            <div style="background: rgba(255, 107, 0, 0.1); padding: 1rem; border-radius: 10px;">
+                                <h5 style="color: #ff6b00; margin-bottom: 0.5rem;">👑 Mythic Ascension</h5>
+                                <strong>$3,333 - Eternal Divinity:</strong> + 2 Divines + 3 Figurines + Cipher Card<br>
+                                <strong>$4,444 - Merchant's Accord:</strong> + 3 Divines + Wholesale Access
                             </div>
                         </div>
                     </div>
@@ -1611,8 +1716,9 @@
                     <p style="color: #ffaa00; font-size: 1rem; margin-bottom: 0.5rem;">*Kickstarter contributors can repurchase Boosters at $9.99</p>
                 </div>
                 
-                <!-- Foundation Tiers (1-6) -->
-                <h3 style="text-align: center; color: #4ecdc4; margin-bottom: 2rem;">⚔️ Foundation Tiers - Start Your Journey</h3>
+                <!-- Foundational Tiers (1-6) -->
+                <h3 style="text-align: center; color: #4ecdc4; margin-bottom: 1rem;">🌟 Foundational Tiers</h3>
+                <p style="text-align: center; color: #4ecdc4; font-style: italic; margin-bottom: 2rem;">"Awaken your potential and prepare for battle."</p>
                 <div class="tier-grid" style="margin-bottom: 4rem;">
                     <div class="tier-card">
                         <div class="tier-price">$99</div>
@@ -1685,10 +1791,11 @@
                     </div>
                 </div>
                 
-                <!-- PREMIUM DIVINE TIERS SECTION -->
+                <!-- CHAMPION'S CHARGE TIERS SECTION -->
                 <div style="background: linear-gradient(45deg, rgba(255, 107, 107, 0.2), rgba(255, 165, 0, 0.2)); padding: 2rem; border-radius: 20px; margin: 3rem 0; text-align: center;">
-                    <h3 style="color: #ffaa00; font-size: 2rem; margin-bottom: 1rem;">🔥 PREMIUM DIVINE TIERS 🔥</h3>
-                    <p style="margin-bottom: 2rem; font-size: 1.1rem;">Maximum rewards for serious collectors & divine warriors</p>
+                    <h3 style="color: #ffaa00; font-size: 2rem; margin-bottom: 0.5rem;">🔥 Champion's Charge</h3>
+                    <p style="color: #ffaa00; font-style: italic; margin-bottom: 1rem; font-size: 1.1rem;">"Fuel your fire - forge your fate"</p>
+                    <p style="margin-bottom: 2rem; font-size: 1rem;">Premium rewards for serious collectors & divine warriors</p>
                     
                     <div class="tier-grid">
                         <div class="tier-card">
@@ -1735,7 +1842,8 @@
                     
                     <!-- Ultra Premium Tiers -->
                     <div style="margin-top: 3rem;">
-                        <h4 style="color: #ff6b6b; font-size: 1.5rem; margin-bottom: 1.5rem;">✨ Ultra Premium Tiers</h4>
+                        <h4 style="color: #ff6b00; font-size: 1.8rem; margin-bottom: 0.5rem;">👑 Mythic Ascension</h4>
+                        <p style="color: #ff6b00; font-style: italic; margin-bottom: 1.5rem; font-size: 1rem;">"Awaken the Ancients & Rule the Realm"</p>
                         <div class="tier-grid">
                             <div class="tier-card" style="position: relative;">
                                 <div class="best-value-badge">HIGH DIVINE CHANCE</div>
