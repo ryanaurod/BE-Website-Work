@@ -1081,6 +1081,7 @@
             <a href="#whats-new">What's New?</a>
             <a href="#what-is-be">What is BE?</a>
             <a href="#characters">Characters</a>
+            <a href="#bestiary">Bestiary</a>
             <a href="#kickstarter">Kickstarter</a>
         </div>
         
@@ -1906,48 +1907,114 @@
     <!-- SCREEN 7: BESTIARY PREVIEW -->
     <section class="screen" id="bestiary">
         <div class="container">
-            <h2 class="text-center mb-2">🐉 Bestiary of the Fourth Dimension</h2>
-            <p class="text-center" style="font-size: 1.2rem; color: #e0e0e0; margin-bottom: 3rem;">Ancient beasts unleashed by the Quantum Fracture along Earth's ley line chakra system, organized by elemental power</p>
+            <h2 class="text-center mb-2">🐉 Mythical Beast Collector's Trading Card Game</h2>
+            <p class="text-center" style="font-size: 1.2rem; color: #e0e0e0; margin-bottom: 2rem;">Upon the last great war of the Gods, the beasts of legend and lore in human history were sealed in the 4D Netherworld... until one man awakens them.</p>
             
-            <div class="bestiary-preview">
-                <div class="beast-tile">
-                    <div class="beast-emoji">⚡</div>
-                    <h4>Zeus Deck - Lightning & Justice</h4>
-                    <p class="deck-label">53 Cards | Masters of Divine Authority</p>
-                    <div class="image-placeholder" style="height: 150px; margin: 1rem 0; font-size: 0.9rem;">
-                        [ZEUS CREATURES: Cerberus (3-headed firewall), Minotaur (maze-beast), Medusa (code-petrifier), Divine Lightning constructs]
+            <!-- MOBILE VERSION - Element Selection Interface -->
+            <div class="mobile-only">
+                <div style="text-align: center; margin: 2rem 0;">
+                    <h3 style="color: #00ff88; margin-bottom: 1rem;">🌌 The Four Elemental Decks</h3>
+                    
+                    <!-- Element Selection Buttons -->
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <button class="element-selector active" onclick="showMobileElement('zeus-bestiary')" id="zeus-bestiary-btn" style="background: rgba(255, 215, 0, 0.2); border: 2px solid #ffd700; color: #ffd700; padding: 0.8rem; border-radius: 10px; font-weight: bold;">⚡ Zeus</button>
+                        <button class="element-selector" onclick="showMobileElement('hades-bestiary')" id="hades-bestiary-btn" style="background: rgba(139, 0, 0, 0.2); border: 2px solid #8b0000; color: #ff6b6b; padding: 0.8rem; border-radius: 10px; font-weight: bold;">💀 Hades</button>
+                        <button class="element-selector" onclick="showMobileElement('poseidon-bestiary')" id="poseidon-bestiary-btn" style="background: rgba(30, 144, 255, 0.2); border: 2px solid #1e90ff; color: #1e90ff; padding: 0.8rem; border-radius: 10px; font-weight: bold;">🌊 Poseidon</button>
+                        <button class="element-selector" onclick="showMobileElement('gaia-bestiary')" id="gaia-bestiary-btn" style="background: rgba(34, 139, 34, 0.2); border: 2px solid #228b22; color: #32cd32; padding: 0.8rem; border-radius: 10px; font-weight: bold;">🌿 Gaia</button>
                     </div>
-                    <p style="font-size: 0.9rem; color: #ccc;">Legendary Sources: Homer's Iliad, Hesiod's Theogony</p>
+                    
+                    <!-- Zeus Deck Content -->
+                    <div id="mobile-zeus-bestiary" class="mobile-element-content" style="background: rgba(255, 215, 0, 0.1); padding: 1.5rem; border-radius: 15px; border: 2px solid rgba(255, 215, 0, 0.3);">
+                        <h4>⚡ Zeus Deck - Lightning & Justice</h4>
+                        <p class="deck-label">53 Cards | Masters of Divine Authority</p>
+                        <button class="see-more-btn" onclick="toggleCollapsible('zeus-bestiary-details-mobile')" style="margin-top: 1rem;">See Zeus Beasts</button>
+                        <div id="zeus-bestiary-details-mobile" class="collapsible-content">
+                            <p><strong>Legendary Sources:</strong> Homer's Iliad, Hesiod's Theogony</p>
+                            <p><strong>Featured Beasts:</strong> Cerberus (3-headed firewall), Minotaur (maze-beast), Medusa (code-petrifier), Divine Lightning constructs</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Hades Deck Content -->
+                    <div id="mobile-hades-bestiary" class="mobile-element-content" style="background: rgba(139, 0, 0, 0.15); padding: 1.5rem; border-radius: 15px; border: 2px solid rgba(139, 0, 0, 0.3); display: none;">
+                        <h4>💀 Hades Deck - Digital Underworld</h4>
+                        <p class="deck-label">47 Cards | Rulers of Deleted Realms</p>
+                        <button class="see-more-btn" onclick="toggleCollapsible('hades-bestiary-details-mobile')" style="margin-top: 1rem;">See Hades Beasts</button>
+                        <div id="hades-bestiary-details-mobile" class="collapsible-content">
+                            <p><strong>Legendary Sources:</strong> Hesiod's Theogony, Japanese folklore</p>
+                            <p><strong>Featured Beasts:</strong> Echidna (Mother of viral monsters), Typhon (Ultimate system virus), Baku (Dream-eating tapirs), Digital specters</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Poseidon Deck Content -->
+                    <div id="mobile-poseidon-bestiary" class="mobile-element-content" style="background: rgba(30, 144, 255, 0.1); padding: 1.5rem; border-radius: 15px; border: 2px solid rgba(30, 144, 255, 0.3); display: none;">
+                        <h4>🌊 Poseidon Deck - Digital Ocean</h4>
+                        <p class="deck-label">47 Cards | Lords of Data Streams</p>
+                        <button class="see-more-btn" onclick="toggleCollapsible('poseidon-bestiary-details-mobile')" style="margin-top: 1rem;">See Poseidon Beasts</button>
+                        <div id="poseidon-bestiary-details-mobile" class="collapsible-content">
+                            <p><strong>Legendary Sources:</strong> Chinese Four Symbols, Germanic treasure myths</p>
+                            <p><strong>Featured Beasts:</strong> Seiryū Azure Dragon (Eastern data guardian), Emerald Wyrm Dragons (treasure hoarders), Sea serpents of the digital depths</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Gaia Deck Content -->
+                    <div id="mobile-gaia-bestiary" class="mobile-element-content" style="background: rgba(34, 139, 34, 0.1); padding: 1.5rem; border-radius: 15px; border: 2px solid rgba(34, 139, 34, 0.3); display: none;">
+                        <h4>🌿 Gaia Deck - Nature Guardians</h4>
+                        <p class="deck-label">48 Cards | Organic Algorithm Protectors</p>
+                        <button class="see-more-btn" onclick="toggleCollapsible('gaia-bestiary-details-mobile')" style="margin-top: 1rem;">See Gaia Beasts</button>
+                        <div id="gaia-bestiary-details-mobile" class="collapsible-content">
+                            <p><strong>Legendary Sources:</strong> Greek mythology, Various nature myths</p>
+                            <p><strong>Featured Beasts:</strong> Nemean Lion Cubs (Invulnerable programs), Dryad Guardians (Tree spirit AIs), Centaur mentors, Earth dragons</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DESKTOP VERSION - Elements Grid: Zeus/Hades top, Gaia/Poseidon bottom -->
+            <div class="desktop-only">
+                <!-- Top Row: Zeus and Hades -->
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin: 2rem 0;">
+                    <div class="beast-tile">
+                        <div class="beast-emoji">⚡</div>
+                        <h4>Zeus Deck - Lightning & Justice</h4>
+                        <p class="deck-label">53 Cards | Masters of Divine Authority</p>
+                        <div class="image-placeholder" style="height: 150px; margin: 1rem 0; font-size: 0.9rem;">
+                            [ZEUS CREATURES: Cerberus (3-headed firewall), Minotaur (maze-beast), Medusa (code-petrifier), Divine Lightning constructs]
+                        </div>
+                        <p style="font-size: 0.9rem; color: #ccc;">Legendary Sources: Homer's Iliad, Hesiod's Theogony</p>
+                    </div>
+                    
+                    <div class="beast-tile">
+                        <div class="beast-emoji">💀</div>
+                        <h4>Hades Deck - Digital Underworld</h4>
+                        <p class="deck-label">47 Cards | Rulers of Deleted Realms</p>
+                        <div class="image-placeholder" style="height: 150px; margin: 1rem 0; font-size: 0.9rem;">
+                            [HADES CREATURES: Echidna (Mother of viral monsters), Typhon (Ultimate system virus), Baku (Dream-eating tapirs), Digital specters]
+                        </div>
+                        <p style="font-size: 0.9rem; color: #ccc;">Legendary Sources: Hesiod's Theogony, Japanese folklore</p>
+                    </div>
                 </div>
                 
-                <div class="beast-tile">
-                    <div class="beast-emoji">🌊</div>
-                    <h4>Poseidon Deck - Digital Ocean</h4>
-                    <p class="deck-label">47 Cards | Lords of Data Streams</p>
-                    <div class="image-placeholder" style="height: 150px; margin: 1rem 0; font-size: 0.9rem;">
-                        [POSEIDON CREATURES: Seiryū Azure Dragon (Eastern data guardian), Emerald Wyrm Dragons (treasure hoarders), Sea serpents of the digital depths]
+                <!-- Bottom Row: Gaia and Poseidon -->
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin: 2rem 0;">
+                    <div class="beast-tile">
+                        <div class="beast-emoji">🌿</div>
+                        <h4>Gaia Deck - Nature Guardians</h4>
+                        <p class="deck-label">48 Cards | Organic Algorithm Protectors</p>
+                        <div class="image-placeholder" style="height: 150px; margin: 1rem 0; font-size: 0.9rem;">
+                            [GAIA CREATURES: Nemean Lion Cubs (Invulnerable programs), Dryad Guardians (Tree spirit AIs), Centaur mentors, Earth dragons]
+                        </div>
+                        <p style="font-size: 0.9rem; color: #ccc;">Legendary Sources: Greek mythology, Various nature myths</p>
                     </div>
-                    <p style="font-size: 0.9rem; color: #ccc;">Legendary Sources: Chinese Four Symbols, Germanic treasure myths</p>
-                </div>
-                
-                <div class="beast-tile">
-                    <div class="beast-emoji">💀</div>
-                    <h4>Hades Deck - Digital Underworld</h4>
-                    <p class="deck-label">47 Cards | Rulers of Deleted Realms</p>
-                    <div class="image-placeholder" style="height: 150px; margin: 1rem 0; font-size: 0.9rem;">
-                        [HADES CREATURES: Echidna (Mother of viral monsters), Typhon (Ultimate system virus), Baku (Dream-eating tapirs), Digital specters]
+                    
+                    <div class="beast-tile">
+                        <div class="beast-emoji">🌊</div>
+                        <h4>Poseidon Deck - Digital Ocean</h4>
+                        <p class="deck-label">47 Cards | Lords of Data Streams</p>
+                        <div class="image-placeholder" style="height: 150px; margin: 1rem 0; font-size: 0.9rem;">
+                            [POSEIDON CREATURES: Seiryū Azure Dragon (Eastern data guardian), Emerald Wyrm Dragons (treasure hoarders), Sea serpents of the digital depths]
+                        </div>
+                        <p style="font-size: 0.9rem; color: #ccc;">Legendary Sources: Chinese Four Symbols, Germanic treasure myths</p>
                     </div>
-                    <p style="font-size: 0.9rem; color: #ccc;">Legendary Sources: Hesiod's Theogony, Japanese folklore</p>
-                </div>
-                
-                <div class="beast-tile">
-                    <div class="beast-emoji">🌍</div>
-                    <h4>Gaia Deck - Nature Guardians</h4>
-                    <p class="deck-label">48 Cards | Organic Algorithm Protectors</p>
-                    <div class="image-placeholder" style="height: 150px; margin: 1rem 0; font-size: 0.9rem;">
-                        [GAIA CREATURES: Nemean Lion Cubs (Invulnerable programs), Dryad Guardians (Tree spirit AIs), Centaur mentors, Earth dragons]
-                    </div>
-                    <p style="font-size: 0.9rem; color: #ccc;">Legendary Sources: Greek mythology, Various nature myths</p>
                 </div>
             </div>
             
@@ -2481,6 +2548,33 @@
                 nav.style.background = 'rgba(10, 10, 10, 0.95)';
             }
         });
+        
+        // Mobile element selection for bestiary and world aspects
+        function showMobileElement(elementType) {
+            // Hide all element content
+            const allElements = document.querySelectorAll('.mobile-element-content');
+            allElements.forEach(element => {
+                element.style.display = 'none';
+            });
+            
+            // Remove active class from all selectors
+            const allSelectors = document.querySelectorAll('.element-selector');
+            allSelectors.forEach(selector => {
+                selector.classList.remove('active');
+            });
+            
+            // Show selected element content
+            const selectedElement = document.getElementById('mobile-' + elementType);
+            if (selectedElement) {
+                selectedElement.style.display = 'block';
+            }
+            
+            // Add active class to clicked selector
+            const activeButton = document.getElementById(elementType + '-btn');
+            if (activeButton) {
+                activeButton.classList.add('active');
+            }
+        }
     </script>
 </body>
 </html><!-- Trigger GitHub Pages rebuild 10/09/2025 16:09:00 -->
