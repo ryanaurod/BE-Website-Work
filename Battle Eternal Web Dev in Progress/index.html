@@ -675,7 +675,7 @@
                 repeating-linear-gradient(90deg, transparent, transparent 30px, rgba(78, 205, 196, 0.03) 30px, rgba(78, 205, 196, 0.03) 32px);
             backdrop-filter: blur(20px);
             transition: right 0.3s ease;
-            padding: 6rem 2rem 2rem;
+            padding: 4rem 2rem 1rem;
             border-left: 2px solid rgba(78, 205, 196, 0.5);
             border-right: 1px solid rgba(244, 228, 192, 0.2);
             box-shadow: -5px 0 25px rgba(0, 255, 255, 0.1);
@@ -716,8 +716,8 @@
 
         /* MAIN CONTENT STYLES */
         .screen {
-            min-height: 100vh;
-            padding: 6rem 2rem 2rem;
+            min-height: 40vh;
+            padding: 1rem 2rem 1rem;
             position: relative;
             z-index: 1;
         }
@@ -1473,7 +1473,35 @@
             transform: rotate(15deg);
         }
 
-        /* RESPONSIVE DESIGN */
+        /* MOBILE-FIRST RESPONSIVE DESIGN */
+        @media (max-width: 767px) {
+            .screen {
+                padding: 0.5rem 1rem 0.5rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .logo-title {
+                font-size: clamp(1.5rem, 6vw, 3rem);
+            }
+            
+            .tagline {
+                font-size: clamp(1rem, 4vw, 1.5rem);
+            }
+            
+            .character-selection-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.5rem;
+            }
+            
+            .tier-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+        
         @media (min-width: 768px) {
             .desktop-nav {
                 display: flex;
@@ -1484,7 +1512,7 @@
             }
             
             .screen {
-                padding: 6rem 4rem 2rem;
+                padding: 1rem 4rem 1rem;
             }
             
             .mobile-only {
@@ -1506,7 +1534,7 @@
 
         @media (min-width: 1024px) {
             .screen {
-                padding: 6rem 6rem 2rem;
+                padding: 1rem 6rem 1rem;
             }
 
             .split-content {
@@ -1614,7 +1642,7 @@
     </section>
 
     <!-- SCREEN 2: WELCOME TO AGE OF CHAOS -->
-    <section class="screen screen-2" id="age-of-chaos" style="padding-top: 2rem;">
+    <section class="screen screen-2" id="age-of-chaos">
         <div class="container">
             <h2 class="chaos-title">Welcome to the Age of Chaos</h2>
             
@@ -1638,7 +1666,7 @@
     </section>
 
     <!-- SCREEN 3: WHAT IS BATTLE ETERNAL -->
-    <section class="screen" id="what-is-be" style="padding-top: 2rem;">
+    <section class="screen" id="what-is-be">
         <div class="container">
             <h2 class="text-center mb-2">⚔️ What is Battle Eternal?</h2>
             
@@ -1729,7 +1757,7 @@
     </section>
 
     <!-- SCREEN 4: THE NEXUS QUARTET -->
-    <section class="screen" id="characters" style="padding-top: 2rem;">
+    <section class="screen" id="characters">
         <div class="container">
             <h2 class="text-center mb-2">🎭 The Nexus Quartet - Where Ancient Truth Logs Into the Modern World</h2>
             
@@ -1903,7 +1931,7 @@
     </section>
 
     <!-- MINIBYTES SECTION -->
-    <section class="screen" id="minibytes" style="background: linear-gradient(135deg, #16213e, #0f3460); padding-top: 2rem;">
+    <section class="screen" id="minibytes" style="background: linear-gradient(135deg, #16213e, #0f3460);">
         <div class="container">
             <h2 class="text-center mb-2">📜 Character Minibytes - Origin Stories</h2>
             
@@ -2029,7 +2057,7 @@
     </section>
 
     <!-- SCREEN 6: WORLD ASPECTS -->
-    <section class="screen" id="world-aspects" style="padding-top: 2rem;">
+    <section class="screen" id="world-aspects">
         <div class="container">
             <h2 class="text-center mb-2">🌍 The Battle Eternal World</h2>
             
@@ -2176,7 +2204,7 @@
     </section>
 
     <!-- SCREEN 7: BESTIARY PREVIEW -->
-    <section class="screen" id="bestiary" style="padding-top: 2rem;">
+    <section class="screen" id="bestiary">
         <div class="container">
             <h2 class="text-center mb-2">🐉 Mythology-Based Trading Card Game</h2>
             <p class="text-center" style="font-size: 1.2rem; color: #e0e0e0; margin-bottom: 2rem;">Upon the last great war of the Gods, the beasts of legend and lore in human history were sealed in the 4D Netherworld... until one man awakens them.</p>
@@ -2297,8 +2325,7 @@
 
     <!-- SCREEN 8: KICKSTARTER CAMPAIGN - BATTLE READINESS THEME -->
     <section class="screen" id="kickstarter" style="
-        padding-top: 2rem;
-        background: 
+        background:
             /* Battle energy effects */
             radial-gradient(ellipse at 30% 20%, rgba(255, 69, 0, 0.15) 0%, transparent 60%),
             radial-gradient(ellipse at 70% 80%, rgba(139, 0, 0, 0.12) 0%, transparent 60%),
@@ -2377,7 +2404,7 @@
                                     <li><strong>Total Value: $317+</strong></li>
                                 </ul>
                                 <div style="text-align: center; margin-top: 1rem;">
-                                    <a href="https://kickstarter.com/projects/battle-eternal" class="cta-button" style="font-size: 0.9rem; padding: 0.8rem 1.5rem;">Order Now</a>
+                                    <a href="https://kickstarter.com/projects/battle-eternal" class="cta-button" style="font-size: 0.9rem; padding: 0.8rem 1.5rem;">Pre-Order on Kickstarter Now!</a>
                                 </div>
                             </div>
                         </div>
@@ -2398,7 +2425,7 @@
                                     <li><strong>Total Value: $824+</strong></li>
                                 </ul>
                                 <div style="text-align: center; margin-top: 1rem;">
-                                    <a href="https://kickstarter.com/projects/battle-eternal" class="cta-button" style="font-size: 0.9rem; padding: 0.8rem 1.5rem; background: linear-gradient(45deg, #ffaa00, #ff6b00);">Order Now</a>
+                                    <a href="https://kickstarter.com/projects/battle-eternal" class="cta-button" style="font-size: 0.9rem; padding: 0.8rem 1.5rem; background: linear-gradient(45deg, #ffaa00, #ff6b00);">Pre-Order on Kickstarter Now!</a>
                                 </div>
                             </div>
                         </div>
@@ -2420,7 +2447,7 @@
                                     <li><strong>Total Value: $1,263++</strong></li>
                                 </ul>
                                 <div style="text-align: center; margin-top: 1rem;">
-                                    <a href="https://kickstarter.com/projects/battle-eternal" class="cta-button" style="font-size: 0.9rem; padding: 0.8rem 1.5rem; background: linear-gradient(45deg, #ff6b00, #ff4500);">Order Now</a>
+                                    <a href="https://kickstarter.com/projects/battle-eternal" class="cta-button" style="font-size: 0.9rem; padding: 0.8rem 1.5rem; background: linear-gradient(45deg, #ff6b00, #ff4500);">Pre-Order on Kickstarter Now!</a>
                                 </div>
                             </div>
                         </div>
@@ -2641,7 +2668,7 @@
             </div>
             
             <div class="text-center mt-3">
-                <a href="https://kickstarter.com/projects/battle-eternal" class="cta-button" style="font-size: 1.5rem; padding: 1.5rem 3rem;">Ante In - Kickstarter Pre-Order</a>
+                <a href="https://kickstarter.com/projects/battle-eternal" class="cta-button" style="font-size: 1.5rem; padding: 1.5rem 3rem;">Pre-Order on Kickstarter Now!</a>
                 
                 <!-- TRANSPARENT PACK ODDS -->
                 <div style="background: rgba(0, 0, 0, 0.6); padding: 2rem; border-radius: 15px; margin: 2rem auto; max-width: 600px; border: 1px solid rgba(255, 255, 255, 0.2);">
@@ -2690,7 +2717,7 @@
     </section>
 
     <!-- STAKES SECTION -->
-    <section class="screen" style="background: linear-gradient(135deg, #ff6b6b, #4ecdc4); color: white; padding-top: 2rem; padding-bottom: 2rem;">
+    <section class="screen" style="background: linear-gradient(135deg, #ff6b6b, #4ecdc4); color: white;">
         <div class="container">
             <h2 class="text-center mb-2" style="font-size: clamp(2rem, 5vw, 3.5rem);">The Stakes Have Never Been Higher</h2>
             <p class="text-center" style="font-size: 1.5rem; margin-bottom: 2rem;">Choose your side in the consciousness wars. The future of humanity depends on digital warriors like you.</p>
@@ -2702,7 +2729,7 @@
     </section>
 
     <!-- SOCIAL FOOTER -->
-    <footer class="social-footer" id="social" style="padding-top: 1rem;">
+    <footer class="social-footer" id="social">
         <div class="container">
             <h3 class="social-title">🌟 Keep a Pulse on BE</h3>
             
