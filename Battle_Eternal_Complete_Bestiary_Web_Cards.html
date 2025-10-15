@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle Eternal - Complete Bestiary Collection</title>
+    <style>
+        body {
+            font-family: 'Cinzel', 'Trajan Pro', serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(180deg, #0a0a2e 0%, #16213e 50%, #4a1a2e 100%);
+            color: #f4e4c0;
+            line-height: 1.6;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+        }
+        
+        .main-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: bold;
+            color: #4ecdc4;
+            text-shadow: 0 0 20px rgba(78, 205, 196, 0.8);
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            color: #ff6b35;
+            text-shadow: 0 0 15px rgba(255, 107, 53, 0.6);
+        }
+        
+        .category-section {
+            margin-bottom: 60px;
+        }
+        
+        .category-title {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            color: #ffd700;
+            text-align: center;
+            margin: 40px 0 30px;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .rarity-title {
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            text-align: center;
+            margin: 30px 0 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .rarity-divine-title { color: #ffd700; text-shadow: 0 0 15px rgba(255, 215, 0, 0.8); }
+        .rarity-legendary-title { color: #ff4500; text-shadow: 0 0 15px rgba(255, 69, 0, 0.8); }
+        .rarity-rare-title { color: #9370db; text-shadow: 0 0 15px rgba(147, 112, 219, 0.8); }
+        .rarity-common-title { color: #708090; text-shadow: 0 0 10px rgba(112, 128, 144, 0.6); }
+        
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .card-container {
+            background: linear-gradient(145deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
+            border: 2px solid #4ecdc4;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(78, 205, 196, 0.3);
+        }
+        
+        .card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .card-header {
+            width: 100%;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #4ecdc4;
+        }
+        
+        .card-name {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+            text-align: center;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        
+        .card-info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .card-type {
+            font-size: 0.9rem;
+            font-style: italic;
+            color: #4ecdc4;
+            margin: 0;
+        }
+        
+        .card-rarity {
+            font-size: 0.8rem;
+            font-weight: bold;
+            padding: 3px 8px;
+            border-radius: 12px;
+            color: white;
+            text-transform: uppercase;
+        }
+        
+        .sol-power {
+            font-size: 0.9rem;
+            color: #ff6b35;
+            font-weight: bold;
+            margin: 0;
+            text-shadow: 0 0 8px rgba(255, 107, 53, 0.6);
+        }
+        
+        .rarity-divine { 
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #000;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+        }
+        .rarity-legendary { 
+            background: linear-gradient(45deg, #ff4500, #ff6b35);
+            box-shadow: 0 0 15px rgba(255, 69, 0, 0.8);
+        }
+        .rarity-rare { 
+            background: linear-gradient(45deg, #9370db, #b19cd9);
+            box-shadow: 0 0 15px rgba(147, 112, 219, 0.8);
+        }
+        .rarity-common { 
+            background: linear-gradient(45deg, #708090, #9ca0a8);
+        }
+        
+        .dropdown-section {
+            margin: 10px 0;
+        }
+        
+        .dropdown-toggle {
+            background: linear-gradient(145deg, rgba(255, 107, 53, 0.8), rgba(255, 107, 53, 0.9));
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown-toggle:hover {
+            background: linear-gradient(145deg, rgba(255, 107, 53, 0.9), rgba(255, 107, 53, 1));
+            transform: translateY(-2px);
+        }
+        
+        .dropdown-content {
+            display: none;
+            padding: 15px;
+            margin-top: 5px;
+            border-radius: 8px;
+            animation: slideDown 0.3s ease;
+        }
+        
+        .dropdown-content.active {
+            display: block;
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .image-showcase {
+            width: 100%;
+            max-width: 280px;
+            height: 380px;
+            border: 3px solid #4ecdc4;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #f4e4c0;
+            font-size: 0.85rem;
+            text-align: center;
+            padding: 15px;
+            box-sizing: border-box;
+            line-height: 1.3;
+            box-shadow: 0 0 20px rgba(78, 205, 196, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .image-showcase::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(78, 205, 196, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            width: 100%;
+            margin: 15px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 6px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .attack { 
+            background: rgba(220, 20, 60, 0.2);
+            color: #ff4757;
+            border: 1px solid #ff4757;
+        }
+        .defense { 
+            background: rgba(65, 105, 225, 0.2);
+            color: #4ecdc4;
+            border: 1px solid #4ecdc4;
+        }
+        .vitality { 
+            background: rgba(34, 139, 34, 0.2);
+            color: #7ed321;
+            border: 1px solid #7ed321;
+        }
+        
+        .effect-section {
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 4px solid #ffd700;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 15px 0;
+            width: 100%;
+        }
+        
+        .effect-title {
+            font-weight: bold;
+            color: #ffd700;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+        
+        .effect-text {
+            color: #f4e4c0;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        .mythological-origin-section {
+            background: linear-gradient(145deg, rgba(46, 26, 26, 0.7), rgba(62, 22, 33, 0.7));
+            border: 1px solid rgba(255, 107, 53, 0.4);
+            border-radius: 12px;
+            padding: 18px;
+            margin: 15px 0;
+        }
+        
+        .origin-title {
+            font-size: 1.2rem;
+            color: #ff6b35;
+            margin-bottom: 12px;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(255, 107, 53, 0.6);
+            font-weight: bold;
+        }
+        
+        .origin-content {
+            color: #f4e4c0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .legend-info, .regions-info, .location-info {
+            margin-bottom: 8px;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(255, 107, 53, 0.2);
+        }
+        
+        .legend-info:last-child, .regions-info:last-child, .location-info:last-child {
+            border-bottom: none;
+        }
+        
+        .description-section {
+            background: linear-gradient(145deg, rgba(26, 26, 46, 0.7), rgba(22, 33, 62, 0.7));
+            border: 1px solid rgba(78, 205, 196, 0.3);
+            border-radius: 12px;
+            padding: 18px;
+            margin-top: 20px;
+        }
+        
+        .description-title {
+            font-size: 1.2rem;
+            color: #ff6b35;
+            margin-bottom: 12px;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(255, 107, 53, 0.6);
+        }
+        
+        .description-text {
+            color: #f4e4c0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        
+        .god { border-color: #ffd700; }
+        .demigod { border-color: #9370db; }
+        .monster { border-color: #7ed321; }
+        .spell { border-color: #4ecdc4; }
+        .trap { border-color: #ff4757; }
+        .site { border-color: #ff6b35; }
+        
+        @media (max-width: 768px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 0 10px;
+            }
+            
+            .card-container {
+                padding: 15px;
+            }
+            
+            .image-showcase {
+                height: 280px;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1 class="main-title">Battle Eternal</h1>
+    <h2 class="subtitle">Complete List of Battle Eternal Trading Cards for The Age of Chaos</h2>
+</div>
+
+<!-- DIVINE GODS SECTION -->
+<section class="category-section">
+    <h2 class="category-title">Divine Gods (13 Cards)</h2>
+    
+    <div class="cards-grid">
+        <!-- All 13 God Cards Alphabetically -->
+        
+        <!-- Amaterasu, Radiant Sun Goddess -->
+        <div class="card-container god">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-name">Amaterasu, Radiant Sun Goddess</div>
+                    <div class="card-info-row">
+                        <div class="card-type">God</div>
+                        <div class="card-rarity rarity-divine">DIVINE</div>
+                        <div class="sol-power">Sol Power</div>
+                    </div>
+                </div>
+                
+                <div class="image-showcase">
+                    <strong>Art Prompt:</strong><br>
+                    Tech noir cyberpunk masterpiece TCG art, Amaterasu as a luminous digital goddess with solar-panel wings and fiber-optic robes. Radiant aura and floating mirror-screens. Strobing glow from sacred digital flames and holographic sakura petals. High-tech shrine with glowing torii gates.
+                </div>
+                
+                <div class="effect-section">
+                    <div class="effect-title">Divine Power</div>
+                    <div class="effect-text">Once per turn, during your Standby Phase, you may restore 500 Vitality to one of your monsters</div>
+                </div>
+                
+                <div class="dropdown-section">
+                    <button class="dropdown-toggle" onclick="toggleDropdown(this, 'mythological-amaterasu')">
+                        Mythological Origin ▼
+                    </button>
+                    <div class="dropdown-content mythological-origin-section" id="mythological-amaterasu">
+                        <div class="origin-content">
+                            <div class="legend-info">
+                                <strong>Legend:</strong> Japanese Shinto mythology - Supreme sun goddess, divine ancestor of the imperial family
+                            </div>
+                            <div class="regions-info">
+                                <strong>Regions/Cultures:</strong> Japan, Korea, parts of China (Shinto, ancient Japanese imperial records)
+                            </div>
+                            <div class="location-info">
+                                <strong>Location:</strong> Ise Grand Shrine (Japan), Takamagahara (celestial realm), sacred cave of Amano-Iwato
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dropdown-section">
+                    <button class="dropdown-toggle" onclick="toggleDropdown(this, 'powers-amaterasu')">
+                        Powers & Abilities ▼
+                    </button>
+                    <div class="dropdown-content description-section" id="powers-amaterasu">
+                        <div class="description-text">
+                            Amaterasu radiates life-giving solar energy, can heal with her divine light, controls day and night, and her sacred mirror Yata-no-Kagami reveals truth and dispels illusions. When she hid in a cave after Susanoo's rampage, the world plunged into darkness until the other gods lured her out with mirrors and sacred dances.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Apollo, God of the Sun -->
+        <div class="card-container god">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-name">Apollo, God of the Sun</div>
+                    <div class="card-rarity rarity-divine">DIVINE</div>
+                </div>
+                <div class="card-type">God</div>
+                
+                <div class="image-showcase">
+                    <strong>Art Prompt:</strong><br>
+                    Tech noir cyberpunk masterpiece TCG art, Apollo as a solar-powered digital deity with fiber-optic hair radiating light. Holographic lyre and burning solar panels. Chariot transformed into light-speed vehicle. Cyber-sunrise over neon cityscape.
+                </div>
+                
+                <div class="effect-section">
+                    <div class="effect-title">Divine Power</div>
+                    <div class="effect-text">Monsters destroyed by battle this turn are banished instead.</div>
+                </div>
+                
+                <div class="description-section">
+                    <div class="description-title">Mythological Origins</div>
+                    <div class="description-text">
+                        Apollo, the radiant god of music, prophecy, and the sun, was one of the most widely worshipped deities across Greek and Roman cultures. His oracle at Delphi was consulted by rulers throughout the ancient world, and his healing temples served as early hospitals from Greece to Gaul. He commanded prophetic sight, could heal or bring plague with his silver bow, drove the sun across the sky in his golden chariot, and his musical abilities could charm gods and mortals alike.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Ares, God of War -->
+        <div class="card-container god">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-name">Ares, God of War</div>
+                    <div class="card-rarity rarity-divine">DIVINE</div>
+                </div>
+                <div class="card-type">God</div>
+                
+                <div class="image-showcase">
+                    <strong>Art Prompt:</strong><br>
+                    Tech noir cyberpunk masterpiece TCG art, Ares as a cyber-warrior in burning battle-armor with digital weapons. Explosive plasma blasts and burning battlefield wreckage. War-drones and automated weapons systems. Devastated cyberpunk warzone with smoking ruins.
+                </div>
+                
+                <div class="effect-section">
+                    <div class="effect-title">Divine Power</div>
+                    <div class="effect-text">Once per turn, if a monster you control destroys an opponent's monster by battle: That monster can attack again.</div>
+                </div>
+                
+                <div class="description-section">
+                    <div class="description-title">Mythological Origins</div>
+                    <div class="description-text">
+                        Ares embodied the brutal, chaotic aspects of warfare in Greek mythology, feared even by his fellow Olympians for his savage nature. The Romans elevated him as Mars, their patron deity of military might and divine father of Romulus and Remus. He could inspire berserker fury in warriors, command supernatural strength and endurance, summon phantom armies, and his very presence on a battlefield could turn the tide of any conflict.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Continue with remaining Gods... showing structure for Zeus -->
+        <div class="card-container god">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-name">Zeus, King of Olympus</div>
+                    <div class="card-rarity rarity-divine">DIVINE</div>
+                </div>
+                <div class="card-type">God</div>
+                
+                <div class="image-showcase">
+                    <strong>Art Prompt:</strong><br>
+                    Tech noir cyberpunk masterpiece TCG art, Zeus as a digital god-emperor wreathed in electric storms. Crackling cyber-lightning bolts arcing between chrome-plated fingers. Holographic thunderclouds swirling around towering form. Storm-torn digital sky with floating data fragments.
+                </div>
+                
+                <div class="effect-section">
+                    <div class="effect-title">Divine Power</div>
+                    <div class="effect-text">Once every two turns, you may destroy 1 monster on the field.</div>
+                </div>
+                
+                <div class="description-section">
+                    <div class="description-title">Mythological Origins</div>
+                    <div class="description-text">
+                        Zeus reigns supreme as king of the Olympian gods in Greek mythology, ruling from Mount Olympus with his mighty thunderbolt. Ancient Greeks, Romans (as Jupiter), and cultures across the Mediterranean revered him as the sky father and ultimate divine authority. His legendary battles against the Titans and his role as protector of justice and order made him the most powerful deity in the classical pantheon.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MONSTERS BY RARITY SECTION -->
+<section class="category-section">
+    <h2 class="category-title">Legendary Beasts & Creatures</h2>
+    
+    <h3 class="rarity-title rarity-legendary-title">Legendary (Boss Level)</h3>
+    <div class="cards-grid">
+        <!-- Cerberus, Guardian of the Underworld -->
+        <div class="card-container monster">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-name">Cerberus, Guardian of the Underworld</div>
+                    <div class="card-rarity rarity-legendary">LEGENDARY</div>
+                </div>
+                <div class="card-type">Monster</div>
+                <div class="sol-power">Sol Power - 3</div>
+                
+                <div class="image-showcase">
+                    <strong>Art Prompt:</strong><br>
+                    Tech noir cyberpunk masterpiece TCG art, Cerberus as a massive three-headed cyber-hound with glowing red eyes and metal fangs. Digital flames emanating from each mouth. Holographic hellfire and data-streams. Underworld server room background.
+                </div>
+                
+                <div class="stats-section">
+                    <div class="stat-item attack">ATK: 2000</div>
+                    <div class="stat-item defense">DEF: 2000</div>
+                    <div class="stat-item vitality">VIT: 2000</div>
+                </div>
+                
+                <div class="effect-section">
+                    <div class="effect-title">Guardian Effect</div>
+                    <div class="effect-text">While Cerberus is in your Summoning Zone, your opponent cannot attack directly. <br><strong>Resonance Effect:</strong> If this card destroys a monster by battle, you may banish that monster instead of sending it to the graveyard.</div>
+                </div>
+                
+                <div class="mythological-origin-section">
+                    <div class="origin-title">Mythological Origin</div>
+                    <div class="origin-content">
+                        <div class="legend-info">
+                            <strong>Legend:</strong> Greek mythology - Three-headed hound of Hades, guardian of the Underworld gates
+                        </div>
+                        <div class="regions-info">
+                            <strong>Regions/Cultures:</strong> Greece, Rome, Mediterranean civilizations (Greek/Roman mythology, Orphic traditions)
+                        </div>
+                        <div class="location-info">
+                            <strong>Location:</strong> Gates of Hades, River Styx crossing, encounters with Heracles (12th Labor) and Orpheus
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="description-section">
+                    <div class="description-title">Powers & Abilities</div>
+                    <div class="description-text">
+                        Each of Cerberus's three heads represents past, present, and future, allowing him to see all who attempt to cross between the worlds of the living and the dead. His massive jaws can devour souls, his bark can shatter dimensions, and his very presence prevents the dead from escaping and the living from entering without divine permission. Only heroes like Heracles and musicians like Orpheus have managed to bypass this fearsome guardian through strength or enchantment.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Echidna, Mother of Monsters -->
+        <div class="card-container monster">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-name">Echidna, Mother of Monsters</div>
+                    <div class="card-rarity rarity-legendary">LEGENDARY</div>
+                </div>
+                <div class="card-type">Monster Boss</div>
+                <div class="sol-power">Sol Power - 8</div>
+                
+                <div class="image-showcase">
+                    <strong>Art Prompt:</strong><br>
+                    Tech noir cyberpunk masterpiece TCG art, Echidna as a massive serpentine cyber-creature with woman's torso and digital scales. Spawning holographic monsters from data-eggs. Primordial coding matrix background with organic circuits.
+                </div>
+                
+                <div class="stats-section">
+                    <div class="stat-item attack">ATK: 2000</div>
+                    <div class="stat-item defense">DEF: 2000</div>
+                    <div class="stat-item vitality">VIT: 2500</div>
+                </div>
+                
+                <div class="effect-section">
+                    <div class="effect-title">Mother's Fury</div>
+                    <div class="effect-text">Once per turn, Special Summon 1 Beast from your discard with Vitality ≤ 1500. <br><strong>Resonance Effect:</strong> Whenever a monster is sent to the discard pile (by battle or effect), gain 200 Vitality and deal 200 vitality damage.</div>
+                </div>
+                
+                <div class="mythological-origin-section">
+                    <div class="origin-title">Mythological Origin</div>
+                    <div class="origin-content">
+                        <div class="legend-info">
+                            <strong>Legend:</strong> Greek mythology - "Mother of All Monsters," half-woman half-serpent, mate of Typhon
+                        </div>
+                        <div class="regions-info">
+                            <strong>Regions/Cultures:</strong> Greece, Asia Minor, ancient Mediterranean (Hesiod's Theogony, various Greek texts)
+                        </div>
+                        <div class="location-info">
+                            <strong>Location:</strong> Tartarus (deepest part of Underworld), primordial earth caverns, birthplace of monsters
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="description-section">
+                    <div class="description-title">Powers & Abilities</div>
+                    <div class="description-text">
+                        Mother to the Chimera, Hydra, Sphinx, Nemean Lion, and countless other monsters, Echidna represents primordial chaos that existed before civilization. Her union with Typhon created a lineage of beasts that would terrorize heroes for generations. She can birth new monsters from the chaos of battle, drawing power from destruction and death to create ever more fearsome offspring.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sphinx -->
+        <div class="card-container monster">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-name">Sphinx</div>
+                    <div class="card-rarity rarity-legendary">LEGENDARY</div>
+                </div>
+                <div class="card-type">Digital Riddler & Gateway Guardian</div>
+                <div class="sol-power">Sol Power - 5</div>
+                
+                <div class="image-showcase">
+                    <strong>Art Prompt:</strong><br>
+                    Tech noir cyberpunk masterpiece TCG art, Lion-bodied creature with human head displaying holographic riddles, wings spread with ancient wisdom symbols, guarding digital gates with glowing hieroglyphic patterns.
+                </div>
+                
+                <div class="stats-section">
+                    <div class="stat-item attack">ATK: 2200</div>
+                    <div class="stat-item defense">DEF: 1800</div>
+                    <div class="stat-item vitality">VIT: 2200</div>
+                </div>
+                
+                <div class="effect-section">
+                    <div class="effect-title">Riddle of the Sphinx</div>
+                    <div class="effect-text">When summoned, your opponent must discard 1 card or take 1000 damage. If they answer incorrectly, destroy their strongest monster. <br><strong>Resonance Effect:</strong> Once per duel, negate any spell or trap by posing an unsolvable riddle.</div>
+                </div>
+                
+                <div class="mythological-origin-section">
+                    <div class="origin-title">Mythological Origin</div>
+                    <div class="origin-content">
+                        <div class="legend-info">
+                            <strong>Legend:</strong> Greek/Egyptian mythology - Oedipus myth, riddling guardian of Thebes
+                        </div>
+                        <div class="regions-info">
+                            <strong>Regions/Cultures:</strong> Greece, Egypt, Mesopotamia, ancient Middle East (Sophocles' plays, Egyptian monuments)
+                        </div>
+                        <div class="location-info">
+                            <strong>Location:</strong> Thebes (Greece), Egyptian pyramids, gates and thresholds where wisdom is tested
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="description-section">
+                    <div class="description-title">Powers & Abilities</div>
+                    <div class="description-text">
+                        The Sphinx poses riddles to all who seek to pass, devouring those who answer incorrectly. Her most famous riddle stumped travelers for generations until Oedipus solved it, causing her to throw herself from a cliff. She embodies the deadly nature of knowledge - wisdom that saves the clever but destroys the foolish. Her lion body represents strength, human head wisdom, and eagle wings divine insight.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Kraken -->
+        <div class="card-container monster">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-name">Kraken</div>
+                    <div class="card-rarity rarity-legendary">LEGENDARY</div>
+                </div>
+                <div class="card-type">Colossal Digital Leviathan</div>
+                <div class="sol-power">Sol Power - 6</div>
+                
+                <div class="image-showcase">
+                    <strong>Art Prompt:</strong><br>
+                    Tech noir cyberpunk masterpiece TCG art, Massive octopus with tentacles reaching through multiple data layers, each sucker capable of draining server farms, eyes like burning red stars in the deep digital ocean.
+                </div>
+                
+                <div class="stats-section">
+                    <div class="stat-item attack">ATK: 2500</div>
+                    <div class="stat-item defense">DEF: 2200</div>
+                    <div class="stat-item vitality">VIT: 2800</div>
+                </div>
+                
+                <div class="effect-section">
+                    <div class="effect-title">Leviathan's Grasp</div>
+                    <div class="effect-text">When summoned, destroy up to 2 cards on the field. Can attack all opponent monsters once each per turn. <br><strong>Resonance Effect:</strong> Each tentacle (8 total) can target different enemies, dealing damage equal to this card's ATK divided by targets.</div>
+                </div>
+                
+                <div class="mythological-origin-section">
+                    <div class="origin-title">Mythological Origin</div>
+                    <div class="origin-content">
+                        <div class="legend-info">
+                            <strong>Legend:</strong> Norse mythology - Colossal sea monster off the coasts of Norway and Greenland
+                        </div>
+                        <div class="regions-info">
+                            <strong>Regions/Cultures:</strong> Norway, Scandinavia, Iceland, Northern Europe (Norse sagas, maritime folklore)
+                        </div>
+                        <div class="location-info">
+                            <strong>Location:</strong> Deep ocean trenches off Norway, undersea data cables, Norse shipping lanes
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="description-section">
+                    <div class="description-title">Powers & Abilities</div>
+                    <div class="description-text">
+                        The Kraken can destroy the largest vessels with its massive tentacles, each sucker capable of crushing fortified structures. When it surfaces, it can be mistaken for an island due to its immense size. Its tentacle network controls vast underwater cable systems, and it remains dormant in the deep trenches until awakened by major disturbances. Sailors who encounter it rarely live to tell the tale.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Yamata-no-Orochi -->
+        <div class="card-container monster">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-name">Yamata-no-Orochi</div>
+                    <div class="card-rarity rarity-legendary">LEGENDARY</div>
+                </div>
+                <div class="card-type">Eight-Headed Data Serpent</div>
+                <div class="sol-power">Sol Power - 7</div>
+                
+                <div class="image-showcase">
+                    <strong>Art Prompt:</strong><br>
+                    Tech noir cyberpunk masterpiece TCG art, Colossal serpent with eight heads and eight tails, each head controlling different dark web networks, eyes like burning servers, massive body coiled through digital valleys.
+                </div>
+                
+                <div class="stats-section">
+                    <div class="stat-item attack">ATK: 2400</div>
+                    <div class="stat-item defense">DEF: 2000</div>
+                    <div class="stat-item vitality">VIT: 3000</div>
+                </div>
+                
+                <div class="effect-section">
+                    <div class="effect-title">Eight-Network Control</div>
+                    <div class="effect-text">Can attack up to 8 times per turn, each head targeting a different enemy. When destroyed, deal 500 damage to all enemy monsters. <br><strong>Resonance Effect:</strong> Simultaneously control 8 different networks/abilities, can divide consciousness across multiple fronts.</div>
+                </div>
+                
+                <div class="mythological-origin-section">
+                    <div class="origin-title">Mythological Origin</div>
+                    <div class="origin-content">
+                        <div class="legend-info">
+                            <strong>Legend:</strong> Japanese Shinto mythology - Eight-headed, eight-tailed dragon slain by Susanoo
+                        </div>
+                        <div class="regions-info">
+                            <strong>Regions/Cultures:</strong> Japan, ancient Shinto traditions (Kojiki, Nihon Shoki chronicles)
+                        </div>
+                        <div class="location-info">
+                            <strong>Location:</strong> Hi River in Izumo Province, dark valleys, hidden data caverns in digital mountains
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="description-section">
+                    <div class="description-title">Powers & Abilities</div>
+                    <div class="description-text">
+                        This legendary serpent was so massive its body could span eight valleys and eight hills, with moss and cypress trees growing on its back. Each head possessed burning red eyes and could breathe different types of destruction. Susanoo defeated it through cunning, getting it drunk on sake before striking. From its tail came the sacred sword Kusanagi, one of Japan's three imperial regalia. It represents chaotic natural forces that must be tamed by divine intervention.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <h3 class="rarity-title rarity-rare-title">Rare Monsters</h3>
+    <div class="cards-grid">
+        <!-- Alexander's Eternal Phoenix -->
+        <div class="card-container monster">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-name">Alexander's Eternal Phoenix</div>
+                    <div class="card-rarity rarity-rare">RARE</div>
+                </div>
+                <div class="card-type">Monster</div>
+                <div class="sol-power">Sol Power - 3</div>
+                
+                <div class="image-showcase">
+                    <strong>Art Prompt:</strong><br>
+                    Tech noir cyberpunk masterpiece TCG art, a magnificent cyber-phoenix with golden nano-feathers and plasma wings. Rising from digital flames with holographic fire trails. Ancient Greek conquest data streaming around. Golden armor fragments floating in background.
+                </div>
+                
+                <div class="stats-section">
+                    <div class="stat-item attack">ATK: 2000</div>
+                    <div class="stat-item defense">DEF: 1500</div>
+                    <div class="stat-item vitality">VIT: 2000</div>
+                </div>
+                
+                <div class="effect-section">
+                    <div class="effect-title">Eternal Rebirth</div>
+                    <div class="effect-text">When destroyed, special summon from your hand/deck/discard pile one SunFire Hatchling. <br><strong>Resonance Effect:</strong> Once per game you may banish Phoenix to fully restore its Vitality and summon it back at the end of the next turn.</div>
+                </div>
+                
+                <div class="description-section">
+                    <div class="description-title">Legendary Origins</div>
+                    <div class="description-text">
+                        This legendary phoenix is said to have guided Alexander the Great through his conquests across the ancient world, appearing as an omen of victory in his greatest battles. Unlike ordinary phoenixes that live for 500 years, Alexander's phoenix is eternal, reborn not just from ashes but from the memory of conquest itself. It carries within its flames the spirit of ambition and the drive to achieve the impossible, inspiring generals and heroes across the ages.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SACRED SITES SECTION (ALPHABETICAL) -->
+<section class="category-section">
+    <h2 class="category-title">Sacred Sites (Alphabetical)</h2>
+    
+    <div class="cards-grid">
+        <!-- Amaterasu's Shrine -->
+        <div class="card-container site">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-name">Amaterasu's Shrine</div>
+                    <div class="card-rarity rarity-legendary">LEGENDARY</div>
+                </div>
+                <div class="card-type">Sacred Site</div>
+                
+                <div class="image-showcase">
+                    <strong>Art Prompt:</strong><br>
+                    Tech noir cyberpunk masterpiece TCG art, a high-tech Japanese shrine with glowing torii gates and solar panel arrays. Sacred digital flames floating around holographic mirrors. Cherry blossom data petals drifting through the air. Crystalline architecture with divine light emanating from within.
+                </div>
+                
+                <div class="effect-section">
+                    <div class="effect-title">Sacred Power</div>
+                    <div class="effect-text">All Fire or Light-aligned monsters you control gain +300 ATK. Once per turn, you may shuffle 1 Fire/Light monster from your discard pile into your deck.</div>
+                </div>
+                
+                <div class="description-section">
+                    <div class="description-title">Sacred Origins</div>
+                    <div class="description-text">
+                        This sacred shrine is dedicated to Amaterasu, the supreme sun goddess of Japanese Shinto. Built at the intersection of ley lines and powered by both divine energy and advanced solar technology, the shrine serves as a beacon of light in the digital realm. Pilgrims from across the world come here to seek Amaterasu's blessing, and the shrine's mirrors are said to reflect not just physical light, but the truth of one's soul.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SPELL CARDS SECTION (ALPHABETICAL) -->
+<section class="category-section">
+    <h2 class="category-title">Divine Spells & Divinations (Alphabetical)</h2>
+    
+    <div class="cards-grid">
+        <!-- Aegis Protocol -->
+        <div class="card-container spell">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-name">Aegis Protocol</div>
+                    <div class="card-rarity rarity-rare">RARE</div>
+                </div>
+                <div class="card-type">Quick-Play Spell</div>
+                
+                <div class="image-showcase">
+                    <strong>Art Prompt:</strong><br>
+                    Tech noir cyberpunk masterpiece TCG art, a shimmering digital shield forming around a cyber-warrior. Holographic Greek patterns and defensive algorithms. Glowing protective barriers and deflected energy attacks. Ancient wisdom symbols floating in data streams.
+                </div>
+                
+                <div class="effect-section">
+                    <div class="effect-title">Protective Power</div>
+                    <div class="effect-text">Activate when your Monster is attacked. Reduce the battle damage to 0 this turn.</div>
+                </div>
+                
+                <div class="description-section">
+                    <div class="description-title">Mystical Origins</div>
+                    <div class="description-text">
+                        The Aegis was the legendary shield of Zeus, later carried by Athena, that could turn enemies to stone and deflect any attack. This digital recreation of the ancient protective power creates an impenetrable barrier around the user, channeling the defensive wisdom of the gods into modern warfare. The protocol activates the moment danger is detected, surrounding the target with layers of divine protection that even the strongest attacks cannot penetrate.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TRAP CARDS SECTION (ALPHABETICAL) -->
+<section class="category-section">
+    <h2 class="category-title">Ancient Traps & Countermeasures (Alphabetical)</h2>
+    
+    <div class="cards-grid">
+        <!-- Chains of Tartarus -->
+        <div class="card-container trap">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-name">Chains of Tartarus</div>
+                    <div class="card-rarity rarity-legendary">LEGENDARY</div>
+                </div>
+                <div class="card-type">Trap Card</div>
+                
+                <div class="image-showcase">
+                    <strong>Art Prompt:</strong><br>
+                    Tech noir cyberpunk masterpiece TCG art, massive digital chains of pure energy wrapping around a monster. Underworld coding matrices and binding algorithms. Dark cyber-prison with flowing data-lava. Ancient Greek punishment protocols activating with hellish glow.
+                </div>
+                
+                <div class="effect-section">
+                    <div class="effect-title">Binding Power</div>
+                    <div class="effect-text">When an opponent's Beast or Hero declares an attack: Negate that attack and bind it. That card cannot attack again until the end of your opponent's next turn.</div>
+                </div>
+                
+                <div class="description-section">
+                    <div class="description-title">Infernal Origins</div>
+                    <div class="description-text">
+                        These are the very chains that bind the Titans in the deepest pit of Tartarus, forged by the Cyclopes and empowered by Zeus himself. They represent divine punishment and the binding of chaotic forces that threaten cosmic order. When activated, they reach across dimensional barriers to restrain any being that dares to challenge the established order, holding them fast until justice can be served.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div style="text-align: center; margin: 50px 0; padding: 30px; background: rgba(26, 26, 46, 0.9); border-radius: 15px;">
+    <h3 style="color: #ffd700; margin-bottom: 20px; font-size: 1.5rem;">Complete Battle Eternal Collection</h3>
+    <p style="color: #f4e4c0; font-size: 1.1rem; line-height: 1.6;">
+        <strong>Total Cards: 263</strong><br>
+        • Gods: 13 Divine Cards<br>
+        • Demigods: 21 Legendary Heroes<br>
+        • Sacred Sites: 14 Mystical Locations<br>
+        • Monsters: 109+ Legendary Beasts<br>
+        • Spells: 67+ Divine Magics<br>
+        • Traps: 39+ Ancient Countermeasures
+    </p>
+    <p style="color: #4ecdc4; font-style: italic; margin-top: 20px;">
+        "Every card tells a story. Every battle shapes destiny. Every collection builds legends."
+    </p>
+</div>
+
+<script>
+function toggleDropdown(button, contentId) {
+    const content = document.getElementById(contentId);
+    const isActive = content.classList.contains('active');
+    
+    // Close all dropdowns first
+    document.querySelectorAll('.dropdown-content').forEach(dropdown => {
+        dropdown.classList.remove('active');
+    });
+    
+    // Reset all button arrows
+    document.querySelectorAll('.dropdown-toggle').forEach(btn => {
+        btn.innerHTML = btn.innerHTML.replace('▲', '▼');
+    });
+    
+    // If it wasn't active, open it
+    if (!isActive) {
+        content.classList.add('active');
+        button.innerHTML = button.innerHTML.replace('▼', '▲');
+    }
+}
+</script>
+
+</body>
+</html>

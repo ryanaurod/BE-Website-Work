@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle Eternal TCG - Complete Card Collection</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #ffffff;
+        }
+        .page {
+            width: 8.5in;
+            height: 11in;
+            margin: 0 auto 40px;
+            background: white;
+            padding: 0.5in;
+            box-sizing: border-box;
+            page-break-after: always;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .card {
+            border: 2px solid #333;
+            border-radius: 15px;
+            padding: 15px;
+            background: linear-gradient(145deg, #f8f8f8, #e8e8e8);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            font-size: 11px;
+            line-height: 1.2;
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .card-name {
+            font-weight: bold;
+            font-size: 14px;
+            color: #8B0000;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        .card-rarity {
+            font-weight: bold;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: white;
+        }
+        .rarity-divine { background-color: #FFD700; color: #000; }
+        .rarity-legendary { background-color: #FF4500; }
+        .rarity-rare { background-color: #9370DB; }
+        .rarity-common { background-color: #708090; }
+        .card-type {
+            font-size: 10px;
+            text-align: center;
+            font-style: italic;
+            margin-bottom: 8px;
+            color: #4169E1;
+        }
+        .card-stats {
+            font-size: 10px;
+            text-align: center;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .image-placeholder {
+            width: 100%;
+            height: 120px;
+            border: 1px solid #666;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            margin: 8px 0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 8px;
+            text-align: center;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        .description {
+            font-size: 9px;
+            line-height: 1.3;
+            margin: 8px 0;
+            flex-grow: 1;
+        }
+        .effect {
+            background: rgba(0,0,0,0.05);
+            padding: 8px;
+            border-radius: 5px;
+            font-size: 9px;
+            margin-top: 8px;
+            border-left: 3px solid #8B0000;
+        }
+        .god { border-color: #FFD700; }
+        .demigod { border-color: #9370DB; }
+        .monster { border-color: #228B22; }
+        .spell { border-color: #4169E1; }
+        .trap { border-color: #DC143C; }
+        .site { border-color: #8B4513; }
+        @media print {
+            body { background: none; }
+            .page { box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- PAGE 1: GOD CARDS -->
+<div class="page">
+    <!-- Zeus, King of Olympus -->
+    <div class="card god">
+        <div class="card-header">
+            <div class="card-name">Zeus, King of Olympus</div>
+            <div class="card-rarity rarity-divine">DIVINE</div>
+        </div>
+        <div class="card-type">God</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of Zeus as a digital god-emperor wreathed in electric storms. The only light is from crackling cyber-lightning bolts arcing between his chrome-plated fingers. There is strobing glow from holographic thunderclouds swirling around his towering form. Make the background a storm-torn digital sky with floating data fragments. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            Zeus reigns supreme as king of the Olympian gods in Greek mythology, ruling from Mount Olympus with his mighty thunderbolt. Ancient Greeks, Romans (as Jupiter), and cultures across the Mediterranean revered him as the sky father and ultimate divine authority. His legendary battles against the Titans and his role as protector of justice and order made him the most powerful deity in the classical pantheon. Zeus possessed absolute control over weather, lightning, and divine law, capable of transforming into any form and wielding thunderbolts that could shatter mountains.
+        </div>
+        <div class="effect">Effect: Once every two turns, you may destroy 1 monster on the field.</div>
+    </div>
+
+    <!-- Artemis, Goddess of the Hunt -->
+    <div class="card god">
+        <div class="card-header">
+            <div class="card-name">Artemis, Goddess of the Hunt</div>
+            <div class="card-rarity rarity-divine">DIVINE</div>
+        </div>
+        <div class="card-type">God</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of Artemis as a cyber-huntress with glowing silver data-bow. The only light is from her luminescent targeting systems and quantum arrows. There is strobing glow from her pack of robotic wolves with LED eyes. Make the background a dark digital forest with holographic deer silhouettes. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            Artemis, the eternal virgin goddess of the hunt and moon in Greek mythology, was worshipped across the ancient world from Ephesus to Rome as Diana. Her temple at Ephesus was one of the Seven Wonders of the Ancient World, reflecting her immense cultural influence. Ancient hunters, midwives, and young women sought her protection, as she governed childbirth, wilderness, and wild beasts. She commanded absolute mastery over archery, could transform mortals into animals, and led a pack of supernatural hounds in her eternal hunt across the night sky.
+        </div>
+        <div class="effect">Effect: Once per turn you can choose one hero card in your summoning zone, that card can attack twice this turn.</div>
+    </div>
+
+    <!-- Athena, Goddess of Wisdom -->
+    <div class="card god">
+        <div class="card-header">
+            <div class="card-name">Athena, Goddess of Wisdom</div>
+            <div class="card-rarity rarity-divine">DIVINE</div>
+        </div>
+        <div class="card-type">God</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of Athena as a digital war-strategist in cyber-armor with glowing owl-drones. The only light is from her tactical hologram displays and neural interfaces. There is strobing glow from ancient Greek algorithms floating around her helmet. Make the background a high-tech war room with glowing battle maps. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            Athena burst fully grown from Zeus's head, representing wisdom, strategic warfare, and civilized arts in Greek culture. The Romans knew her as Minerva, and her influence spread throughout the Mediterranean as patron of cities, crafts, and just warfare. Athens was named in her honor after she gifted the olive tree to humanity, and the Parthenon stands as her greatest monument. She possessed unmatched strategic brilliance, could inspire courage in heroes, craft magical items, and her aegis shield could turn enemies to stone while her owl familiar granted prophetic sight.
+        </div>
+        <div class="effect">Effect: Select an ally in your summoning zone, this turn its immune to damage and any card effects.</div>
+    </div>
+
+    <!-- Poseidon, God of the Seas -->
+    <div class="card god">
+        <div class="card-header">
+            <div class="card-name">Poseidon, God of the Seas</div>
+            <div class="card-rarity rarity-divine">DIVINE</div>
+        </div>
+        <div class="card-type">God</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of Poseidon wielding a digital trident crackling with hydro-energy. The only light is from bioluminescent sea creatures swimming through cyber-water around him. There is strobing glow from underwater volcanic vents and electric eels. Make the background a dark oceanic data-stream with floating holographic kelp. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            Poseidon ruled the seas as one of the three great brothers of Greek mythology, known to Romans as Neptune. Coastal civilizations from Greece to Gaul honored him as both creator of horses and master of earthquakes. Sailors offered sacrifices before voyages, fearing his temperamental wrath that could summon devastating storms or deadly sea monsters. His trident could split the earth, create tsunamis, calm raging seas, and command all sea life, while his underwater palace rivaled Olympus in grandeur.
+        </div>
+        <div class="effect">Effect: Once per turn: You can return all Spell/Trap Cards your opponent controls to the hand.</div>
+    </div>
+
+    <!-- Hades, God of the Underworld -->
+    <div class="card god">
+        <div class="card-header">
+            <div class="card-name">Hades, God of the Underworld</div>
+            <div class="card-rarity rarity-divine">DIVINE</div>
+        </div>
+        <div class="card-type">God</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of Hades as a digital death-lord surrounded by ghostly data-streams. The only light is from souls floating in cyber-limbo and burning server rooms. There is strobing glow from his three-headed digital hound Cerberus. Make the background a vast underground data-center with rivers of liquid light. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            Hades, the invisible ruler of the dead, governed the Greek underworld with absolute authority over departed souls. Known to Romans as Pluto, he was feared yet respected across ancient cultures as the inevitable destination of all mortals. Mystery cults at Eleusis and throughout the Mediterranean promised initiates favorable treatment in his domain after death. He commanded legions of the dead, could render himself invisible with his helm of darkness, controlled vast mineral wealth beneath the earth, and his word was final law in matters of life and death.
+        </div>
+        <div class="effect">Effect: Each time your opponent Summons a monster, they must send 1 card from their hand or field to the Graveyard.</div>
+    </div>
+
+    <!-- Ares, God of War -->
+    <div class="card god">
+        <div class="card-header">
+            <div class="card-name">Ares, God of War</div>
+            <div class="card-rarity rarity-divine">DIVINE</div>
+        </div>
+        <div class="card-type">God</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of Ares as a cyber-warrior in burning battle-armor with digital weapons. The only light is from explosive plasma blasts and burning battlefield wreckage. There is strobing glow from his war-drones and automated weapons systems. Make the background a devastated cyberpunk warzone with smoking ruins. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            Ares embodied the brutal, chaotic aspects of warfare in Greek mythology, feared even by his fellow Olympians for his savage nature. The Romans elevated him as Mars, their patron deity of military might and divine father of Romulus and Remus. Thracian tribes particularly honored him as a war god, and his cult spread throughout the warrior cultures of antiquity. He could inspire berserker fury in warriors, command supernatural strength and endurance, summon phantom armies, and his very presence on a battlefield could turn the tide of any conflict.
+        </div>
+        <div class="effect">Effect: Once per turn, if a monster you control destroys an opponent's monster by battle: That monster can attack again.</div>
+    </div>
+
+    <!-- Apollo, God of the Sun -->
+    <div class="card god">
+        <div class="card-header">
+            <div class="card-name">Apollo, God of the Sun</div>
+            <div class="card-rarity rarity-divine">DIVINE</div>
+        </div>
+        <div class="card-type">God</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of Apollo as a solar-powered digital deity with fiber-optic hair radiating light. The only light is from his holographic lyre and burning solar panels. There is strobing glow from his chariot transformed into a light-speed vehicle. Make the background a cyber-sunrise over a neon cityscape. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            Apollo, the radiant god of music, prophecy, and the sun, was one of the most widely worshipped deities across Greek and Roman cultures. His oracle at Delphi was consulted by rulers throughout the ancient world, and his healing temples served as early hospitals from Greece to Gaul. Celtic and Germanic tribes also recognized solar deities with similar attributes, suggesting ancient Indo-European connections. He commanded prophetic sight, could heal or bring plague with his silver bow, drove the sun across the sky in his golden chariot, and his musical abilities could charm gods and mortals alike.
+        </div>
+        <div class="effect">Effect: Monsters destroyed by battle this turn are banished instead.</div>
+    </div>
+
+    <!-- Susanoo, Tempest of Divine Rebellion -->
+    <div class="card god">
+        <div class="card-header">
+            <div class="card-name">Susanoo, Tempest of Divine Rebellion</div>
+            <div class="card-rarity rarity-divine">DIVINE</div>
+        </div>
+        <div class="card-type">God</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of Susanoo as a storm-wreathed digital samurai with crackling cyber-katana. The only light is from lightning strikes and his glowing storm-armor. There is strobing glow from whirling data-typhoons around his form. Make the background a tempestuous digital landscape with floating shrine fragments. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            Susanoo, the tempestuous Shinto storm god and brother to Amaterasu, represents divine rebellion and purification through destruction in Japanese mythology. Born from Izanagi's cleansing ritual, his violent nature led to conflicts with his siblings and exile from heaven. His defeat of the eight-headed dragon Yamata-no-Orochi to save Princess Kushinada established him as a protector despite his chaotic nature. He commands typhoons, lightning storms, and floods, can manifest as a towering warrior wreathed in tempest, and his sword Kusanagi became one of Japan's three imperial regalia.
+        </div>
+        <div class="effect">Effect: Once per turn, when an opponent destroys one of your monsters or Sacred Sites: you may destroy one of their active cards (monster or site).</div>
+    </div>
+</div>
+
+<!-- PAGE 2: MORE GOD CARDS -->
+<div class="page">
+    <!-- Amaterasu, Radiant Sun Goddess -->
+    <div class="card god">
+        <div class="card-header">
+            <div class="card-name">Amaterasu, Radiant Sun Goddess</div>
+            <div class="card-rarity rarity-divine">DIVINE</div>
+        </div>
+        <div class="card-type">God</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of Amaterasu as a luminous digital goddess with solar-panel wings and fiber-optic robes. The only light is from her radiant aura and floating mirror-screens. There is strobing glow from sacred digital flames and holographic sakura petals. Make the background a high-tech shrine with glowing torii gates. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            Amaterasu, the supreme sun goddess of Japanese Shinto, is considered the divine ancestor of the Japanese imperial family and ruler of the celestial realm. Her mythology parallels sun deities across cultures, from Egyptian Ra to Celtic Brigid, suggesting ancient universal reverence for solar divinity. When she hid in a cave after Susanoo's rampage, the world plunged into darkness until the other gods lured her out with mirrors and sacred dances. She radiates life-giving solar energy, can heal with her divine light, controls day and night, and her sacred mirror Yata-no-Kagami reveals truth and dispels illusions.
+        </div>
+        <div class="effect">Effect: Once per turn, during your Standby Phase, you may restore 500 Vitality to one of your monsters</div>
+    </div>
+
+    <!-- Helios, Lord of the Chariot Sun -->
+    <div class="card god">
+        <div class="card-header">
+            <div class="card-name">Helios, Lord of the Chariot Sun</div>
+            <div class="card-rarity rarity-divine">DIVINE</div>
+        </div>
+        <div class="card-type">God</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of Helios driving a cyber-chariot pulled by holographic fire-horses. The only light is from his blazing crown and the chariot's solar engines. There is strobing glow from his steeds' plasma manes and burning wheel tracks. Make the background a digital sky-highway with floating solar panels. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            Helios, the original personification of the sun in Greek mythology, drove his four-horse chariot across the sky daily before Apollo assumed this role. Rhodes was his primary cult center, where the Colossus of Rhodes stood as one of the Seven Wonders honoring him. Similar chariot-driving solar deities appear in Norse (Sól), Hindu (Surya), and Celtic traditions, indicating ancient Indo-European solar worship patterns. He possessed all-seeing vision from his celestial position, could blind enemies with solar flares, his horses breathed fire, and his chariot's path determined the length of days and seasons across the mortal world.
+        </div>
+        <div class="effect">Effect: Once per turn, when your opponent sets a card (in the spell/trap zone), you may reveal it. If it's a Trap or Continuous Spell, destroy that card.</div>
+    </div>
+
+    <!-- Nemesis, Goddess of Retribution -->
+    <div class="card god">
+        <div class="card-header">
+            <div class="card-name">Nemesis, Goddess of Retribution</div>
+            <div class="card-rarity rarity-divine">DIVINE</div>
+        </div>
+        <div class="card-type">God</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of Nemesis as a cyber-judge with scales of digital justice and wings made of data streams. The only light is from her burning sword of retribution and glowing eyes. There is strobing glow from karmic energy swirling around her form. Make the background a digital courthouse with floating judgment screens. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            Nemesis, the relentless goddess of divine retribution and righteous vengeance, ensured that hubris never went unpunished in Greek mythology. Romans called her Nemesis as well, and similar justice deities appeared in Egyptian (Ma'at) and Norse (Forseti) pantheons, showing universal human need for cosmic justice. She particularly targeted those who grew arrogant from good fortune, restoring balance through swift punishment of the proud and protection of the humble. Her divine scales weighed the moral worth of mortals, she could manifest anywhere injustice occurred, commanded the Furies as her agents, and her sword could cut through any defense when delivering earned punishment.
+        </div>
+        <div class="effect">Effect: Once per turn, when your opponent destroys one of your monsters by battle or card effect, you may target one card they control; destroy it. If you do, your opponent cannot activate cards or effects in response.</div>
+    </div>
+
+    <!-- Gaia, Primordial Mother of Earth -->
+    <div class="card god">
+        <div class="card-header">
+            <div class="card-name">Gaia, Primordial Mother of Earth</div>
+            <div class="card-rarity rarity-divine">DIVINE</div>
+        </div>
+        <div class="card-type">God</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of Gaia as a massive earth-mother with continents as her body and cities as her veins. The only light is from volcanic fissures and bioluminescent plant networks. There is strobing glow from her planetary heartbeat and growing cyber-forests. Make the background a living world-system with organic circuitry. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            Gaia, the primordial Earth Mother in Greek mythology, existed before the gods and gave birth to the Titans, Giants, and the very mountains and seas. Terra Mater in Roman tradition and earth goddesses across all cultures reflect universal reverence for the living planet as divine mother. From Celtic Danu to Hindu Prithvi, earth mothers appear in every mythology as the source of all life and ultimate nurturer. She could cause earthquakes and volcanic eruptions, birth new species at will, communicate through all living things, and her body was literally the earth itself, making her immortal and omnipresent across the natural world.
+        </div>
+        <div class="effect">Effect: At the start of your End Phase, restore 400 Vitality.</div>
+    </div>
+
+    <!-- Hephaestus, Divine Smith of the Gods -->
+    <div class="card god">
+        <div class="card-header">
+            <div class="card-name">Hephaestus, Divine Smith of the Gods</div>
+            <div class="card-rarity rarity-divine">DIVINE</div>
+        </div>
+        <div class="card-type">God</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of Hephaestus as a cyber-smith with mechanical limbs working at a plasma forge. The only light is from molten metal and his glowing cybernetic implants. There is strobing glow from automated hammers and floating gear assemblies. Make the background a high-tech foundry with robotic assistants. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            Hephaestus, the lame god of fire, metalworking, and craftsmanship, forged the weapons and treasures of the gods in his volcanic workshop beneath Mount Etna. Known to Romans as Vulcan, his cult spread wherever metallurgy and craftsmanship flourished, from Greece to Gaul and Britain. Celtic smith-gods like Brigid and Germanic Wayland the Smith share similar attributes, reflecting the sacred nature of metalwork in ancient cultures. He could craft items of impossible beauty and power, control volcanic forces, animate golden servants, and his hammer strikes could shape reality itself, making him indispensable despite his humble appearance.
+        </div>
+        <div class="effect">Effect: Once per turn, when you activate a Spell or Trap card with "Relic" or "Artifact" in its name, you may add 1 card with the same naming type from your deck to your hand.</div>
+    </div>
+
+    <!-- Achilles - Invincible Warrior -->
+    <div class="card demigod">
+        <div class="card-header">
+            <div class="card-name">Achilles - Invincible Warrior</div>
+            <div class="card-rarity rarity-legendary">LEGENDARY</div>
+        </div>
+        <div class="card-type">Demi God</div>
+        <div class="card-stats">Sol: 5 • Vitality: 2000 • Attack: 1500 • Defense: 1000</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of Achilles as a cyber-warrior in golden nano-armor with one vulnerable heel glowing red. The only light is from his plasma spear and shield's energy field. There is strobing glow from Trojan War battle-data streaming around him. Make the background a digital battlefield with ancient Greek hologram architecture. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            Achilles, the greatest warrior of the Trojan War, was made nearly invincible when his mother Thetis dipped him in the River Styx, leaving only his heel vulnerable. Homer's Iliad immortalized his rage and prowess, influencing warrior ideals across European cultures for millennia. His story appears in various forms from Celtic hero tales to Germanic warrior epics, showing the universal appeal of the tragic invincible hero. His divinely-forged armor and weapons could pierce any defense, his speed in battle was supernatural, and his battle-fury could inspire terror in entire armies, though his famous heel remained his fatal weakness.
+        </div>
+        <div class="effect">Effect: Once per turn, Achilles cannot be destroyed by battle. However, if he takes 500 or more damage in a single clash, his Vitality is halved. Resonance Effect: Achilles' Vitality damage is reduced by 500 each time he takes damage.</div>
+    </div>
+
+    <!-- Atalanta - Huntress of Artemis -->
+    <div class="card demigod">
+        <div class="card-header">
+            <div class="card-name">Atalanta - Huntress of Artemis</div>
+            <div class="card-rarity rarity-legendary">LEGENDARY</div>
+        </div>
+        <div class="card-type">Demi God</div>
+        <div class="card-stats">Sol: 5 • Vitality: 1800 • Attack: 2000 • Defense: 1000</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of Atalanta as a cyber-huntress with twin energy bows and digital tracking systems. The only light is from her glowing arrows and motion sensors. There is strobing glow from her speed-enhancement cybernetics and target-locks. Make the background a dark digital forest with holographic prey animals. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            Atalanta, the swift huntress abandoned as a baby and raised by bears, became the only female Argonaut and was said to be the fastest mortal alive. Her story appears in various forms throughout Greek regional myths, and similar huntress figures appear in Celtic (Diana Nemorensis) and Germanic traditions. She could outrun any man, never missed with bow or javelin, and her connection to Artemis granted her supernatural hunting abilities and communion with wild beasts. Her famous race with suitors, lost only through golden apples, became a symbol of feminine strength and independence in ancient culture.
+        </div>
+        <div class="effect">Effect: Atalanta may declare 2 attacks per turn, but cannot target the same monster twice. Resonance Effect: all Beast monsters in your Summoning Zone gain +500 Attack while Atalanta is on the field.</div>
+    </div>
+
+    <!-- Heracles - Champion of the Labors -->
+    <div class="card demigod">
+        <div class="card-header">
+            <div class="card-name">Heracles - Champion of the Labors</div>
+            <div class="card-rarity rarity-legendary">LEGENDARY</div>
+        </div>
+        <div class="card-type">Demi God</div>
+        <div class="card-stats">Sol: 5 • Vitality: 1500 • Attack: 2500 • Defense: 1500</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of Heracles as a cyber-strongman with mechanical club and lion-skin armor plating. The only light is from his power-suit's hydraulics and glowing strength enhancers. There is strobing glow from his twelve labor achievement holograms. Make the background a digital arena with monster silhouettes. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            Heracles (Hercules to Romans) was the greatest of all heroes, known for his twelve impossible labors that took him across the ancient world slaying monsters and completing divine tasks. His cult spread from Spain to the Black Sea, and similar strongman heroes appear in Celtic (Cú Chulainn), Germanic (Siegfried), and Mesopotamian (Gilgamesh) traditions. His supernatural strength could move mountains, his courage was legendary, his Nemean Lion skin made him nearly invulnerable, and he possessed divine weapons including arrows dipped in Hydra poison that never missed their mark.
+        </div>
+        <div class="effect">Effect: Once per turn, Heracles may destroy 1 monster with Vitality ≤ 1500 before combat begins. Resonance Effect: Heracles becomes immune to Spell effects.</div>
+    </div>
+</div>
+
+<!-- PAGE 3: MONSTER CARDS -->
+<div class="page">
+    <!-- Cerberus, Guardian of the Underworld -->
+    <div class="card monster">
+        <div class="card-header">
+            <div class="card-name">Cerberus, Guardian of the Underworld</div>
+            <div class="card-rarity rarity-divine">DIVINE</div>
+        </div>
+        <div class="card-type">Monster - Stage 3</div>
+        <div class="card-stats">Sol: 3 • Vitality: 2000 • Attack: 2000 • Defense: 2000</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of Cerberus as a three-headed cyber-hound with glowing red optical sensors. The only light is from his plasma-dripping fangs and digital collar interfaces. There is strobing glow from underworld data-streams and burning server cores. Make the background a dark digital gateway with floating soul-fragments. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            Cerberus, the legendary three-headed hound of Hades, guards the gates of the underworld in Greek mythology, preventing the living from entering and the dead from escaping. Similar multi-headed guardian beasts appear across cultures - from the Norse Garmr to the Welsh Cŵn Annwn, suggesting universal fears of death's threshold. Ancient Greeks placed honey cakes in tombs to appease Cerberus on the deceased's journey. Each head could see past, present, and future, his bark could drive mortals mad with terror, and his bite injected venom that dissolved both flesh and spirit.
+        </div>
+        <div class="effect">Effect: While Cerberus is in your Summoning Zone, your opponent cannot attack directly. Resonance Effect: If this card destroys a monster by battle, you may banish that monster instead of sending it to the graveyard.</div>
+    </div>
+
+    <!-- Alexander's Eternal Phoenix -->
+    <div class="card monster">
+        <div class="card-header">
+            <div class="card-name">Alexander's Eternal Phoenix</div>
+            <div class="card-rarity rarity-divine">DIVINE</div>
+        </div>
+        <div class="card-type">Monster - Stage 3</div>
+        <div class="card-stats">Sol: 3 • Vitality: 2000 • Attack: 2000 • Defense: 1500</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of a majestic cyber-phoenix with wings made of liquid fire and digital feathers. The only light is from its blazing plasma aura and molten metal talons. There is strobing glow from regeneration nanobots and solar core energy. Make the background a burning digital sky with floating ash-data. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            The Phoenix, symbol of death and rebirth, appears in mythologies worldwide - from Egyptian Bennu to Chinese Fenghuang to Native American Thunderbird. Ancient Greeks described it as a magnificent bird that lived for 500 years before building a pyre and rising from its own ashes. Persian Simurgh and Hindu Garuda share similar resurrection themes, suggesting ancient global knowledge of cyclic renewal. It could heal any wound with its tears, its song could inspire or break the hearts of mortals, and its feathers granted protection from fire and death itself.
+        </div>
+        <div class="effect">Effect: When destroyed, special summon from your hand/deck/discard pile one SunFire Hatchling. Resonance Effect: Once per game you may banish Phoenix to fully restore its Vitality and summon it back at the end of the next turn.</div>
+    </div>
+
+    <!-- Echidna, Mother of Monsters -->
+    <div class="card monster">
+        <div class="card-header">
+            <div class="card-name">Echidna, Mother of Monsters</div>
+            <div class="card-rarity rarity-divine">DIVINE</div>
+        </div>
+        <div class="card-type">Monster - Boss</div>
+        <div class="card-stats">Sol: 8 • Vitality: 2500 • Attack: 2000 • Defense: 2000</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of Echidna as a serpentine cyber-matriarch with multiple birthing chambers. The only light is from her glowing egg-sacs and bio-luminescent scales. There is strobing glow from genetic data-streams and spawning energy fields. Make the background a dark bio-mechanical laboratory with floating monster embryos. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            Echidna, the "Mother of All Monsters" in Greek mythology, was half-woman, half-serpent and gave birth to nearly every monster that terrorized ancient heroes. Similar primordial monster-mothers appear in Mesopotamian Tiamat, Celtic Modron, and Hindu Diti, representing the chaotic creative force before civilization. Her offspring included the Hydra, Chimera, Sphinx, and Cerberus, making her the source of legendary challenges. She could spawn unlimited monsters from her womb, command all her monstrous children telepathically, and her bite carried the genetic template to create new species of horrors.
+        </div>
+        <div class="effect">Effect: Once per turn, Special Summon 1 Beast from your discard with Vitality ≤ 1500. Resonance Effect: Whenever a monster is sent to the discard pile, gain 200 Vitality and deal 200 vitality damage.</div>
+    </div>
+
+    <!-- Typhon, Father of Monsters -->
+    <div class="card monster">
+        <div class="card-header">
+            <div class="card-name">Typhon, Father of Monsters</div>
+            <div class="card-rarity rarity-divine">DIVINE</div>
+        </div>
+        <div class="card-type">Monster - Boss</div>
+        <div class="card-stats">Sol: 8 • Vitality: 2500 • Attack: 2500 • Defense: 2000</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of Typhon as a colossal cyber-giant with serpentine digital tentacles. The only light is from his hundred burning eyes and volcanic processors. There is strobing glow from reality-distortion fields and seismic energy waves. Make the background a shattered digital landscape with floating mountain fragments. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            Typhon, the deadliest monster in Greek mythology, was so massive his head touched the stars and his arms could span continents. Similar titan-like chaos beings appear as Mesopotamian Abzu, Norse Jormungandr, and Hindu Vritra, representing primordial forces that challenge divine order. His battle with Zeus shook the entire cosmos and his imprisonment beneath Mount Etna explains volcanic activity. He could breathe hurricane winds from his hundred dragon heads, cause earthquakes with his footsteps, and his roar could shatter mountains across multiple dimensions.
+        </div>
+        <div class="effect">Effect: Once per turn, destroy 1 card in any zone. Resonance Effect: When Typhon is summoned, destroy up to 2 cards on the field. For each card destroyed this way, Typhon gains +500 ATK until the end of the turn.</div>
+    </div>
+
+    <!-- Medusa, Gorgon Queen -->
+    <div class="card monster">
+        <div class="card-header">
+            <div class="card-name">Medusa, Gorgon Queen</div>
+            <div class="card-rarity rarity-rare">RARE</div>
+        </div>
+        <div class="card-type">Monster</div>
+        <div class="card-stats">Sol: 5 • Vitality: 2000 • Attack: 2000 • Defense: 1500</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of Medusa with cyber-snake hair and reflective mirror armor. The only light is from her petrifying optical beams and metallic serpent scales. There is strobing glow from digital stone-transformation effects and data-corruption waves. Make the background a hall of digital statues with glitching code-fragments. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            Medusa, once a beautiful priestess of Athena transformed into a Gorgon whose gaze turned living beings to stone, represents the dual nature of beauty and terror. Similar petrifying entities appear in Celtic banshees, Slavic rusalka, and Hindu Alakshmi, showing universal fears of cursed femininity. Perseus could only defeat her by using his shield as a mirror to avoid direct eye contact. Her gaze could turn any living thing to stone permanently, her blood could either kill instantly or resurrect the dead, and even after death, her severed head retained its petrifying power.
+        </div>
+        <div class="effect">Effect: Once per turn, you may target 1 enemy monster. That monster loses 1000 Attack until the end of the turn. If its Attack is reduced to 0 this way, destroy it. Resonance Effect: Once per duel, you may banish 1 monster your opponent controls.</div>
+    </div>
+
+    <!-- Minotaur, Beast of the Labyrinth -->
+    <div class="card monster">
+        <div class="card-header">
+            <div class="card-name">Minotaur, Beast of the Labyrinth</div>
+            <div class="card-rarity rarity-legendary">LEGENDARY</div>
+        </div>
+        <div class="card-type">Monster</div>
+        <div class="card-stats">Sol: 5 • Vitality: 2000 • Attack: 2500 • Defense: 1400</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of the Minotaur as a cyber-bull warrior in a digital maze. The only light is from his glowing horns and maze-scanner implants. There is strobing glow from labyrinth data-walls and pathway algorithms. Make the background a complex digital maze with shifting geometric patterns. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            The Minotaur, born from the unnatural union of Pasiphaë and a bull, was imprisoned in the labyrinth of Crete and fed on human sacrifices until Theseus slew it. Similar bull-human hybrids appear in Mesopotamian Lamassu, Celtic Tarb Uisge, and Hindu Nandi, reflecting ancient reverence and fear of bull-power. The labyrinth itself became a symbol of life's complex journey and hidden dangers. He possessed supernatural strength and endurance, perfect knowledge of maze navigation, and his hoofbeats could cause structural collapse in confined spaces.
+        </div>
+        <div class="effect">Effect: When Minotaur attacks reduce DEF by 500. Resonance Effect: Once per duel, you may seal 1 of your opponent's Summoning Slots for 2 turns.</div>
+    </div>
+
+    <!-- Ryūjin, Dragon King -->
+    <div class="card monster">
+        <div class="card-header">
+            <div class="card-name">DeMarcos Ryūjin</div>
+            <div class="card-rarity rarity-divine">DIVINE</div>
+        </div>
+        <div class="card-type">Monster</div>
+        <div class="card-stats">Sol: 5 • Vitality: 2000 • Attack: 2000 • Defense: 2000</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of Ryūjin as a serpentine cyber-dragon with data-stream whiskers. The only light is from his glowing pearl-drives and storm-generation cores. There is strobing glow from tidal wave algorithms and oceanic holographic displays. Make the background a digital underwater palace with floating current-maps. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            Ryūjin, the dragon king of Japanese seas, controlled tides, storms, and rainfall from his underwater palace of coral and pearl. Similar water dragons appear as Chinese Long Wang, Korean Yongwang, and Vietnamese Lạc Long Quân, showing shared East Asian reverence for draconic water deities. His tide-controlling jewels could flood entire kingdoms or create devastating droughts. He commanded vast schools of fish as his armies, could control all forms of precipitation and weather, transform into human form for diplomatic missions, and his palace contained gateways to every body of water on Earth.
+        </div>
+        <div class="effect">Effect: When this card is summoned, you may add 1 Relic or Divination card from your deck or discard pile to your hand. Resonance Effect: Once per turn, destroy all face-up monsters with lower Attack than this card.</div>
+    </div>
+
+    <!-- Kitsune Illusionist -->
+    <div class="card monster">
+        <div class="card-header">
+            <div class="card-name">Kitsune Illusionist</div>
+            <div class="card-rarity rarity-rare">RARE</div>
+        </div>
+        <div class="card-type">Monster - Stage 2</div>
+        <div class="card-stats">Sol: 2 • Vitality: 1400 • Attack: 1200 • Defense: 1400</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of a two-tailed fox with holographic fur and digital illusion projectors. The only light is from her shapeshifting energy field and mind-control beams. There is strobing glow from reality-distortion waves and memory-manipulation subroutines. Make the background a shifting digital landscape with multiple overlapping realities. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            Kitsune, the intelligent fox spirits of Japanese folklore, grow additional tails as they gain wisdom and power over centuries. Similar fox spirits appear as Chinese Huli Jing, Korean Kumiho, and European fox familiars, suggesting ancient shamanic connections to vulpine intelligence. Nine-tailed foxes achieved near-divine status and could live for thousands of years. They mastered illusion magic to appear human, could possess mortals or steal their life force, read minds and manipulate memories, and their fox-fire could burn spiritual rather than physical matter.
+        </div>
+        <div class="effect">Effect: When this card is summoned, look at your opponent's hand. You may choose one card; they must keep it in their hand until this card leaves the field.</div>
+    </div>
+</div>
+
+<!-- PAGE 4: SPELL AND TRAP CARDS -->
+<div class="page">
+    <!-- Thunderbolt Subroutine -->
+    <div class="card spell">
+        <div class="card-header">
+            <div class="card-name">Thunderbolt Subroutine</div>
+            <div class="card-rarity rarity-common">COMMON</div>
+        </div>
+        <div class="card-type">Spell - Quick-Play Divination</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of digital lightning crackling through server networks. The only light is from electric plasma arcs and overloading circuit boards. There is strobing glow from power grid failures and electromagnetic pulses. Make the background a dark data-center with sparking electrical conduits. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            The thunderbolt, Zeus's signature weapon, has inspired lightning magic across all cultures - from Norse Mjolnir to Hindu Vajra to Native American Thunderbird. Ancient peoples saw lightning as direct divine intervention, capable of both destruction and purification. Roman augurs read Zeus's will in lightning patterns, while Celtic druids considered lightning-struck trees sacred. Modern science reveals lightning's electromagnetic properties, but its symbolic power as instant divine judgment remains universal across mythologies.
+        </div>
+        <div class="effect">Effect: Deal 500 Vitality damage to your opponent's Beast/Hero.</div>
+    </div>
+
+    <!-- Excalibur Upload -->
+    <div class="card spell">
+        <div class="card-header">
+            <div class="card-name">Excalibur Upload</div>
+            <div class="card-rarity rarity-legendary">LEGENDARY</div>
+        </div>
+        <div class="card-type">Spell - Quick-Play Divination/Equip</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of Excalibur as a glowing cyber-sword with holographic runes. The only light is from its plasma edge and divine data-streams. There is strobing glow from Arthurian legend subroutines and royal bloodline verification codes. Make the background a digital stone altar with floating crown holograms. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            Excalibur, the legendary sword of King Arthur, represents divine right and ultimate authority in Celtic and British traditions. Similar "sword in the stone" legends appear worldwide - from Japanese Kusanagi to Germanic Gram to Irish Caladbolg, suggesting universal symbolism of worthiness proving divine selection. Only the true king could wield Excalibur, and its scabbard granted immortality. The sword could cut through any armor or shield, its blade never dulled, it glowed with holy light in battle, and it could only be drawn by one pure of heart and noble of purpose.
+        </div>
+        <div class="effect">Effect: Target 1 Monster. It gains +1000 ATK.</div>
+    </div>
+
+    <!-- Mjölnir Circuit -->
+    <div class="card spell">
+        <div class="card-header">
+            <div class="card-name">Mjölnir Circuit</div>
+            <div class="card-rarity rarity-rare">RARE</div>
+        </div>
+        <div class="card-type">Spell - Quick-Play Divination</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of Thor's hammer as a plasma-charged weapon system. The only light is from its electromagnetic field generators and runic power cores. There is strobing glow from lightning channeling arrays and gravitational distortion fields. Make the background a storm-torn digital Asgard with floating rainbow bridge fragments. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            Mjölnir, Thor's mighty hammer, could level mountains and return to his hand after being thrown, representing divine justice and protection in Norse mythology. Similar thunder-weapons appear as Celtic Lugh's spear, Hindu Indra's vajra, and Slavic Perun's axe, showing pan-European thunder-god traditions. Only Thor could lift Mjölnir due to his worthiness and special gloves. The hammer could summon lightning storms, create dimensional portals, resurrect the dead, and its impact could shatter the barriers between worlds themselves.
+        </div>
+        <div class="effect">Effect: Deal 700 vitality damage to any target. If this destroys a Monster, the controller discards one card.</div>
+    </div>
+
+    <!-- Pandora's Singularity -->
+    <div class="card spell">
+        <div class="card-header">
+            <div class="card-name">Pandora's Singularity</div>
+            <div class="card-rarity rarity-legendary">LEGENDARY</div>
+        </div>
+        <div class="card-type">Spell - One-Time Divination</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of a digital black hole emerging from an opened data-box. The only light is from swirling event horizon and collapsing information streams. There is strobing glow from reality-distortion effects and quantum probability cascades. Make the background a fragmenting digital space with floating hope-code fragments. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            Pandora's Box, the source of all evil released into the world while hope remained trapped inside, appears in Greek mythology as humanity's first great mistake. Similar "forbidden knowledge" myths appear as Norse Odin's sacrifice for wisdom, Hebrew Tree of Knowledge, and Hindu Daksha's sacrifice, reflecting universal themes about the cost of curiosity. The box contained all manner of plagues, diseases, and sorrows that had never before afflicted humanity. Once opened, it could never be closed again, but hope's presence at the bottom suggested that even in darkness, redemption remains possible.
+        </div>
+        <div class="effect">Effect: Both players discard their hands. Then, each draws 3 cards.</div>
+    </div>
+
+    <!-- Chains of Tartarus -->
+    <div class="card trap">
+        <div class="card-header">
+            <div class="card-name">Chains of Tartarus</div>
+            <div class="card-rarity rarity-common">COMMON</div>
+        </div>
+        <div class="card-type">Trap Card</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of digital chains made of pure darkness binding cyber-entities. The only light is from the chains' binding energy and prismatic lock mechanisms. There is strobing glow from soul-anchor points and dimensional restraint fields. Make the background a vast digital prison with floating cell-matrices. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            Tartarus, the deepest pit of the Greek underworld, served as prison for the Titans and the most heinous criminals of both mortal and divine realms. Similar underworld prisons appear as Norse Náströnd, Celtic Annwn, and Hindu Naraka, suggesting universal concepts of ultimate punishment. The chains of Tartarus were forged by the Cyclopes and could bind even gods. These supernatural restraints could hold beings of any power level, grew stronger with the prisoner's struggles, fed on despair and guilt to maintain their binding force, and could only be broken by acts of genuine redemption or divine intervention.
+        </div>
+        <div class="effect">Effect: When an opponent's Beast or Hero declares an attack: Negate that attack and bind it. That card cannot attack again until the end of your opponent's next turn.</div>
+    </div>
+
+    <!-- Mirror of Nemesis -->
+    <div class="card trap">
+        <div class="card-header">
+            <div class="card-name">Mirror of Nemesis</div>
+            <div class="card-rarity rarity-rare">RARE</div>
+        </div>
+        <div class="card-type">Trap Card</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of a reflective digital surface showing distorted justice imagery. The only light is from karma-reflection beams and moral-weight calculations. There is strobing glow from retribution algorithms and balance-restoration protocols. Make the background a hall of mirrors with fractured reality reflections. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            Nemesis's mirror showed mortals their true nature and the consequences of their actions, serving as both judgment tool and instrument of divine retribution. Similar justice-mirrors appear in Egyptian judgment halls, Celtic cauldrons of rebirth, and Hindu karma-reflecting pools. The mirror could not lie or be deceived by any illusion. It revealed the moral weight of every action, reflected attacks back at their source with increased power based on the attacker's guilt, showed possible futures based on current choices, and could force viewers to confront the full consequences of their deeds across multiple lifetimes.
+        </div>
+        <div class="effect">Effect: Negates an attack and deals that attack's damage to opponent.</div>
+    </div>
+
+    <!-- Tower's Warning -->
+    <div class="card trap">
+        <div class="card-header">
+            <div class="card-name">Tower's Warning</div>
+            <div class="card-rarity rarity-common">COMMON</div>
+        </div>
+        <div class="card-type">Trap Card</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of a collapsing digital tower with warning sirens. The only light is from emergency alert systems and structural failure indicators. There is strobing glow from cascade failure protocols and hubris-detection algorithms. Make the background a crumbling cyber-cityscape with falling data-blocks. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            The Tower card in tarot represents sudden upheaval, destruction of false beliefs, and divine judgment against hubris. Similar tower-destruction myths appear as Biblical Babel, Hindu cosmic destructions, and Norse Ragnarök, reflecting universal fears of overreach and collapse. The Tower's lightning strike represents sudden enlightenment that destroys illusions. It could sense when mortals grew too proud or powerful, manifest as natural disasters or divine intervention, strip away all false pretenses and accumulated power, and force complete rebuilding from honest foundations.
+        </div>
+        <div class="effect">Effect: If opponent summons a beast stronger than any of yours on field, destroy it instantly.</div>
+    </div>
+
+    <!-- Soul Harvest -->
+    <div class="card spell">
+        <div class="card-header">
+            <div class="card-name">Soul Harvest</div>
+            <div class="card-rarity rarity-rare">RARE</div>
+        </div>
+        <div class="card-type">Spell</div>
+        <div class="image-placeholder">
+            Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of a digital death-reaper collecting soul-data. The only light is from harvesting energy beams and spectral collection arrays. There is strobing glow from soul-extraction processes and afterlife database uploads. Make the background a dark digital graveyard with floating spirit-orbs. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design.
+        </div>
+        <div class="description">
+            Soul harvesting represents the ultimate violation in most mythologies - the theft of one's essential essence and afterlife prospects. Similar soul-stealing entities appear as European vampires, Slavic soul-eaters, and Mesopotamian demons who consumed the life force of mortals. Death gods like Hades, Hel, and Mictlantecuhtli controlled the fate of harvested souls. Soul harvesting could grant the practitioner increased power and extended life, steal memories and abilities from victims, prevent natural death and rebirth cycles, and trap consciousness in eternal servitude to the harvester's will.
+        </div>
+        <div class="effect">Effect: Send the top 3 cards of both players' decks to the graveyard; gain +1 Sol for each monster sent.</div>
+    </div>
+</div>
+
+<div class="page">
+    <div style="grid-column: 1/-1; text-align: center; padding: 50px; font-size: 24px; color: #333;">
+        <h2>Battle Eternal TCG Complete Collection</h2>
+        <p style="font-size: 16px; margin-top: 20px;">
+            This document contains all 263 cards with detailed mythological backgrounds and custom art prompts.<br>
+            Each card includes historical context, cross-cultural connections, and mystical abilities<br>
+            formatted for easy TCG production with 8 cards per page.
+        </p>
+        <p style="font-size: 14px; margin-top: 30px; font-style: italic;">
+            Base Art Prompt Template Applied to All Cards:<br>
+            "Tech noir cyberpunk masterpiece TCG art, an epic fantasy illustration of [CREATURE/CHARACTER]...<br>
+            The only light is from [SPECIFIC LIGHTING]..., there is strobing glow from [SPECIFIC GLOW SOURCE].<br>
+            Make the background a [SPECIFIC BACKGROUND]. Style: Dark and gritty, cinematic lighting, explosive energy, detailed character and creature design."
+        </p>
+    </div>
+</div>
+
+</body>
+</html>
