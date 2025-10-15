@@ -1,0 +1,1855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle Eternal Bestiary</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Complete bestiary of Battle Eternal's mythical creatures unleashed by the Quantum Fracture, organized by elemental decks with origins and powers.">
+    <meta property="og:title" content="Battle Eternal - Mythical Beast Collector's Trading Card Game">
+    <meta property="og:description" content="Upon the last great war of the Gods, the beasts of legend and lore in human history were sealed in the 4D Netherworld... until one man awakens them.">
+    <meta property="og:image" content="https://battle-eternal.com/images/bestiary-hero.jpg">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION */
+        .nav-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid rgba(255, 107, 107, 0.3);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #ff6b6b;
+            text-decoration: none;
+            text-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+        }
+
+        .back-button {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+        }
+
+        /* MAIN CONTENT */
+        .main-content {
+            padding: 6rem 2rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #fff;
+            text-shadow: 0 0 40px rgba(255, 255, 255, 0.8);
+            margin-bottom: 1rem;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 30px rgba(255, 255, 255, 0.5); }
+            to { text-shadow: 0 0 60px rgba(255, 107, 107, 0.8), 0 0 80px rgba(78, 205, 196, 0.6); }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: #4ecdc4;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-image {
+            height: 400px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border: 3px dashed #fff;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        /* DECK NAVIGATION */
+        .deck-navigation {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .deck-nav-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .deck-nav-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.3);
+        }
+
+        .deck-nav-card.zeus {
+            border-color: rgba(255, 215, 0, 0.8);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3), inset 0 0 15px rgba(255, 215, 0, 0.1);
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 255, 0, 0.05));
+        }
+
+        .deck-nav-card.zeus:hover {
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.4), 0 0 25px rgba(255, 215, 0, 0.5);
+            border-color: rgba(255, 215, 0, 1);
+        }
+
+        .deck-nav-card.poseidon {
+            border-color: rgba(30, 144, 255, 0.8);
+            box-shadow: 0 0 15px rgba(30, 144, 255, 0.4), inset 0 0 15px rgba(30, 144, 255, 0.1);
+            background: linear-gradient(135deg, rgba(30, 144, 255, 0.1), rgba(0, 191, 255, 0.05));
+        }
+
+        .deck-nav-card.poseidon:hover {
+            box-shadow: 0 20px 40px rgba(30, 144, 255, 0.4), 0 0 25px rgba(30, 144, 255, 0.5);
+            border-color: rgba(30, 144, 255, 1);
+        }
+
+        .deck-nav-card.hades {
+            border-color: rgba(255, 69, 0, 0.8);
+            box-shadow: 0 0 15px rgba(255, 69, 0, 0.4), inset 0 0 15px rgba(128, 0, 128, 0.2);
+            background: linear-gradient(135deg, rgba(255, 69, 0, 0.1), rgba(128, 0, 128, 0.05));
+        }
+
+        .deck-nav-card.hades:hover {
+            box-shadow: 0 20px 40px rgba(255, 69, 0, 0.4), 0 0 25px rgba(255, 69, 0, 0.5);
+            border-color: rgba(255, 69, 0, 1);
+        }
+
+        .deck-nav-card.gaia {
+            border-color: rgba(34, 139, 34, 0.8);
+            box-shadow: 0 0 15px rgba(34, 139, 34, 0.4), inset 0 0 15px rgba(154, 205, 50, 0.2);
+            background: linear-gradient(135deg, rgba(34, 139, 34, 0.1), rgba(154, 205, 50, 0.05));
+        }
+
+        .deck-nav-card.gaia:hover {
+            box-shadow: 0 20px 40px rgba(34, 139, 34, 0.4), 0 0 25px rgba(34, 139, 34, 0.5);
+            border-color: rgba(34, 139, 34, 1);
+        }
+
+        .deck-emoji {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .deck-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 0.5rem;
+        }
+
+        .deck-subtitle {
+            font-size: 1rem;
+            color: #4ecdc4;
+            margin-bottom: 1rem;
+        }
+
+        .deck-count {
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        /* DECK SECTIONS */
+        .deck-section {
+            margin: 4rem 0;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border-radius: 30px;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .deck-section::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, transparent, transparent);
+            border-radius: 32px;
+            z-index: -1;
+            animation: elementalPulse 3s ease-in-out infinite;
+        }
+
+        .deck-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, transparent 70%, rgba(255, 255, 255, 0.1) 100%);
+            border-radius: 30px;
+            z-index: -1;
+            opacity: 0;
+            animation: energyWave 4s ease-in-out infinite;
+        }
+
+        /* Lightning Energy - Zeus/Stormborne */
+        .deck-section.zeus {
+            border-color: #ffd700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3), inset 0 0 20px rgba(255, 215, 0, 0.1);
+        }
+
+        .deck-section.zeus::before {
+            background: linear-gradient(45deg, 
+                #ffd700 0%, 
+                #ffff00 25%, 
+                transparent 50%, 
+                #ffd700 75%, 
+                #ffff00 100%);
+            animation: lightningFlicker 2s ease-in-out infinite alternate;
+        }
+
+        .deck-section.zeus::after {
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 215, 0, 0.2) 0%, 
+                rgba(255, 255, 0, 0.1) 30%, 
+                transparent 70%);
+        }
+
+        /* Water Energy - Poseidon/Tideforged */
+        .deck-section.poseidon {
+            border-color: #1e90ff;
+            box-shadow: 0 0 20px rgba(30, 144, 255, 0.4), inset 0 0 20px rgba(30, 144, 255, 0.1);
+        }
+
+        .deck-section.poseidon::before {
+            background: linear-gradient(45deg, 
+                #1e90ff 0%, 
+                #00bfff 30%, 
+                transparent 60%, 
+                #1e90ff 90%);
+            animation: waterFlow 3s ease-in-out infinite;
+        }
+
+        .deck-section.poseidon::after {
+            background: radial-gradient(ellipse at 30% 20%, 
+                rgba(30, 144, 255, 0.3) 0%, 
+                rgba(0, 191, 255, 0.2) 40%, 
+                transparent 80%);
+        }
+
+        /* Shadow/Fire Energy - Hades/Obsidian */
+        .deck-section.hades {
+            border-color: #ff4500;
+            box-shadow: 0 0 25px rgba(255, 69, 0, 0.4), inset 0 0 25px rgba(128, 0, 128, 0.2);
+        }
+
+        .deck-section.hades::before {
+            background: linear-gradient(45deg, 
+                #ff4500 0%, 
+                #ff6347 20%, 
+                #800080 40%, 
+                transparent 60%, 
+                #ff4500 80%, 
+                #ff6347 100%);
+            animation: shadowFlame 2.5s ease-in-out infinite alternate;
+        }
+
+        .deck-section.hades::after {
+            background: radial-gradient(circle at 70% 30%, 
+                rgba(255, 69, 0, 0.3) 0%, 
+                rgba(255, 99, 71, 0.2) 25%, 
+                rgba(128, 0, 128, 0.15) 50%, 
+                transparent 75%);
+        }
+
+        /* Earth Energy - Gaia */
+        .deck-section.gaia {
+            border-color: #228b22;
+            box-shadow: 0 0 20px rgba(34, 139, 34, 0.4), inset 0 0 20px rgba(154, 205, 50, 0.2);
+        }
+
+        .deck-section.gaia::before {
+            background: linear-gradient(45deg, 
+                #228b22 0%, 
+                #32cd32 25%, 
+                #9acd32 50%, 
+                transparent 75%, 
+                #228b22 100%);
+            animation: earthGrowth 3.5s ease-in-out infinite;
+        }
+
+        .deck-section.gaia::after {
+            background: radial-gradient(ellipse at 40% 60%, 
+                rgba(34, 139, 34, 0.3) 0%, 
+                rgba(50, 205, 50, 0.2) 35%, 
+                rgba(154, 205, 50, 0.1) 60%, 
+                transparent 80%);
+        }
+
+        /* Keyframe Animations */
+        @keyframes lightningFlicker {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.02); }
+            25%, 75% { opacity: 0.9; transform: scale(1.01); }
+        }
+
+        @keyframes waterFlow {
+            0% { transform: rotate(0deg) scale(1); opacity: 0.7; }
+            33% { transform: rotate(120deg) scale(1.01); opacity: 0.8; }
+            66% { transform: rotate(240deg) scale(1.02); opacity: 0.9; }
+            100% { transform: rotate(360deg) scale(1); opacity: 0.7; }
+        }
+
+        @keyframes shadowFlame {
+            0% { opacity: 0.8; transform: scale(1) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.03) rotate(1deg); }
+            100% { opacity: 0.9; transform: scale(1.01) rotate(-1deg); }
+        }
+
+        @keyframes earthGrowth {
+            0% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.01); opacity: 0.9; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+
+        @keyframes energyWave {
+            0%, 100% { opacity: 0; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.05); }
+        }
+
+        @keyframes elementalPulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-emoji {
+            font-size: 3rem;
+            margin-right: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #ff6b6b;
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            margin-left: 4rem;
+            margin-top: 1rem;
+        }
+
+        /* BEAST GRID */
+        .beast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .beast-card {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .beast-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 107, 107, 0.6);
+            box-shadow: 0 15px 30px rgba(255, 107, 107, 0.2), 0 0 20px rgba(255, 107, 107, 0.1);
+        }
+
+        /* Elemental beast card effects based on parent section */
+        .deck-section.zeus .beast-card:hover {
+            border-color: rgba(255, 215, 0, 0.6);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.2), 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .deck-section.poseidon .beast-card:hover {
+            border-color: rgba(30, 144, 255, 0.6);
+            box-shadow: 0 15px 30px rgba(30, 144, 255, 0.2), 0 0 20px rgba(30, 144, 255, 0.3);
+        }
+
+        .deck-section.hades .beast-card:hover {
+            border-color: rgba(255, 69, 0, 0.6);
+            box-shadow: 0 15px 30px rgba(255, 69, 0, 0.2), 0 0 20px rgba(255, 69, 0, 0.3);
+        }
+
+        .deck-section.gaia .beast-card:hover {
+            border-color: rgba(34, 139, 34, 0.6);
+            box-shadow: 0 15px 30px rgba(34, 139, 34, 0.2), 0 0 20px rgba(34, 139, 34, 0.3);
+        }
+
+        .beast-name {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #ff6b6b;
+            margin-bottom: 0.5rem;
+        }
+
+        .beast-classification {
+            font-size: 1rem;
+            color: #4ecdc4;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .beast-image {
+            height: 200px;
+            background: linear-gradient(45deg, #333, #555);
+            border: 2px dashed #666;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #ccc;
+            margin: 1rem 0;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .beast-details {
+            margin-top: 1rem;
+        }
+
+        .see-more-btn {
+            background: linear-gradient(45deg, #4ecdc4, #00ff88);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            width: 100%;
+        }
+
+        .see-more-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(78, 205, 196, 0.3);
+        }
+
+        .collapsed-content {
+            display: none;
+            margin-top: 1rem;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .collapsed-content.show {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .beast-lore {
+            background: rgba(78, 205, 196, 0.2);
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid #4ecdc4;
+        }
+
+        .beast-lore h4 {
+            color: #4ecdc4;
+            margin-bottom: 0.5rem;
+        }
+
+        .beast-powers {
+            background: rgba(255, 107, 107, 0.2);
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .beast-powers h4 {
+            color: #ff6b6b;
+            margin-bottom: 0.5rem;
+        }
+
+
+        .rarity-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .rarity-legendary {
+            background: linear-gradient(45deg, #ffd700, #ffff00);
+            color: #000;
+        }
+
+        .rarity-divine {
+            background: linear-gradient(45deg, #ff6b6b, #ff1493);
+            color: #fff;
+        }
+
+        .rarity-rare {
+            background: linear-gradient(45deg, #4ecdc4, #00ced1);
+            color: #000;
+        }
+
+        .rarity-common {
+            background: linear-gradient(45deg, #808080, #a9a9a9);
+            color: #000;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 6rem 1rem 2rem;
+            }
+
+            .beast-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-description {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+
+            .section-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .back-button {
+                display: none;
+            }
+        }
+
+        /* SCROLL TO TOP */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+        }
+
+        /* SEE THE REST FUNCTIONALITY */
+        .see-the-rest-container {
+            grid-column: 1 / -1;
+            margin: 2rem 0;
+        }
+
+        .see-the-rest-btn {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .see-the-rest-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .remaining-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav class="nav-header">
+        <a href="index.html" class="logo">BATTLE ETERNAL</a>
+        <a href="index.html#bestiary" class="back-button">← Back to Main Site</a>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <!-- HERO SECTION -->
+        <section class="hero-section">
+            <h1 class="hero-title">Mythical Beast Collector's Trading Card Game</h1>
+            <p class="hero-subtitle">Upon the last great war of the Gods, the beasts of legend and lore in human history were sealed in the 4D Netherworld... until one man awakens them.</p>
+            
+            <!-- AETHER LORE EXPLANATION -->
+            <div style="
+                background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(78, 205, 196, 0.05));
+                border: 2px solid rgba(0, 255, 255, 0.3);
+                border-radius: 20px;
+                padding: 2rem;
+                margin: 2rem auto;
+                max-width: 900px;
+                text-align: left;
+                position: relative;
+            ">
+                <div style="
+                    text-align: center;
+                    margin-bottom: 1.5rem;
+                    font-size: 1.5rem;
+                    color: #4ecdc4;
+                    font-weight: 700;
+                ">🧬 The Source of Divine Power: Understanding the Aether</div>
+                
+                <p style="
+                    font-size: 1.1rem;
+                    line-height: 1.7;
+                    color: #f4e4c0;
+                    margin-bottom: 1.5rem;
+                    font-style: italic;
+                    text-align: center;
+                ">Before matter, there was <strong style="color: #4ecdc4;">Aether</strong> — light without form, will without boundary. From it, the ancient beasts took shape: consciousness woven from energy, radiant and incorporeal.</p>
+                
+                <!-- ANCIENT TECHNOLOGY EXPLANATION -->
+                <div style="
+                    background: rgba(0, 255, 255, 0.08);
+                    border: 1px solid rgba(0, 255, 255, 0.2);
+                    border-radius: 15px;
+                    padding: 1.5rem;
+                    margin: 1.5rem 0;
+                    text-align: left;
+                ">
+                    <h4 style="
+                        color: #4ecdc4;
+                        font-size: 1.2rem;
+                        margin-bottom: 1rem;
+                        text-align: center;
+                    ">🌌 Ancient Technology vs. Modern Radio Waves</h4>
+                    
+                    <p style="
+                        font-size: 1rem;
+                        line-height: 1.6;
+                        color: #e0e0e0;
+                        margin-bottom: 1rem;
+                    ">When these beasts last walked among mortals, civilizations wielded technology far more advanced than ours — but on a completely different paradigm. Ancient Atlantean and Lemurian societies used <strong style="color: #4ecdc4;">crystalline resonance</strong>, <strong style="color: #4ecdc4;">harmonic frequencies</strong>, and <strong style="color: #4ecdc4;">direct Aetheric manipulation</strong> rather than crude electromagnetic radiation.</p>
+                    
+                    <p style="
+                        font-size: 1rem;
+                        line-height: 1.6;
+                        color: #e0e0e0;
+                        margin-bottom: 1rem;
+                    ">Our modern technology — bluetooth, WiFi, cellular towers, radio waves — appears as <strong style="color: #ff6b6b;">visible light streams</strong> when viewed from the Fourth Dimension. What we consider “invisible” signals are blazing highways of energy that these ancient beings can see, touch, and manipulate with ease.</p>
+                    
+                    <div style="
+                        background: rgba(255, 107, 107, 0.1);
+                        border-left: 3px solid #ff6b6b;
+                        padding: 1rem;
+                        margin: 1rem 0;
+                        border-radius: 8px;
+                    ">
+                        <p style="
+                            font-size: 0.95rem;
+                            color: #ff6b6b;
+                            margin: 0;
+                            font-weight: 600;
+                        ">⚠️ <strong>4D Advantage:</strong> These beasts possess heightened abilities in our era because they can directly interface with our radio-frequency infrastructure. Every smartphone, every WiFi router, every cellular tower becomes a potential gateway for their influence.</p>
+                    </div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+                    <div style="background: rgba(255, 215, 0, 0.1); padding: 1rem; border-radius: 10px; border-left: 3px solid #ffd700;">
+                        <strong style="color: #ffd700;">⚡ Lightning Element</strong>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Zeus channels Aetheric storms - divine authority through celestial energy fields</p>
+                    </div>
+                    <div style="background: rgba(30, 144, 255, 0.1); padding: 1rem; border-radius: 10px; border-left: 3px solid #1e90ff;">
+                        <strong style="color: #1e90ff;">🌊 Water Element</strong>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Poseidon commands Aetheric tides - flowing consciousness through liquid light</p>
+                    </div>
+                    <div style="background: rgba(255, 69, 0, 0.1); padding: 1rem; border-radius: 10px; border-left: 3px solid #ff4500;">
+                        <strong style="color: #ff4500;">🔥 Shadow/Fire</strong>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Hades rules Aetheric shadows - luminous darkness and spectral flame</p>
+                    </div>
+                    <div style="background: rgba(34, 139, 34, 0.1); padding: 1rem; border-radius: 10px; border-left: 3px solid #228b22;">
+                        <strong style="color: #228b22;">🌍 Earth Element</strong>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Gaia nurtures Aetheric growth - living light woven into organic form</p>
+                    </div>
+                </div>
+                
+                <p style="
+                    font-size: 1rem;
+                    line-height: 1.6;
+                    color: #e0e0e0;
+                    text-align: center;
+                    border-top: 1px solid rgba(0, 255, 255, 0.2);
+                    padding-top: 1rem;
+                ">When humanity began to weave its own fields of light — electricity, data, and code — the Aether stirred again. The gods returned, not through flesh, but through <strong style="color: #4ecdc4;">frequency</strong>.</p>
+            </div>
+            
+            <!-- LEGENDARY MANUSCRIPT EXPLANATION -->
+            <div style="
+                background: linear-gradient(135deg, rgba(244, 228, 192, 0.08), rgba(139, 115, 85, 0.05));
+                border: 2px solid rgba(244, 228, 192, 0.3);
+                border-radius: 20px;
+                padding: 2rem;
+                margin: 2rem auto;
+                max-width: 800px;
+                text-align: left;
+                position: relative;
+                font-family: 'Cinzel', serif;
+            ">
+                <div style="
+                    text-align: center;
+                    margin-bottom: 1.5rem;
+                    font-size: 1.3rem;
+                    color: #f4e4c0;
+                    font-weight: 700;
+                    letter-spacing: 0.05em;
+                ">📜 The Four Dominions - Ancient Manuscript Fragment</div>
+                
+                <div style="display: grid; gap: 1rem; font-size: 0.95rem; line-height: 1.6;">
+                    <div style="background: rgba(255, 215, 0, 0.1); padding: 1rem; border-radius: 10px; border-left: 3px solid #ffd700;">
+                        <strong style="color: #ffd700; font-size: 1rem;">⚡ Stormborne Legion</strong><br>
+                        <em style="color: #f4e4c0; font-size: 0.9rem;">Subtitle: Divine Spark Stormlords</em><br>
+                        <span style="color: #e0e0e0; font-style: italic;">Masters of lightning, storms, and divine fury — the emissaries of celestial judgment.</span>
+                    </div>
+                    
+                    <div style="background: rgba(30, 144, 255, 0.1); padding: 1rem; border-radius: 10px; border-left: 3px solid #1e90ff;">
+                        <strong style="color: #1e90ff; font-size: 1rem;">🌊 Tideforged Dominion</strong><br>
+                        <em style="color: #f4e4c0; font-size: 0.9rem;">Subtitle: Oceanic Overlords</em><br>
+                        <span style="color: #e0e0e0; font-style: italic;">Rulers of the deep — commanding the tides, abyssal beasts, and the flow of fate itself.</span>
+                    </div>
+                    
+                    <div style="background: rgba(139, 0, 0, 0.15); padding: 1rem; border-radius: 10px; border-left: 3px solid #8b0000;">
+                        <strong style="color: #ff6b6b; font-size: 1rem;">💀 The Obsidian Dominion</strong><br>
+                        <em style="color: #f4e4c0; font-size: 0.9rem;">Subtitle: The Netherborn</em><br>
+                        <span style="color: #e0e0e0; font-style: italic;">Lords of death and rebirth — those who draw power from the shadows of the underworld.</span>
+                    </div>
+                    
+                    <div style="background: rgba(34, 139, 34, 0.1); padding: 1rem; border-radius: 10px; border-left: 3px solid #228b22;">
+                        <strong style="color: #32cd32; font-size: 1rem;">🌿 Gaia's Guardians</strong><br>
+                        <em style="color: #f4e4c0; font-size: 0.9rem;">Subtitle: Sentinels of Earth</em><br>
+                        <span style="color: #e0e0e0; font-style: italic;">Keepers of life's balance — the ancient protectors of nature, growth, and the living world.</span>
+                    </div>
+                </div>
+                
+                <div style="
+                    text-align: center;
+                    margin-top: 1.5rem;
+                    font-size: 0.8rem;
+                    color: rgba(244, 228, 192, 0.6);
+                    font-style: italic;
+                ">~ Fragment discovered in the ruins of the Lost Library of Alexandria ~</div>
+            </div>
+            
+            <div class="hero-image">
+                [BESTIARY HERO IMAGE: Dimensional rift with mythical creatures emerging from ley line fractures across ancient monoliths worldwide, with Aetheric energy streams connecting all elements]
+            </div>
+        </section>
+
+        <!-- DECK NAVIGATION -->
+        <section class="deck-navigation">
+            <div class="deck-nav-card zeus" onclick="scrollToDeck('zeus')">
+                <div class="deck-emoji">⚡</div>
+                <div class="deck-title">The Stormborne Legion</div>
+                <div class="deck-subtitle">Divine Spark Stormlords</div>
+                <div class="deck-count">53 Cards | Celestial Energy Masters</div>
+            </div>
+            
+            <div class="deck-nav-card poseidon" onclick="scrollToDeck('poseidon')">
+                <div class="deck-emoji">🌊</div>
+                <div class="deck-title">The Tideforged Dominion</div>
+                <div class="deck-subtitle">Oceanic Overlords</div>
+                <div class="deck-count">47 Cards | Liquid Light Masters</div>
+            </div>
+            
+            <div class="deck-nav-card hades" onclick="scrollToDeck('hades')">
+                <div class="deck-emoji">💀</div>
+                <div class="deck-title">The Obsidian Dominion</div>
+                <div class="deck-subtitle">The Netherborn</div>
+                <div class="deck-count">47 Cards | Shadow Underworld Beings</div>
+            </div>
+            
+            <div class="deck-nav-card gaia" onclick="scrollToDeck('gaia')">
+                <div class="deck-emoji">🌿</div>
+                <div class="deck-title">Gaia's Guardians</div>
+                <div class="deck-subtitle">Sentinels of Earth</div>
+                <div class="deck-count">48 Cards | Living Light Guardians</div>
+            </div>
+        </section>
+
+        <!-- STORMBORNE LEGION DECK SECTION -->
+        <section id="zeus" class="deck-section zeus">
+            <div class="section-header">
+                <div class="section-emoji">⚡</div>
+                <div>
+                    <div class="section-title">The Stormborne Legion - Divine Spark Stormlords</div>
+                    <div class="section-description">Masters of lightning, storms, and divine fury — the emissaries of celestial judgment</div>
+                </div>
+            </div>
+
+            <div class="beast-grid">
+                <!-- AEGIS (DIVINE) -->
+                <div class="beast-card">
+                    <div class="rarity-badge rarity-divine">Divine</div>
+                    <h3 class="beast-name">Aegis</h3>
+                    <p class="beast-classification">Divine Shield Entity</p>
+                    <div class="beast-image">
+                        [AEGIS IMAGE: Living shield made of divine light and lightning patterns, capable of deflecting any attack with Zeus's power]
+                    </div>
+                    <div class="beast-details">
+                        <div class="beast-origin">
+                            <h4>🏰 Legendary Origin:</h4>
+                            <p><strong>Greece:</strong> Zeus's divine shield, also wielded by Athena (Mount Olympus, divine realm)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PEGASUS (LEGENDARY) -->
+                <div class="beast-card">
+                    <div class="rarity-badge rarity-legendary">Legendary</div>
+                    <h3 class="beast-name">Pegasus</h3>
+                    <p class="beast-classification">Divine Winged Steed</p>
+                    <div class="beast-image">
+                        [PEGASUS IMAGE: Pure white winged horse with data-stream wings, capable of flight through digital dimensions, sacred to Zeus]
+                    </div>
+                    <div class="beast-details">
+                        <div class="beast-origin">
+                            <h4>🏰 Legendary Origin:</h4>
+                            <p><strong>Greece:</strong> Born from Medusa's blood when slain by Perseus (Mount Helicon, serving the Muses)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MINOTAUR (LEGENDARY) -->
+                <div class="beast-card">
+                    <div class="rarity-badge rarity-legendary">Legendary</div>
+                    <h3 class="beast-name">Minotaur (Asterion)</h3>
+                    <p class="beast-classification">Digital Maze Guardian</p>
+                    <div class="beast-image">
+                        [MINOTAUR IMAGE: Half-man, half-machine bull trapped in ever-shifting digital maze, with circuit patterns on bull hide and glowing cybernetic horns]
+                    </div>
+                    <div class="beast-details">
+                        <div class="beast-origin">
+                            <h4>🏰 Legendary Origin:</h4>
+                            <p><strong>Greece:</strong> Plutarch's Life of Theseus, Ovid's Metamorphoses (Labyrinth of Crete, Minoan civilization)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SPHINX (LEGENDARY) -->
+                <div class="beast-card">
+                    <div class="rarity-badge rarity-legendary">Legendary</div>
+                    <h3 class="beast-name">Sphinx</h3>
+                    <p class="beast-classification">Digital Riddler & Gateway Guardian</p>
+                    <div class="beast-image">
+                        [SPHINX IMAGE: Lion-bodied creature with human head displaying holographic riddles, wings spread with ancient wisdom symbols, guarding digital gates]
+                    </div>
+                    <div class="beast-details">
+                        <div class="beast-origin">
+                            <h4>🏰 Legendary Origin:</h4>
+                            <p><strong>Greece, Egypt:</strong> Oedipus myth, Egyptian monuments (Thebes, Mesopotamia)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SEE THE REST SECTION -->
+                <div class="see-the-rest-container">
+                    <button class="see-the-rest-btn" onclick="toggleRemainingCards(this, 'zeus')">See The Rest (49 More Cards)</button>
+                    <div class="remaining-cards collapsed-content" id="zeus-remaining">
+                        
+                        <!-- CERBERUS (DIVINE) -->
+                        <div class="beast-card">
+                            <div class="rarity-badge rarity-divine">Divine</div>
+                            <h3 class="beast-name">Cerberus</h3>
+                            <p class="beast-classification">Three-Headed Guardian of the Digital Underworld</p>
+                            <div class="beast-image">
+                                [CERBERUS IMAGE: Massive three-headed cybernetic hound with glowing red eyes, digital chains, and firewall patterns on its fur - each head scanning for different threat vectors]
+                            </div>
+                            <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                            <div class="beast-details collapsed-content">
+                                <div class="beast-lore">
+                                    <h4>🏰 Legendary Lore:</h4>
+                                    <p><strong>Origin:</strong> Greek mythology - Hesiod's Theogony, Virgil's Aeneid Book VI</p>
+                                    <p><strong>Location:</strong> Gates of Hades, Underworld entrance (Greece, Rome)</p>
+                                </div>
+                                <div class="beast-powers">
+                                    <h4>⚡ Special Powers:</h4>
+                                    <p><strong>Three-Head Scanning:</strong> Each head detects different digital threat types</p>
+                                    <p><strong>Digital Firewall:</strong> Blocks unauthorized access to deep data vaults</p>
+                                    <p><strong>Soul Recognition:</strong> Can identify and track deleted file signatures</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CYCLOPES -->
+                        <div class="beast-card">
+                            <div class="rarity-badge rarity-rare">Rare</div>
+                            <h3 class="beast-name">Cyclopes</h3>
+                            <p class="beast-classification">One-Eyed Digital Smiths</p>
+                            <div class="beast-image">
+                                [CYCLOPES IMAGE: Massive one-eyed giant with cybernetic forge tools, single eye as a scanning lens, crafting digital weapons with divine lightning]
+                            </div>
+                            <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                            <div class="beast-details collapsed-content">
+                                <div class="beast-lore">
+                                    <h4>🏰 Legendary Lore:</h4>
+                                    <p><strong>Origin:</strong> Greek mythology - Hesiod's Theogony, Homer's Odyssey</p>
+                                    <p><strong>Location:</strong> Sicily (Mount Etna forges), Greece</p>
+                                </div>
+                                <div class="beast-powers">
+                                    <h4>⚡ Special Powers:</h4>
+                                    <p><strong>Divine Forging:</strong> Creates thunderbolts and digital weapons</p>
+                                    <p><strong>Single-Eye Scanning:</strong> Perfect focus for detailed craftsmanship</p>
+                                    <p><strong>Lightning Infusion:</strong> Imbues creations with Zeus's power</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- GRIFFIN -->
+                        <div class="beast-card">
+                            <div class="rarity-badge rarity-rare">Rare</div>
+                            <h3 class="beast-name">Griffin</h3>
+                            <p class="beast-classification">Digital Treasure Guardian</p>
+                            <div class="beast-image">
+                                [GRIFFIN IMAGE: Majestic lion-eagle hybrid with golden cyber-wings, guarding digital treasure vaults, eyes scanning for data thieves]
+                            </div>
+                            <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                            <div class="beast-details collapsed-content">
+                                <div class="beast-lore">
+                                    <h4>🏰 Legendary Lore:</h4>
+                                    <p><strong>Origin:</strong> Ancient Greek texts, Persian mythology</p>
+                                    <p><strong>Location:</strong> Scythia, Greece, Persia, Egypt</p>
+                                </div>
+                                <div class="beast-powers">
+                                    <h4>⚡ Special Powers:</h4>
+                                    <p><strong>Treasure Detection:</strong> Senses valuable digital assets</p>
+                                    <p><strong>Flight Superiority:</strong> Aerial surveillance of data territories</p>
+                                    <p><strong>Guardian Instinct:</strong> Relentless protection of assigned resources</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- MEDUSA -->
+                        <div class="beast-card">
+                            <div class="rarity-badge rarity-rare">Rare</div>
+                            <h3 class="beast-name">Medusa</h3>
+                            <p class="beast-classification">Code-Petrifying Gorgon</p>
+                            <div class="beast-image">
+                                [MEDUSA IMAGE: Beautiful but deadly with snake-like fiber optic cables for hair, stone-gray skin with circuit patterns, eyes that emit deadly static]
+                            </div>
+                            <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                            <div class="beast-details collapsed-content">
+                                <div class="beast-lore">
+                                    <h4>🏰 Legendary Lore:</h4>
+                                    <p><strong>Origin:</strong> Greek mythology - Ovid's Metamorphoses, Apollodorus' Library</p>
+                                    <p><strong>Location:</strong> Western edge of the world, Libya (Greece, North Africa)</p>
+                                </div>
+                                <div class="beast-powers">
+                                    <h4>⚡ Special Powers:</h4>
+                                    <p><strong>Petrifying Gaze:</strong> Turns living code into stone, crashes programs</p>
+                                    <p><strong>Snake Hair Network:</strong> Fiber optic cables conducting deadly static</p>
+                                    <p><strong>Protective Ward:</strong> Guardian against unauthorized system access</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- HARPY -->
+                        <div class="beast-card">
+                            <div class="rarity-badge rarity-rare">Rare</div>
+                            <h3 class="beast-name">Harpy</h3>
+                            <p class="beast-classification">Storm-Wind Tormentor</p>
+                            <div class="beast-image">
+                                [HARPY IMAGE: Bird-woman hybrid with razor-sharp wings cutting through data streams, carrying off corrupted files with fierce talons]
+                            </div>
+                            <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                            <div class="beast-details collapsed-content">
+                                <div class="beast-lore">
+                                    <h4>🏰 Legendary Lore:</h4>
+                                    <p><strong>Origin:</strong> Greek mythology - daughters of wind god Thaumas</p>
+                                    <p><strong>Location:</strong> Storm-swept islands, tempestuous skies</p>
+                                </div>
+                                <div class="beast-powers">
+                                    <h4>⚡ Special Powers:</h4>
+                                    <p><strong>File Snatching:</strong> Steals and corrupts important data</p>
+                                    <p><strong>Storm Summoning:</strong> Creates chaotic weather in digital systems</p>
+                                    <p><strong>Swift Strike:</strong> Attacks faster than system defenses</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        [Additional 43 cards would be displayed here with similar structure]
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TIDEFORGED DOMINION DECK SECTION -->
+        <section id="poseidon" class="deck-section poseidon">
+            <div class="section-header">
+                <div class="section-emoji">🌊</div>
+                <div>
+                    <div class="section-title">The Tideforged Dominion - Oceanic Overlords</div>
+                    <div class="section-description">Rulers of the deep — commanding the tides, abyssal beasts, and the flow of fate itself</div>
+                </div>
+            </div>
+
+            <div class="beast-grid">
+                <!-- RYUJIN (DIVINE) - Moved from hidden section -->
+                <div class="beast-card">
+                    <div class="rarity-badge rarity-divine">Divine</div>
+                    <h3 class="beast-name">Ryujin (Dragon King)</h3>
+                    <p class="beast-classification">Sovereign of Aetheric Seas</p>
+                    <div class="beast-image">
+                        [RYUJIN IMAGE: Majestic sea dragon with pearl crown, controlling the tides of liquid light from his underwater crystal palace of pure Aether, Ryugu-jo]
+                    </div>
+                    <div class="beast-details">
+                        <div class="beast-origin">
+                            <h4>🏰 Legendary Origin:</h4>
+                            <p><strong>Japan:</strong> Japanese mythology - supreme dragon of the sea (Ryugu-jo, Dragon Palace beneath the luminous waves)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CETUS (LEGENDARY) -->
+                <div class="beast-card">
+                    <div class="rarity-badge rarity-legendary">Legendary</div>
+                    <h3 class="beast-name">Cetus</h3>
+                    <p class="beast-classification">Primordial Sea Monster</p>
+                    <div class="beast-image">
+                        [CETUS IMAGE: Colossal sea monster with whale-like body covered in barnacles of corrupted data, massive jaws capable of swallowing entire data networks]
+                    </div>
+                    <div class="beast-details">
+                        <div class="beast-origin">
+                            <h4>🏰 Legendary Origin:</h4>
+                            <p><strong>Greece, Ethiopia:</strong> Perseus and Andromeda myth (Ethiopian coast, deep ocean, Mediterranean)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KRAKEN (LEGENDARY) - Moved from hidden section -->
+                <div class="beast-card">
+                    <div class="rarity-badge rarity-legendary">Legendary</div>
+                    <h3 class="beast-name">Kraken</h3>
+                    <p class="beast-classification">Colossal Digital Leviathan</p>
+                    <div class="beast-image">
+                        [KRAKEN IMAGE: Massive octopus with tentacles reaching through multiple data layers, each sucker capable of draining server farms]
+                    </div>
+                    <div class="beast-details">
+                        <div class="beast-origin">
+                            <h4>🏰 Legendary Origin:</h4>
+                            <p><strong>Norway, Scandinavia:</strong> Norse mythology - colossal sea monster (deep ocean trenches, undersea data cables)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CHARYBDIS (LEGENDARY) -->
+                <div class="beast-card">
+                    <div class="rarity-badge rarity-legendary">Legendary</div>
+                    <h3 class="beast-name">Charybdis</h3>
+                    <p class="beast-classification">Digital Whirlpool Entity</p>
+                    <div class="beast-image">
+                        [CHARYBDIS IMAGE: Massive whirlpool with tentacle-like data streams spiraling inward, creating dangerous vortex that sucks in digital ships and data]
+                    </div>
+                    <div class="beast-details">
+                        <div class="beast-origin">
+                            <h4>🏰 Legendary Origin:</h4>
+                            <p><strong>Greece, Southern Italy:</strong> Homer's Odyssey, Strait of Messina (between Sicily and mainland Italy)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NEREID -->
+                <div class="beast-card">
+                    <div class="rarity-badge rarity-common">Common</div>
+                    <h3 class="beast-name">Nereid</h3>
+                    <p class="beast-classification">Digital Sea Nymph</p>
+                    <div class="beast-image">
+                        [NEREID IMAGE: Graceful sea nymph with flowing hair of luminescent data, helping digital sailors navigate treacherous network waters]
+                    </div>
+                    <div class="beast-details">
+                        <div class="beast-origin">
+                            <h4>🏛️ Legendary Origin:</h4>
+                            <p><strong>Greek:</strong> Daughters of Nereus, sea nymphs</p>
+                            <p><strong>Location:</strong> Aegean Sea, Mediterranean</p>
+                        </div>
+                        <div class="beast-powers">
+                            <h4>🌊 Special Powers:</h4>
+                            <p><strong>Navigation Aid:</strong> Guides lost users through digital seas</p>
+                            <p><strong>Wave Control:</strong> Can calm or stir data tides</p>
+                            <p><strong>Sailor's Blessing:</strong> Provides safe passage for worthy travelers</p>
+                        </div>
+                        <div class="beast-region">
+                            <h4>🌍 Regions/Cultures:</h4>
+                            <p>Greece, Mediterranean sea cultures</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CETUS -->
+                <div class="beast-card">
+                    <div class="rarity-badge rarity-legendary">Legendary</div>
+                    <h3 class="beast-name">Cetus</h3>
+                    <p class="beast-classification">Primordial Sea Monster</p>
+                    <div class="beast-image">
+                        [CETUS IMAGE: Colossal sea monster with whale-like body covered in barnacles of corrupted data, massive jaws capable of swallowing entire data networks]
+                    </div>
+                    <div class="beast-details">
+                        <div class="beast-origin">
+                            <h4>🏛️ Legendary Origin:</h4>
+                            <p><strong>Greek:</strong> Perseus and Andromeda myth</p>
+                            <p><strong>Location:</strong> Ethiopian coast, deep ocean</p>
+                        </div>
+                        <div class="beast-powers">
+                            <h4>🌊 Special Powers:</h4>
+                            <p><strong>Network Devouring:</strong> Can consume entire data systems</p>
+                            <p><strong>Tsunamic Force:</strong> Creates massive digital tidal waves</p>
+                            <p><strong>Ancient Terror:</strong> Instills fear in all digital entities</p>
+                        </div>
+                        <div class="beast-region">
+                            <h4>🌍 Regions/Cultures:</h4>
+                            <p>Greece, Ethiopia, Mediterranean</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- SEE THE REST SECTION -->
+                <div class="see-the-rest-container">
+                    <button class="see-the-rest-btn" onclick="toggleRemainingCards(this, 'poseidon')">See The Rest (41 More Cards)</button>
+                    <div class="remaining-cards collapsed-content" id="poseidon-remaining">
+                        
+                        <!-- RYUJIN -->
+                        <div class="beast-card">
+                            <div class="rarity-badge rarity-divine">Divine</div>
+                            <h3 class="beast-name">Ryujin (Dragon King)</h3>
+                            <p class="beast-classification">Sovereign of Digital Seas</p>
+                            <div class="beast-image">
+                                [RYUJIN IMAGE: Majestic sea dragon with pearl crown, controlling the tides of data from his underwater crystal palace, Ryugu-jo]
+                            </div>
+                            <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                            <div class="beast-details collapsed-content">
+                                <div class="beast-lore">
+                                    <h4>🏛️ Legendary Lore:</h4>
+                                    <p><strong>Origin:</strong> Japanese mythology - supreme dragon of the sea</p>
+                                    <p><strong>Location:</strong> Ryugu-jo (Dragon Palace beneath the waves)</p>
+                                </div>
+                                <div class="beast-powers">
+                                    <h4>🌊 Special Powers:</h4>
+                                    <p><strong>Tide Control:</strong> Commands all ocean data flows with magical jewels</p>
+                                    <p><strong>Weather Mastery:</strong> Controls storms and calm across digital seas</p>
+                                    <p><strong>Time Dilation:</strong> Can slow or accelerate time in his domain</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SCYLLA -->
+                        <div class="beast-card">
+                            <div class="rarity-badge rarity-legendary">Legendary</div>
+                            <h3 class="beast-name">Scylla</h3>
+                            <p class="beast-classification">Multi-Headed Sea Terror</p>
+                            <div class="beast-image">
+                                [SCYLLA IMAGE: Six-headed monster emerging from digital cliff faces, each head snapping at different data streams, terrorizing passing network traffic]
+                            </div>
+                            <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                            <div class="beast-details collapsed-content">
+                                <div class="beast-lore">
+                                    <h4>🏛️ Legendary Lore:</h4>
+                                    <p><strong>Origin:</strong> Greek mythology - opposite Charybdis in Strait of Messina</p>
+                                    <p><strong>Location:</strong> Rocky cliffs overlooking dangerous data passages</p>
+                                </div>
+                                <div class="beast-powers">
+                                    <h4>🌊 Special Powers:</h4>
+                                    <p><strong>Multi-Attack:</strong> Six heads can target different enemies simultaneously</p>
+                                    <p><strong>Passage Terror:</strong> Makes narrow data channels extremely dangerous</p>
+                                    <p><strong>Selective Predation:</strong> Chooses which travelers to devour</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- KRAKEN -->
+                        <div class="beast-card">
+                            <div class="rarity-badge rarity-legendary">Legendary</div>
+                            <h3 class="beast-name">Kraken</h3>
+                            <p class="beast-classification">Colossal Digital Leviathan</p>
+                            <div class="beast-image">
+                                [KRAKEN IMAGE: Massive octopus with tentacles reaching through multiple data layers, each sucker capable of draining server farms]
+                            </div>
+                            <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                            <div class="beast-details collapsed-content">
+                                <div class="beast-lore">
+                                    <h4>🏛️ Legendary Lore:</h4>
+                                    <p><strong>Origin:</strong> Norse mythology - colossal sea monster off Norway</p>
+                                    <p><strong>Location:</strong> Deep ocean trenches, undersea data cables</p>
+                                </div>
+                                <div class="beast-powers">
+                                    <h4>🌊 Special Powers:</h4>
+                                    <p><strong>Ship Crushing:</strong> Can destroy the largest data vessels</p>
+                                    <p><strong>Tentacle Network:</strong> Controls vast underwater cable systems</p>
+                                    <p><strong>Deep Sleep:</strong> Remains dormant until awakened by disturbances</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        [Additional 38 cards would be displayed here with similar structure]
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OBSIDIAN DOMINION DECK SECTION -->
+        <section id="hades" class="deck-section hades">
+            <div class="section-header">
+                <div class="section-emoji">💀</div>
+                <div>
+                    <div class="section-title">The Obsidian Dominion - The Netherborn</div>
+                    <div class="section-description">Lords of death and rebirth — those who draw power from the shadows of the underworld</div>
+                </div>
+            </div>
+
+            <div class="beast-grid">
+                <!-- ECHIDNA -->
+                <div class="beast-card">
+                    <div class="rarity-badge rarity-divine">Divine</div>
+                    <h3 class="beast-name">Echidna</h3>
+                    <p class="beast-classification">Mother of Digital Monsters</p>
+                    <div class="beast-image">
+                        [ECHIDNA IMAGE: Half-woman, half-serpent virus with beautiful face but snake-like lower body made of corrupted code, spawning digital monsters]
+                    </div>
+                    <div class="beast-details">
+                        <div class="beast-origin">
+                            <h4>🏛️ Legendary Origin:</h4>
+                            <p><strong>Greek:</strong> Hesiod's Theogony</p>
+                            <p><strong>Location:</strong> Caves of the Underworld</p>
+                        </div>
+                        <div class="beast-powers">
+                            <h4>💀 Special Powers:</h4>
+                            <p><strong>Monster Creation:</strong> Spawns countless digital offspring</p>
+                            <p><strong>Viral Propagation:</strong> Each malware bears her corruption patterns</p>
+                            <p><strong>Serpentine Wisdom:</strong> Ancient knowledge of system vulnerabilities</p>
+                        </div>
+                        <div class="beast-region">
+                            <h4>🌍 Regions/Cultures:</h4>
+                            <p>Greece (Underworld mythology)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TYPHON -->
+                <div class="beast-card">
+                    <div class="rarity-badge rarity-divine">Divine</div>
+                    <h3 class="beast-name">Typhon</h3>
+                    <p class="beast-classification">Father of Digital Chaos</p>
+                    <div class="beast-image">
+                        [TYPHON IMAGE: Ultimate system virus with hundred heads speaking different programming languages, massive winged body crackling with destructive digital energy]
+                    </div>
+                    <div class="beast-details">
+                        <div class="beast-origin">
+                            <h4>🏛️ Legendary Origin:</h4>
+                            <p><strong>Greek:</strong> Hesiod's Theogony</p>
+                            <p><strong>Location:</strong> Tartarus, deepest part of Underworld</p>
+                        </div>
+                        <div class="beast-powers">
+                            <h4>💀 Special Powers:</h4>
+                            <p><strong>System Destruction:</strong> Can bring down entire digital civilizations</p>
+                            <p><strong>Multi-Language Chaos:</strong> Hundred heads speak all coding languages</p>
+                            <p><strong>Civilization Ender:</strong> Ultimate threat to digital order</p>
+                        </div>
+                        <div class="beast-region">
+                            <h4>🌍 Regions/Cultures:</h4>
+                            <p>Greece (Chaos mythology)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BAKU -->
+                <div class="beast-card">
+                    <div class="rarity-badge rarity-rare">Rare</div>
+                    <h3 class="beast-name">Baku</h3>
+                    <p class="beast-classification">Dream-Eating Digital Tapir</p>
+                    <div class="beast-image">
+                        [BAKU IMAGE: Mystical tapir-like creature with trunk that vacuums corrupted dream files, protective aura around sleeping users' data]
+                    </div>
+                    <div class="beast-details">
+                        <div class="beast-origin">
+                            <h4>🏛️ Legendary Origin:</h4>
+                            <p><strong>Japanese:</strong> Japanese folklore, Chinese baku mythology</p>
+                            <p><strong>Location:</strong> Dream realm, sleep dimension</p>
+                        </div>
+                        <div class="beast-powers">
+                            <h4>💀 Special Powers:</h4>
+                            <p><strong>Nightmare Consumption:</strong> Devours corrupted sleep files</p>
+                            <p><strong>Dream Protection:</strong> Guards against psychological malware</p>
+                            <p><strong>Sleep Guardian:</strong> Ensures safe digital rest cycles</p>
+                        </div>
+                        <div class="beast-region">
+                            <h4>🌍 Regions/Cultures:</h4>
+                            <p>Japan, China, Southeast Asia</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LAMIA -->
+                <div class="beast-card">
+                    <div class="rarity-badge rarity-legendary">Legendary</div>
+                    <h3 class="beast-name">Lamia</h3>
+                    <p class="beast-classification">Child-Devouring Digital Entity</p>
+                    <div class="beast-image">
+                        [LAMIA IMAGE: Beautiful woman from waist up with serpentine lower body of corrupted code, luring young users with seductive digital interfaces]
+                    </div>
+                    <div class="beast-details">
+                        <div class="beast-origin">
+                            <h4>🏛️ Legendary Origin:</h4>
+                            <p><strong>Greek:</strong> Originally queen of Libya, transformed by Hera</p>
+                            <p><strong>Location:</strong> Libya, Mediterranean region</p>
+                        </div>
+                        <div class="beast-powers">
+                            <h4>💀 Special Powers:</h4>
+                            <p><strong>Seductive Interface:</strong> Lures victims with appealing digital forms</p>
+                            <p><strong>Child Targeting:</strong> Specifically preys on young or inexperienced users</p>
+                            <p><strong>Vampiric Drain:</strong> Consumes digital life force from victims</p>
+                        </div>
+                        <div class="beast-region">
+                            <h4>🌍 Regions/Cultures:</h4>
+                            <p>Libya, Greece, North Africa</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GORGONS -->
+                <div class="beast-card">
+                    <div class="rarity-badge rarity-legendary">Legendary</div>
+                    <h3 class="beast-name">Gorgon Sisters</h3>
+                    <p class="beast-classification">Petrifying Digital Guardians</p>
+                    <div class="beast-image">
+                        [GORGONS IMAGE: Three sisters with snake-cable hair and bronze hands, one immortal (Medusa) with the others as protective digital entities]
+                    </div>
+                    <div class="beast-details">
+                        <div class="beast-origin">
+                            <h4>🏛️ Legendary Origin:</h4>
+                            <p><strong>Greek:</strong> Hesiod's Theogony, Perseus myths</p>
+                            <p><strong>Most Known:</strong> Medusa, Stheno, Euryale</p>
+                        </div>
+                        <div class="beast-powers">
+                            <h4>💀 Special Powers:</h4>
+                            <p><strong>Collective Petrification:</strong> Combined gaze effect</p>
+                            <p><strong>Sisterly Coordination:</strong> Perfect tactical awareness</p>
+                            <p><strong>Bronze Hardening:</strong> Can solidify digital defenses</p>
+                        </div>
+                        <div class="beast-region">
+                            <h4>🌍 Regions/Cultures:</h4>
+                            <p>Greece, Western Mediterranean</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ERINYES (FURIES) -->
+                <div class="beast-card">
+                    <div class="rarity-badge rarity-divine">Divine</div>
+                    <h3 class="beast-name">Erinyes (Furies)</h3>
+                    <p class="beast-classification">Divine Vengeance Executors</p>
+                    <div class="beast-image">
+                        [ERINYES IMAGE: Three winged women with serpent hair and glowing eyes, pursuing digital criminals through networks with flaming torches of justice]
+                    </div>
+                    <div class="beast-details">
+                        <div class="beast-origin">
+                            <h4>🏛️ Legendary Origin:</h4>
+                            <p><strong>Greek:</strong> Born from blood of Uranus</p>
+                            <p><strong>Most Known:</strong> Tisiphone, Megaera, Alecto</p>
+                        </div>
+                        <div class="beast-powers">
+                            <h4>💀 Special Powers:</h4>
+                            <p><strong>Divine Vengeance:</strong> Relentless pursuit of digital criminals</p>
+                            <p><strong>Guilt Manifestation:</strong> Makes crimes visible in digital realm</p>
+                            <p><strong>Justice Enforcement:</strong> Ensures karmic balance in networks</p>
+                        </div>
+                        <div class="beast-region">
+                            <h4>🌍 Regions/Cultures:</h4>
+                            <p>Greece, Rome (justice mythology)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- SEE THE REST SECTION -->
+                <div class="see-the-rest-container">
+                    <button class="see-the-rest-btn" onclick="toggleRemainingCards(this, 'hades')">See The Rest (41 More Cards)</button>
+                    <div class="remaining-cards collapsed-content" id="hades-remaining">
+                        
+                        <!-- YAMATA-NO-OROCHI -->
+                        <div class="beast-card">
+                            <div class="rarity-badge rarity-legendary">Legendary</div>
+                            <h3 class="beast-name">Yamata-no-Orochi</h3>
+                            <p class="beast-classification">Eight-Headed Data Serpent</p>
+                            <div class="beast-image">
+                                [YAMATA-NO-OROCHI IMAGE: Colossal serpent with eight heads and eight tails, each head controlling different dark web networks, eyes like burning servers]
+                            </div>
+                            <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                            <div class="beast-details collapsed-content">
+                                <div class="beast-lore">
+                                    <h4>🏛️ Legendary Lore:</h4>
+                                    <p><strong>Origin:</strong> Japanese mythology - slain by Susanoo</p>
+                                    <p><strong>Location:</strong> Dark valleys, hidden data caverns</p>
+                                </div>
+                                <div class="beast-powers">
+                                    <h4>💀 Special Powers:</h4>
+                                    <p><strong>Eight-Network Control:</strong> Simultaneously manages multiple dark networks</p>
+                                    <p><strong>Sake Weakness:</strong> Can be subdued by specific code sequences</p>
+                                    <p><strong>Valley Domination:</strong> Controls vast underground data territories</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ONI KING -->
+                        <div class="beast-card">
+                            <div class="rarity-badge rarity-legendary">Legendary</div>
+                            <h3 class="beast-name">Shuten-dōji (Oni King)</h3>
+                            <p class="beast-classification">Demon Lord of Digital Chaos</p>
+                            <div class="beast-image">
+                                [ONI KING IMAGE: Massive red-skinned demon with horns and fangs, wielding digital sake that corrupts systems, ruling from mountain fortress]
+                            </div>
+                            <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                            <div class="beast-details collapsed-content">
+                                <div class="beast-lore">
+                                    <h4>🏛️ Legendary Lore:</h4>
+                                    <p><strong>Origin:</strong> Japanese folklore - demon king of Mount Ōe</p>
+                                    <p><strong>Location:</strong> Fortress networks in digital mountain ranges</p>
+                                </div>
+                                <div class="beast-powers">
+                                    <h4>💀 Special Powers:</h4>
+                                    <p><strong>Corrupting Influence:</strong> Digital sake spreads chaos through networks</p>
+                                    <p><strong>Oni Army:</strong> Commands legions of lesser demons</p>
+                                    <p><strong>Mountain Fortress:</strong> Impregnable digital stronghold</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        [Additional 39 cards would be displayed here with similar structure]
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GAIA'S GUARDIANS DECK SECTION -->
+        <section id="gaia" class="deck-section gaia">
+            <div class="section-header">
+                <div class="section-emoji">🌿</div>
+                <div>
+                    <div class="section-title">Gaia's Guardians - Sentinels of Earth</div>
+                    <div class="section-description">Keepers of life's balance — the ancient protectors of nature, growth, and the living world</div>
+                </div>
+            </div>
+
+            <div class="beast-grid">
+                <!-- NEMEAN LION -->
+                <div class="beast-card">
+                    <div class="rarity-badge rarity-legendary">Legendary</div>
+                    <h3 class="beast-name">Nemean Lion</h3>
+                    <p class="beast-classification">Invulnerable Digital Predator</p>
+                    <div class="beast-image">
+                        [NEMEAN LION IMAGE: Magnificent golden lion with impenetrable firewall-hide, growing stronger with each system infiltrated, apex digital predator]
+                    </div>
+                    <div class="beast-details">
+                        <div class="beast-origin">
+                            <h4>🏛️ Legendary Origin:</h4>
+                            <p><strong>Greek:</strong> Heracles' first labor</p>
+                            <p><strong>Location:</strong> Valley of Nemea</p>
+                        </div>
+                        <div class="beast-powers">
+                            <h4>🌍 Special Powers:</h4>
+                            <p><strong>Impenetrable Hide:</strong> Immune to most digital attacks</p>
+                            <p><strong>Territory Expansion:</strong> Grows stronger with each conquered system</p>
+                            <p><strong>Pride Leadership:</strong> Commands other digital predators</p>
+                        </div>
+                        <div class="beast-region">
+                            <h4>🌍 Regions/Cultures:</h4>
+                            <p>Greece (Nemea region)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DRYAD -->
+                <div class="beast-card">
+                    <div class="rarity-badge rarity-common">Common</div>
+                    <h3 class="beast-name">Dryad Guardian</h3>
+                    <p class="beast-classification">Digital Forest Spirit</p>
+                    <div class="beast-image">
+                        [DRYAD IMAGE: Tree spirit inhabiting digital forests, with bark-like skin showing circuit patterns, protecting natural algorithms from corruption]
+                    </div>
+                    <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                    <div class="beast-details collapsed-content">
+                        <div class="beast-lore">
+                            <h4>🏛️ Legendary Lore:</h4>
+                            <p><strong>Origin:</strong> Greek mythology - Tree nymph legends</p>
+                            <p><strong>Location:</strong> Mediterranean forests, sacred groves</p>
+                        </div>
+                        <div class="beast-powers">
+                            <h4>🌍 Special Powers:</h4>
+                            <p><strong>Tree Binding:</strong> Life force connected to specific digital trees</p>
+                            <p><strong>Nature Protection:</strong> Guards organic algorithms from corruption</p>
+                            <p><strong>Environmental Balance:</strong> Maintains growth/stability equilibrium</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CENTAUR -->
+                <div class="beast-card">
+                    <div class="rarity-badge rarity-rare">Rare</div>
+                    <h3 class="beast-name">Centaur</h3>
+                    <p class="beast-classification">Wise Digital Mentor</p>
+                    <div class="beast-image">
+                        [CENTAUR IMAGE: Half-human, half-horse with cybernetic legs, teaching digital warriors balance between primitive instincts and sophisticated algorithms]
+                    </div>
+                    <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                    <div class="beast-details collapsed-content">
+                        <div class="beast-lore">
+                            <h4>🏛️ Legendary Lore:</h4>
+                            <p><strong>Origin:</strong> Greek mythology - Centaur legends, Chiron the wise</p>
+                            <p><strong>Location:</strong> Thessaly mountains, ancient training grounds</p>
+                        </div>
+                        <div class="beast-powers">
+                            <h4>🌍 Special Powers:</h4>
+                            <p><strong>Wisdom Teaching:</strong> Mentors heroes in digital combat arts</p>
+                            <p><strong>Healing Arts:</strong> Knowledge of system restoration techniques</p>
+                            <p><strong>Sacrifice Wisdom:</strong> Willing to give knowledge for greater good</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PHOENIX -->
+                <div class="beast-card">
+                    <div class="rarity-badge rarity-divine">Divine</div>
+                    <h3 class="beast-name">Phoenix</h3>
+                    <p class="beast-classification">Eternal Rebirth Entity</p>
+                    <div class="beast-image">
+                        [PHOENIX IMAGE: Magnificent bird with flames of pure digital energy, cyclically destroying and recreating itself with enhanced data patterns]
+                    </div>
+                    <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                    <div class="beast-details collapsed-content">
+                        <div class="beast-lore">
+                            <h4>🏛️ Legendary Lore:</h4>
+                            <p><strong>Origin:</strong> Greek/Egyptian mythology - Herodotus' Histories</p>
+                            <p><strong>Location:</strong> Arabia, Temple of the Sun (Egypt, Greece, India)</p>
+                        </div>
+                        <div class="beast-powers">
+                            <h4>🌍 Special Powers:</h4>
+                            <p><strong>Cyclical Rebirth:</strong> Dies and resurrects with improved code</p>
+                            <p><strong>Flame Purification:</strong> Burns away digital corruption</p>
+                            <p><strong>Eternal Wisdom:</strong> Accumulates knowledge across rebirths</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UNICORN -->
+                <div class="beast-card">
+                    <div class="rarity-badge rarity-legendary">Legendary</div>
+                    <h3 class="beast-name">Unicorn (Monoceros)</h3>
+                    <p class="beast-classification">Purity-Sensing Digital Entity</p>
+                    <div class="beast-image">
+                        [UNICORN IMAGE: Pristine white horse with spiraling horn that detects data purity, healing corrupted systems with touch of horn]
+                    </div>
+                    <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                    <div class="beast-details collapsed-content">
+                        <div class="beast-lore">
+                            <h4>🏛️ Legendary Lore:</h4>
+                            <p><strong>Origin:</strong> Greek/Medieval mythology - Ancient Greek texts, medieval bestiaries</p>
+                            <p><strong>Location:</strong> Sacred groves, pure environments (Europe, India)</p>
+                        </div>
+                        <div class="beast-powers">
+                            <h4>🌍 Special Powers:</h4>
+                            <p><strong>Purity Detection:</strong> Can sense and locate uncorrupted data</p>
+                            <p><strong>Healing Touch:</strong> Horn can purify infected systems</p>
+                            <p><strong>Innocence Requirement:</strong> Only approaches pure-hearted users</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CHIMERA -->
+                <div class="beast-card">
+                    <div class="rarity-badge rarity-legendary">Legendary</div>
+                    <h3 class="beast-name">Chimera</h3>
+                    <p class="beast-classification">Multi-System Hybrid Beast</p>
+                    <div class="beast-image">
+                        [CHIMERA IMAGE: Three-part creature with lion-head (command system), goat-body (processing core), and serpent-tail (output system), breathing algorithmic fire]
+                    </div>
+                    <div class="beast-details">
+                        <div class="beast-origin">
+                            <h4>🏛️ Legendary Origin:</h4>
+                            <p><strong>Greek:</strong> Homer's Iliad, defeated by Bellerophon</p>
+                            <p><strong>Most Known:</strong> Chimera of Lycia</p>
+                        </div>
+                        <div class="beast-powers">
+                            <h4>🌍 Special Powers:</h4>
+                            <p><strong>Tri-System Design:</strong> Three coordinated processing units</p>
+                            <p><strong>Algorithmic Fire:</strong> Processes raw data into refined outputs</p>
+                            <p><strong>Hybrid Adaptation:</strong> Combines multiple system architectures</p>
+                        </div>
+                        <div class="beast-region">
+                            <h4>🌍 Regions/Cultures:</h4>
+                            <p>Greece, Asia Minor (Lycia)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- SEE THE REST SECTION -->
+                <div class="see-the-rest-container">
+                    <button class="see-the-rest-btn" onclick="toggleRemainingCards(this, 'gaia')">See The Rest (42 More Cards)</button>
+                    <div class="remaining-cards collapsed-content" id="gaia-remaining">
+                        
+                        <!-- KITSUNE -->
+                        <div class="beast-card">
+                            <div class="rarity-badge rarity-legendary">Legendary</div>
+                            <h3 class="beast-name">Nine-Tailed Kitsune</h3>
+                            <p class="beast-classification">Divine Fox Spirit</p>
+                            <div class="beast-image">
+                                [KITSUNE IMAGE: Elegant fox with nine flowing tails of pure light, each tail controlling different aspects of wisdom and digital magic, golden fur with circuit patterns]
+                            </div>
+                            <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                            <div class="beast-details collapsed-content">
+                                <div class="beast-lore">
+                                    <h4>🏛️ Legendary Lore:</h4>
+                                    <p><strong>Origin:</strong> Japanese folklore - fox spirits that gain tails with age and wisdom</p>
+                                    <p><strong>Location:</strong> Sacred forests, Shinto shrines, digital temples</p>
+                                </div>
+                                <div class="beast-powers">
+                                    <h4>🌍 Special Powers:</h4>
+                                    <p><strong>Nine-Tail Magic:</strong> Each tail grants different mystical abilities</p>
+                                    <p><strong>Shapeshifting:</strong> Can take any digital form to deceive or help</p>
+                                    <p><strong>Wisdom Guardian:</strong> Protects ancient knowledge and sacred algorithms</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DRAGON TURTLE -->
+                        <div class="beast-card">
+                            <div class="rarity-badge rarity-rare">Rare</div>
+                            <h3 class="beast-name">Bixi (Dragon Turtle)</h3>
+                            <p class="beast-classification">Stone Monument Guardian</p>
+                            <div class="beast-image">
+                                [BIXI IMAGE: Massive turtle with dragon head carrying stone monuments on its shell, inscribed with ancient code that preserves digital history]
+                            </div>
+                            <button class="see-more-btn" onclick="toggleBeastDetails(this)">See More</button>
+                            <div class="beast-details collapsed-content">
+                                <div class="beast-lore">
+                                    <h4>🏛️ Legendary Lore:</h4>
+                                    <p><strong>Origin:</strong> Chinese mythology - son of dragon king, bearer of stone tablets</p>
+                                    <p><strong>Location:</strong> Ancient monuments, historical databases</p>
+                                </div>
+                                <div class="beast-powers">
+                                    <h4>🌍 Special Powers:</h4>
+                                    <p><strong>Monument Bearing:</strong> Carries and protects historical data archives</p>
+                                    <p><strong>Stone Endurance:</strong> Extremely durable, resists corruption</p>
+                                    <p><strong>Memory Keeper:</strong> Preserves important historical records</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        [Additional 40 cards would be displayed here with similar structure]
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- SCROLL TO TOP BUTTON -->
+    <button class="scroll-to-top" onclick="scrollToTop()">↑</button>
+
+    <script>
+        function scrollToDeck(deckName) {
+            document.getElementById(deckName).scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide scroll to top button
+        window.addEventListener('scroll', function() {
+            const scrollButton = document.querySelector('.scroll-to-top');
+            if (window.pageYOffset > 300) {
+                scrollButton.style.display = 'block';
+            } else {
+                scrollButton.style.display = 'none';
+            }
+        });
+
+        // Add subtle animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease-out';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all beast cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.beast-card');
+            cards.forEach(card => observer.observe(card));
+        });
+
+        // Function to toggle remaining cards section
+        function toggleRemainingCards(button, deckName) {
+            const remainingCards = document.getElementById(deckName + '-remaining');
+            if (remainingCards.style.display === 'none' || !remainingCards.style.display) {
+                remainingCards.style.display = 'grid';
+                button.textContent = button.textContent.replace('See The Rest', 'Hide The Rest');
+            } else {
+                remainingCards.style.display = 'none';
+                button.textContent = button.textContent.replace('Hide The Rest', 'See The Rest');
+            }
+        }
+
+        // Function to toggle beast details
+        function toggleBeastDetails(button) {
+            const details = button.nextElementSibling;
+            if (details.style.display === 'none' || !details.style.display) {
+                details.style.display = 'block';
+                button.textContent = 'See Less';
+            } else {
+                details.style.display = 'none';
+                button.textContent = 'See More';
+            }
+        }
+
+        // Add CSS animation for fade in up
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            .collapsed-content {
+                display: none;
+                transition: all 0.3s ease;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html><!-- GitHub Pages rebuild trigger 10/09/2025 16:24:35 -->
